@@ -27,8 +27,8 @@ function App() {
     return (
       <>
       <SceneManager />
-      <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '100%', zIndex: 100  }}
-       src={link} controls={true} crossOrigin="anonymous"></video>
+      <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
+       src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
       </>
     );
   }
