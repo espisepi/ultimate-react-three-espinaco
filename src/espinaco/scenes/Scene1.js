@@ -9,6 +9,7 @@ import VideoPoints from '../prefabs/VideoPoints';
 import { Suspense } from 'react';
 
 import GodCameraControls from '../controls/GodCameraControls';
+import { MusicVisualCubeReact } from '../prefabs/musicVisualCube/MusicVisualCube';
 
 
 export function Scene1() {
@@ -19,12 +20,14 @@ export function Scene1() {
         {/* <BoxVideo /> */}
         {/* <BoxShader /> */}
         <VideoPoints />
+        <MusicVisualCubeReact />
         </>
     )
 }
 
 export default function Scene1Canvas({ style }) {
     return (
+        <>
         <Canvas style={{...style, backgroundColor:'black'}} >
             <Suspense fallback={<Box material-color='red' material-wireframe='true'/>}>
                 <Scene1/>
@@ -32,5 +35,9 @@ export default function Scene1Canvas({ style }) {
 
             <GodCameraControls /> 
         </Canvas>
+        <div id="ui-controls-godCamera">
+            {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
+        </div>
+        </>
     )
 }
