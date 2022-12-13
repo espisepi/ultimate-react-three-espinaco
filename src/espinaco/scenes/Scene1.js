@@ -10,6 +10,14 @@ import { Suspense } from 'react';
 
 import GodCameraControls from '../controls/GodCameraControls';
 import { MusicVisualCubeReact } from '../prefabs/musicVisualCube/MusicVisualCube';
+import { SubtitleMesh } from '../prefabs/subtitleMesh/SubtitleMesh';
+
+// Coger efectos de codrops
+// Mezclar esos dos efectos para soto asa videoclip
+// https://tympanus.net/Tutorials/text-trail-effect/
+// https://tympanus.net/codrops/2021/08/31/surface-sampling-in-three-js/
+// https://tympanus.net/Tutorials/SurfaceSampling/index3.html
+// Para efectos de letras: https://tympanus.net/Development/3DTypeEffects/03_flowers.html
 
 
 export function Scene1() {
@@ -20,7 +28,8 @@ export function Scene1() {
         {/* <BoxVideo /> */}
         {/* <BoxShader /> */}
         <VideoPoints />
-        <MusicVisualCubeReact />
+        {/* <MusicVisualCubeReact /> */}
+        <SubtitleMesh />
         </>
     )
 }

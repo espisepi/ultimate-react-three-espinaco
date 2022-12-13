@@ -7,6 +7,10 @@ const dataMusic = [
   {
     name:'Tove Lo - Habits (Stay High)',
     link:'videos/stayHigh.mp4',
+  },
+  {
+    name:'HOKE - MOONDIAL',
+    link:'videos/HOKE-MOONDIAL.mp4',
   }
 ]
 
@@ -19,7 +23,7 @@ function App() {
     setShowVideo((v)=>(!showVideo));
   },[showVideo])
 
-  const [ link, setLink ] = useState( dataMusic[0].link );
+  const [ link, setLink ] = useState( dataMusic[1].link );
 
 
 

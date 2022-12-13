@@ -4,94 +4,117 @@ import * as THREE from 'three';
 
 export class MusicVisualCubeClass {
 
-    constructor(scene) {
+    constructor(scene, mesh1) {
         console.log("HOLIIII");
+        this.mesh1 = mesh1;
         const geometry = this.createGeometry();
         const material = this.createMaterial();
-        this.mesh = new THREE.Mesh( geometry, material );
-		scene.add( this.mesh );
+        this.mesh = new THREE.Mesh(geometry, material);
+        scene.add(this.mesh);
     }
 
     update() {
         const time = performance.now()
-        // console.log(time)
-        if(this.mesh) {
+        if (this.mesh) {
             this.mesh.rotation.y = time * 0.0005;
-			this.mesh.material.uniforms[ 'time' ].value = time * 0.005;
-			this.mesh.material.uniforms[ 'sineTime' ].value = Math.sin( this.mesh.material.uniforms[ 'time' ].value * 0.05 +5.0);
+            this.mesh.material.uniforms['time'].value = time * 0.005;
+            this.mesh.material.uniforms['sineTime'].value = Math.sin(this.mesh.material.uniforms['time'].value * 0.05 + 5.0);
         }
     }
 
     createMaterial() {
         return (
-            new THREE.RawShaderMaterial( {
-				uniforms: {
-					'time': { value: 1.0 },
-					'sineTime': { value: 1.0 }
-				},
-				vertexShader: VERTEXSHADER,
-				fragmentShader: FRAGMENTSHADER,
-				side: THREE.DoubleSide,
-				transparent: true
-			} )
+            new THREE.RawShaderMaterial({
+                uniforms: {
+                    'time': { value: 1.0 },
+                    'sineTime': { value: 1.0 }
+                },
+                vertexShader: VERTEXSHADER,
+                fragmentShader: FRAGMENTSHADER,
+                side: THREE.DoubleSide,
+                transparent: true
+            })
         )
     }
 
     createGeometry() {
-			// geometry
+        // geometry
 
-			const vector = new THREE.Vector4();
+        const vector = new THREE.Vector4();
 
-			const instances = 50000;
+        const instances = 100;
 
-			const positions = [];
-			const offsets = [];
-			const colors = [];
-			const orientationsStart = [];
-			const orientationsEnd = [];
+        const positions = [];
+        const offsets = [];
+        const colors = [];
+        const orientationsStart = [];
+        const orientationsEnd = [];
 
-			positions.push( 0.025, - 0.025, 0 );
-			positions.push( - 0.025, 0.025, 0 );
-			positions.push( 0, 0, 0.025 );
+        positions.push(0.025, - 0.025, 0);
+        positions.push(- 0.025, 0.025, 0);
+        positions.push(0, 0, 0.025);
 
-			// instanced attributes
+        // geometry1 y geometry2 para posiciones
+        const boxBufferGeometry = new THREE.BoxBufferGeometry();
+        const boxAttributePosition = boxBufferGeometry.getAttribute("position");
+        const boxAttributePositionArray = boxAttributePosition.array;
+        const sphereBufferGeometry = new THREE.SphereBufferGeometry();
+        const sphereAttributePosition = sphereBufferGeometry.getAttribute("position");
+        const sphereAttributePositionArray = sphereAttributePosition.array;
 
-			for ( let i = 0; i < instances; i ++ ) {
+        // espisepi: AQUI LO DEJO!! TENGO QUE CORREGIR EL PASO DE UNA POSICION A OTRA POR VERTEX
+        console.log(this.mesh1.geometry.getAttribute("position").array)
 
-				// offsets
+        const arrayPosition1 = boxAttributePositionArray;
+        const arrayPosition2 = sphereAttributePositionArray;
 
-				offsets.push( Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5 );
 
-				// colors
+        // instanced attributes
 
-				colors.push( Math.random(), Math.random(), Math.random(), Math.random() );
+        for (let i = 0; i < instances; i++) {
 
-				// orientation start
+            // offsets
 
-				vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
-				vector.normalize();
+            offsets.push(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5);
 
-				orientationsStart.push( vector.x, vector.y, vector.z, vector.w );
+            // colors
 
-				// orientation end
+            colors.push(Math.random(), Math.random(), Math.random(), Math.random());
 
-				vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
-				vector.normalize();
+            // orientation start
 
-				orientationsEnd.push( vector.x, vector.y, vector.z, vector.w );
+            // espisepi: Se hace i%instances para que cuando i sea mayor que instances vuelva a 0 y no de error el array
+            const lengthArrayPosition1 = arrayPosition1.length;
+            // vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
+            vector.set(arrayPosition1[i % lengthArrayPosition1], arrayPosition1[(i + 1) % lengthArrayPosition1], arrayPosition1[(i + 2) % lengthArrayPosition1], 1.0);
+            vector.normalize();
 
-			}
+            orientationsStart.push(vector.x, vector.y, vector.z, vector.w);
+            positions.push(vector.x, vector.y, vector.z)
 
-			const geometry = new THREE.InstancedBufferGeometry();
-			geometry.instanceCount = instances; // set so its initalized for dat.GUI, will be set in first draw otherwise
 
-			geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
+            // orientation end
 
-			geometry.setAttribute( 'offset', new THREE.InstancedBufferAttribute( new Float32Array( offsets ), 3 ) );
-			geometry.setAttribute( 'color', new THREE.InstancedBufferAttribute( new Float32Array( colors ), 4 ) );
-			geometry.setAttribute( 'orientationStart', new THREE.InstancedBufferAttribute( new Float32Array( orientationsStart ), 4 ) );
-			geometry.setAttribute( 'orientationEnd', new THREE.InstancedBufferAttribute( new Float32Array( orientationsEnd ), 4 ) );
-            return geometry;
+            // vector.set( Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1, Math.random() * 2 - 1 );
+            vector.set(arrayPosition2[i % instances], arrayPosition2[(i + 1) % instances], arrayPosition2[(i + 2) % instances], 1.0);
+            vector.normalize();
+
+            orientationsEnd.push(vector.x, vector.y, vector.z, vector.w);
+
+        }
+
+        console.log(orientationsStart)
+
+        const geometry = new THREE.InstancedBufferGeometry();
+        geometry.instanceCount = instances; // set so its initalized for dat.GUI, will be set in first draw otherwise
+
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+        geometry.setAttribute('offset', new THREE.InstancedBufferAttribute(new Float32Array(offsets), 3));
+        geometry.setAttribute('color', new THREE.InstancedBufferAttribute(new Float32Array(colors), 4));
+        geometry.setAttribute('orientationStart', new THREE.InstancedBufferAttribute(new Float32Array(orientationsStart), 4));
+        geometry.setAttribute('orientationEnd', new THREE.InstancedBufferAttribute(new Float32Array(orientationsEnd), 4));
+        return geometry;
     }
 
 }

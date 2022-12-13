@@ -1,7 +1,7 @@
 
 
 import { useThree, useLoader, useFrame } from '@react-three/fiber'
-import { Box } from '@react-three/drei'
+import { Box, useGLTF } from '@react-three/drei'
 import { useEffect, useState } from 'react'
 import * as THREE from 'three'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
@@ -22,6 +22,7 @@ export function MusicVisualCubeReact() {
     //     'resources/freepbr/flaking-plaster_metallic.png'
     // ])
 
+    const leePerryMesh = useGLTF("models/LeePerrySmith.glb");
 
     const { scene, three } = useThree();
     const [musicVisualCube, setMusicVisualCube] = useState();
@@ -29,7 +30,8 @@ export function MusicVisualCubeReact() {
     useEffect(() => {
         console.log(scene)
         // AQUI COMIENZA ==================================
-        const musicVisualCubeClass = new MusicVisualCubeClass(scene);
+        const mesh1 = leePerryMesh.scene.children[0]
+        const musicVisualCubeClass = new MusicVisualCubeClass(scene,mesh1);
         setMusicVisualCube(musicVisualCubeClass);
         // AQUI TERMINA ===================================
     }, [])
