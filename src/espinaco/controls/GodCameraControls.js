@@ -8,7 +8,7 @@ import useKeyPress from "../hooks/useKeyPress";
 
 const vec = new THREE.Vector3();
 
-const SPEED_MIN_VALUE = 300;
+const SPEED_MIN_VALUE = 20;
 const SPEED_MAX_VALUE = 500;
 
 export default function GodCameraControls() {
@@ -27,7 +27,7 @@ export default function GodCameraControls() {
         vec.setFromMatrixColumn(camera.matrix, 0)
         vec.crossVectors(camera.up, vec)
         camera.position.addScaledVector(vec, distance)
-        console.log(camera.position);
+        // console.log(camera.position);
         orbitControls.current.target.addScaledVector(vec, distance)
     }
     const moveRight = (distance) => {
@@ -39,7 +39,7 @@ export default function GodCameraControls() {
     useFrame((_, delta)=>{
         const speed = speedKeyPress ?  SPEED_MAX_VALUE : SPEED_MIN_VALUE;       
         if(moveForwardKeyPress) {
-            console.log("ARRIBA")
+            // console.log("ARRIBA")
             moveForward(delta * speed)
         }
         if(moveBackKeyPress) {
