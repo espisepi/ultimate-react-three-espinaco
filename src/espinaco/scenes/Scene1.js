@@ -68,7 +68,6 @@ export function NippleJoystick() {
             window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'd'}));
         }
     };
-    console.log("oye")
 
     return (
                 <ReactNipple

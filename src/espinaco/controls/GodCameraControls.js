@@ -1,5 +1,5 @@
 
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -23,18 +23,18 @@ export default function GodCameraControls() {
     const moveRightKeyPress = useKeyPress("d");
     
 
-    const moveForward = (distance) => {
+    const moveForward = useCallback( (distance) => {
         vec.setFromMatrixColumn(camera.matrix, 0)
         vec.crossVectors(camera.up, vec)
         camera.position.addScaledVector(vec, distance)
         // console.log(camera.position);
         orbitControls.current.target.addScaledVector(vec, distance)
-    }
-    const moveRight = (distance) => {
+    }, [] );
+    const moveRight = useCallback( (distance) => {
         vec.setFromMatrixColumn(camera.matrix, 0)
         camera.position.addScaledVector(vec, distance)
         orbitControls.current.target.addScaledVector(vec, distance)
-    }
+    }, [] );
 
     useFrame((_, delta)=>{
         const speed = speedKeyPress ?  SPEED_MAX_VALUE : SPEED_MIN_VALUE;       
