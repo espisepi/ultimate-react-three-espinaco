@@ -45,26 +45,30 @@ export function NippleJoystick() {
 
     const handleJoystick = (evt, data)=>{
         const angle = data?.direction?.angle || "undefined"; // angle = "down" || "left" || "right" || "up"
-        console.log( angle)
+        // console.log( angle)
         if(angle === "up") {
             window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w'}));
+        } else {
+            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'w'}));
         }
-        else if(angle === "down") {
+        if(angle === "down") {
             window.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}));
+        } else {
+            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 's'}));
         }
-        else if(angle === "left") {
+        if(angle === "left") {
             window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'a'}));
+        } else {
+            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'a'}));
         }
-        else if(angle === "right") {
+        if(angle === "right") {
             window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'd'}));
         }
         else {
-            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'w'}));
-            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 's'}));
-            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'a'}));
             window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'd'}));
         }
     };
+    console.log("oye")
 
     return (
                 <ReactNipple
