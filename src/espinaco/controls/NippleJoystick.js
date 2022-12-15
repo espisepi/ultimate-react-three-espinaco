@@ -44,7 +44,8 @@ export function NippleJoystick() {
                         height: 150,
                         position: "absolute",
                         bottom: "50px",
-                        left: '50vw'
+                        left: '50vw',
+                        opacity: 0.5,
                         // if you pass position: 'relative', you don't need to import the stylesheet
                     }}
                     // all events supported by nipplejs are available as callbacks
