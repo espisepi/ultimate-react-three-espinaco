@@ -5,6 +5,9 @@ import SceneManager from './espinaco/scenes/manager/SceneManager';
 
 import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
+
 
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
 const BASE_URL_LOCAL_VIDEO_YT_DL = 'http://localhost:4000/video/video?url=';
@@ -40,26 +43,39 @@ function App() {
     setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
   },[])
 
+  const handleFullScreen = useFullScreenHandle();
+  const toggleFullScreen = useCallback(()=>{
+    if(handleFullScreen.active) {
+      handleFullScreen.exit();
+    } else {
+      handleFullScreen.enter();
+    }
+  },[handleFullScreen]);
 
 
   if(clicked) {
     return (
       <>
+      <FullScreen handle={handleFullScreen}>
+      
+        <SceneManager />
 
-      <SceneManager />
+        <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
+        src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
 
-      <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
-       src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+        <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
+            {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
+            <NippleJoystick />
+        </div>
 
-      <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
-          {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-          <NippleJoystick />
-      </div>
+        <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border:'none', borderRadius: '4px', width:'50vw', height:'30px', position: 'absolute', top: '20px', left:'40%' }} />
 
-      <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border:'none', borderRadius: '4px', width:'50vw', height:'30px', position: 'absolute', top: '20px', left:'40%' }} />
+        <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '100px', backgroundColor:'red' }}> </button>
 
-      <button onClick={handleShowVideo} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '10px', backgroundColor:'white', opacity: showVideo ? 1 : 0.3 }}></button>
+        <button onClick={handleShowVideo} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '10px', backgroundColor:'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
+      
+      </FullScreen>
       </>
     );
   }
