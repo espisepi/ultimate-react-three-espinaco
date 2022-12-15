@@ -36,7 +36,7 @@ function App() {
     setShowVideo((v)=>(!showVideo));
   },[showVideo])
 
-  const [ link, setLink ] = useState( dataMusic[1].link );
+  const [ link, setLink ] = useState( dataMusic[0].link );
 
   const handleInputText = useCallback((event)=>{
     const youtubeUrl = event.target.value;
@@ -51,6 +51,12 @@ function App() {
       handleFullScreen.enter();
     }
   },[handleFullScreen]);
+
+  const handleAutoRotate = useCallback(()=>{
+    if(window.orbitControls) {
+      window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
+    }
+  }, []);
 
 
   if(clicked) {
@@ -69,6 +75,8 @@ function App() {
         </div>
 
         <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border:'none', borderRadius: '4px', width:'50vw', height:'30px', position: 'absolute', top: '20px', left:'40%' }} />
+
+        <button onClick={handleAutoRotate} style={{ display: showVideo ? 'block' : 'none', width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '200px', backgroundColor: '#ffff00', opacity: 0.5 }}> </button>
 
         <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
 

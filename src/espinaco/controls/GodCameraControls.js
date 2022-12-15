@@ -1,5 +1,5 @@
 
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -15,6 +15,11 @@ export default function GodCameraControls() {
 
     const { camera } = useThree();
     const orbitControls = useRef();
+
+    useEffect(()=>{
+        // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
+        window.orbitControls = orbitControls?.current;
+    },[orbitControls])
 
     const speedKeyPress = useKeyPress("ShiftLeft");
     const moveForwardKeyPress = useKeyPress("w");
