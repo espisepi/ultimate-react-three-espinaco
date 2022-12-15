@@ -31,7 +31,7 @@ function App() {
 
   const [clicked, setClicked] = useState(false);
 
-  const [ showVideo, setShowVideo ] = useState(true);
+  const [ showVideo, setShowVideo ] = useState(false);
   const handleShowVideo = useCallback(()=>{
     setShowVideo((v)=>(!showVideo));
   },[showVideo])
