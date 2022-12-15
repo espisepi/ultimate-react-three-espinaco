@@ -43,10 +43,12 @@ function App() {
       <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
        src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
 
-       <div id="ui-controls-godCamera">
-            {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-            <NippleJoystick />
-        </div>
+      <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
+          {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
+          <NippleJoystick />
+      </div>
+
+      <button onClick={handleShowVideo} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '10px', backgroundColor:'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
       </>
     );
