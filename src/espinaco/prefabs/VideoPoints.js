@@ -67,7 +67,7 @@ export default function VideoPoints({ id_video = 'video' }) {
             particles.rotation.x += Math.PI;
             // Temporal
             particles.position.z += -200.0;
-            particles.scale.set(0.5,0.5,0.5);
+            // particles.scale.set(0.5,0.5,0.5);
         
             scene.add(particles);
             setPoints((v)=>(particles));

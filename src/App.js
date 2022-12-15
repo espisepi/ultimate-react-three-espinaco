@@ -13,7 +13,8 @@ const dataMusic = [
     link:'videos/HOKE-MOONDIAL.mp4',
   }, {
     name:'youtube',
-    link:'https://video-dl-esp.herokuapp.com/video/video?url=https://www.youtube.com/watch?v=96h97kNEgXM'
+    link:'https://video-dl-esp.herokuapp.com/video/video?url=https://www.youtube.com/watch?v=ZelTFpXStE8',
+    // link:'http://localhost:4000/video/video?url=https://www.youtube.com/watch?v=0wa1HzC7OY8'  // For Testing in local
   }
 ]
 
