@@ -13,6 +13,7 @@ import { MusicVisualCubeReact } from '../prefabs/musicVisualCube/MusicVisualCube
 import { SubtitleMesh } from '../prefabs/subtitleMesh/SubtitleMesh';
 
 import { NippleJoystick } from '../controls/NippleJoystick';
+import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 
 // Coger efectos de codrops
@@ -33,6 +34,7 @@ export function Scene1() {
         <VideoPoints />
         {/* <MusicVisualCubeReact /> */}
         <SubtitleMesh />
+        <MeshSurfaceSampler />
         </>
     )
 }
