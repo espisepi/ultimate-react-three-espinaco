@@ -6,6 +6,9 @@ import SceneManager from './espinaco/scenes/manager/SceneManager';
 import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 
 
+const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
+const BASE_URL_LOCAL_VIDEO_YT_DL = 'http://localhost:4000/video/video?url=';
+
 const dataMusic = [
   {
     name:'Tove Lo - Habits (Stay High)',
@@ -16,7 +19,7 @@ const dataMusic = [
     link:'videos/HOKE-MOONDIAL.mp4',
   }, {
     name:'youtube',
-    link:'https://video-dl-esp.herokuapp.com/video/video?url=https://www.youtube.com/watch?v=ZelTFpXStE8',
+    link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
     // link:'http://localhost:4000/video/video?url=https://www.youtube.com/watch?v=0wa1HzC7OY8'  // For Testing in local
   }
 ]
@@ -31,6 +34,11 @@ function App() {
   },[showVideo])
 
   const [ link, setLink ] = useState( dataMusic[2].link );
+
+  const handleInputText = useCallback((event)=>{
+    const youtubeUrl = event.target.value;
+    setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
+  },[])
 
 
 
@@ -47,6 +55,8 @@ function App() {
           {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
           <NippleJoystick />
       </div>
+
+      <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border:'none', borderRadius: '4px', width:'50vw', height:'30px', position: 'absolute', top: '20px', left:'40%' }} />
 
       <button onClick={handleShowVideo} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '10px', backgroundColor:'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
