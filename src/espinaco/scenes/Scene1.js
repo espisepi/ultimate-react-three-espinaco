@@ -33,8 +33,8 @@ export function Scene1() {
         {/* <BoxShader /> */}
         <VideoPoints />
         {/* <MusicVisualCubeReact /> */}
-        <SubtitleMesh />
-        <MeshSurfaceSampler />
+        {/* <SubtitleMesh /> */}
+        {/* <MeshSurfaceSampler /> */}
         </>
     )
 }

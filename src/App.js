@@ -11,6 +11,9 @@ const dataMusic = [
   {
     name:'HOKE - MOONDIAL',
     link:'videos/HOKE-MOONDIAL.mp4',
+  }, {
+    name:'youtube',
+    link:'https://video-dl-esp.herokuapp.com/video/video?url=https://www.youtube.com/watch?v=96h97kNEgXM'
   }
 ]
 
@@ -23,7 +26,7 @@ function App() {
     setShowVideo((v)=>(!showVideo));
   },[showVideo])
 
-  const [ link, setLink ] = useState( dataMusic[1].link );
+  const [ link, setLink ] = useState( dataMusic[2].link );
 
 
 

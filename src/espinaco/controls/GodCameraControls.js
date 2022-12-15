@@ -8,7 +8,7 @@ import useKeyPress from "../hooks/useKeyPress";
 
 const vec = new THREE.Vector3();
 
-const SPEED_MIN_VALUE = 20;
+const SPEED_MIN_VALUE = 50;
 const SPEED_MAX_VALUE = 500;
 
 export default function GodCameraControls() {
