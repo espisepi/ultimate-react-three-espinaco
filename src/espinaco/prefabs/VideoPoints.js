@@ -66,7 +66,7 @@ export default function VideoPoints({ id_video = 'video' }) {
             const particles = new THREE.Points(geometry, material);
             particles.rotation.x += Math.PI;
             // Temporal
-            particles.position.z += -200.0;
+            // particles.position.z += -200.0;
             // particles.scale.set(0.5,0.5,0.5);
         
             scene.add(particles);

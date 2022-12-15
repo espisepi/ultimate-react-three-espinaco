@@ -43,7 +43,7 @@ export function Scene1() {
 export default function Scene1Canvas({ style }) {
     return (
         <>
-        <Canvas style={{...style, backgroundColor:'black'}} >
+        <Canvas style={{...style, backgroundColor:'black'}} camera={{position:[0,0,400]}}>
             <Suspense fallback={<Box material-color='red' material-wireframe='true'/>}>
                 <Scene1/>
             </Suspense>
