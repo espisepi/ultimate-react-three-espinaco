@@ -12,7 +12,6 @@ import GodCameraControls from '../controls/GodCameraControls';
 import { MusicVisualCubeReact } from '../prefabs/musicVisualCube/MusicVisualCube';
 import { SubtitleMesh } from '../prefabs/subtitleMesh/SubtitleMesh';
 
-import { NippleJoystick } from '../controls/NippleJoystick';
 import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 
@@ -51,10 +50,6 @@ export default function Scene1Canvas({ style }) {
 
             <GodCameraControls /> 
         </Canvas>
-        <div id="ui-controls-godCamera">
-            {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-            <NippleJoystick />
-        </div>
         </>
     )
 }

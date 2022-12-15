@@ -3,6 +3,9 @@ import './App.css';
 
 import SceneManager from './espinaco/scenes/manager/SceneManager';
 
+import { NippleJoystick } from './espinaco/controls/NippleJoystick';
+
+
 const dataMusic = [
   {
     name:'Tove Lo - Habits (Stay High)',
@@ -34,9 +37,17 @@ function App() {
   if(clicked) {
     return (
       <>
+
       <SceneManager />
+
       <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
        src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+
+       <div id="ui-controls-godCamera">
+            {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
+            <NippleJoystick />
+        </div>
+
       </>
     );
   }
