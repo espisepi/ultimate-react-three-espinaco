@@ -2,7 +2,7 @@
 import React, { useCallback } from 'react';
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Box } from '@react-three/drei';
+import { OrbitControls, Box, Stars } from '@react-three/drei';
 
 import { BoxVideo, BoxShader } from '../prefabs/BoxCustom';
 import VideoPoints from '../prefabs/VideoPoints';
@@ -34,6 +34,7 @@ export function Scene1() {
         {/* <MusicVisualCubeReact /> */}
         {/* <SubtitleMesh /> */}
         {/* <MeshSurfaceSampler /> */}
+        <Stars radius={1000}  count={9999} depth={400} factor={30} fade/* saturation={1} */ /* speed={1} */ />
         </>
     )
 }
