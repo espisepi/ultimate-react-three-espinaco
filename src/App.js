@@ -9,6 +9,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 
 
+
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
 const BASE_URL_LOCAL_VIDEO_YT_DL = 'http://localhost:4000/video/video?url=';
 
@@ -24,6 +25,15 @@ const dataMusic = [
     name:'youtube',
     link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
     // link:'http://localhost:4000/video/video?url=https://www.youtube.com/watch?v=0wa1HzC7OY8'  // For Testing in local
+  }, {
+    name:'Kaydy Cain - Perdedores del Barrio, highkili ay linda,',
+    link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
+  }, {
+    name:'sotoasa jugador, trueno, ',
+    link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
+  }, {
+    name:'Kaydy Cain - Perdedores del Barrio',
+    link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
   }
 ]
 
@@ -57,6 +67,8 @@ function App() {
       window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
     }
   }, []);
+
+  // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
 
   if(clicked) {

@@ -14,6 +14,9 @@ import { SubtitleMesh } from '../prefabs/subtitleMesh/SubtitleMesh';
 
 import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
+import { MemoryCardGame } from '../games/memoryCardGame/MemoryCardGame';
+
+
 
 // Coger efectos de codrops
 // Mezclar esos dos efectos para soto asa videoclip
@@ -48,6 +51,11 @@ export default function Scene1Canvas({ style }) {
             <Suspense fallback={<Box material-color='red' material-wireframe='true'/>}>
                 <Scene1/>
             </Suspense>
+
+            <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
+                <MemoryCardGame />
+            </Suspense>
+
 
             <GodCameraControls /> 
         </Canvas>
