@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { Box, useTexture } from '@react-three/drei';
 
 import { TWEEN } from 'three/examples/jsm/libs/tween.module.min.js'
@@ -21,13 +21,44 @@ const dataGame = {
     ]
 }
 
-
-export function MemoryCardGame() {
+export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
 
     // const texture = useTexture([dataGame.defaultImage])
     const [defaultTexture, ...textures] = useTexture([dataGame.defaultImage, ...dataGame.images]);
 
-    return <Card defaultTexture={defaultTexture} texture={textures[0]} name="card-1" scale={[50,50,50]} />;    
+    // const cards = useMemo(()=>{
+    //     const res = [];
+    //     for(let i = 0; i < numberRows; i++) {
+    //         for(let j = 0; j < numberCols; j++) {
+    //             res.push(<Card defaultTexture={defaultTexture} texture={textures[0]} name="card-1" scale={[50,50,50]} />);
+    //         }
+    //     }
+    //     return res;
+    // },[defaultTexture, textures])
+    // return cards;
+    
+    const positionsCards = useMemo(()=>{
+        const res = [];
+            for(let i = 0; i < numberRows; i++) {
+                for(let j = 0; j < numberCols; j++) {
+                    const position = [i,j,0];
+                    res.push(position);
+                }
+            }
+        return res;
+    },[numberRows, numberCols])
+
+    console.log(positionsCards)
+
+
+    return (
+        <group name='cards' scale={[50,50,50]}>
+            {positionsCards.map((position, i) => (
+                <Card name={`card-${i}`} position={[position[0],position[1],position[2]]} defaultTexture={defaultTexture} texture={textures[0]} scale={[1,1,1]} />
+            ))}
+        </group>
+    );
+    // return <Card defaultTexture={defaultTexture} texture={textures[0]} name="card-1" scale={[50,50,50]} />;    
 }
 
 
@@ -87,7 +118,7 @@ function startTweenAnimationFlipCard(mesh, texture) {
     new TWEEN.Tween(mesh.position)
                         .to(
                             {
-                                z: 0 + 100,
+                                z: 0 + 3,
                             },
                             500
                         )
@@ -109,7 +140,7 @@ function startTweenAnimationFlipCard(mesh, texture) {
     new TWEEN.Tween(mesh.rotation)
                         .to(
                             {
-                                y: 0 + 100,
+                                y: 0 + 10,
                             },
                             250
                         )
