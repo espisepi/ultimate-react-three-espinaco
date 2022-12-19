@@ -3,21 +3,32 @@ import ReactNipple from 'react-nipple';
 // optional: include the stylesheet somewhere in your app
 import 'react-nipple/lib/styles.css';
 
+import { useState, useCallback } from 'react';
+
 export function NippleJoystick() {
 
+    const [isMoveForward, setIsMoveForward] = useState(true);
+    const handleIsMoveForward = useCallback(()=>{
+        setIsMoveForward((v)=>!v);
+    },[]);
 
     const handleJoystick = (evt, data)=>{
         const angle = data?.direction?.angle || "undefined"; // angle = "down" || "left" || "right" || "up"
         // console.log( angle)
         if(angle === "up") {
-            window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w'}));
+            if(isMoveForward) { window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w'})); }
+            else { window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'e'})); }
+
         } else {
             window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'w'}));
+            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'e'}));
         }
         if(angle === "down") {
-            window.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}));
+            if(isMoveForward) { window.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'})); }
+            else { window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'q'})); }
         } else {
             window.dispatchEvent(new KeyboardEvent('keyup', {'key': 's'}));
+            window.dispatchEvent(new KeyboardEvent('keyup', {'key': 'q'}));
         }
         if(angle === "left") {
             window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'a'}));
@@ -33,6 +44,7 @@ export function NippleJoystick() {
     };
 
     return (
+        <>
                 <ReactNipple
                     // supports all nipplejs options
                     // see https://github.com/yoannmoinet/nipplejs#options
@@ -59,5 +71,7 @@ export function NippleJoystick() {
                     onHidden={(evt, data) => handleJoystick(evt, data)}
                     onPressure={(evt, data) => handleJoystick(evt, data)}
                 />
+                <button onClick={handleIsMoveForward} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'200px', right: '200px', backgroundColor: isMoveForward ? '#ff00ff' : '#0000ff', opacity: 0.5 }}> </button>
+        </>
     )
 }
