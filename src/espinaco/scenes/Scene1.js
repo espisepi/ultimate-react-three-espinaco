@@ -52,9 +52,9 @@ export default function Scene1Canvas({ style }) {
                 <Scene1/>
             </Suspense>
 
-            <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
+            {/* <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
                 <MemoryCardGame />
-            </Suspense>
+            </Suspense> */}
 
 
             <GodCameraControls /> 

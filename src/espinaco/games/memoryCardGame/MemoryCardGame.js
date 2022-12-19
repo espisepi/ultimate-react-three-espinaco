@@ -46,6 +46,12 @@ export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
         }
     },[cardsRef])
 
+    useFrame(()=>{
+        if(gameManager) {
+            gameManager.update();
+        }
+    });
+
     return (
         <>
         <group ref={cardsRef} name='cards' scale={[50,50,50]}>
@@ -64,7 +70,11 @@ export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
 export class GameManager {
     constructor(cards) {
         this.cards = cards;
-        // console.log(cards);
+        console.log(cards.children);
+        // cards.children.forEach(c => c.userData.startAnimationFlipCardToTexture());
+    }
+    update() {
+        
     }
 }
 
