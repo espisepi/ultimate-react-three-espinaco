@@ -19,42 +19,53 @@ export default function GodCameraControls() {
     useEffect(()=>{
         // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
         window.orbitControls = orbitControls?.current;
-    },[orbitControls])
+    },[orbitControls]);
 
     const speedKeyPress = useKeyPress("ShiftLeft");
     const moveForwardKeyPress = useKeyPress("w");
-    const moveBackKeyPress = useKeyPress("s")
+    const moveBackKeyPress = useKeyPress("s");
     const moveLeftKeyPress = useKeyPress("a");
     const moveRightKeyPress = useKeyPress("d");
+    const moveHeight = useKeyPress("e");
+    const moveDown = useKeyPress("q");
     
 
     const moveForward = useCallback( (distance) => {
-        vec.setFromMatrixColumn(camera.matrix, 0)
-        vec.crossVectors(camera.up, vec)
-        camera.position.addScaledVector(vec, distance)
-        // console.log(camera.position);
-        orbitControls.current.target.addScaledVector(vec, distance)
+        vec.setFromMatrixColumn(camera.matrix, 0);
+        vec.crossVectors(camera.up, vec);
+        camera.position.addScaledVector(vec, distance);
+        orbitControls.current.target.addScaledVector(vec, distance);
     }, [] );
     const moveRight = useCallback( (distance) => {
-        vec.setFromMatrixColumn(camera.matrix, 0)
-        camera.position.addScaledVector(vec, distance)
-        orbitControls.current.target.addScaledVector(vec, distance)
+        vec.setFromMatrixColumn(camera.matrix, 0);
+        camera.position.addScaledVector(vec, distance);
+        orbitControls.current.target.addScaledVector(vec, distance);
+    }, [] );
+    const moveY = useCallback( (distance) => {
+        vec.set(0,1,0);
+        camera.position.addScaledVector(vec, distance);
+        orbitControls.current.target.addScaledVector(vec, distance);
     }, [] );
 
     useFrame((_, delta)=>{
         const speed = speedKeyPress ?  SPEED_MAX_VALUE : SPEED_MIN_VALUE;       
         if(moveForwardKeyPress) {
-            // console.log("ARRIBA")
-            moveForward(delta * speed)
+            moveForward(delta * speed);
         }
         if(moveBackKeyPress) {
-            moveForward(-delta * speed)
+            moveForward(-delta * speed);
         }
         if(moveRightKeyPress) {
-            moveRight(delta * speed)
+            moveRight(delta * speed);
         }
         if(moveLeftKeyPress) {
-            moveRight(-delta * speed)
+            moveRight(-delta * speed);
+        }
+        if(moveHeight) {
+            moveY(delta * speed);
+        }
+        if(moveDown) {
+            moveY(-delta * speed);
         }
         // camera.updateMatrixWorld();
     });
