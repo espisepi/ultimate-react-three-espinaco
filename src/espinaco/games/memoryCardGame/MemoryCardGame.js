@@ -64,7 +64,7 @@ export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
 export class GameManager {
     constructor(cards) {
         this.cards = cards;
-        console.log(cards);
+        // console.log(cards);
     }
 }
 
@@ -79,7 +79,13 @@ export function Card({defaultTexture, texture, ...props}) {
             // LOAD userData game to mesh
             meshCurrent.userData.isLoaded = true;
             meshCurrent.userData.showCard = false; // Cuando es true mostramos la imagen a memorizar y cuando es false mostramos la imagen por defecto de todas
-            meshCurrent.userData.isClickEnabled = true; 
+            meshCurrent.userData.isClickEnabled = true;
+            meshCurrent.userData.startAnimationFlipCardToTexture = () => {
+                startTweenAnimationFlipCard(meshCurrent,texture);
+            }
+            meshCurrent.userData.startAnimationFlipCardToDefaultTexture = () => {
+                startTweenAnimationFlipCard(meshCurrent,defaultTexture);
+            }
         }
     },[meshRef])
 
@@ -92,7 +98,8 @@ export function Card({defaultTexture, texture, ...props}) {
             // SAVE FLIP CARD
             meshCurrent.userData.showCard = !meshCurrent.userData.showCard
             // Mostramos la texture con animacion
-            startTweenAnimationFlipCard(meshCurrent, texture);
+            meshCurrent.userData.startAnimationFlipCardToTexture();
+            // startTweenAnimationFlipCard(meshCurrent, texture);
             // meshCurrent.material.map = texture;
             // meshCurrent.material.needsUpdate = true;
 
@@ -100,7 +107,8 @@ export function Card({defaultTexture, texture, ...props}) {
             // SAVE FLIP CARD
             meshCurrent.userData.showCard = !meshCurrent.userData.showCard
             // Mostramos la default texture con animacion
-            startTweenAnimationFlipCard(meshCurrent, defaultTexture);
+            meshCurrent.userData.startAnimationFlipCardToDefaultTexture();
+            // startTweenAnimationFlipCard(meshCurrent, defaultTexture);
             // meshCurrent.material.map = defaultTexture;
             // meshCurrent.material.needsUpdate = true;
 
