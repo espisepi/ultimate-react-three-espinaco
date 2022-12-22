@@ -5,11 +5,14 @@ import { Box, useTexture } from '@react-three/drei';
 import { TWEEN } from 'three/examples/jsm/libs/tween.module.min.js'
 import { useFrame } from '@react-three/fiber';
 
-// El codigo esta dentro del <Canvas> de r3f, asi que podemos ejecutar los hooks de r3f like useThree and useFrame
+import { GameManager } from './GameManager';
 
-// Tutorial usar TWEEN con threejs
-//https://sbcode.net/threejs/tween/
-//https://sbcode.net/view_source/tween.html
+/* El codigo esta dentro del <Canvas> de r3f, asi que podemos ejecutar los hooks de r3f like useThree and useFrame
+    Tutorial usar TWEEN con threejs
+    https://sbcode.net/threejs/tween/
+    https://sbcode.net/view_source/tween.html
+*/
+
 
 const BASE_IMG_SRC = 'images/'
 
@@ -46,11 +49,11 @@ export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
         }
     },[cardsRef])
 
-    useFrame(()=>{
-        if(gameManager) {
-            gameManager.update();
-        }
-    });
+    // useFrame(({clock})=>{
+    //     if(gameManager) {
+    //         gameManager.update();
+    //     }
+    // });
 
     return (
         <>
@@ -67,16 +70,7 @@ export function MemoryCardGame({numberRows = 3, numberCols = 3}) {
     // return <Card defaultTexture={defaultTexture} texture={textures[0]} name="card-1" scale={[50,50,50]} />;    
 }
 
-export class GameManager {
-    constructor(cards) {
-        this.cards = cards;
-        console.log(cards.children);
-        // cards.children.forEach(c => c.userData.startAnimationFlipCardToTexture());
-    }
-    update() {
-        
-    }
-}
+
 
 
 export function Card({defaultTexture, texture, ...props}) {
@@ -87,6 +81,7 @@ export function Card({defaultTexture, texture, ...props}) {
         const meshCurrent = meshRef.current;
         if(meshCurrent && !meshCurrent.userData.isLoaded) {
             // LOAD userData game to mesh
+            //TODO: meshCurrent.userDat.card = new Card(meshCurrent); Y en class Card pongo todos esos atributos que estoy creando
             meshCurrent.userData.isLoaded = true;
             meshCurrent.userData.showCard = false; // Cuando es true mostramos la imagen a memorizar y cuando es false mostramos la imagen por defecto de todas
             meshCurrent.userData.isClickEnabled = true;
