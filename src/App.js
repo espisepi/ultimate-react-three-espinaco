@@ -8,31 +8,42 @@ import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 
-
-
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
 const BASE_URL_LOCAL_VIDEO_YT_DL = 'http://localhost:4000/video/video?url=';
 
+// let window_url_youtube = window.urlYoutube || "";
+// window.urlYoutube = window_url_youtube;
+
+// let window_show_video = window.showVideo || true;
+// window.showVideo = window_show_video;
+
+const window_urlYoutube = window.urlYoutube || BASE_URL_HEROKU_VIDEO_YT_DL + "https://www.youtube.com/watch?v=MaaEVFNDQLo";
+const window_showVideo = window.showVideo || false;
+// const INIT_STATE = { window_urlYoutube, window_showVideo };
+
+
+
+
 const dataMusic = [
   {
-    name:'Tove Lo - Habits (Stay High)',
-    link:'videos/stayHigh.mp4',
+    name: 'Tove Lo - Habits (Stay High)',
+    link: 'videos/stayHigh.mp4',
   },
   {
-    name:'HOKE - MOONDIAL',
-    link:'videos/HOKE-MOONDIAL.mp4',
+    name: 'HOKE - MOONDIAL',
+    link: 'videos/HOKE-MOONDIAL.mp4',
   }, {
-    name:'youtube',
+    name: 'youtube',
     link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
     // link:'http://localhost:4000/video/video?url=https://www.youtube.com/watch?v=0wa1HzC7OY8'  // For Testing in local
   }, {
-    name:'Kaydy Cain - Perdedores del Barrio, highkili ay linda,',
+    name: 'Kaydy Cain - Perdedores del Barrio, highkili ay linda,',
     link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
   }, {
-    name:'sotoasa jugador, trueno, ',
+    name: 'sotoasa jugador, trueno, ',
     link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
   }, {
-    name:'Kaydy Cain - Perdedores del Barrio',
+    name: 'Kaydy Cain - Perdedores del Barrio',
     link: BASE_URL_HEROKU_VIDEO_YT_DL + 'https://www.youtube.com/watch?v=ZelTFpXStE8',
   }
 ]
@@ -41,70 +52,71 @@ function App() {
 
   const [clicked, setClicked] = useState(false);
 
-  const [ showVideo, setShowVideo ] = useState(true);
-  const handleShowVideo = useCallback(()=>{
-    setShowVideo((v)=>(!showVideo));
-  },[showVideo])
+  const [showVideo, setShowVideo] = useState(window_showVideo);
+  const handleShowVideo = useCallback(() => {
+    setShowVideo((v) => (!showVideo));
+  }, [showVideo])
 
-  const [ link, setLink ] = useState( dataMusic[0].link );
+  const [link, setLink] = useState(window_urlYoutube);
 
-  const handleInputText = useCallback((event)=>{
+  const handleInputText = useCallback((event) => {
     const youtubeUrl = event.target.value;
     setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
-  },[])
+  }, [])
 
   const handleFullScreen = useFullScreenHandle();
-  const toggleFullScreen = useCallback(()=>{
-    if(handleFullScreen.active) {
+  const toggleFullScreen = useCallback(() => {
+    if (handleFullScreen.active) {
       handleFullScreen.exit();
     } else {
       handleFullScreen.enter();
     }
-  },[handleFullScreen]);
+  }, [handleFullScreen]);
 
-  const handleAutoRotate = useCallback(()=>{
-    if(window.orbitControls) {
+  const handleAutoRotate = useCallback(() => {
+    if (window.orbitControls) {
       window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
     }
   }, []);
 
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
 
-  if(clicked) {
+  if (clicked) {
     return (
       <>
-      <FullScreen handle={handleFullScreen}>
-      
-        <SceneManager />
+        <FullScreen handle={handleFullScreen}>
 
-        <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute'  }}
-        src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+          <SceneManager />
 
-        <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
+          <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute' }}
+            src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+
+          <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
             {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
             <NippleJoystick />
-        </div>
+          </div>
 
-        <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border:'none', borderRadius: '4px', width:'50vw', height:'30px', position: 'absolute', top: '20px', left:'40%' }} />
+          <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border: 'none', borderRadius: '4px', width: '50vw', height: '30px', position: 'absolute', top: '20px', left: '40%' }} />
 
-        <button onClick={handleAutoRotate} style={{ display: showVideo ? 'block' : 'none', width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '200px', backgroundColor: '#ffff00', opacity: 0.5 }}> </button>
+          <button onClick={handleAutoRotate} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '200px', backgroundColor: '#ffff00', opacity: 0.5 }}> </button>
 
-        <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
+          <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
 
-        <button onClick={handleShowVideo} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'10px', right: '10px', backgroundColor:'white', opacity: showVideo ? 1 : 0.3 }}></button>
+          <button onClick={handleShowVideo} style={{ width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '10px', backgroundColor: 'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
-      
-      </FullScreen>
+
+        </FullScreen>
       </>
     );
   }
 
   return (
-        <div style={{display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050'}}
-             onClick={ () => setClicked(true) } >
-          <h1>Click to Start</h1>
-        </div>
+    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
+      onClick={() => setClicked(true)} >
+      <h1>Click to Start</h1>
+    </div>
   );
 }
 
