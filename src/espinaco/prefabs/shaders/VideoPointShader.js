@@ -1,4 +1,3 @@
-
 import * as THREE from "three";
 import { extend } from "@react-three/fiber";
 

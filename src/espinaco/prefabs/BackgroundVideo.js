@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import { useThree } from '@react-three/fiber';
 

@@ -1,3 +1,4 @@
+import React from 'react';
 // Nipple ==================
 import ReactNipple from 'react-nipple';
 // optional: include the stylesheet somewhere in your app

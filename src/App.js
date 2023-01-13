@@ -22,7 +22,7 @@ const window_showVideo = window.showVideo || false;
 // const INIT_STATE = { window_urlYoutube, window_showVideo };
 
 
-
+// (COMENTARIO ANTIGUO DE CUANDO REALIZABA LA BUILD A MANO Y LA INCLUIA EN WORDPRESS COPIANDO Y PEGANDO LA CARPETA BUILD POR FTP, AHORA LO HACEMOS CON MICROFRONTEND DESPLEGADO EN UNA URL JEJE) TODO ACORDARSE!!!: CADA VEZ QUE SE HACE BUILD HAY QUE CAMBIAR LOS NOMBRES DE LOS FICHEROS JS Y CSS GENERADOS EN LA PAGINA DE WORDPRESS.
 
 const dataMusic = [
   {
@@ -48,7 +48,7 @@ const dataMusic = [
   }
 ]
 
-function App() {
+function App({url}) {
 
   const [clicked, setClicked] = useState(false);
 
@@ -57,7 +57,8 @@ function App() {
     setShowVideo((v) => (!showVideo));
   }, [showVideo])
 
-  const [link, setLink] = useState(window_urlYoutube);
+  let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
+  const [link, setLink] = useState(firstUrl);
 
   const handleInputText = useCallback((event) => {
     const youtubeUrl = event.target.value;

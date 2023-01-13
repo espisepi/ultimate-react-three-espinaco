@@ -1,5 +1,5 @@
 
-
+import React from 'react';
 import { useThree, useLoader, useFrame } from '@react-three/fiber'
 import { Box, useGLTF } from '@react-three/drei'
 import { useEffect, useState } from 'react'

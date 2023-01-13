@@ -1,5 +1,5 @@
 
-import { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 

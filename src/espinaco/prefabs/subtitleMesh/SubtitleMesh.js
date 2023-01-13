@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Text3D } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useState, useRef } from 'react';
