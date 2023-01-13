@@ -18,6 +18,8 @@
 
         * IMPORTANTE: Todas las clases jsx o tsx tienen que llevar el "import React from 'react' " o de lo contrario dara el error en consola "index.js:10 ReferenceError: React is not defined" cuando se visualice este fichero html.
 
+        * MENOS IMPORTANTE: Se obtuvo el error "Cannot find module '@babel/plugin-proposal-private-property-in-object' " al hacer yarn build y se soluciono añadiendo las dependencias de @babel en devDependencies del package.json. Solucion gracias a https://stackoverflow.com/questions/56356521/cannot-find-module-babel-plugin-proposal-class-properties-reactspring-boot
+
         Tutorial para que funcione la app microfrontend ultimate-react-three-espinaco:
         1 - Irse a la carpeta raiz (donde se encuentra el package.json) y ejecutar el comando yarn build:widget
         2 - Irse a la carpeta widget, y dentro ejecutar el comando serve para servir la pagina estatica (npm install -g serve)
