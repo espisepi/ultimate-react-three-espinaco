@@ -6,7 +6,7 @@ import 'react-nipple/lib/styles.css';
 
 import { useState, useCallback } from 'react';
 
-export function NippleJoystick() {
+export function NippleJoystick({ style }) {
 
     const [isMoveForward, setIsMoveForward] = useState(true);
     const handleIsMoveForward = useCallback(()=>{
@@ -59,6 +59,7 @@ export function NippleJoystick() {
                         bottom: "50px",
                         left: '50vw',
                         opacity: 0.5,
+                        ...style
                         // if you pass position: 'relative', you don't need to import the stylesheet
                     }}
                     // all events supported by nipplejs are available as callbacks
@@ -72,7 +73,7 @@ export function NippleJoystick() {
                     onHidden={(evt, data) => handleJoystick(evt, data)}
                     onPressure={(evt, data) => handleJoystick(evt, data)}
                 />
-                <button onClick={handleIsMoveForward} style={{ width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'200px', right: '200px', backgroundColor: isMoveForward ? '#ff00ff' : '#0000ff', opacity: 0.5 }}> </button>
+                <button onClick={handleIsMoveForward} style={{ ...style, width:'50px', height:'50px', borderRadius:'25px', position:'absolute', bottom:'200px', right: '200px', backgroundColor: isMoveForward ? '#ff00ff' : '#0000ff', opacity: 0.5 }}> </button>
         </>
     )
 }

@@ -6,6 +6,7 @@ import SceneManager from './espinaco/scenes/manager/SceneManager';
 import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import Scene1Canvas from './espinaco/scenes/Scene1';
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
@@ -86,18 +87,18 @@ function App({url}) {
 
   if (clicked) {
     return (
-      <>
+      <div id="app-espinaco" style={{ position: "relative" }}>
         <FullScreen handle={handleFullScreen}>
 
-          <SceneManager />
+          <Scene1Canvas style={{position: 'relative', top: '0', width: '100%', height: '100vh'}} />
 
-          <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', zIndex: 100, position: 'absolute' }}
+          <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
             src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
 
-          <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none' }}>
+          {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
             {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-            <NippleJoystick />
-          </div>
+            <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} />
+          {/* </div> */}
 
           <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border: 'none', borderRadius: '4px', width: '50vw', height: '30px', position: 'absolute', top: '20px', left: '40%' }} />
 
@@ -109,7 +110,7 @@ function App({url}) {
 
 
         </FullScreen>
-      </>
+      </div>
     );
   }
 
