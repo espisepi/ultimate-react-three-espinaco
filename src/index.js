@@ -9,6 +9,8 @@ import { sendToVercelAnalytics } from './vitals';
 // https://tekinico.medium.com/build-a-react-embeddable-widget-c46b7f7999d8
 // https://github.com/nicoraynaud/react-widget
 
+// WEB RTC: https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture#examples
+
 // Find all widget divs
 const widgetDivs = document.querySelectorAll('.ultimate-react-three-espinaco, #ultimate-react-three-espinaco');
 

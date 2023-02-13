@@ -7,6 +7,7 @@ import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from './espinaco/scenes/Scene1';
+import EspinacoWebRTCComponent from './espinaco-webRTC/EspinacoWebRTCComponent';
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
@@ -115,10 +116,11 @@ function App({url}) {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
-      onClick={() => setClicked(true)} >
-      <h1>Click to Start</h1>
-    </div>
+    // <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
+    //   onClick={() => setClicked(true)} >
+    //   <h1>Click to Start</h1>
+    // </div>
+    <EspinacoWebRTCComponent />
   );
 }
 
