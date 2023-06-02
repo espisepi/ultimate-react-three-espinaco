@@ -11,7 +11,7 @@ import VideoPointShader from "./shaders/VideoPointShader";
 
 
 
-export default function VideoPoints({ id_video = 'video' }) {
+export default function VideoPoints({ id_video = 'video', position = [0,0,0] }) {
         
     const { scene } = useThree();
 
@@ -65,6 +65,9 @@ export default function VideoPoints({ id_video = 'video' }) {
             // Define Points
             const particles = new THREE.Points(geometry, material);
             particles.rotation.x += Math.PI;
+
+            particles.position.set(position[0],position[1],position[2]);
+
             // Temporal
             // particles.position.z += -200.0;
             // particles.scale.set(0.5,0.5,0.5);

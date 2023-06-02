@@ -93,7 +93,10 @@ function App({url}) {
           <Scene1Canvas style={{position: 'relative', top: '0', width: '100%', height: '100vh'}} />
 
           <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
-            src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+            src={'videos/mcpi.mp4'} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
+
+          {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
+            src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video> */}
 
           {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
             {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}

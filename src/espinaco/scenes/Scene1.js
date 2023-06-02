@@ -33,7 +33,26 @@ export function Scene1() {
         {/* <Box /> */}
         {/* <BoxVideo /> */}
         {/* <BoxShader /> */}
-        <VideoPoints />
+        <group>
+            <group>
+                <VideoPoints />
+                <VideoPoints position={[30,0,0]}/>
+            </group>
+            <group position={[100,100,0]}>
+                <VideoPoints />
+                <VideoPoints position={[30,0,0]}/>
+            </group>
+        </group>
+        {/* <group position={[100,100,0]}>
+            <group>
+                <VideoPoints />
+                <VideoPoints position={[30,0,0]}/>
+            </group>
+            <group position={[90,0,0]}>
+                <VideoPoints />
+                <VideoPoints position={[30,0,0]}/>
+            </group>
+        </group> */}
         {/* <MusicVisualCubeReact /> */}
         {/* <SubtitleMesh /> */}
         {/* <MeshSurfaceSampler /> */}
