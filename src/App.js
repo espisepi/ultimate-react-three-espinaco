@@ -109,7 +109,7 @@ function App({url}) {
 
           <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
 
-          <button onClick={handleShowVideo} style={{ width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '10px', backgroundColor: 'white', opacity: showVideo ? 1 : 0.3 }}></button>
+          <button onClick={handleShowVideo} style={{ width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '50px', right: '10px', backgroundColor: 'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
 
         </FullScreen>
