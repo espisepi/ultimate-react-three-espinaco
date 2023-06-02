@@ -100,16 +100,16 @@ function App({url}) {
 
           {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
             {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-            <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} />
+            {/* <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} /> */}
           {/* </div> */}
 
           <input type="text" placeholder='Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8' onChange={handleInputText} style={{ display: showVideo ? 'block' : 'none', border: 'none', borderRadius: '4px', width: '50vw', height: '30px', position: 'absolute', top: '20px', left: '40%' }} />
 
-          <button onClick={handleAutoRotate} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '200px', backgroundColor: '#ffff00', opacity: 0.5 }}> </button>
+          <button onClick={handleAutoRotate} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '100px', right: '200px', backgroundColor: '#ffff00', opacity: 0.5 }}> </button>
 
-          <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '10px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
+          <button onClick={toggleFullScreen} style={{ display: showVideo ? 'block' : 'none', width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '100px', right: '100px', backgroundColor: '#ff00ff', opacity: 0.5 }}> </button>
 
-          <button onClick={handleShowVideo} style={{ width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '50px', right: '10px', backgroundColor: 'white', opacity: showVideo ? 1 : 0.3 }}></button>
+          <button onClick={handleShowVideo} style={{ width: '50px', height: '50px', borderRadius: '25px', position: 'absolute', bottom: '100px', right: '10px', backgroundColor: 'white', opacity: showVideo ? 1 : 0.3 }}></button>
 
 
         </FullScreen>
