@@ -31,3 +31,5 @@ yarn-error.log*
 # espinaco microfrontend folders generates with yarn build:widget
 .cache
 widget
+
+.idea
