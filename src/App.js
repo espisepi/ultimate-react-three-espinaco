@@ -7,6 +7,7 @@ import { NippleJoystick } from './espinaco/controls/NippleJoystick';
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from './espinaco/scenes/Scene1';
+import Scene2Canvas from './espinaco/scenes/Scene2';
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL = 'https://video-dl-esp.herokuapp.com/video/video?url=';
@@ -92,7 +93,9 @@ function App({url}) {
       <div id="app-espinaco" style={{ position: "relative" }}>
         <FullScreen handle={handleFullScreen}>
 
-          <Scene1Canvas style={{position: 'relative', top: '0', width: '100%', height: '100vh'}} />
+          {/* <Scene1Canvas style={{position: 'relative', top: '0', width: '100%', height: '100vh'}} /> */}
+          <Scene2Canvas style={{position: 'relative', top: '0', width: '100%', height: '100vh'}} />
+
 
           <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
             src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video>
@@ -120,7 +123,7 @@ function App({url}) {
   }
 
   return (
-    <div className="background-initial" style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
+    <div /* className="background-initial" */ style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
       onClick={() => setClicked(true)} >
       <h1>Click to Start</h1>
     </div>
