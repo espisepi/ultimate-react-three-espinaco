@@ -120,7 +120,7 @@ function App({url}) {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
+    <div className="background-initial" style={{ display: 'flex', alignItems: 'center', width: '100%', height: '100vh', color: 'black', backgroundColor: '#500050' }}
       onClick={() => setClicked(true)} >
       <h1>Click to Start</h1>
     </div>

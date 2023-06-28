@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.background-initial {
+  background-image: url("portada1.png");
+  background-size: cover;
+  background-position: center;
+}
