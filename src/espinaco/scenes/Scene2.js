@@ -15,6 +15,7 @@ import { SubtitleMesh } from '../prefabs/subtitleMesh/SubtitleMesh';
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 import { MemoryCardGame } from '../games/memoryCardGame/MemoryCardGame';
+import { SkullMusic } from '../prefabs/SkullMusic';
 
 
 
@@ -29,8 +30,11 @@ import { MemoryCardGame } from '../games/memoryCardGame/MemoryCardGame';
 export function Scene2() {
     return (
         <>
-        <ambientLight />
-        <MusicVisualCubeReact />
+        {/* <ambientLight /> */}
+        {/* <MusicVisualCubeReact /> */}
+        <group rotation={[0,3.2,0]}>
+            <SkullMusic />
+        </group>
 
         {/* <Box /> */}
         {/* <BoxVideo /> */}

@@ -11,7 +11,7 @@ const vec = new THREE.Vector3();
 const SPEED_MIN_VALUE = 100;
 const SPEED_MAX_VALUE = 500;
 
-export default function GodCameraControls() {
+export default function GodCameraControls({...props}) {
 
     const { camera } = useThree();
     const orbitControls = useRef();
@@ -71,6 +71,6 @@ export default function GodCameraControls() {
     });
 
 
-    return <OrbitControls ref={orbitControls} />;
+    return <OrbitControls  ref={orbitControls} {...props} />;
 
 }
