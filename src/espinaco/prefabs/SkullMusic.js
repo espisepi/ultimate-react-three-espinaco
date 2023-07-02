@@ -4,16 +4,27 @@ import { useEffect, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { PointLightMusicClass } from "./classes/PointLightMusicClass";
 import { SceneDemoAudioAnalyser } from "../audio-analyser/SceneDemoAudioAnalyser";
+import { suspend } from "suspend-react";
+import { createVideoTextureFromVideoId } from "../video-texture/createVideoTexture";
 
 
-export function SkullMusic() {
+export function SkullMusic({videoId = 'video'}) {
     console.log("skull music!");
 
+    const videoTexture = suspend(() => createVideoTextureFromVideoId(videoId), []);
+
     const model = useGLTF("models/skull.glb");
+    useEffect(()=>{
+        if(model && videoTexture) {
+            console.log(model)
+            console.log(videoTexture);
+            model.materials.defaultMat.map = videoTexture;
+        }
+    },[model, videoTexture]);
 
     return (
         <group>
-            <primitive object={model.scene} />
+            <primitive object={model.scene}  />
             <SceneDemoAudioAnalyser />
         </group>
     )
