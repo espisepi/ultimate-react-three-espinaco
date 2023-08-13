@@ -20,7 +20,7 @@ const BASE_URL_LOCAL_VIDEO_YT_DL = 'http://localhost:4000/video/video?url=';
 
 // const window_urlYoutube = 'videos/mcpi.mp4';
 // const window_urlYoutube = window.urlYoutube || BASE_URL_HEROKU_VIDEO_YT_DL + "https://www.youtube.com/watch?v=MaaEVFNDQLo";
-const window_showVideo = window.showVideo || false;
+const window_showVideo = window.showVideo || true;
 // const INIT_STATE = { window_urlYoutube, window_showVideo };
 
 
@@ -60,7 +60,7 @@ function App({url}) {
   }, [showVideo])
 
   // let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
-  const firstUrl = 'videos/mcpi.mp4';
+  const firstUrl = 'videos/stayHigh.mp4';
   const [link, setLink] = useState(firstUrl);
 
   const handleInputText = useCallback((event) => {
