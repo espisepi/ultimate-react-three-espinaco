@@ -59,7 +59,7 @@ export function Scene1() {
       {/* <MeshSurfaceSampler /> */}
       <Stars
         radius={1000}
-        count={9999}
+        count={1999}
         depth={400}
         factor={30}
         fade /* saturation={1} */ /* speed={1} */
