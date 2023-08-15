@@ -144,6 +144,8 @@ export default function App1({ url }) {
               position: "absolute",
               top: "20px",
               left: "40%",
+              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+              padding: "0.2rem 1rem",
             }}
           />
 
@@ -157,7 +159,8 @@ export default function App1({ url }) {
               position: "absolute",
               bottom: "100px",
               right: "200px",
-              backgroundColor: "#ffff00",
+              //   backgroundColor: "#ffff00",
+              background: "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)",
               opacity: 0.5,
             }}
           >
@@ -174,7 +177,8 @@ export default function App1({ url }) {
               position: "absolute",
               bottom: "100px",
               right: "100px",
-              backgroundColor: "#ff00ff",
+              //   backgroundColor: "#ff00ff",
+              background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
               opacity: 0.5,
             }}
           >
@@ -190,7 +194,8 @@ export default function App1({ url }) {
               position: "absolute",
               bottom: "100px",
               right: "10px",
-              backgroundColor: "white",
+              //   backgroundColor: "white",
+              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
               opacity: showVideo ? 1 : 0.3,
             }}
           ></button>
