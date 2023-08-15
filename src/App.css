@@ -38,7 +38,14 @@
 }
 
 .background-initial {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, #a600ff 0%, #b65c3e 100%);
+
+  /* mc-pi portada coliseo */
+  /* 
   background-image: url("portada1.png");
   background-size: cover;
   background-position: center;
+  */
 }
