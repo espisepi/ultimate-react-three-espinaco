@@ -72,14 +72,34 @@ export default function App1({ url }) {
 
   // let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
   const firstUrl = "videos/stayHigh.mp4";
-  const [link, setLink] = useState(firstUrl);
+  // const [link, setLink] = useState(firstUrl);
 
   const handleInputText = useCallback((event) => {
     const youtubeUrl = event.target.value;
 
     // setLink((v) => BASE_URL_LOCAL_VIDEO_YT_DL + youtubeUrl);
     // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
-    setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
+    // setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
+
+    // Fetch del video (se hace asi para que funcione en safari)
+    fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Crear una URL temporal para el blob del video
+        const videoBlobUrl = URL.createObjectURL(blob);
+
+        // Obtener la etiqueta de video
+        const videoPlayer = document.getElementById("video");
+
+        // Establecer la fuente del video
+        videoPlayer.src = videoBlobUrl;
+
+        // Reproducir el video (opcional)
+        videoPlayer.play();
+      })
+      .catch((error) => {
+        console.error("Error al cargar el video:", error);
+      });
   }, []);
 
   const handleFullScreen = useFullScreenHandle();
@@ -122,7 +142,7 @@ export default function App1({ url }) {
               zIndex: 100,
               position: "absolute",
             }}
-            src={link}
+            src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
             controls={true}
             autoPlay={true}
             crossOrigin="anonymous"
