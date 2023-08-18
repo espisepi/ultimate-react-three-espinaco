@@ -26,6 +26,11 @@ const window_showVideo = window.showVideo || true;
 
 // (COMENTARIO ANTIGUO DE CUANDO REALIZABA LA BUILD A MANO Y LA INCLUIA EN WORDPRESS COPIANDO Y PEGANDO LA CARPETA BUILD POR FTP, AHORA LO HACEMOS CON MICROFRONTEND DESPLEGADO EN UNA URL JEJE) TODO ACORDARSE!!!: CADA VEZ QUE SE HACE BUILD HAY QUE CAMBIAR LOS NOMBRES DE LOS FICHEROS JS Y CSS GENERADOS EN LA PAGINA DE WORDPRESS.
 
+// Errores a mejorar
+// Cuando se pone en horizontal aparece margen blanco en los laterales
+// añadir logo de cargando video mientras carga el video OK
+// que se pueda pasar por url el video de youtube a mostrar
+
 const dataMusic = [
   {
     name: "Tove Lo - Habits (Stay High)",
@@ -81,9 +86,15 @@ export default function App1({ url }) {
     // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
     // setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
 
+    // show Loading
+    const loadingEl = document.getElementById("loading");
+    loadingEl.style.display = "block";
+
     // Fetch del video (se hace asi para que funcione en safari)
     fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
-      .then((response) => response.blob())
+      .then((response) => {
+        return response.blob();
+      })
       .then((blob) => {
         // Crear una URL temporal para el blob del video
         const videoBlobUrl = URL.createObjectURL(blob);
@@ -96,6 +107,10 @@ export default function App1({ url }) {
 
         // Reproducir el video (opcional)
         videoPlayer.play();
+
+        // hidden Loading
+        const loadingEl = document.getElementById("loading");
+        loadingEl.style.display = "none";
       })
       .catch((error) => {
         console.error("Error al cargar el video:", error);
@@ -161,6 +176,19 @@ export default function App1({ url }) {
             loop={true}
             crossOrigin="anonymous"
           ></video>
+
+          <h1
+            id="loading"
+            style={{
+              color: "white",
+              zIndex: 999,
+              position: "absolute",
+              top: 0,
+              display: "none",
+            }}
+          >
+            Loading...
+          </h1>
 
           {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
             src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video> */}
