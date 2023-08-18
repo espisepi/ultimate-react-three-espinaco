@@ -102,6 +102,22 @@ export default function App1({ url }) {
       });
   }, []);
 
+  // Code for Safari reasons
+  useEffect(() => {
+    const id_interval = setInterval(() => {
+      const videoPlayer = document.getElementById("video");
+      if (videoPlayer) {
+        videoPlayer.play();
+        clearInterval(id_interval);
+      }
+    }, 500);
+  }, []);
+
+  const videoPlayer = document.getElementById("video");
+  if (videoPlayer) {
+    videoPlayer.play();
+  }
+
   const handleFullScreen = useFullScreenHandle();
   const toggleFullScreen = useCallback(() => {
     if (handleFullScreen.active) {
@@ -135,16 +151,19 @@ export default function App1({ url }) {
           <video
             id="video"
             style={{
-              display: showVideo ? "block" : "none",
-              width: "25vw",
-              height: "25vh",
-              top: 0,
-              zIndex: 100,
-              position: "absolute",
+              display: "none",
+              // visibility: "hidden",
+              // width: "25vw",
+              // height: "25vh",
+              // top: 0,
+              // zIndex: 100,
+              // position: "absolute",
             }}
             src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
-            controls={true}
-            autoPlay={true}
+            // controls={false}
+            // autoPlay={true}
+            playsInline={true}
+            loop={true}
             crossOrigin="anonymous"
           ></video>
 
