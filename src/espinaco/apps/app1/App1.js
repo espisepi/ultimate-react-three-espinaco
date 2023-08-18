@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 // import SceneManager from "./espinaco/scenes/manager/SceneManager";
 
@@ -73,44 +67,6 @@ const dataMusic = [
   },
 ];
 
-// urlVideo: string
-function fetchAndPlayYoutubVideo(youtubeUrl) {
-  // show Loading
-  const loadingEl = document.getElementById("loading");
-  if (loadingEl) {
-    loadingEl.style.display = "block";
-  }
-
-  // Fetch del video (se hace asi para que funcione en safari)
-  fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
-    .then((response) => {
-      return response.blob();
-    })
-    .then((blob) => {
-      // Crear una URL temporal para el blob del video
-      const videoBlobUrl = URL.createObjectURL(blob);
-
-      // Obtener la etiqueta de video
-      const videoPlayer = document.getElementById("video");
-
-      if (videoPlayer) {
-        // Establecer la fuente del video
-        videoPlayer.src = videoBlobUrl;
-
-        // Reproducir el video (opcional)
-        videoPlayer.play();
-      }
-
-      // hidden Loading
-      if (loadingEl) {
-        loadingEl.style.display = "none";
-      }
-    })
-    .catch((error) => {
-      console.error("Error al cargar el video:", error);
-    });
-}
-
 export default function App1({ url }) {
   const [clicked, setClicked] = useState(false);
 
@@ -120,37 +76,45 @@ export default function App1({ url }) {
   }, [showVideo]);
 
   // let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
-  // const firstUrl = "videos/stayHigh.mp4";
+  const firstUrl = "videos/stayHigh.mp4";
   // const [link, setLink] = useState(firstUrl);
-  // const urlVideo = useMemo(() => {
-  //   // Example: http://localhost:3000/?url=https://www.youtube.com/watch?v=cD5T1Y4b7wA
-  //   const url_navigator = window.location.href;
-  //   try {
-  //     const urlParamValue = url_navigator.split("url=")[1];
-  //     console.log(urlParamValue);
-  //     if (urlParamValue === undefined) {
-  //       throw new Error("url param not found");
-  //     }
-  //     return BASE_URL_RENDERER_YT_DL + urlParamValue;
-  //   } catch (e) {
-  //     console.log(e);
-  //     return "videos/stayHigh.mp4";
-  //   }
-  //   // if (urlParam) {
-  //   //   return BASE_URL_RENDERER_YT_DL + urlParam;
-  //   // } else {
-  //   //   return "videos/stayHigh.mp4";
-  //   // }
-  // }, []);
-  // console.log({ urlVideo });
 
   const handleInputText = useCallback((event) => {
     const youtubeUrl = event.target.value;
-    fetchAndPlayYoutubVideo(youtubeUrl);
 
     // setLink((v) => BASE_URL_LOCAL_VIDEO_YT_DL + youtubeUrl);
     // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
     // setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
+
+    // show Loading
+    const loadingEl = document.getElementById("loading");
+    loadingEl.style.display = "block";
+
+    // Fetch del video (se hace asi para que funcione en safari)
+    fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
+      .then((response) => {
+        return response.blob();
+      })
+      .then((blob) => {
+        // Crear una URL temporal para el blob del video
+        const videoBlobUrl = URL.createObjectURL(blob);
+
+        // Obtener la etiqueta de video
+        const videoPlayer = document.getElementById("video");
+
+        // Establecer la fuente del video
+        videoPlayer.src = videoBlobUrl;
+
+        // Reproducir el video (opcional)
+        videoPlayer.play();
+
+        // hidden Loading
+        const loadingEl = document.getElementById("loading");
+        loadingEl.style.display = "none";
+      })
+      .catch((error) => {
+        console.error("Error al cargar el video:", error);
+      });
   }, []);
 
   // Code for Safari reasons
@@ -158,30 +122,11 @@ export default function App1({ url }) {
     const id_interval = setInterval(() => {
       const videoPlayer = document.getElementById("video");
       if (videoPlayer) {
-        const url_navigator = window.location.href;
-        const urlParamValue = url_navigator.split("url=")[1];
-        console.log(urlParamValue);
-        if (urlParamValue) {
-          fetchAndPlayYoutubVideo(urlParamValue);
-        } else {
-          videoPlayer.src = "videos/stayHigh.mp4";
-          videoPlayer.play();
-        }
+        videoPlayer.play();
         clearInterval(id_interval);
       }
     }, 500);
   }, []);
-
-  // Code for Safari reasons
-  // useEffect(() => {
-  //   const id_interval = setInterval(() => {
-  //     const videoPlayer = document.getElementById("video");
-  //     if (videoPlayer) {
-  //       videoPlayer.play();
-  //       clearInterval(id_interval);
-  //     }
-  //   }, 500);
-  // }, []);
 
   const handleFullScreen = useFullScreenHandle();
   const toggleFullScreen = useCallback(() => {
@@ -224,7 +169,7 @@ export default function App1({ url }) {
               // zIndex: 100,
               // position: "absolute",
             }}
-            // src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
+            src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
             // controls={false}
             // autoPlay={true}
             playsInline={true}
