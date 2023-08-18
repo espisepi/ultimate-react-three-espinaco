@@ -73,26 +73,12 @@ const dataMusic = [
   },
 ];
 
-let lastUrlVideoBlob = "none";
-let isFirstTime = true;
-
 // urlVideo: string
 function fetchAndPlayYoutubVideo(youtubeUrl) {
   // show Loading
   const loadingEl = document.getElementById("loading");
   if (loadingEl) {
     loadingEl.style.display = "block";
-  }
-
-  // Comprobamos que el video que se va a hacer fetch no es el que se esta reproduciendo actualmente
-  // Si lo es no hacemos fetch ni hacemos nada, por eso devolvemos un return vacio, para parar la ejecucion del metodo
-  const videoPlayer = document.getElementById("video");
-  if (videoPlayer && videoPlayer.src === lastUrlVideoBlob) {
-    return;
-  }
-
-  if (!videoPlayer) {
-    return;
   }
 
   // Fetch del video (se hace asi para que funcione en safari)
@@ -107,13 +93,9 @@ function fetchAndPlayYoutubVideo(youtubeUrl) {
       // Obtener la etiqueta de video
       const videoPlayer = document.getElementById("video");
 
-      if (videoPlayer && videoPlayer.src !== videoBlobUrl) {
+      if (videoPlayer) {
         // Establecer la fuente del video
         videoPlayer.src = videoBlobUrl;
-
-        lastUrlVideoBlob = videoBlobUrl;
-
-        // console.log({ videoBlobUrl, video: videoPlayer?.src });
 
         // Reproducir el video (opcional)
         videoPlayer.play();
@@ -173,27 +155,21 @@ export default function App1({ url }) {
 
   // Code for Safari reasons
   useEffect(() => {
-    if (isFirstTime) {
-      isFirstTime = false;
-
-      const id_interval = setInterval(() => {
-        const videoPlayer = document.getElementById("video");
-        if (videoPlayer) {
-          const url_navigator = window.location.href;
-          const urlParamValue = url_navigator.split("url=")[1];
-          if (urlParamValue) {
-            fetchAndPlayYoutubVideo(urlParamValue);
-          } else {
-            // Comprobamos que el video que se va a reproducir no es el que se esta reproduciendo actualmente
-            if (videoPlayer.src !== "videos/stayHigh.mp4") {
-              videoPlayer.src = "videos/stayHigh.mp4";
-              videoPlayer.play();
-            }
-          }
-          clearInterval(id_interval);
+    const id_interval = setInterval(() => {
+      const videoPlayer = document.getElementById("video");
+      if (videoPlayer) {
+        const url_navigator = window.location.href;
+        const urlParamValue = url_navigator.split("url=")[1];
+        console.log(urlParamValue);
+        if (urlParamValue) {
+          fetchAndPlayYoutubVideo(urlParamValue);
+        } else {
+          videoPlayer.src = "videos/stayHigh.mp4";
+          videoPlayer.play();
         }
-      }, 500);
-    }
+        clearInterval(id_interval);
+      }
+    }, 500);
   }, []);
 
   // Code for Safari reasons
