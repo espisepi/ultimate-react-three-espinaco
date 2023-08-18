@@ -113,11 +113,6 @@ export default function App1({ url }) {
     }, 500);
   }, []);
 
-  const videoPlayer = document.getElementById("video");
-  if (videoPlayer) {
-    videoPlayer.play();
-  }
-
   const handleFullScreen = useFullScreenHandle();
   const toggleFullScreen = useCallback(() => {
     if (handleFullScreen.active) {
