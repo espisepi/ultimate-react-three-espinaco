@@ -324,7 +324,7 @@ export default function App1({ url }) {
 
               background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
               position: "absolute",
-              bottom: 30,
+              bottom: 130,
               border: "none",
               borderRadius: "4px",
             }}
@@ -345,7 +345,7 @@ export default function App1({ url }) {
               display: showVideo ? "block" : "none",
               background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
               position: "absolute",
-              bottom: 60,
+              bottom: 160,
               border: "none",
               borderRadius: "4px",
             }}
