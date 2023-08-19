@@ -43,7 +43,7 @@ Soto Asa - Gibraltar (Videoclip)
 2. Soto Asa - La Primera (ft. Mala Rodríguez)
 Saiko - Supernova (Official Video)
 Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)
-  
+
  * 
  */
 
@@ -83,6 +83,8 @@ const dataMusic = [
   },
 ];
 
+let isFirstTime = true;
+
 export default function App1({ url }) {
   const [clicked, setClicked] = useState(false);
 
@@ -95,8 +97,8 @@ export default function App1({ url }) {
   const firstUrl = "videos/stayHigh.mp4";
   // const [link, setLink] = useState(firstUrl);
 
-  const handleInputText = useCallback((event) => {
-    const youtubeUrl = event.target.value;
+  const handleInputText = useCallback((youtubeUrl) => {
+    // const youtubeUrl = event.target.value;
 
     // setLink((v) => BASE_URL_LOCAL_VIDEO_YT_DL + youtubeUrl);
     // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
@@ -138,7 +140,22 @@ export default function App1({ url }) {
     const id_interval = setInterval(() => {
       const videoPlayer = document.getElementById("video");
       if (videoPlayer) {
-        videoPlayer.play();
+        if (isFirstTime) {
+          isFirstTime = false;
+
+          // get url param
+          const queryString = window.location.search;
+          console.log(queryString);
+          const urlParams = new URLSearchParams(queryString);
+          const youtubeUrl = urlParams.get("url");
+          console.log(youtubeUrl);
+          if (youtubeUrl) {
+            handleInputText(youtubeUrl);
+          } else {
+            // Se ejecuta con la cancion por defecto definida en la etiqueta video
+            videoPlayer.play();
+          }
+        }
         clearInterval(id_interval);
       }
     }, 500);
@@ -217,7 +234,7 @@ export default function App1({ url }) {
           <input
             type="text"
             placeholder="Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8"
-            onChange={handleInputText}
+            onChange={(e) => handleInputText(e.target.value)}
             style={{
               display: showVideo ? "block" : "none",
               border: "none",
