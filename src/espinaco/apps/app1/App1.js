@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 
 // import SceneManager from "./espinaco/scenes/manager/SceneManager";
 
@@ -176,6 +182,12 @@ export default function App1({ url }) {
     }
   }, []);
 
+  const handleVideoPointSize = useCallback((value) => {
+    if (window.videoPoints) {
+      window.videoPoints.material.uniforms.pointSize.value = value;
+    }
+  }, []);
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
   if (clicked) {
@@ -248,6 +260,28 @@ export default function App1({ url }) {
               padding: "0.2rem 1rem",
             }}
           />
+
+          <div
+            id="div-input-range-video-point-size"
+            style={{
+              display: showVideo ? "block" : "none",
+
+              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+              position: "absolute",
+              bottom: 30,
+              border: "none",
+              borderRadius: "4px",
+            }}
+          >
+            <input
+              type="range"
+              onChange={(e) => handleVideoPointSize(e.target.value)}
+              min={0.1}
+              max={7.0}
+              step={0.1}
+              value={0.0}
+            ></input>
+          </div>
 
           <button
             onClick={handleAutoRotate}
