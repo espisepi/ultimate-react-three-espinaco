@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Box, Stars } from "@react-three/drei";
@@ -23,6 +23,12 @@ import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 // Para efectos de letras: https://tympanus.net/Development/3DTypeEffects/03_flowers.html
 
 export function Scene1() {
+  const starsRef = useRef();
+  useEffect(() => {
+    if (starsRef.current) {
+      window.stars = starsRef.current;
+    }
+  }, [starsRef.current]);
   return (
     <>
       <ambientLight />
@@ -58,11 +64,13 @@ export function Scene1() {
       {/* <SubtitleMesh /> */}
       {/* <MeshSurfaceSampler /> */}
       <Stars
+        ref={starsRef}
         radius={1000}
         count={1999}
         depth={400}
         factor={55}
-        fade /* saturation={1} */ /* speed={1} */
+        fade /* speed={1} */
+        /* saturation={1} */
       />
     </>
   );

@@ -6,6 +6,15 @@ import React, {
   useMemo,
 } from "react";
 
+import {
+  Points,
+  Vector3,
+  Spherical,
+  Color,
+  AdditiveBlending,
+  ShaderMaterial,
+} from "three";
+
 // import SceneManager from "./espinaco/scenes/manager/SceneManager";
 
 // import { NippleJoystick } from "./espinaco/controls/NippleJoystick";
@@ -188,6 +197,53 @@ export default function App1({ url }) {
     }
   }, []);
 
+  const handleStarsPointSize = useCallback((value) => {
+    if (window.stars) {
+      //count, depth, factor, radius, saturation
+      const count = 1999;
+      const saturation = 1.0;
+      const radius = 1000;
+      const depth = 400;
+      const factor = value || 55;
+      const genStar = (r) => {
+        return new Vector3().setFromSpherical(
+          new Spherical(
+            r,
+            Math.acos(1 - Math.random() * 2),
+            Math.random() * 2 * Math.PI
+          )
+        );
+      };
+
+      const [position, color, size] = (() => {
+        const positions = [];
+        const colors = [];
+        const sizes = Array.from(
+          { length: count },
+          () => (0.5 + 0.5 * Math.random()) * factor
+        );
+        const color = new Color();
+        let r = radius + depth;
+        const increment = depth / count;
+        for (let i = 0; i < count; i++) {
+          r -= increment * Math.random();
+          positions.push(...genStar(r).toArray());
+          color.setHSL(i / count, saturation, 0.9);
+          colors.push(color.r, color.g, color.b);
+        }
+        return [
+          new Float32Array(positions),
+          new Float32Array(colors),
+          new Float32Array(sizes),
+        ];
+      })();
+
+      // Sustituir los valores
+      window.stars.geometry.attributes.size.array = size;
+      window.stars.geometry.attributes.size.needsUpdate = true;
+    }
+  }, []);
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
   if (clicked) {
@@ -279,6 +335,27 @@ export default function App1({ url }) {
               min={0.1}
               max={7.0}
               step={0.1}
+              value={0.0}
+            ></input>
+          </div>
+
+          <div
+            id="div-input-range-stars-size"
+            style={{
+              display: showVideo ? "block" : "none",
+              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+              position: "absolute",
+              bottom: 60,
+              border: "none",
+              borderRadius: "4px",
+            }}
+          >
+            <input
+              type="range"
+              onChange={(e) => handleStarsPointSize(e.target.value)}
+              min={1.0}
+              max={1000.0}
+              step={1}
               value={0.0}
             ></input>
           </div>
