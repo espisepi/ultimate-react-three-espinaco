@@ -6,15 +6,15 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
     super({
       uniforms: {
         iTime: { type: "f", value: 0 },
-        iResolution:  { value: new THREE.Vector3(1, 1, 1) },
+        iResolution: { value: new THREE.Vector3(1, 1, 1) },
 
         bass: { type: "f", value: 0.0 },
         mid: { type: "f", value: 0.0 },
         treble: { type: "f", value: 0.0 },
 
-        colorInput: { value: new THREE.Vector3(0,0,0) },
+        colorInput: { value: new THREE.Vector3(0, 0, 0) },
 
-        iChannel0: { type: "t", value: undefined } // THREE.Texture
+        iChannel0: { type: "t", value: undefined }, // THREE.Texture
       },
       vertexShader: `
       varying vec2 vUv;
@@ -66,7 +66,7 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
               pos.z += gray * bass;
   
   
-              float size = 1.0;
+              float size = 3.5;
               gl_PointSize = size ;
   
               gl_Position = projectionMatrix * modelViewMatrix * vec4( pos, 1.0 );
@@ -113,14 +113,14 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
   
           vec4 textureVideo = texture2D( iChannel0, vec2( vUv.x, vUv.y) );
           vec3 color = textureVideo.rgb;                        
-          fragColor = vec4(color * 1.5, 1.0 );
+          fragColor = vec4(color, 1.0 );
   
   
       }
       void main() {
           mainImage(gl_FragColor, vUv * iResolution.xy);
       }
-    `
+    `,
     });
   }
 
@@ -132,50 +132,47 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
   }
 
   get iResolution() {
-      return this.uniforms.iResolution.value;
+    return this.uniforms.iResolution.value;
   }
   set iResolution(v) {
-      return this.uniforms.iResolution.value = v;
+    return (this.uniforms.iResolution.value = v);
   }
 
   get bass() {
-      return this.uniforms.bass.value;
+    return this.uniforms.bass.value;
   }
   set bass(v) {
-      return this.uniforms.bass.value = v;
+    return (this.uniforms.bass.value = v);
   }
 
   get mid() {
-      return this.uniforms.mid.value;
+    return this.uniforms.mid.value;
   }
   set mid(v) {
-      return this.uniforms.mid.value = v;
+    return (this.uniforms.mid.value = v);
   }
 
   get treble() {
     return this.uniforms.treble.value;
   }
   set treble(v) {
-    return this.uniforms.treble.value = v;
+    return (this.uniforms.treble.value = v);
   }
 
   get colorInput() {
     return this.uniforms.colorInput.value;
   }
   set colorInput(v) {
-    return this.uniforms.colorInput.value = v;
+    return (this.uniforms.colorInput.value = v);
   }
 
   get iChannel0() {
     return this.uniforms.iChannel0.value;
   }
   set iChannel0(v) {
-    return this.uniforms.iChannel0.value = v;
+    return (this.uniforms.iChannel0.value = v);
   }
-  
 }
 
 // @react-three/fiber: With code below I can use <VideoPointShader attach='material'>
 extend({ VideoPointShader });
-
-

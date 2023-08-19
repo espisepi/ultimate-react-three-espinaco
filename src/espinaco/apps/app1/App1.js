@@ -5,7 +5,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 // import { NippleJoystick } from "./espinaco/controls/NippleJoystick";
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import Scene1Canvas from "../../scenes/Scene1";
+import Scene1Canvas from "../../scenes/scene1/Scene1";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";

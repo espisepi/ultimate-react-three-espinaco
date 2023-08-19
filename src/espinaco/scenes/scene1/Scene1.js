@@ -3,17 +3,17 @@ import React, { useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Box, Stars } from "@react-three/drei";
 
-import { BoxVideo, BoxShader } from "../prefabs/BoxCustom";
-import VideoPoints from "../prefabs/VideoPoints";
+import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
+import VideoPoints from "../../prefabs/VideoPoints";
 import { Suspense } from "react";
 
-import GodCameraControls from "../controls/GodCameraControls";
-import { MusicVisualCubeReact } from "../prefabs/musicVisualCube/MusicVisualCube";
-import { SubtitleMesh } from "../prefabs/subtitleMesh/SubtitleMesh";
+import GodCameraControls from "../../controls/GodCameraControls";
+import { MusicVisualCubeReact } from "../../prefabs/musicVisualCube/MusicVisualCube";
+import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
-import { MemoryCardGame } from "../games/memoryCardGame/MemoryCardGame";
+import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 
 // Coger efectos de codrops
 // Mezclar esos dos efectos para soto asa videoclip
@@ -61,7 +61,7 @@ export function Scene1() {
         radius={1000}
         count={1999}
         depth={400}
-        factor={15}
+        factor={55}
         fade /* saturation={1} */ /* speed={1} */
       />
     </>
