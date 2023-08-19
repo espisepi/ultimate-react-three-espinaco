@@ -12,6 +12,8 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
         mid: { type: "f", value: 0.0 },
         treble: { type: "f", value: 0.0 },
 
+        pointSize: { type: "f", value: 1.5 },
+
         colorInput: { value: new THREE.Vector3(0, 0, 0) },
 
         iChannel0: { type: "t", value: undefined }, // THREE.Texture
@@ -25,6 +27,8 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
       uniform float bass;
       uniform float mid;
       uniform float treble;
+
+      uniform float pointSize;
   
   
           void main() {
@@ -66,8 +70,7 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
               pos.z += gray * bass;
   
   
-              float size = 3.5;
-              gl_PointSize = size ;
+              gl_PointSize = pointSize ;
   
               gl_Position = projectionMatrix * modelViewMatrix * vec4( pos, 1.0 );
             }
@@ -159,6 +162,12 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
     return (this.uniforms.treble.value = v);
   }
 
+  get pointSize() {
+    return this.uniforms.pointSize.value;
+  }
+  set pointSize(v) {
+    return (this.uniforms.pointSize.value = v);
+  }
   get colorInput() {
     return this.uniforms.colorInput.value;
   }
