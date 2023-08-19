@@ -31,6 +31,22 @@ const window_showVideo = window.showVideo || true;
 // añadir logo de cargando video mientras carga el video OK
 // que se pueda pasar por url el video de youtube a mostrar
 
+/**
+ * 
+ * FUFU - SLOU
+Feid, Young Miko - Classy 101 (Official Video)
+MIDAS ALONSO FT J.ROLDAN - A-6 (VIDEOCLIP OFICIAL) PROD.BY DELSON ARAVENA
+D.NADIE - LOS OJOS COMO LUNAS (Visualizer)
+SOSAD.97 | SOUKIN - PRESCRITO (prod. Fulston)
+MOLINA - CODO CON CODO
+Soto Asa - Gibraltar (Videoclip)
+2. Soto Asa - La Primera (ft. Mala Rodríguez)
+Saiko - Supernova (Official Video)
+Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)
+  
+ * 
+ */
+
 const dataMusic = [
   {
     name: "Tove Lo - Habits (Stay High)",
