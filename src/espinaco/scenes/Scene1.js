@@ -61,7 +61,7 @@ export function Scene1() {
         radius={1000}
         count={1999}
         depth={400}
-        factor={30}
+        factor={15}
         fade /* saturation={1} */ /* speed={1} */
       />
     </>
