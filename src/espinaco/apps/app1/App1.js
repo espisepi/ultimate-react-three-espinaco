@@ -345,7 +345,7 @@ export function App1Start({ url }) {
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
   return (
-    <div id="app-espinaco" style={{ position: "relative" }}>
+    <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen handle={handleFullScreen}>
         <Scene1Canvas
           style={{
