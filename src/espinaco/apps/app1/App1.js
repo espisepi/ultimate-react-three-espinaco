@@ -103,6 +103,7 @@ let isFirstTime = true;
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_VIDEOPOINTS_SCALE = 1;
+const DEFAULT_STARS_SCALE = 1;
 
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
@@ -249,6 +250,18 @@ export function App1Start({ url }) {
     if (window.videoPoints) {
       window.videoPoints.scale.set(value, value, value);
     }
+  }, []);
+
+  //======================================
+
+  const inputRangeStarsScaleRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeStarsScaleRef.current) {
+      inputRangeStarsScaleRef.current.value = DEFAULT_STARS_SCALE;
+    }
+  }, [inputRangeStarsScaleRef]);
+  const handleStarsScale = useCallback((value) => {
+    // TODO: Utilizar la funcion definida en handleStarsPointSize pero con:  const radius = value || 55;
   }, []);
   //======================================
 
@@ -421,8 +434,30 @@ export function App1Start({ url }) {
             // value={0.0}
           ></input>
         </div>
+        {/* <div
+          id="div-input-range-stars-scale"
+          style={{
+            display: showVideo ? "block" : "none",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            left: 30,
+            bottom: 100,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <input
+            type="range"
+            ref={inputRangeStarsPointSizeRef}
+            onChange={(e) => handleStarsScale(e.target.value)}
+            min={1.0}
+            max={30.0}
+            step={1}
+            // value={0.0}
+          ></input>
+        </div> */}
         <div
-          id="div-input-range-stars-size"
+          id="div-input-range-stars-pointSize"
           style={{
             display: showVideo ? "block" : "none",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
