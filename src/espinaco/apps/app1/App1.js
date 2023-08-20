@@ -318,6 +318,30 @@ export function App1Start({ url }) {
     }
   }, []);
 
+  //================================================
+
+  const [showMenuButton, setShowMenuButton] = useState(true);
+  useEffect(() => {
+    function manejarTecla(event) {
+      if (event.key === "t") {
+        setShowMenuButton(true);
+        setShowVideo(true);
+      }
+      if (event.key === "f") {
+        setShowMenuButton(false);
+        setShowVideo(false);
+      }
+    }
+
+    // Agregar un event listener al documento para detectar las teclas
+    document.addEventListener("keydown", manejarTecla);
+    return () => {
+      document.removeEventListener("keydown", manejarTecla);
+    };
+  }, []);
+
+  //================================================
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
   return (
@@ -518,6 +542,7 @@ export function App1Start({ url }) {
         <button
           onClick={handleShowVideo}
           style={{
+            display: showMenuButton ? "block" : "none",
             width: "50px",
             height: "50px",
             borderRadius: "25px",
