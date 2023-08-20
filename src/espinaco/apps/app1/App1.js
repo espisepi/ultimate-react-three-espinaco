@@ -101,6 +101,7 @@ const dataMusic = [
 let isFirstTime = true;
 
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
+const DEFAULT_STARS_POINTSIZE = 55;
 
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
@@ -239,6 +240,12 @@ export function App1Start({ url }) {
     }
   }, []);
 
+  const inputRangeStarsPointSizeRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeStarsPointSizeRef.current) {
+      inputRangeStarsPointSizeRef.current.value = DEFAULT_STARS_POINTSIZE;
+    }
+  }, [inputRangeStarsPointSizeRef]);
   const handleStarsPointSize = useCallback((value) => {
     if (window.stars) {
       //count, depth, factor, radius, saturation
@@ -393,6 +400,7 @@ export function App1Start({ url }) {
         >
           <input
             type="range"
+            ref={inputRangeStarsPointSizeRef}
             onChange={(e) => handleStarsPointSize(e.target.value)}
             min={1.0}
             max={1000.0}
