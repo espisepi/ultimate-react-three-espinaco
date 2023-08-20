@@ -115,7 +115,10 @@ export default class VideoPointShader extends THREE.ShaderMaterial {
           //color = vec3( textureVideo.r - 0.1, textureVideo.g - 0.1, textureVideo.b - 0.1 ) + vec3( bass * 0.2, bass * 0.2, bass * 0.2 );
   
           vec4 textureVideo = texture2D( iChannel0, vec2( vUv.x, vUv.y) );
-          vec3 color = textureVideo.rgb;                        
+          vec3 color = textureVideo.rgb;
+          //color.r += bass - 0.6 ;
+          //color.g += bass - 0.6;
+          //color.b += bass - 0.6;
           fragColor = vec4(color, 1.0 );
   
   
