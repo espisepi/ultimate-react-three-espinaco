@@ -224,12 +224,13 @@ export function App1Start({ url }) {
 
   //======================================
   // Para poner el valor actual en el input range
-  const inputRangeVideoPointsRef = useRef(null);
+  const inputRangeVideoPointsSizeRef = useRef(null);
   useEffect(() => {
-    if (inputRangeVideoPointsRef.current) {
-      inputRangeVideoPointsRef.current.value = DEFAULT_VIDEOPOINTS_POINTSSIZE;
+    if (inputRangeVideoPointsSizeRef.current) {
+      inputRangeVideoPointsSizeRef.current.value =
+        DEFAULT_VIDEOPOINTS_POINTSSIZE;
     }
-  }, [inputRangeVideoPointsRef]);
+  }, [inputRangeVideoPointsSizeRef]);
   // Modificar el inputRange
   const handleVideoPointSize = useCallback((value) => {
     if (window.videoPoints) {
@@ -380,9 +381,9 @@ export function App1Start({ url }) {
           id="div-input-range-video-point-size"
           style={{
             display: showVideo ? "block" : "none",
-
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
+            left: 30,
             bottom: 190,
             border: "none",
             borderRadius: "4px",
@@ -390,10 +391,10 @@ export function App1Start({ url }) {
         >
           <input
             type="range"
-            ref={inputRangeVideoPointsRef}
+            ref={inputRangeVideoPointsSizeRef}
             onChange={(e) => handleVideoPointSize(e.target.value)}
             min={0.1}
-            max={7.0}
+            max={30.0}
             step={0.1}
             // value={0.0}
           ></input>
@@ -402,9 +403,9 @@ export function App1Start({ url }) {
           id="div-input-range-video-point-scale"
           style={{
             display: showVideo ? "block" : "none",
-
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
+            left: 30,
             bottom: 160,
             border: "none",
             borderRadius: "4px",
@@ -415,7 +416,7 @@ export function App1Start({ url }) {
             ref={inputRangeVideoPointsScaleRef}
             onChange={(e) => handleVideoPointScale(e.target.value)}
             min={0.1}
-            max={7.0}
+            max={30.0}
             step={0.1}
             // value={0.0}
           ></input>
@@ -426,6 +427,7 @@ export function App1Start({ url }) {
             display: showVideo ? "block" : "none",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
+            left: 30,
             bottom: 130,
             border: "none",
             borderRadius: "4px",
