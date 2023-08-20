@@ -100,7 +100,36 @@ const dataMusic = [
 
 let isFirstTime = true;
 
-export default function App1({ url }) {
+const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
+
+export default function App1({}) {
+  const [clicked, setClicked] = useState(false);
+  if (clicked) {
+    return <App1Start />;
+  }
+  return <App1ClickToStart setClicked={setClicked} />;
+}
+
+export function App1ClickToStart({ setClicked }) {
+  return (
+    <div
+      className="background-initial"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        width: "100%",
+        height: "100vh",
+        color: "black",
+        backgroundColor: "#500050",
+      }}
+      onClick={() => setClicked(true)}
+    >
+      <h1>Click to Start</h1>
+    </div>
+  );
+}
+
+export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
 
   const [showVideo, setShowVideo] = useState(window_showVideo);
@@ -191,6 +220,19 @@ export default function App1({ url }) {
     }
   }, []);
 
+  // Para poner el valor actual en el input range
+  const inputRangeVideoPointsRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeVideoPointsRef.current) {
+      if (window.videoPoints) {
+        inputRangeVideoPointsRef.current.value =
+          window.videoPoints.material.uniforms.pointSize.value;
+      } else {
+        inputRangeVideoPointsRef.current.value = DEFAULT_VIDEOPOINTS_POINTSSIZE;
+      }
+    }
+  }, [inputRangeVideoPointsRef]);
+  // Modificar el inputRange
   const handleVideoPointSize = useCallback((value) => {
     if (window.videoPoints) {
       window.videoPoints.material.uniforms.pointSize.value = value;
@@ -246,189 +288,170 @@ export default function App1({ url }) {
 
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
 
-  if (clicked) {
-    return (
-      <div id="app-espinaco" style={{ position: "relative" }}>
-        <FullScreen handle={handleFullScreen}>
-          <Scene1Canvas
-            style={{
-              position: "relative",
-              top: "0",
-              width: "100%",
-              height: "100vh",
-            }}
-          />
+  return (
+    <div id="app-espinaco" style={{ position: "relative" }}>
+      <FullScreen handle={handleFullScreen}>
+        <Scene1Canvas
+          style={{
+            position: "relative",
+            top: "0",
+            width: "100%",
+            height: "100vh",
+          }}
+        />
 
-          <video
-            id="video"
-            style={{
-              display: "none",
-              // visibility: "hidden",
-              // width: "25vw",
-              // height: "25vh",
-              // top: 0,
-              // zIndex: 100,
-              // position: "absolute",
-            }}
-            src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
-            // controls={false}
-            // autoPlay={true}
-            playsInline={true}
-            loop={true}
-            crossOrigin="anonymous"
-          ></video>
+        <video
+          id="video"
+          style={{
+            display: "none",
+            // visibility: "hidden",
+            // width: "25vw",
+            // height: "25vh",
+            // top: 0,
+            // zIndex: 100,
+            // position: "absolute",
+          }}
+          src="videos/stayHigh.mp4" // despues se sustituye por la url insertada
+          // controls={false}
+          // autoPlay={true}
+          playsInline={true}
+          loop={true}
+          crossOrigin="anonymous"
+        ></video>
 
-          <h1
-            id="loading"
-            style={{
-              color: "white",
-              zIndex: 999,
-              position: "absolute",
-              top: 0,
-              display: "none",
-            }}
-          >
-            Loading...
-          </h1>
+        <h1
+          id="loading"
+          style={{
+            color: "white",
+            zIndex: 999,
+            position: "absolute",
+            top: 0,
+            display: "none",
+          }}
+        >
+          Loading...
+        </h1>
 
-          {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
+        {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
             src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video> */}
 
-          {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
-          {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-          {/* <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} /> */}
-          {/* </div> */}
+        {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
+        {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
+        {/* <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} /> */}
+        {/* </div> */}
 
+        <input
+          type="text"
+          placeholder="Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8"
+          onChange={(e) => handleInputText(e.target.value)}
+          style={{
+            display: showVideo ? "block" : "none",
+            border: "none",
+            borderRadius: "4px",
+            width: "50vw",
+            height: "30px",
+            position: "absolute",
+            top: "20px",
+            left: "40%",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            padding: "0.2rem 1rem",
+          }}
+        />
+
+        <div
+          id="div-input-range-video-point-size"
+          style={{
+            display: showVideo ? "block" : "none",
+
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            bottom: 130,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
           <input
-            type="text"
-            placeholder="Insert url from youtube like https://www.youtube.com/watch?v=ZelTFpXStE8"
-            onChange={(e) => handleInputText(e.target.value)}
-            style={{
-              display: showVideo ? "block" : "none",
-              border: "none",
-              borderRadius: "4px",
-              width: "50vw",
-              height: "30px",
-              position: "absolute",
-              top: "20px",
-              left: "40%",
-              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-              padding: "0.2rem 1rem",
-            }}
-          />
+            type="range"
+            ref={inputRangeVideoPointsRef}
+            onChange={(e) => handleVideoPointSize(e.target.value)}
+            min={0.1}
+            max={7.0}
+            step={0.1}
+            // value={0.0}
+          ></input>
+        </div>
+        <div
+          id="div-input-range-stars-size"
+          style={{
+            display: showVideo ? "block" : "none",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            bottom: 160,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <input
+            type="range"
+            onChange={(e) => handleStarsPointSize(e.target.value)}
+            min={1.0}
+            max={1000.0}
+            step={1}
+            // value={0.0}
+          ></input>
+        </div>
 
-          <div
-            id="div-input-range-video-point-size"
-            style={{
-              display: showVideo ? "block" : "none",
+        <button
+          onClick={handleAutoRotate}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "100px",
+            right: "200px",
+            //   backgroundColor: "#ffff00",
+            background: "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)",
+            opacity: 0.5,
+          }}
+        >
+          {" "}
+        </button>
 
-              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-              position: "absolute",
-              bottom: 130,
-              border: "none",
-              borderRadius: "4px",
-            }}
-          >
-            <input
-              type="range"
-              onChange={(e) => handleVideoPointSize(e.target.value)}
-              min={0.1}
-              max={7.0}
-              step={0.1}
-              value={0.0}
-            ></input>
-          </div>
+        <button
+          onClick={toggleFullScreen}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "100px",
+            right: "100px",
+            //   backgroundColor: "#ff00ff",
+            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            opacity: 0.5,
+          }}
+        >
+          ∫{" "}
+        </button>
 
-          <div
-            id="div-input-range-stars-size"
-            style={{
-              display: showVideo ? "block" : "none",
-              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-              position: "absolute",
-              bottom: 160,
-              border: "none",
-              borderRadius: "4px",
-            }}
-          >
-            <input
-              type="range"
-              onChange={(e) => handleStarsPointSize(e.target.value)}
-              min={1.0}
-              max={1000.0}
-              step={1}
-              value={0.0}
-            ></input>
-          </div>
-
-          <button
-            onClick={handleAutoRotate}
-            style={{
-              display: showVideo ? "block" : "none",
-              width: "50px",
-              height: "50px",
-              borderRadius: "25px",
-              position: "absolute",
-              bottom: "100px",
-              right: "200px",
-              //   backgroundColor: "#ffff00",
-              background: "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)",
-              opacity: 0.5,
-            }}
-          >
-            {" "}
-          </button>
-
-          <button
-            onClick={toggleFullScreen}
-            style={{
-              display: showVideo ? "block" : "none",
-              width: "50px",
-              height: "50px",
-              borderRadius: "25px",
-              position: "absolute",
-              bottom: "100px",
-              right: "100px",
-              //   backgroundColor: "#ff00ff",
-              background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
-              opacity: 0.5,
-            }}
-          >
-            {" "}
-          </button>
-
-          <button
-            onClick={handleShowVideo}
-            style={{
-              width: "50px",
-              height: "50px",
-              borderRadius: "25px",
-              position: "absolute",
-              bottom: "100px",
-              right: "10px",
-              //   backgroundColor: "white",
-              background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-              opacity: showVideo ? 1 : 0.3,
-            }}
-          ></button>
-        </FullScreen>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className="background-initial"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        width: "100%",
-        height: "100vh",
-        color: "black",
-        backgroundColor: "#500050",
-      }}
-      onClick={() => setClicked(true)}
-    >
-      <h1>Click to Start</h1>
+        <button
+          onClick={handleShowVideo}
+          style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "100px",
+            right: "10px",
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showVideo ? 1 : 0.3,
+          }}
+        ></button>
+      </FullScreen>
     </div>
   );
 }
