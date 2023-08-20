@@ -102,6 +102,7 @@ let isFirstTime = true;
 
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_STARS_POINTSIZE = 55;
+const DEFAULT_VIDEOPOINTS_SCALE = 1;
 
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
@@ -221,16 +222,12 @@ export function App1Start({ url }) {
     }
   }, []);
 
+  //======================================
   // Para poner el valor actual en el input range
   const inputRangeVideoPointsRef = useRef(null);
   useEffect(() => {
     if (inputRangeVideoPointsRef.current) {
-      if (window.videoPoints) {
-        inputRangeVideoPointsRef.current.value =
-          window.videoPoints.material.uniforms.pointSize.value;
-      } else {
-        inputRangeVideoPointsRef.current.value = DEFAULT_VIDEOPOINTS_POINTSSIZE;
-      }
+      inputRangeVideoPointsRef.current.value = DEFAULT_VIDEOPOINTS_POINTSSIZE;
     }
   }, [inputRangeVideoPointsRef]);
   // Modificar el inputRange
@@ -239,6 +236,20 @@ export function App1Start({ url }) {
       window.videoPoints.material.uniforms.pointSize.value = value;
     }
   }, []);
+  //======================================
+
+  const inputRangeVideoPointsScaleRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeVideoPointsScaleRef.current) {
+      inputRangeVideoPointsScaleRef.current.value = DEFAULT_VIDEOPOINTS_SCALE;
+    }
+  }, [inputRangeVideoPointsScaleRef]);
+  const handleVideoPointScale = useCallback((value) => {
+    if (window.videoPoints) {
+      window.videoPoints.scale.set(value, value, value);
+    }
+  }, []);
+  //======================================
 
   const inputRangeStarsPointSizeRef = useRef(null);
   useEffect(() => {
@@ -372,7 +383,7 @@ export function App1Start({ url }) {
 
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
-            bottom: 130,
+            bottom: 190,
             border: "none",
             borderRadius: "4px",
           }}
@@ -388,12 +399,34 @@ export function App1Start({ url }) {
           ></input>
         </div>
         <div
+          id="div-input-range-video-point-scale"
+          style={{
+            display: showVideo ? "block" : "none",
+
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            bottom: 160,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <input
+            type="range"
+            ref={inputRangeVideoPointsScaleRef}
+            onChange={(e) => handleVideoPointScale(e.target.value)}
+            min={0.1}
+            max={7.0}
+            step={0.1}
+            // value={0.0}
+          ></input>
+        </div>
+        <div
           id="div-input-range-stars-size"
           style={{
             display: showVideo ? "block" : "none",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
-            bottom: 160,
+            bottom: 130,
             border: "none",
             borderRadius: "4px",
           }}
