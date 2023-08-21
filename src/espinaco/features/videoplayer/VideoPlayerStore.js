@@ -20,6 +20,18 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Feid, Young Miko - Classy 101 (Official Video)",
       url: "https://www.youtube.com/watch?v=cD5T1Y4b7wA",
     },
+    {
+      name: "FUFU - SLOU (OFFICIAL VIDEO)",
+      url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
+    },
+    {
+      name: "Saiko - Supernova (Official Video)",
+      url: "https://www.youtube.com/watch?v=BbZi8xGMyuM",
+    },
+    {
+      name: "Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)",
+      url: "https://www.youtube.com/watch?v=SkBML8JgD0k",
+    },
   ],
   selectedVideo: null,
   //selectVideo: (video) => set({ selectedVideo: video }),
