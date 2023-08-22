@@ -63,6 +63,9 @@ https://www.youtube.com/watch?v=fLzU21ltH4U
  * 
  */
 
+// TODO: Poder visualizar un streaming con videoPoints
+// TODO: Subir video desde el movil/pc y reproducirlo
+
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_VIDEOPOINTS_SCALE = 1;

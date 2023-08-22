@@ -12,6 +12,15 @@ export const LOVE_LO_HABITS = {
   url: "videos/stayHigh.mp4",
 };
 
+/**
+ *
+ *
+ * https://www.youtube.com/watch?v=taSubkjZUA4
+ * https://www.youtube.com/watch?v=fLzU21ltH4U
+ * https://www.youtube.com/watch?v=sFBS3kBpMpM
+ *
+ */
+
 export const useVideoPlayerStore = create((set, get) => ({
   videos: [
     LOVE_LO_HABITS,
