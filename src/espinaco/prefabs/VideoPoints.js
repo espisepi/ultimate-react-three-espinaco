@@ -83,7 +83,7 @@ export default function VideoPoints({
     }
   }, [video]);
 
-  const analyser = useAnalyser("video");
+  const analyser = useAnalyser(video);
   useFrame(() => {
     if (analyser && points) {
       points.material.uniforms.bass.value = analyser.getUpdateLowerMax();

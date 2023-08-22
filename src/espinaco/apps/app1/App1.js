@@ -22,6 +22,7 @@ import {
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import VideoPlayer from "../../features/videoplayer/VideoPlayer";
+import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -259,6 +260,8 @@ export function App1Start({ url }) {
         />
 
         <VideoPlayer showUI={showVideo} />
+
+        {/* <VideoPlayerScreenCapture /> */}
 
         {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
             src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video> */}
