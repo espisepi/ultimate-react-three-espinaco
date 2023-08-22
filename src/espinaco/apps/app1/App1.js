@@ -63,7 +63,7 @@ https://www.youtube.com/watch?v=fLzU21ltH4U
  * 
  */
 
-// TODO: Poder visualizar un streaming con videoPoints
+// TODO: Poder visualizar un streaming con videoPoints : WEBRTC, grabar pantalla js
 // TODO: Subir video desde el movil/pc y reproducirlo
 
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
