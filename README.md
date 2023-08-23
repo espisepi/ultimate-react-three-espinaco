@@ -1,5 +1,7 @@
 # Skills
 
+- Electron app: https://tincode.es/blog/anadiendo-react-a-una-aplicacion-de-electron
+
 - const console = { log: msg => div.innerHTML += msg + "<br>" };
 
 # Create React App
