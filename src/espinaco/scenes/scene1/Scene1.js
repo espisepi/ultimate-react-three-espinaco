@@ -36,7 +36,7 @@ export function Scene1() {
       {/* <BoxVideo /> */}
       {/* <BoxShader /> */}
 
-      <VideoPoints />
+      <VideoPoints isVideoStream={true} />
 
       {/* <group>
             <group>

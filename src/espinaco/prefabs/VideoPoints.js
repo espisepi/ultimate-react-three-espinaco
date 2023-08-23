@@ -8,6 +8,7 @@ import VideoPointShader from "./shaders/VideoPointShader";
 
 export default function VideoPoints({
   id_video = "video",
+  isVideoStream = false,
   position = [0, 0, 0],
 }) {
   const { scene } = useThree();
@@ -83,7 +84,7 @@ export default function VideoPoints({
     }
   }, [video]);
 
-  const analyser = useAnalyser(video);
+  const analyser = useAnalyser(video, isVideoStream);
   useFrame(() => {
     if (analyser && points) {
       points.material.uniforms.bass.value = analyser.getUpdateLowerMax();

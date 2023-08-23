@@ -261,7 +261,7 @@ export function App1Start({ url }) {
           }}
         />
 
-        <VideoPlayer showUI={showVideo} />
+        <VideoPlayerScreenCapture showUI={showVideo} />
 
         {/* <VideoPlayerScreenCapture /> */}
 

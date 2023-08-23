@@ -30,18 +30,24 @@ export default function VideoPlayerScreenCapture() {
 
   return (
     <div style={{ position: "absolute", top: 0 }}>
-      <h1>Webcam Stream</h1>
+      {/* <h1>Webcam Stream</h1> */}
       <video
         id="video"
         ref={videoRef}
         autoPlay
         playsInline
-        controls
+        // controls
+        muted
         style={{
-          //   display: "none",
-          width: 300,
-          height: 300,
+          // display: "none",
+          // visibility: "hidden",
+          // pointerEvents: "none",
+          width: 1920,
+          height: 1080,
+          position: "absolute",
+          zIndex: -99999,
         }}
+        crossOrigin="anonymous"
       />
     </div>
   );
