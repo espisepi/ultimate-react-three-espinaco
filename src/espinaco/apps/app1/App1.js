@@ -61,6 +61,7 @@ Soto Asa - Gibraltar (Videoclip)
 Saiko - Supernova (Official Video)
 Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)
 https://www.youtube.com/watch?v=fLzU21ltH4U
+https://www.youtube.com/watch?v=4DFxeyPiRkM
  * 
  */
 
@@ -70,6 +71,7 @@ https://www.youtube.com/watch?v=fLzU21ltH4U
 // TODO: Sketchbook con codigo ts dentro de este proyecto react
 
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
+const DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE = 1.0;
 const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_VIDEOPOINTS_SCALE = 1;
 const DEFAULT_STARS_SCALE = 1;
@@ -141,6 +143,23 @@ export function App1Start({ url }) {
   const handleVideoPointSize = useCallback((value) => {
     if (window.videoPoints) {
       window.videoPoints.material.uniforms.pointSize.value = value;
+    }
+  }, []);
+  //======================================
+
+  //======================================
+  // Para poner el valor actual en el input range
+  const inputRangeVideoPointsAmplitudeDistanceRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeVideoPointsAmplitudeDistanceRef.current) {
+      inputRangeVideoPointsAmplitudeDistanceRef.current.value =
+        DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE;
+    }
+  }, [inputRangeVideoPointsAmplitudeDistanceRef]);
+  // Modificar el inputRange
+  const handleVideoPointAmplitudeDistance = useCallback((value) => {
+    if (window.videoPoints) {
+      window.videoPoints.material.uniforms.amplitudeDistance.value = value;
     }
   }, []);
   //======================================
@@ -292,6 +311,28 @@ export function App1Start({ url }) {
             min={0.1}
             max={30.0}
             step={0.1}
+            // value={0.0}
+          ></input>
+        </div>
+        <div
+          id="div-input-range-video-point-amplitude-distance"
+          style={{
+            display: showVideo ? "block" : "none",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            left: 30,
+            bottom: 220,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <input
+            type="range"
+            ref={inputRangeVideoPointsAmplitudeDistanceRef}
+            onChange={(e) => handleVideoPointAmplitudeDistance(e.target.value)}
+            min={-3000.0}
+            max={3000.0}
+            step={1}
             // value={0.0}
           ></input>
         </div>
