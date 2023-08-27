@@ -115,6 +115,11 @@ export function App1Start({ url }) {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
 
+  const [showUIMovement, setShowUIMovement] = useState(window_showVideo);
+  const handleShowUIMovement = useCallback(() => {
+    setShowUIMovement((v) => !showUIMovement);
+  }, [showUIMovement]);
+
   // let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
   const firstUrl = "videos/stayHigh.mp4";
   // const [link, setLink] = useState(firstUrl);
@@ -283,10 +288,12 @@ export function App1Start({ url }) {
       if (event.key === "t") {
         setShowMenuButton(true);
         setShowVideo(true);
+        setShowUIMovement(true);
       }
       if (event.key === "f") {
         setShowMenuButton(false);
         setShowVideo(false);
+        setShowUIMovement(false);
       }
     }
 
@@ -313,7 +320,7 @@ export function App1Start({ url }) {
           }}
         />
 
-        <NippleJoystick showUI={showVideo} />
+        <NippleJoystick showUI={showUIMovement} />
 
         <VideoPlayer showUI={showVideo} />
 
@@ -459,7 +466,7 @@ export function App1Start({ url }) {
         <button
           onClick={handleTargetOrbitControls}
           style={{
-            display: showVideo ? "block" : "none",
+            display: showUIMovement ? "block" : "none",
             width: "50px",
             height: "50px",
             borderRadius: "25px",
@@ -507,6 +514,21 @@ export function App1Start({ url }) {
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 1 : 0.3,
+          }}
+        ></button>
+        <button
+          onClick={handleShowUIMovement}
+          style={{
+            display: showMenuButton ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "200px",
+            right: "10px",
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showUIMovement ? 1 : 0.3,
           }}
         ></button>
       </FullScreen>
