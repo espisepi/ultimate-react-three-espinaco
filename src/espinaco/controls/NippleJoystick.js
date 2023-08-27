@@ -74,6 +74,7 @@ export function NippleJoystick({ style, showUI = true }) {
           position: "absolute",
           bottom: "300px",
           left: "50vw",
+          zIndex: 999,
           opacity: 0.5,
           ...style,
           // if you pass position: 'relative', you don't need to import the stylesheet
