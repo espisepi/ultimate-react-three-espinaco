@@ -27,8 +27,19 @@ export function Scene1() {
   useEffect(() => {
     if (starsRef.current) {
       window.stars = starsRef.current;
+
+      window.stars.isRotating = false;
     }
   }, [starsRef.current]);
+  useFrame(({ clock }) => {
+    if (window?.stars?.isRotating) {
+      window.stars.rotation.set(
+        window.stars.rotation.x,
+        clock.elapsedTime * 0.1,
+        window.stars.rotation.z
+      );
+    }
+  });
   return (
     <>
       <ambientLight />

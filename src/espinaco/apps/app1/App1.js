@@ -110,19 +110,19 @@ export function App1ClickToStart({ setClicked }) {
 export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
 
+  //======================================
+
   const [showVideo, setShowVideo] = useState(window_showVideo);
   const handleShowVideo = useCallback(() => {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
 
+  //======================================
+
   const [showUIMovement, setShowUIMovement] = useState(window_showVideo);
   const handleShowUIMovement = useCallback(() => {
     setShowUIMovement((v) => !showUIMovement);
   }, [showUIMovement]);
-
-  // let firstUrl = url ? BASE_URL_HEROKU_VIDEO_YT_DL + url : window_urlYoutube;
-  const firstUrl = "videos/stayHigh.mp4";
-  // const [link, setLink] = useState(firstUrl);
 
   //======================================
 
@@ -225,6 +225,18 @@ export function App1Start({ url }) {
   const handleStarsScale = useCallback((value) => {
     // TODO: Utilizar la funcion definida en handleStarsPointSize pero con:  const radius = value || 55;
   }, []);
+  //======================================
+
+  //======================================
+
+  const [rotationStars, setRotationStars] = useState(false);
+  const handleRotationStars = useCallback(() => {
+    setRotationStars((v) => !rotationStars);
+    if (window.stars) {
+      window.stars.isRotating = rotationStars ? true : false;
+    }
+  }, [rotationStars]);
+
   //======================================
 
   const inputRangeStarsPointSizeRef = useRef(null);
@@ -444,6 +456,24 @@ export function App1Start({ url }) {
             // value={0.0}
           ></input>
         </div>
+
+        <button
+          onClick={handleRotationStars}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "100px",
+            right: "150px",
+            //   backgroundColor: "#ffff00",
+            background: "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)",
+            opacity: 0.5,
+          }}
+        >
+          {" "}
+        </button>
 
         <button
           onClick={handleAutoRotate}
