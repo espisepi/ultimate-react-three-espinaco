@@ -74,6 +74,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
       url: "https://www.youtube.com/watch?v=n8OKNX4NpSA",
     },
+    {
+      name: "FUFU - PLAYBOY (OFFICIAL VIDEO)",
+      url: "https://www.youtube.com/watch?v=EN-gtDCFRKM",
+    },
   ].sort((a, b) => a.name.localeCompare(b.name)), // Reference1 (definida al principio de este fichero)
   selectedVideo: null,
   //selectVideo: (video) => set({ selectedVideo: video }),
