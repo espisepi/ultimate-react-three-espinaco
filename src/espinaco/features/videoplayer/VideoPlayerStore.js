@@ -21,6 +21,15 @@ export const LOVE_LO_HABITS = {
  *
  */
 
+/**
+ * Reference1:
+ *  (chatgpt)
+ *  He agregado una función de comparación como argumento para el método .sort().
+ *  Esta función de comparación utiliza el método localeCompare()
+ *  para comparar los nombres de los videos y ordenar el array en orden alfabético.
+ *  Esto garantiza que el array videos se ordene correctamente según el nombre de cada video en el momento de la declaración
+ */
+
 export const useVideoPlayerStore = create((set, get) => ({
   videos: [
     LOVE_LO_HABITS,
@@ -41,7 +50,15 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)",
       url: "https://www.youtube.com/watch?v=SkBML8JgD0k",
     },
-  ],
+    {
+      name: "Emilia, Ludmilla, Zecca - No_se_ve.mp3 (Official Video)",
+      url: "https://www.youtube.com/watch?v=fLzU21ltH4U",
+    },
+    {
+      name: "Alemán - Maradona (Visualizer)",
+      url: "https://www.youtube.com/watch?v=4DFxeyPiRkM",
+    },
+  ].sort((a, b) => a.name.localeCompare(b.name)), // Reference1 (definida al principio de este fichero)
   selectedVideo: null,
   //selectVideo: (video) => set({ selectedVideo: video }),
   // video: {name: string, url: string}
