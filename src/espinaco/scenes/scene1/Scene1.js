@@ -92,7 +92,7 @@ export default function Scene1Canvas({ style }) {
     <>
       <Canvas
         style={{ ...style, backgroundColor: "black" }}
-        camera={{ position: [0, 0, 400], far: 99999 }}
+        camera={{ position: [0, 0, 400], far: 9999999 }}
       >
         <Suspense
           fallback={<Box material-color="red" material-wireframe="true" />}
