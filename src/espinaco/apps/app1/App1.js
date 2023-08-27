@@ -229,13 +229,11 @@ export function App1Start({ url }) {
 
   //======================================
 
-  const [rotationStars, setRotationStars] = useState(false);
   const handleRotationStars = useCallback(() => {
-    setRotationStars((v) => !rotationStars);
     if (window.stars) {
-      window.stars.isRotating = rotationStars ? true : false;
+      window.stars.isRotating = !window.stars.isRotating;
     }
-  }, [rotationStars]);
+  }, []);
 
   //======================================
 
