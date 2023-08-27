@@ -24,6 +24,7 @@ import Scene1Canvas from "../../scenes/scene1/Scene1";
 import VideoPlayer from "../../features/videoplayer/VideoPlayer";
 import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
 import { NippleJoystick } from "../../controls/NippleJoystick";
+import { useThree } from "@react-three/fiber";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -79,6 +80,8 @@ const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_VIDEOPOINTS_SCALE = 1;
 const DEFAULT_STARS_SCALE = 1;
 
+let booleanForHandleTargetOrbitControls = true;
+
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
   if (clicked) {
@@ -126,6 +129,23 @@ export function App1Start({ url }) {
       handleFullScreen.enter();
     }
   }, [handleFullScreen]);
+
+  const handleTargetOrbitControls = useCallback(() => {
+    if ((window.orbitControls, window.camera)) {
+      if (booleanForHandleTargetOrbitControls) {
+        // console.log(window.orbitControls.target);
+        // window.orbitControls.target.copy(window.camera.position);
+        // window.orbitControls.update();
+        // window.orbitControls.target = new Vector3(
+        //   window.camera.position.x,
+        //   window.camera.position.y,
+        //   window.camera.position.z
+        // );
+      } else {
+        // window.orbitControls.target = new Vector3(0, 0, -1000);
+      }
+    }
+  }, []);
 
   const handleAutoRotate = useCallback(() => {
     if (window.orbitControls) {
@@ -425,6 +445,24 @@ export function App1Start({ url }) {
         >
           {" "}
         </button>
+
+        {/* <button
+          onClick={handleTargetOrbitControls}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "200px",
+            right: "100px",
+            //   backgroundColor: "#ff00ff",
+            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            opacity: 0.5,
+          }}
+        >
+          ∫{" "}
+        </button> */}
 
         <button
           onClick={toggleFullScreen}

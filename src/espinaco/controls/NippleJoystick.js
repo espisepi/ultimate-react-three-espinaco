@@ -60,7 +60,7 @@ export function NippleJoystick({ style, showUI = true }) {
           width: 150,
           height: 150,
           position: "absolute",
-          bottom: "50px",
+          bottom: "300px",
           left: "50vw",
           opacity: 0.5,
           ...style,

@@ -1,7 +1,6 @@
-
-import React, { useCallback, useEffect, useRef } from 'react';
-import { OrbitControls } from '@react-three/drei';
-import * as THREE from 'three';
+import React, { useCallback, useEffect, useRef } from "react";
+import { OrbitControls } from "@react-three/drei";
+import * as THREE from "three";
 
 import { useFrame, useThree } from "@react-three/fiber";
 import useKeyPress from "../hooks/useKeyPress";
@@ -12,65 +11,66 @@ const SPEED_MIN_VALUE = 100;
 const SPEED_MAX_VALUE = 500;
 
 export default function GodCameraControls() {
+  const { camera } = useThree();
+  const orbitControls = useRef();
 
-    const { camera } = useThree();
-    const orbitControls = useRef();
+  useEffect(() => {
+    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
+    window.orbitControls = orbitControls?.current;
+  }, [orbitControls]);
 
-    useEffect(()=>{
-        // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
-        window.orbitControls = orbitControls?.current;
-    },[orbitControls]);
+  useEffect(() => {
+    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
+    window.camera = camera;
+  }, [camera]);
 
-    const speedKeyPress = useKeyPress("ShiftLeft");
-    const moveForwardKeyPress = useKeyPress("w");
-    const moveBackKeyPress = useKeyPress("s");
-    const moveLeftKeyPress = useKeyPress("a");
-    const moveRightKeyPress = useKeyPress("d");
-    const moveHeight = useKeyPress("e");
-    const moveDown = useKeyPress("q");
-    
+  const speedKeyPress = useKeyPress("ShiftLeft");
+  const moveForwardKeyPress = useKeyPress("w");
+  const moveBackKeyPress = useKeyPress("s");
+  const moveLeftKeyPress = useKeyPress("a");
+  const moveRightKeyPress = useKeyPress("d");
+  const moveHeight = useKeyPress("e");
+  const moveDown = useKeyPress("q");
 
-    const moveForward = useCallback( (distance) => {
-        vec.setFromMatrixColumn(camera.matrix, 0);
-        vec.crossVectors(camera.up, vec);
-        camera.position.addScaledVector(vec, distance);
-        orbitControls.current.target.addScaledVector(vec, distance);
-    }, [] );
-    const moveRight = useCallback( (distance) => {
-        vec.setFromMatrixColumn(camera.matrix, 0);
-        camera.position.addScaledVector(vec, distance);
-        orbitControls.current.target.addScaledVector(vec, distance);
-    }, [] );
-    const moveY = useCallback( (distance) => {
-        vec.set(0,1,0);
-        camera.position.addScaledVector(vec, distance);
-        orbitControls.current.target.addScaledVector(vec, distance);
-    }, [] );
+  const moveForward = useCallback((distance) => {
+    vec.setFromMatrixColumn(camera.matrix, 0);
+    vec.crossVectors(camera.up, vec);
+    camera.position.addScaledVector(vec, distance);
+    orbitControls.current.target.addScaledVector(vec, distance);
+  }, []);
+  const moveRight = useCallback((distance) => {
+    vec.setFromMatrixColumn(camera.matrix, 0);
+    camera.position.addScaledVector(vec, distance);
+    orbitControls.current.target.addScaledVector(vec, distance);
+  }, []);
+  const moveY = useCallback((distance) => {
+    vec.set(0, 1, 0);
+    camera.position.addScaledVector(vec, distance);
+    orbitControls.current.target.addScaledVector(vec, distance);
+  }, []);
 
-    useFrame((_, delta)=>{
-        const speed = speedKeyPress ?  SPEED_MAX_VALUE : SPEED_MIN_VALUE;       
-        if(moveForwardKeyPress) {
-            moveForward(delta * speed);
-        }
-        if(moveBackKeyPress) {
-            moveForward(-delta * speed);
-        }
-        if(moveRightKeyPress) {
-            moveRight(delta * speed);
-        }
-        if(moveLeftKeyPress) {
-            moveRight(-delta * speed);
-        }
-        if(moveHeight) {
-            moveY(delta * speed);
-        }
-        if(moveDown) {
-            moveY(-delta * speed);
-        }
-        // camera.updateMatrixWorld();
-    });
+  useFrame((_, delta) => {
+    const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
+    if (moveForwardKeyPress) {
+      moveForward(delta * speed);
+    }
+    if (moveBackKeyPress) {
+      moveForward(-delta * speed);
+    }
+    if (moveRightKeyPress) {
+      moveRight(delta * speed);
+    }
+    if (moveLeftKeyPress) {
+      moveRight(-delta * speed);
+    }
+    if (moveHeight) {
+      moveY(delta * speed);
+    }
+    if (moveDown) {
+      moveY(-delta * speed);
+    }
+    // camera.updateMatrixWorld();
+  });
 
-
-    return <OrbitControls ref={orbitControls} />;
-
+  return <OrbitControls ref={orbitControls} />;
 }
