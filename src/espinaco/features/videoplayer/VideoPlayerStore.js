@@ -12,6 +12,16 @@ export const LOVE_LO_HABITS = {
   url: "videos/stayHigh.mp4",
 };
 
+export const MCPI = {
+  name: "Mc Pi - John Cenna (prod lasio)",
+  url: "videos/mcpi.mp4",
+};
+
+export const GATACATTANA_GOTHAM = {
+  name: "Gata Cattana - Gotham",
+  url: "videos/gotham.mp4",
+};
+
 /**
  *
  *
@@ -33,6 +43,8 @@ export const LOVE_LO_HABITS = {
 export const useVideoPlayerStore = create((set, get) => ({
   videos: [
     LOVE_LO_HABITS,
+    MCPI,
+    GATACATTANA_GOTHAM,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "Feid, Young Miko - Classy 101 (Official Video)",
