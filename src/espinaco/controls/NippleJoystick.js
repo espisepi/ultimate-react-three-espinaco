@@ -56,7 +56,19 @@ export function NippleJoystick({ style, showUI = true }) {
         // any unknown props will be passed to the container element, e.g. 'title', 'style' etc
         style={{
           display: showUI ? "block" : "none",
-          outline: "1px dashed #ff00ff",
+          // background: isMoveForward
+          //   ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
+          //   : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+          // outline: "1px dashed #ff00ff",
+          // outlineColor: isMoveForward
+          //   ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
+          //   : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderImageSlice: 1,
+          borderImageSource: isMoveForward
+            ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
+            : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
           width: 150,
           height: 150,
           position: "absolute",

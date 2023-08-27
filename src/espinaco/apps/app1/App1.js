@@ -80,8 +80,6 @@ const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_VIDEOPOINTS_SCALE = 1;
 const DEFAULT_STARS_SCALE = 1;
 
-let booleanForHandleTargetOrbitControls = true;
-
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
   if (clicked) {
@@ -121,6 +119,8 @@ export function App1Start({ url }) {
   const firstUrl = "videos/stayHigh.mp4";
   // const [link, setLink] = useState(firstUrl);
 
+  //======================================
+
   const handleFullScreen = useFullScreenHandle();
   const toggleFullScreen = useCallback(() => {
     if (handleFullScreen.active) {
@@ -130,22 +130,32 @@ export function App1Start({ url }) {
     }
   }, [handleFullScreen]);
 
+  //======================================
+
+  const [
+    booleanForHandleTargetOrbitControls,
+    setBooleanForHandleTargetOrbitControls,
+  ] = useState(true);
   const handleTargetOrbitControls = useCallback(() => {
-    if ((window.orbitControls, window.camera)) {
+    if ((window.orbitControls, window.camera, window.videoPoints)) {
+      setBooleanForHandleTargetOrbitControls(
+        !booleanForHandleTargetOrbitControls
+      );
       if (booleanForHandleTargetOrbitControls) {
-        // console.log(window.orbitControls.target);
-        // window.orbitControls.target.copy(window.camera.position);
-        // window.orbitControls.update();
-        // window.orbitControls.target = new Vector3(
-        //   window.camera.position.x,
-        //   window.camera.position.y,
-        //   window.camera.position.z
-        // );
+        window.orbitControls.target.copy(
+          new Vector3(
+            window.camera.position.x,
+            window.camera.position.y,
+            window.camera.position.z - 0.1
+          )
+        );
       } else {
-        // window.orbitControls.target = new Vector3(0, 0, -1000);
+        window.orbitControls.target.copy(window.videoPoints.position);
       }
     }
-  }, []);
+  });
+
+  //======================================
 
   const handleAutoRotate = useCallback(() => {
     if (window.orbitControls) {
@@ -446,7 +456,7 @@ export function App1Start({ url }) {
           {" "}
         </button>
 
-        {/* <button
+        <button
           onClick={handleTargetOrbitControls}
           style={{
             display: showVideo ? "block" : "none",
@@ -457,12 +467,14 @@ export function App1Start({ url }) {
             bottom: "200px",
             right: "100px",
             //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            background: booleanForHandleTargetOrbitControls
+              ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
+              : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
             opacity: 0.5,
           }}
         >
           ∫{" "}
-        </button> */}
+        </button>
 
         <button
           onClick={toggleFullScreen}
