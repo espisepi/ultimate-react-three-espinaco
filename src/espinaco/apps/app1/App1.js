@@ -372,8 +372,8 @@ export function App1Start({ url }) {
             type="range"
             ref={inputRangeVideoPointsAmplitudeDistanceRef}
             onChange={(e) => handleVideoPointAmplitudeDistance(e.target.value)}
-            min={-3000.0}
-            max={3000.0}
+            min={-9000.0}
+            max={9000.0}
             step={1}
             // value={0.0}
           ></input>
