@@ -67,7 +67,10 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
  * 
  */
 
-// TODO: Moverse con joystick y el target del orbitcontrols en la camara del player para que simule el movimiento de la cabeza
+// TODO: Añadir analiticas para ver cuantas personas se meten dentro de la web, desde que lugares y si es smartphone u ordenador
+// TODO: Añadir en la pantalla de introduccion mis redes sociales (sepinaco)
+
+// TODO HECHO: Moverse con joystick y el target del orbitcontrols en la camara del player para que simule el movimiento de la cabeza
 
 // TODO: Poder visualizar un streaming con videoPoints : WEBRTC, grabar pantalla js
 // TODO: Subir video desde el movil/pc y reproducirlo
