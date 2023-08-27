@@ -67,8 +67,8 @@ export function NippleJoystick({ style, showUI = true }) {
           borderStyle: "solid",
           borderImageSlice: 1,
           borderImageSource: isMoveForward
-            ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
-            : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            ? "linear-gradient(90deg, #636363 0%, #000000 100%)"
+            : "linear-gradient(90deg, #000000 0%, #636363 100%)",
           width: 150,
           height: 150,
           position: "absolute",
