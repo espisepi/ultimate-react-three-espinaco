@@ -23,6 +23,7 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import VideoPlayer from "../../features/videoplayer/VideoPlayer";
 import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
+import { NippleJoystick } from "../../controls/NippleJoystick";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -64,6 +65,8 @@ https://www.youtube.com/watch?v=fLzU21ltH4U
 https://www.youtube.com/watch?v=4DFxeyPiRkM
  * 
  */
+
+// TODO: Moverse con joystick y el target del orbitcontrols en la camara del player para que simule el movimiento de la cabeza
 
 // TODO: Poder visualizar un streaming con videoPoints : WEBRTC, grabar pantalla js
 // TODO: Subir video desde el movil/pc y reproducirlo
@@ -279,6 +282,8 @@ export function App1Start({ url }) {
             height: "100vh",
           }}
         />
+
+        <NippleJoystick showUI={showVideo} />
 
         <VideoPlayer showUI={showVideo} />
 
