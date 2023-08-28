@@ -27,6 +27,11 @@ export const FARCRY_VASS_DEATH = {
   url: "videos/farcry3VassDeath.mp4",
 };
 
+export const CHRISTIAN_LOFFER = {
+  name: "Christian Löffler & Ensemble - Haul (Live Berlin)",
+  url: "videos/christianloffer.mp4",
+};
+
 /**
  *
  *
@@ -51,6 +56,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     MCPI,
     GATACATTANA_GOTHAM,
     FARCRY_VASS_DEATH,
+    CHRISTIAN_LOFFER,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "Feid, Young Miko - Classy 101 (Official Video)",
