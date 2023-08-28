@@ -28,7 +28,7 @@ export function Scene1() {
     if (starsRef.current) {
       window.stars = starsRef.current;
 
-      window.stars.isRotating = false;
+      window.stars.isRotating = true;
     }
   }, [starsRef.current]);
   useFrame(({ clock }) => {
