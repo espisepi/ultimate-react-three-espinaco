@@ -61,6 +61,62 @@ Soto Asa - Gibraltar (Videoclip)
 Saiko - Supernova (Official Video)
 Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)
 https://www.youtube.com/watch?v=fLzU21ltH4U
+
+trapani-orale: https://www.youtube.com/watch?v=QIibXiz9jsk
+babi - colegas (letra): https://www.youtube.com/watch?v=zDcBO_RVU58
+BEJO - Guaña Guaña O O (Vidéo) - https://www.youtube.com/watch?v=zSNcrN63s5I
+2. Soto Asa - La Primera (ft. Mala Rodríguez) - https://www.youtube.com/watch?v=iNOLUJ3CzSo
+PESI - BLUE - https://www.youtube.com/watch?v=Y7GrwNifWXQ
+xYUNG BEEF - INTRO A.D.R.O.M.I.C.F.M.S - https://www.youtube.com/watch?v=HVnXpYyrBbQ
+PXXR GVNG ~BURGUNDY~ (STUDIO PERFORMANCE) - https://www.youtube.com/watch?v=tMYBTSm-Hx0
+Judeline - CANIJO (Official Video) - https://www.youtube.com/watch?v=SSYhUGsS_9s
+
+
+
+Hey Joe - Jimi Hendrix (High Quality).mp4 - https://www.youtube.com/watch?v=cXgHEm3ReDk
+Wynton Marsalis & Eric Clapton - Layla - https://www.youtube.com/watch?v=RvNIivHdy0Q
+B.B. King - The Thrill Is Gone [Crossroads 2010] (Official Live Video) - youtube.com/watch?v=SgXSomPE_FY
+Riders on the Storm - The Doors HD - https://www.youtube.com/watch?v=k9o78-f2mIM
+Suena Guernica - Rosalía & Refree, 'Catalina' - https://www.youtube.com/watch?v=6O192OAzMH8
+
+Tokischa - Twerk (Official Video) ft. Eladio Carrión: https://www.youtube.com/watch?v=VAQZ3ZHr22E
+Nikita Verevki Ropes Ukrainian group - youtube.com/watch?v=X3Z-WeE5914
+
+
+
+
+
+CLIO - T'as vu [CLIP OFFICIEL]: https://www.youtube.com/watch?v=9enP5t05wFU
+SOKO :: Sweet Sound of Ignorance (Official Video): https://www.youtube.com/watch?v=NnvMSGaj1YE
+Paula Cendejas - x ti (Videoclip Oficial): https://www.youtube.com/watch?v=LpeNeyNz1rM
+Moha La Squale - Bienvenue à la Banane: https://www.youtube.com/watch?v=96h97kNEgXM
+EO - 🔴 1Take (Naija to London) | @MixtapeMadness: https://www.youtube.com/watch?v=Q7PIuH8wuTQ
+Joey Bada$$ - 95 Til Infinity (Official Music Video) - https://www.youtube.com/watch?v=N1yGG8jMSTI
+Joey Bada$$ - "Christ Conscious" (Official Music Video) - https://www.youtube.com/watch?v=yRfQGXFRr30
+Kendrick Lamar - Swimming Pools (Drank) - https://www.youtube.com/watch?v=B5YNiCfWC3A
+Future - Life Is Good (Official Music Video) ft. Drake - https://www.youtube.com/watch?v=l0U7SxXHkPY
+DaBaby - BOP on Broadway (Hip Hop Musical) - https://www.youtube.com/watch?v=28hYUZMufDg
+Ice Spice - Munch (Feelin’ U) (Official Music Video) - https://www.youtube.com/watch?v=-adyojG3gws
+Kodak Black - Tunnel Vision [Official Music Video] - https://www.youtube.com/watch?v=JzSUgOmP66Q
+Eminem - Lose Yourself [HD] - https://www.youtube.com/watch?v=_Yhyp-_hX2s
+Eminem - Superman (Official Music Video) [Explicit] - https://www.youtube.com/watch?v=j5s881UtdLw
+Lil Xan - Betrayed - https://www.youtube.com/watch?v=_dL3AygsCMc
+Die Antwoord - Enter The Ninja (Official) - https://www.youtube.com/watch?v=wc3f4xU_FfQ
+
+
+
+
+
+
+Foxes in Fiction - Ontario Gothic - https://www.youtube.com/watch?v=YeNXFVev8Jg
+Cemeteries - Sodus - https://www.youtube.com/watch?v=YxbeynIfzd8
+Future Islands - Like the Moon - https://www.youtube.com/watch?v=4S9YtRnlPMk
+
+
+
+
+
+
  * 
  */
 
