@@ -22,6 +22,11 @@ export const GATACATTANA_GOTHAM = {
   url: "videos/gotham.mp4",
 };
 
+export const FARCRY_VASS_DEATH = {
+  name: "Far Cry 3 - Vass Death",
+  url: "videos/farcry3VassDeath.mp4",
+};
+
 /**
  *
  *
@@ -45,6 +50,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     LOVE_LO_HABITS,
     MCPI,
     GATACATTANA_GOTHAM,
+    FARCRY_VASS_DEATH,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "Feid, Young Miko - Classy 101 (Official Video)",
