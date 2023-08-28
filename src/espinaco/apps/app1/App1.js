@@ -77,6 +77,8 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
 
 // TODO: Sketchbook con codigo ts dentro de este proyecto react
 
+// TODO: Poner licencia de que se puede utilizar libremente el codigo pero sin fines de lucro.
+
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE = 1.0;
 const DEFAULT_STARS_POINTSIZE = 55;
