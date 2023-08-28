@@ -32,6 +32,11 @@ export const CHRISTIAN_LOFFER = {
   url: "videos/christianloffer.mp4",
 };
 
+export const KIASMOS = {
+  name: "Kiasmos - Looped (Live on KEXP)",
+  url: "videos/kiasmos.mp4",
+};
+
 /**
  *
  *
@@ -57,6 +62,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     GATACATTANA_GOTHAM,
     FARCRY_VASS_DEATH,
     CHRISTIAN_LOFFER,
+    KIASMOS,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "Feid, Young Miko - Classy 101 (Official Video)",
