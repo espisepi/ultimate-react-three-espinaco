@@ -102,8 +102,11 @@ export function App1ClickToStart({ setClicked }) {
         alignItems: "center",
         width: "100%",
         height: "100vh",
-        color: "black",
+        color: "white",
         backgroundColor: "#500050",
+        backgroundImage: 'url("images/portada.jpg")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
       onClick={() => setClicked(true)}
     >
