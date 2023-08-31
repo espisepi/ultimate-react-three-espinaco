@@ -558,7 +558,7 @@ export function App1Start({ url }) {
             right: "10px",
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: showVideo ? 1 : 0.3,
+            opacity: showVideo ? 0.8 : 0.3,
           }}
         ></button>
         <button
@@ -573,7 +573,7 @@ export function App1Start({ url }) {
             right: "10px",
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: showUIMovement ? 1 : 0.3,
+            opacity: showUIMovement ? 0.8 : 0.3,
           }}
         ></button>
         <button
