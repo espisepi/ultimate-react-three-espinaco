@@ -11,7 +11,15 @@ export default function VideoPlayer({ showUI = true }) {
   const selectVideo = useVideoPlayerStore((state) => state.selectVideo);
 
   useEffect(() => {
-    selectVideo(LOVE_LO_HABITS);
+    const urlFull = window.location.href;
+    //?url=https://www.youtube.com/watch?v=JN4gBp3Ss24
+    const urlYoutube =
+      urlFull.split("url=").length > 1 ? urlFull.split("url=")[1] : null;
+    if (urlYoutube) {
+      selectVideo({ name: "youtube", url: urlYoutube });
+    } else {
+      selectVideo(LOVE_LO_HABITS);
+    }
   }, []);
 
   // Code for Safari reasons
