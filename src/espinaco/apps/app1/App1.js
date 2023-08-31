@@ -319,6 +319,18 @@ export function App1Start({ url }) {
     };
   }, []);
 
+  const handleShowMenuButton = () => {
+    if (showMenuButton) {
+      setShowMenuButton(false);
+      setShowVideo(false);
+      setShowUIMovement(false);
+    } else {
+      setShowMenuButton(true);
+      setShowVideo(true);
+      setShowUIMovement(true);
+    }
+  };
+
   //================================================
 
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
@@ -562,6 +574,22 @@ export function App1Start({ url }) {
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showUIMovement ? 1 : 0.3,
+          }}
+        ></button>
+        <button
+          onClick={handleShowMenuButton}
+          style={{
+            // visibility: showMenuButton ? "visible" : "hidden",
+            display: "block",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "300px",
+            right: "10px",
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showMenuButton ? 0.3 : 0.0,
           }}
         ></button>
       </FullScreen>
