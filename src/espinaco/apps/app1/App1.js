@@ -110,7 +110,20 @@ export function App1ClickToStart({ setClicked }) {
       }}
       onClick={() => setClicked(true)}
     >
-      <h1>Click to Start</h1>
+      <h1 style={{ cursor: "hover" }}>Click to Start</h1>
+      <a href="https://sketchbook-sepinaco.onrender.com">
+        <h1
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            paddingRight: 50,
+            cursor: "hover",
+          }}
+        >
+          Access Grand Theft Espinaco
+        </h1>
+      </a>
     </div>
   );
 }
