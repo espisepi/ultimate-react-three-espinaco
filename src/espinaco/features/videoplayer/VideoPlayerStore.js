@@ -37,6 +37,16 @@ export const KIASMOS = {
   url: "videos/kiasmos.mp4",
 };
 
+export const YOUNG_MIKO = {
+  name: "Feid, Young Miko - Classy 101 (Official Video)",
+  url: "videos/youngmiko.mp4",
+};
+
+export const SOTOASA_ZOWI = {
+  name: "Soto Asa y La Zowi - Smartphone | GALLERY SESSION",
+  url: "videos/sotoasazowi.mp4",
+};
+
 /**
  *
  *
@@ -63,11 +73,9 @@ export const useVideoPlayerStore = create((set, get) => ({
     FARCRY_VASS_DEATH,
     CHRISTIAN_LOFFER,
     KIASMOS,
+    YOUNG_MIKO,
+    SOTOASA_ZOWI,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
-    {
-      name: "Feid, Young Miko - Classy 101 (Official Video)",
-      url: "https://www.youtube.com/watch?v=cD5T1Y4b7wA",
-    },
     {
       name: "FUFU - SLOU (OFFICIAL VIDEO)",
       url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
