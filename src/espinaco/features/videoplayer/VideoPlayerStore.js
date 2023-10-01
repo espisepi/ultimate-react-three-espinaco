@@ -85,6 +85,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "EO - 1Take (Naija to London) | @MixtapeMadness",
       url: "videos/eo1take.mp4",
     },
+    {
+      name: "Paula Cendejas - x ti (Videoclip Oficial)",
+      url: "videos/paulacendeja.mp4",
+    },
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "FUFU - SLOU (OFFICIAL VIDEO)",
