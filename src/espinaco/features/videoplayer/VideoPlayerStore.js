@@ -47,6 +47,11 @@ export const SOTOASA_ZOWI = {
   url: "videos/sotoasazowi.mp4",
 };
 
+export const LOGIC = {
+  name: "Logic ft. Alessia Cara, Khalid - 1-800-273-8255 (Live At The MTV VMAs)",
+  url: "videos/logic.mp4",
+};
+
 /**
  *
  *
@@ -75,6 +80,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     KIASMOS,
     YOUNG_MIKO,
     SOTOASA_ZOWI,
+    LOGIC,
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "FUFU - SLOU (OFFICIAL VIDEO)",
@@ -103,6 +109,18 @@ export const useVideoPlayerStore = create((set, get) => ({
     {
       name: "FUFU - PLAYBOY (OFFICIAL VIDEO)",
       url: "https://www.youtube.com/watch?v=EN-gtDCFRKM",
+    },
+    {
+      name: "Chesca x Mariah Angeliq - “Bicha” (Official Music Video)",
+      url: "https://www.youtube.com/watch?v=lXJqBEp42Zo",
+    },
+    {
+      name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP)",
+      url: "https://www.youtube.com/watch?v=OCAISekVNfo",
+    },
+    {
+      name: "Moha La Squale - Bienvenue à la Banane",
+      url: "https://www.youtube.com/watch?v=96h97kNEgXM",
     },
   ].sort((a, b) => a.name.localeCompare(b.name)), // Reference1 (definida al principio de este fichero)
   selectedVideo: null,
