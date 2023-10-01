@@ -81,6 +81,10 @@ export const useVideoPlayerStore = create((set, get) => ({
     YOUNG_MIKO,
     SOTOASA_ZOWI,
     LOGIC,
+    {
+      name: "EO - 1Take (Naija to London) | @MixtapeMadness",
+      url: "videos/eo1take.mp4",
+    },
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "FUFU - SLOU (OFFICIAL VIDEO)",
