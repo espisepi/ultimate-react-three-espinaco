@@ -95,45 +95,49 @@ export const useVideoPlayerStore = create((set, get) => ({
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Feid+-+Normal+(Official+Video).mp4",
     },
     {
-      name: "FUFU - SLOU (OFFICIAL VIDEO)",
-      url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
+      name: "Winton Marsalis Eric Clapton - Layla",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Wynton+Marsalis+Eric+Clapton+-+Layla.mp4",
     },
-    {
-      name: "Saiko - Supernova (Official Video)",
-      url: "https://www.youtube.com/watch?v=BbZi8xGMyuM",
-    },
-    {
-      name: "Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)",
-      url: "https://www.youtube.com/watch?v=SkBML8JgD0k",
-    },
-    {
-      name: "Emilia, Ludmilla, Zecca - No_se_ve.mp3 (Official Video)",
-      url: "https://www.youtube.com/watch?v=fLzU21ltH4U",
-    },
-    {
-      name: "Alemán - Maradona (Visualizer)",
-      url: "https://www.youtube.com/watch?v=4DFxeyPiRkM",
-    },
-    {
-      name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
-      url: "https://www.youtube.com/watch?v=n8OKNX4NpSA",
-    },
-    {
-      name: "FUFU - PLAYBOY (OFFICIAL VIDEO)",
-      url: "https://www.youtube.com/watch?v=EN-gtDCFRKM",
-    },
-    {
-      name: "Chesca x Mariah Angeliq - “Bicha” (Official Music Video)",
-      url: "https://www.youtube.com/watch?v=lXJqBEp42Zo",
-    },
-    {
-      name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP)",
-      url: "https://www.youtube.com/watch?v=OCAISekVNfo",
-    },
-    {
-      name: "Moha La Squale - Bienvenue à la Banane",
-      url: "https://www.youtube.com/watch?v=96h97kNEgXM",
-    },
+    // {
+    //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
+    //   url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
+    // },
+    // {
+    //   name: "Saiko - Supernova (Official Video)",
+    //   url: "https://www.youtube.com/watch?v=BbZi8xGMyuM",
+    // },
+    // {
+    //   name: "Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)",
+    //   url: "https://www.youtube.com/watch?v=SkBML8JgD0k",
+    // },
+    // {
+    //   name: "Emilia, Ludmilla, Zecca - No_se_ve.mp3 (Official Video)",
+    //   url: "https://www.youtube.com/watch?v=fLzU21ltH4U",
+    // },
+    // {
+    //   name: "Alemán - Maradona (Visualizer)",
+    //   url: "https://www.youtube.com/watch?v=4DFxeyPiRkM",
+    // },
+    // {
+    //   name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
+    //   url: "https://www.youtube.com/watch?v=n8OKNX4NpSA",
+    // },
+    // {
+    //   name: "FUFU - PLAYBOY (OFFICIAL VIDEO)",
+    //   url: "https://www.youtube.com/watch?v=EN-gtDCFRKM",
+    // },
+    // {
+    //   name: "Chesca x Mariah Angeliq - “Bicha” (Official Music Video)",
+    //   url: "https://www.youtube.com/watch?v=lXJqBEp42Zo",
+    // },
+    // {
+    //   name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP)",
+    //   url: "https://www.youtube.com/watch?v=OCAISekVNfo",
+    // },
+    // {
+    //   name: "Moha La Squale - Bienvenue à la Banane",
+    //   url: "https://www.youtube.com/watch?v=96h97kNEgXM",
+    // },
   ].sort((a, b) => a.name.localeCompare(b.name)), // Reference1 (definida al principio de este fichero)
   selectedVideo: null,
   //selectVideo: (video) => set({ selectedVideo: video }),
