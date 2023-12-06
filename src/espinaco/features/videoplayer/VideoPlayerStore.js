@@ -91,6 +91,10 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
+      name: "FEID - Normal",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Feid+-+Normal+(Official+Video).mp4",
+    },
+    {
       name: "FUFU - SLOU (OFFICIAL VIDEO)",
       url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
     },
