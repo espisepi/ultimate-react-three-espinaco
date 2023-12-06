@@ -363,7 +363,7 @@ export function App1Start({ url }) {
           }}
         />
 
-        <NippleJoystick showUI={showUIMovement} />
+        {/* <NippleJoystick showUI={showUIMovement} /> */}
 
         <VideoPlayer showUI={showVideo} />
 
