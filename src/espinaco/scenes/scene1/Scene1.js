@@ -23,6 +23,19 @@ import TextTesellation from "../../features/text-tesellation/TextTesellation";
 // https://tympanus.net/Tutorials/SurfaceSampling/index3.html
 // Para efectos de letras: https://tympanus.net/Development/3DTypeEffects/03_flowers.html
 
+// dataRotation (individual for each song)
+const dataRotations = [
+  {
+    name: "name-song",
+    timelines: [
+      { elapsedTime: 3.0, rotate: true },
+      { elapsedTime: 7.0, rotate: false },
+    ],
+  },
+];
+
+const dataRotation = dataRotations[0];
+
 export function Scene1() {
   const starsRef = useRef();
   useEffect(() => {
@@ -33,6 +46,21 @@ export function Scene1() {
     }
   }, [starsRef.current]);
   useFrame(({ clock }) => {
+    // dataRotation (individual for each song)
+    if (
+      clock.elapsedTime >= dataRotation.timelines[0].elapsedTime &&
+      clock.elapsedTime < dataRotation.timelines[0].elapsedTime + 0.1
+    ) {
+      window.orbitControls.autoRotate = dataRotation.timelines[0].rotate;
+    }
+    if (
+      clock.elapsedTime >= dataRotation.timelines[1].elapsedTime &&
+      clock.elapsedTime < dataRotation.timelines[1].elapsedTime + 0.1
+    ) {
+      window.orbitControls.autoRotate = dataRotation.timelines[1].rotate;
+    }
+
+    // Stars
     if (window?.stars?.isRotating) {
       window.stars.rotation.set(
         window.stars.rotation.x,

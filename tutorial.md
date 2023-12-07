@@ -1,3 +1,5 @@
+- añadir que en un tiempo exacto de la cancion empiece a rotar y a dejar de rotar
+
 - Pasos de grabacion obs a video pulido
   -- Grabar videoclip threejs con obs
   -- Recortar el principio y final del video
