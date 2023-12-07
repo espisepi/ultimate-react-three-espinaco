@@ -47,6 +47,11 @@ export const SOTOASA_ZOWI = {
   url: "videos/sotoasazowi.mp4",
 };
 
+export const ROSALIA = {
+  name: "Rosalía - 'Me quedo contigo' | Goya 2019",
+  url: "videos/rosalia.mp4",
+};
+
 export const LOGIC = {
   name: "Logic ft. Alessia Cara, Khalid - 1-800-273-8255 (Live At The MTV VMAs)",
   url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Logic+ft.+Alessia+Cara%2C+Khalid+-+1-800-273-8255+(Live+At+The+MTV+VMAs).mp4",
@@ -81,6 +86,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     YOUNG_MIKO,
     SOTOASA_ZOWI,
     LOGIC,
+    ROSALIA,
     {
       name: "EO - 1Take (Naija to London) | @MixtapeMadness",
       url: "videos/eo1take.mp4",
