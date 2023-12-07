@@ -104,7 +104,11 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "HADES 666 - BRILLAN",
-      url: "    https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/HADES+66+-+BRILLAN+(+OFFICIAL+VIDEO+).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/HADES+66+-+BRILLAN+(+OFFICIAL+VIDEO+).mp4",
+    },
+    {
+      name: "MILO J - BZRP SESSION 57",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/MILO+J++BZRP+Music+Sessions+57+(1440-HD).mp4",
     },
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
