@@ -524,7 +524,7 @@ export function App1Start({ url }) {
           {" "}
         </button>
 
-        <button
+        {/* <button
           onClick={handleTargetOrbitControls}
           style={{
             display: showUIMovement ? "block" : "none",
@@ -542,7 +542,7 @@ export function App1Start({ url }) {
           }}
         >
           ∫{" "}
-        </button>
+        </button> */}
 
         <button
           onClick={toggleFullScreen}
@@ -577,7 +577,7 @@ export function App1Start({ url }) {
             opacity: showVideo ? 0.8 : 0.3,
           }}
         ></button>
-        <button
+        {/* <button
           onClick={handleShowUIMovement}
           style={{
             display: showMenuButton ? "block" : "none",
@@ -591,7 +591,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showUIMovement ? 0.8 : 0.3,
           }}
-        ></button>
+        ></button> */}
         <button
           onClick={handleShowMenuButton}
           style={{
@@ -601,7 +601,7 @@ export function App1Start({ url }) {
             height: "50px",
             borderRadius: "25px",
             position: "absolute",
-            bottom: "300px",
+            bottom: "200px",
             right: "10px",
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
