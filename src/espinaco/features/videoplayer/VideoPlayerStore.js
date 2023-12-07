@@ -49,7 +49,7 @@ export const SOTOASA_ZOWI = {
 
 export const LOGIC = {
   name: "Logic ft. Alessia Cara, Khalid - 1-800-273-8255 (Live At The MTV VMAs)",
-  url: "videos/logic.mp4",
+  url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Logic+ft.+Alessia+Cara%2C+Khalid+-+1-800-273-8255+(Live+At+The+MTV+VMAs).mp4",
 };
 
 /**
