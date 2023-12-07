@@ -102,6 +102,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "El Bugg - SUB21",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Bugg+-+SUB21.mp4",
     },
+    {
+      name: "HADES 666 - BRILLAN",
+      url: "    https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/HADES+66+-+BRILLAN+(+OFFICIAL+VIDEO+).mp4",
+    },
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
     //   url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
