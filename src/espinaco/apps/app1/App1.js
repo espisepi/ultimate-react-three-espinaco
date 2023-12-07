@@ -488,7 +488,7 @@ export function App1Start({ url }) {
           ></input>
         </div>
 
-        <button
+        {/* <button
           onClick={handleRotationStars}
           style={{
             display: showVideo ? "block" : "none",
@@ -504,7 +504,7 @@ export function App1Start({ url }) {
           }}
         >
           {" "}
-        </button>
+        </button> */}
 
         <button
           onClick={handleAutoRotate}
@@ -515,9 +515,9 @@ export function App1Start({ url }) {
             borderRadius: "25px",
             position: "absolute",
             bottom: "100px",
-            right: "200px",
+            right: "190px",
             //   backgroundColor: "#ffff00",
-            background: "linear-gradient(90deg, #0cb300 0%, #000000 100%)",
+            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
             opacity: 0.5,
           }}
         >
