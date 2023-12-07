@@ -14,6 +14,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
+import TextTesellation from "../../features/text-tesellation/TextTesellation";
 
 // Coger efectos de codrops
 // Mezclar esos dos efectos para soto asa videoclip
@@ -48,6 +49,8 @@ export function Scene1() {
       {/* <BoxShader /> */}
 
       <VideoPoints />
+
+      {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
 
       {/* <group>
             <group>
