@@ -326,6 +326,9 @@ export function App1Start({ url }) {
         setShowVideo(false);
         setShowUIMovement(false);
       }
+      if (event.key === "r") {
+        window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
+      }
     }
 
     // Agregar un event listener al documento para detectar las teclas
