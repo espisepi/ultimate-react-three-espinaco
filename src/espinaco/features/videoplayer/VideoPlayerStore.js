@@ -98,6 +98,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Winton Marsalis Eric Clapton - Layla",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Wynton+Marsalis+Eric+Clapton+-+Layla.mp4",
     },
+    {
+      name: "El Bugg - SUB21",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Bugg+-+SUB21.mp4",
+    },
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
     //   url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
