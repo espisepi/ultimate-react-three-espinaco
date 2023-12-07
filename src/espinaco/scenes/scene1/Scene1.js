@@ -35,7 +35,7 @@ export function Scene1() {
     if (window?.stars?.isRotating) {
       window.stars.rotation.set(
         window.stars.rotation.x,
-        clock.elapsedTime * 0.1,
+        clock.elapsedTime * 0.03,
         window.stars.rotation.z
       );
     }
