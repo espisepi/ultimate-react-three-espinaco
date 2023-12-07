@@ -110,6 +110,15 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "MILO J - BZRP SESSION 57",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/MILO+J++BZRP+Music+Sessions+57+(1440-HD).mp4",
     },
+    {
+      name: "GRECAS - ES COMO FAK",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/GRECAS+-+ES+COMO+FAK.mp4",
+    },
+    {
+      name: "PEDRO ∞ LADROGA ≠ ≈KE KIERE ASE KE KIE≈ ",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/%3D%CC%B8+PEDRO+∞+LADROGA+%3D%CC%B8++≈KE+KIERE+ASE+KE+KIE≈+%5BVEEDEO%5D+ZzZzZz+(h+o+l+o+g+r+a+m_ep).mp4",
+    },
+
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
     //   url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
