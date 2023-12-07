@@ -84,7 +84,7 @@ export default function VideoPlayer({ showUI = true }) {
   return (
     <>
       <VideoPlayerList showUI={showUI} />
-      <h1
+      {/* <h1
         id="loading"
         style={{
           color: "white",
@@ -114,7 +114,7 @@ export default function VideoPlayer({ showUI = true }) {
           background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
           padding: "0.2rem 1rem",
         }}
-      />
+      /> */}
       <video
         id="video"
         style={{
