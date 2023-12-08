@@ -39,7 +39,7 @@ export const KIASMOS = {
 
 export const YOUNG_MIKO = {
   name: "Feid, Young Miko - Classy 101 (Official Video)",
-  url: "videos/youngmiko.mp4",
+  url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Feid%2C+Young+Miko+-+Classy+101+(Official+Video).mp4",
 };
 
 export const SOTOASA_ZOWI = {
