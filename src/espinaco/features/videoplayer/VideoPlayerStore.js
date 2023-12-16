@@ -95,6 +95,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Paula Cendejas - x ti (Videoclip Oficial)",
       url: "videos/paulacendeja.mp4",
     },
+    {
+      name: "FUFU - SLOU",
+      url: "videos/fufu.mp4",
+    },
     { name: "HOKE - MOONDIAL", url: "videos/HOKE-MOONDIAL.mp4" },
     {
       name: "FEID - Normal",
