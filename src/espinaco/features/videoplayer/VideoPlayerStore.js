@@ -13,7 +13,7 @@ export const LOVE_LO_HABITS = {
 };
 
 export const MCPI = {
-  name: "Mc Pi - John Cenna (prod lasio)",
+  name: "Critical Pi - John Cena (prod Lasio)",
   url: "videos/mcpi.mp4",
 };
 
@@ -34,7 +34,7 @@ export const CHRISTIAN_LOFFER = {
 
 export const KIASMOS = {
   name: "Kiasmos - Looped (Live on KEXP)",
-  url: "videos/kiasmos.mp4",
+  url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Kiasmos+-+Looped+(Live+on+KEXP).mp4",
 };
 
 export const YOUNG_MIKO = {
@@ -123,6 +123,22 @@ export const useVideoPlayerStore = create((set, get) => ({
     {
       name: "PEDRO ∞ LADROGA ≠ ≈KE KIERE ASE KE KIE≈ ",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/%3D%CC%B8+PEDRO+∞+LADROGA+%3D%CC%B8++≈KE+KIERE+ASE+KE+KIE≈+%5BVEEDEO%5D+ZzZzZz+(h+o+l+o+g+r+a+m_ep).mp4",
+    },
+    {
+      name: "Emilia, Ludmilla, Zecca - No_se_ve.mp3",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Emilia%2C+Ludmilla%2C+Zecca+-+No_se_ve.mp3+(Official+Video).mp4",
+    },
+    {
+      name: "Central Cee x Dave - Sprinter",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Central+Cee+x+Dave+-+Sprinter+%5BMusic+Video%5D.mp4",
+    },
+    {
+      name: "El Chalo y El Lirola Entre dos Aguas Albaicín, Granada",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Chalo+y+El+Lirola+++Entre+dos+Aguas++Albaici%CC%81n%2C+Granada.mp4",
+    },
+    {
+      name: "Rihanna - Diamonds",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Rihanna+-+Diamonds.mp4",
     },
 
     // {
