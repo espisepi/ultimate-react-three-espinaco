@@ -60,13 +60,15 @@ export function Scene1() {
     //   window.orbitControls.autoRotate = dataRotation.timelines[1].rotate;
     // }
     // Stars Rotating
-    // if (window?.stars?.isRotating) {
-    //   window.stars.rotation.set(
-    //     window.stars.rotation.x,
-    //     clock.elapsedTime * 0.03,
-    //     window.stars.rotation.z
-    //   );
-    // }
+    if (!window?.orbitControls?.autoRotate) {
+      if (window?.stars?.isRotating) {
+        window.stars.rotation.set(
+          window.stars.rotation.x,
+          clock.elapsedTime * 0.03,
+          window.stars.rotation.z
+        );
+      }
+    }
   });
   return (
     <>
