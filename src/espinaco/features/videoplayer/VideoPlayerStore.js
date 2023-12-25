@@ -148,6 +148,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Ingratax - Paris",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Ingratax+-+Paris+(Official+Video)-1.mp4",
     },
+    {
+      name: "Lee Eye - Gata",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lee+Eye+-+Gata+(Lyric+Video).mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
