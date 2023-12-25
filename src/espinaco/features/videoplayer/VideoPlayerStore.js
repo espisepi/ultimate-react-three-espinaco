@@ -152,6 +152,14 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Lee Eye - Gata",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lee+Eye+-+Gata+(Lyric+Video).mp4",
     },
+    {
+      name: "GATA CATTANA - BANZAI - DISCO COMPLETO",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/GATA+CATTANA+-+BANZAI+-+DISCO+COMPLETO.mp4",
+    },
+    {
+      name: "SOKO Sweet Sound of Ignorance",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/SOKO++Sweet+Sound+of+Ignorance+(Official+Video).mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
