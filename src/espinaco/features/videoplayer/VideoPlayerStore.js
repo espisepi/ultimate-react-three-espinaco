@@ -144,6 +144,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Rihanna - Diamonds",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Rihanna+-+Diamonds.mp4",
     },
+    {
+      name: "Ingratax - Paris",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Ingratax+-+Paris+(Official+Video)-1.mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
