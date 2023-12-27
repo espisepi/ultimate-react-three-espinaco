@@ -126,7 +126,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "PEDRO ∞ LADROGA ≠ ≈KE KIERE ASE KE KIE≈ ",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/%3D%CC%B8+PEDRO+∞+LADROGA+%3D%CC%B8++≈KE+KIERE+ASE+KE+KIE≈+%5BVEEDEO%5D+ZzZzZz+(h+o+l+o+g+r+a+m_ep).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/%E2%89%A0+PEDRO+%E2%88%9E+LADROGA+%E2%89%A0+++%E2%89%88KE+KIERE+ASE++KE+KIE+%E2%89%88+%5BVEEDEO%5D+'ZzZzZz+(h+o+l+o+g+r+a+m_ep).mp4",
     },
     {
       name: "Emilia, Ludmilla, Zecca - No_se_ve.mp3",
