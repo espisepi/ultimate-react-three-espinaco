@@ -14,7 +14,7 @@ export default function VideoPlayerList({ showUI = true }) {
       }}
     >
       <h2>Videos</h2>
-      <ul style={{ height: 100, overflow: "auto", paddingRight: "100px" }}>
+      <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px" }}>
         {videos.map((video) => (
           <li style={{ listStyle: "none" }} key={video.name}>
             <button
@@ -22,6 +22,8 @@ export default function VideoPlayerList({ showUI = true }) {
                 backgroundColor: "#636363",
                 border: "none",
                 borderRadius: "25px",
+                fontSize: "1.5rem",
+                marginBottom: "0.5rem",
               }}
               onClick={() => selectVideo(video)}
             >
