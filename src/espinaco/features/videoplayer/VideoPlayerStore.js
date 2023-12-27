@@ -164,6 +164,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "ROSALÍA (LLYLM Live en NYC)",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Saborea+la+transformaci%C3%B3n+++Coca-Cola%C2%AE+feat.+ROSAL%C3%8DA+(LLYLM+Live+en+NYC).mp4",
     },
+    {
+      name: "070 shake",
+      url: "videos/070shake.mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
