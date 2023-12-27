@@ -150,7 +150,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "Lee Eye - Gata",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lee+Eye+-+Gata+(Lyric+Video).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lee+Eye+-+Gata+(+Prod.+By+Alka+Produce+)+%5B+TCE+Mic+Check+%5D.mp4",
     },
     {
       name: "GATA CATTANA - BANZAI - DISCO COMPLETO",
