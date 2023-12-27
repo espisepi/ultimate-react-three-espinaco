@@ -146,7 +146,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "Ingratax - Paris",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Ingratax+-+Paris+(Official+Video)-1.mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Ingratax+-+Paris+(Official+Video).mp4",
     },
     {
       name: "Lee Eye - Gata",
