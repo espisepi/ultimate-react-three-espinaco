@@ -106,7 +106,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "Winton Marsalis Eric Clapton - Layla",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Wynton+Marsalis+Eric+Clapton+-+Layla.mp4",
+      url: "videos/layla.mp4",
     },
     {
       name: "El Bugg - SUB21",
