@@ -160,6 +160,10 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "SOKO Sweet Sound of Ignorance",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/SOKO++Sweet+Sound+of+Ignorance+(Official+Video).mp4",
     },
+    {
+      name: "ROSALÍA (LLYLM Live en NYC)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Saborea+la+transformaci%C3%B3n+++Coca-Cola%C2%AE+feat.+ROSAL%C3%8DA+(LLYLM+Live+en+NYC).mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
