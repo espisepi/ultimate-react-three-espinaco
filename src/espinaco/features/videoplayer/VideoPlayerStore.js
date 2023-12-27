@@ -113,7 +113,7 @@ export const useVideoPlayerStore = create((set, get) => ({
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Bugg+-+SUB21.mp4",
     },
     {
-      name: "HADES 666 - BRILLAN",
+      name: "HADES 66 - BRILLAN",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/HADES+66+-+BRILLAN+(+OFFICIAL+VIDEO+).mp4",
     },
     {
