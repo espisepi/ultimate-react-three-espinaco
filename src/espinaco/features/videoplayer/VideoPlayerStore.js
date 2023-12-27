@@ -118,7 +118,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "MILO J - BZRP SESSION 57",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/MILO+J++BZRP+Music+Sessions+57+(1440-HD).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/MILO+J+++BZRP+Music+Sessions+%2357.mp4",
     },
     {
       name: "GRECAS - ES COMO FAK",
