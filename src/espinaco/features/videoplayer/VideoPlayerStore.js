@@ -138,7 +138,7 @@ export const useVideoPlayerStore = create((set, get) => ({
     },
     {
       name: "El Chalo y El Lirola Entre dos Aguas Albaicín, Granada",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Chalo+y+El+Lirola+++Entre+dos+Aguas++Albaici%CC%81n%2C+Granada.mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+Chalo++y++El+Lirola+++++Entre+dos+Aguas+++Albaic%C3%ADn%2C+Granada.mp4",
     },
     {
       name: "Rihanna - Diamonds",
