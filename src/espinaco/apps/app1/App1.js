@@ -246,7 +246,7 @@ export function App1Start({ url }) {
   }, []);
   const handleVideoCurrentTime = useCallback((value) => {
     // value -> Rango [0,1000]
-    const valueNormalized = value / 1000.0 - 0.01;
+    const valueNormalized = value / 1000.0 - 0.01; // -0.01 para evitar errores al llegar al valor maximo en la cancion
     if (video?.currentTime) {
       video.currentTime = valueNormalized * video.duration;
     }
