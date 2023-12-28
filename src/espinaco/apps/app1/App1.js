@@ -40,7 +40,7 @@ const BASE_URL_RENDERER_YT_DL =
 
 // const window_urlYoutube = 'videos/mcpi.mp4';
 // const window_urlYoutube = window.urlYoutube || BASE_URL_HEROKU_VIDEO_YT_DL + "https://www.youtube.com/watch?v=MaaEVFNDQLo";
-const window_showVideo = window.showVideo || false;
+const window_showVideo = window.showVideo || true;
 // const INIT_STATE = { window_urlYoutube, window_showVideo };
 
 // (COMENTARIO ANTIGUO DE CUANDO REALIZABA LA BUILD A MANO Y LA INCLUIA EN WORDPRESS COPIANDO Y PEGANDO LA CARPETA BUILD POR FTP, AHORA LO HACEMOS CON MICROFRONTEND DESPLEGADO EN UNA URL JEJE) TODO ACORDARSE!!!: CADA VEZ QUE SE HACE BUILD HAY QUE CAMBIAR LOS NOMBRES DE LOS FICHEROS JS Y CSS GENERADOS EN LA PAGINA DE WORDPRESS.
