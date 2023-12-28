@@ -245,7 +245,6 @@ export function App1Start({ url }) {
     }
   }, []);
   const handleVideoCurrentTime = useCallback((value) => {
-    console.log(value);
     // value -> Rango [0,1000]
     const valueNormalized = value / 1000.0 - 0.01;
     if (video?.currentTime) {
