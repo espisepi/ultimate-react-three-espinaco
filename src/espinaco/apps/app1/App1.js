@@ -604,7 +604,7 @@ export function App1Start({ url }) {
             height: "50px",
             borderRadius: "25px",
             position: "absolute",
-            bottom: "200px",
+            top: "0.5rem",
             right: "10px",
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
