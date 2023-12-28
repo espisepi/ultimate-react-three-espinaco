@@ -25,6 +25,7 @@ import VideoPlayer from "../../features/videoplayer/VideoPlayer";
 import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
 import { NippleJoystick } from "../../controls/NippleJoystick";
 import { useThree } from "@react-three/fiber";
+import useVideo from "../../hooks/useVideo";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -234,6 +235,25 @@ export function App1Start({ url }) {
       window.videoPoints.scale.set(value, value, value);
     }
   }, []);
+
+  //====================================== Video current time
+  const video = useVideo();
+  const inputRangeVideoCurrentTimeRef = useRef(null);
+  useEffect(() => {
+    if (inputRangeVideoCurrentTimeRef.current) {
+      inputRangeVideoCurrentTimeRef.current.value = 0.0;
+    }
+  }, []);
+  const handleVideoCurrentTime = useCallback((value) => {
+    console.log(value);
+    // value -> Rango [0,1000]
+    const valueNormalized = value / 1000.0 - 0.01;
+    if (video?.currentTime) {
+      video.currentTime = valueNormalized * video.duration;
+    }
+  });
+
+  //======================================
 
   //======================================
 
@@ -484,6 +504,29 @@ export function App1Start({ url }) {
             type="range"
             ref={inputRangeStarsPointSizeRef}
             onChange={(e) => handleStarsPointSize(e.target.value)}
+            min={0.0}
+            max={1000.0}
+            step={1}
+            // value={0.0}
+          ></input>
+        </div>
+
+        <div
+          id="div-input-video-currentTime"
+          style={{
+            display: showVideo ? "block" : "none",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            position: "absolute",
+            left: 30,
+            bottom: 100,
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          <input
+            type="range"
+            ref={inputRangeVideoCurrentTimeRef}
+            onChange={(e) => handleVideoCurrentTime(e.target.value)}
             min={1.0}
             max={1000.0}
             step={1}
