@@ -88,6 +88,10 @@ export const useVideoPlayerStore = create((set, get) => ({
     LOGIC,
     ROSALIA,
     {
+      name: "070 shake",
+      url: "videos/070shake.mp4",
+    },
+    {
       name: "EO - 1Take (Naija to London) | @MixtapeMadness",
       url: "videos/eo1take.mp4",
     },
@@ -165,8 +169,8 @@ export const useVideoPlayerStore = create((set, get) => ({
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Saborea+la+transformaci%C3%B3n+++Coca-Cola%C2%AE+feat.+ROSAL%C3%8DA+(LLYLM+Live+en+NYC).mp4",
     },
     {
-      name: "070 shake",
-      url: "videos/070shake.mp4",
+      name: "6LACK - LVRN x RapCaviar Cypher, Westside Boogie, BRS Kash, NoonieVsEverybody, OMB Bloodbath",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/LVRN+x+RapCaviar+Cypher+-+6LACK%2C+Westside+Boogie%2C+BRS+Kash%2C+NoonieVsEverybody%2C+OMB+Bloodbath.mp4",
     },
 
     // {
