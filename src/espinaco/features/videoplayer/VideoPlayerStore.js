@@ -200,6 +200,54 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/D.NADIE+-+LOS+OJOS+COMO+LUNAS+(Visualizer).mp4",
     },
+    {
+      name: "Lana Del Rey - Young and Beautiful",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lana+Del+Rey+-+Young+and+Beautiful.mp4",
+    },
+    {
+      name: "HIGHKILI - AY LINDA",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/AY+LINDA+++++++++++++++HIGHKILI.mp4",
+    },
+    {
+      name: "Bad Bunny (ft. Chencho Corleone) - Me Porto Bonito (Official Video)   Un Verano Sin Ti",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Bad+Bunny+(ft.+Chencho+Corleone)+-+Me+Porto+Bonito+(Official+Video)+++Un+Verano+Sin+Ti.mp4",
+    },
+    {
+      name: "BAD BUNNY ft. YOUNG MIKO - FINA (Visualizer)   nadie sabe lo que va a pasar mañana",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/BAD+BUNNY+ft.+YOUNG+MIKO+-+FINA+(Visualizer)+++nadie+sabe+lo+que+va+a+pasar+ma%C3%B1ana.mp4",
+    },
+    {
+      name: "DELLAFUENTE · CONSENTIA",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELLAFUENTE+%C2%B7+CONSENTIA.mp4",
+    },
+    {
+      name: "DELLAFUENTE, Morad - Manos Rotas",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELLAFUENTE%2C+Morad+-+Manos+Rotas.mp4",
+    },
+    {
+      name: "Israel B - Nadie Regala Nada",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Israel+B+-+Nadie+Regala+Nada.mp4",
+    },
+    {
+      name: "Kaydy Cain - Perdedores del Barrio (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Kaydy+Cain+-+Perdedores+del+Barrio+(Video+Oficial).mp4",
+    },
+    {
+      name: "Lana Del Rey - Ride",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lana+Del+Rey+-+Ride.mp4",
+    },
+    {
+      name: "Lana Del Rey - Summertime Sadness (Official Music Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lana+Del+Rey+-+Summertime+Sadness+(Official+Music+Video).mp4",
+    },
+    {
+      name: "LiL PEEP – Vibe",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/LiL+PEEP+%E2%80%93+Vibe.mp4",
+    },
+    {
+      name: "XXXTENTACION - MOONLIGHT (OFFICIAL MUSIC VIDEO)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/XXXTENTACION+-+MOONLIGHT+(OFFICIAL+MUSIC+VIDEO).mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
