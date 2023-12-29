@@ -172,6 +172,34 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "6LACK - LVRN x RapCaviar Cypher, Westside Boogie, BRS Kash, NoonieVsEverybody, OMB Bloodbath",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/LVRN+x+RapCaviar+Cypher+-+6LACK%2C+Westside+Boogie%2C+BRS+Kash%2C+NoonieVsEverybody%2C+OMB+Bloodbath.mp4",
     },
+    {
+      name: "Lana Del Rey - Chemtrails Over The Country Club",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lana+Del+Rey+-+Chemtrails+Over+The+Country+Club+(Official+Music+Video).mp4",
+    },
+    {
+      name: "Lana Del Rey - West Coast",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lana+Del+Rey+-+West+Coast.mp4",
+    },
+    ,
+    {
+      name: "Coldplay - Viva La Vida (Live In São Paulo)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Coldplay+-+Viva+La+Vida+(Live+In+S%C3%A3o+Paulo).mp4",
+    },
+    ,
+    {
+      name: "Harry Styles - As It Was (Official Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Harry+Styles+-+As+It+Was+(Official+Video).mp4",
+    },
+    ,
+    {
+      name: "Explosions In The Sky - Your Hand In Mine   Live in Sydney   Moshcam",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Explosions+In+The+Sky+-+Your+Hand+In+Mine+++Live+in+Sydney+++Moshcam.mp4",
+    },
+    ,
+    {
+      name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/D.NADIE+-+LOS+OJOS+COMO+LUNAS+(Visualizer).mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
