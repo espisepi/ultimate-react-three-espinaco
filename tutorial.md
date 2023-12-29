@@ -1,5 +1,7 @@
 TODO:
+
 - poner miniatura de video para poder darle palante o patras a la cancion
+- Poner boton para restaurar la posicion inicial de la camara
 
 - añadir que en un tiempo exacto de la cancion empiece a rotar y a dejar de rotar
 
