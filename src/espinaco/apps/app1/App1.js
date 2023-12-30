@@ -369,6 +369,8 @@ export function App1Start({ url }) {
     }
   };
 
+  const MARGIN_BOTTOM_RANGES = 65;
+
   //================================================
 
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
@@ -406,7 +408,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
-            bottom: 190,
+            bottom: 190 + MARGIN_BOTTOM_RANGES,
             border: "none",
             borderRadius: "4px",
           }}
@@ -428,7 +430,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
-            bottom: 220,
+            bottom: 220 + MARGIN_BOTTOM_RANGES,
             border: "none",
             borderRadius: "4px",
           }}
@@ -450,7 +452,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
-            bottom: 160,
+            bottom: 160 + MARGIN_BOTTOM_RANGES,
             border: "none",
             borderRadius: "4px",
           }}
@@ -494,7 +496,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
-            bottom: 130,
+            bottom: 130 + MARGIN_BOTTOM_RANGES,
             border: "none",
             borderRadius: "4px",
           }}
@@ -517,7 +519,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
-            bottom: 100,
+            bottom: 100 + MARGIN_BOTTOM_RANGES,
             border: "none",
             borderRadius: "4px",
           }}
