@@ -1,10 +1,10 @@
 TODO:
 
+1- Crear app nativa con ionic y todas las canciones
+
 1 - Poner todas las canciones en una carpeta en public
 2 - analizar todos los archivos de esa carpeta y obtener su url por medio de js. (ionic para crear app nativa para que funcione sin internet)
 3 - subirlo todo a un servidor estático para que tenga almacenamiento para guardar la carpeta con todas las canciones (no puede ser github porque hay archivos de mas de 100mb)
-
-probando bitbucket
 
 - poner miniatura de video para poder darle palante o patras a la cancion
 - Poner boton para restaurar la posicion inicial de la camara
