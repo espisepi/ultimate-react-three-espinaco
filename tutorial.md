@@ -1,6 +1,6 @@
 TODO:
 
-1- Crear app nativa con ionic y todas las canciones
+1- Crear app nativa con ionic y todas las canciones: https://ionicframework.com/docs/react/adding-ionic-react-to-an-existing-react-project
 
 1 - Poner todas las canciones en una carpeta en public
 2 - analizar todos los archivos de esa carpeta y obtener su url por medio de js. (ionic para crear app nativa para que funcione sin internet)
