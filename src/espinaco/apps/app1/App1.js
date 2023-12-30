@@ -651,6 +651,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
+            cursor: showMenuButton ? "pointer" : "none",
           }}
         ></button>
       </FullScreen>
