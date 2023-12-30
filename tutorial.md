@@ -4,6 +4,7 @@ TODO:
 - Poner boton para restaurar la posicion inicial de la camara
 - Cambiar tipo de visualizacion del shader con un boton en la ui
 - Crear escena de videopoints infinitos creados con instancedMesh
+- Crear una lista de reproduccion para canciones de promociones, que me paguen por subirse en esa lista (a parte de la lista de mis canciones, que esa lista no se toca ni se prostituye con ningun tipo de cancion que no sea que yo escuche o haya escuchado bastantes veces y me gusten para ponerlas)
 
 - añadir que en un tiempo exacto de la cancion empiece a rotar y a dejar de rotar
 
