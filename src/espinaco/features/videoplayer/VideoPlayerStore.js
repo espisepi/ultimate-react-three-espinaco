@@ -248,6 +248,98 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "XXXTENTACION - MOONLIGHT (OFFICIAL MUSIC VIDEO)",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/XXXTENTACION+-+MOONLIGHT+(OFFICIAL+MUSIC+VIDEO).mp4",
     },
+    {
+      name: "Soto Asa - La Primera (ft. Mala Rodríguez)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/2.+Soto+Asa+-+La+Primera+(ft.+Mala+Rodr%C3%ADguez).mp4",
+    },
+    {
+      name: "Andy Stott - Faith In Strangers",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Andy+Stott+-+Faith+In+Strangers.mp4",
+    },
+    {
+      name: "babi - colegas (letra)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/babi+-+colegas+(letra).mp4",
+    },
+    {
+      name: "BEJO -  Guaña Guaña O O (Vidéo)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/BEJO+-++Gua%C3%B1a+Gua%C3%B1a+O+O+(Vid%C3%A9o).mp4",
+    },
+    {
+      name: "BEJO - CAMBIAR EL MUNDO (PROD. COOKIN SOUL).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/BEJO+-+CAMBIAR+EL+MUNDO+(PROD.+COOKIN+SOUL).mp4",
+    },
+    {
+      name: "BEJO - Pecata Minuta (Vidéo)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/BEJO+-+Pecata+Minuta+(Vid%C3%A9o).mp4",
+    },
+    {
+      name: "Cemeteries - Sodus",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Cemeteries+-+Sodus.mp4",
+    },
+    {
+      name: "DELAOSSA - JUDAS (PROD. JMOODS)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELAOSSA+-+JUDAS+(PROD.+JMOODS).mp4",
+    },
+    {
+      name: "DELLAFUENTE - 13 18",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELLAFUENTE+-+13+18.mp4",
+    },
+    {
+      name: "Foxes in Fiction - Ontario Gothic",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Foxes+in+Fiction+-+Ontario+Gothic.mp4",
+    },
+    {
+      name: "Future Islands - Like the Moon",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Future+Islands+-+Like+the+Moon.mp4",
+    },
+    {
+      name: "Greentea Peng - Downers   A COLORS SHOW",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Greentea+Peng+-+Downers+++A+COLORS+SHOW.mp4",
+    },
+    {
+      name: "Soto Asa - Jugador 9 (Videoclip)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Soto+Asa+-+Jugador+9+(Videoclip).mp4",
+    },
+    {
+      name: "PEDRO ∞ LãDROGA _d e s c o n e c t a r_(offline) (Prod. Blank Body)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/PEDRO+%E2%88%9E+L%C3%A3DROGA+_d+e+s+c+o+n+e+c+t+a+r_(offline)+(Prod.+Blank+Body).mp3.mp4",
+    },
+    {
+      name: "Saiko - Supernova (Official Video).mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Saiko+-+Supernova+(Official+Video).mp4",
+    },
+    {
+      name: "Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Saiko%2C+Feid%2C+Quevedo%2C+Mora+-+Polaris+Remix+(Video+Oficial).mp4",
+    },
+    {
+      name: "Memory Tapes - Real Love (NSFW Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Memory+Tapes+-+Real+Love+(NSFW+Video).mp4",
+    },
+    {
+      name: "Lil Xan - Betrayed",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lil+Xan+-+Betrayed.mp4",
+    },
+    {
+      name: "SASKE - BUCLE",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/SASKE+-+BUCLE.mp4",
+    },
+    {
+      name: "SASKE & KAS RULES - TRAMONTANA (VIDEO ALBUM)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/SASKE+%26+KAS+RULES+-+TRAMONTANA+(VIDEO+ALBUM).mp4",
+    },
+    {
+      name: "YUNG BEEF X COOKIN SOUL~EL PAPASITO BARS~",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/YUNG+BEEF+X+COOKIN+SOUL~EL+PAPASITO+BARS~.mp4",
+    },
+    {
+      name: "Jorja Smith - Blue Lights   A COLORS SHOW",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Jorja+Smith+-+Blue+Lights+++A+COLORS+SHOW.mp4",
+    },
+    {
+      name: "Lola Young - Don't Hate Me",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lola+Young+-+Don't+Hate+Me.mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
