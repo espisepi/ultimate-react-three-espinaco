@@ -562,7 +562,7 @@ export function App1Start({ url }) {
             bottom: "100px",
             right: "190px",
             //   backgroundColor: "#ffff00",
-            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
         >
@@ -600,7 +600,7 @@ export function App1Start({ url }) {
             bottom: "100px",
             right: "100px",
             //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #9220de 0%, #000000 100%)",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
         >
