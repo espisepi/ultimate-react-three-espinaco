@@ -1,6 +1,9 @@
 TODO:
 
-1- Crear app nativa con ionic y todas las canciones
+- Crear servidor web casero con raspberry y alojar ahi mi aplicacion con todos los videos: https://pedropablomoral.com/raspberrypi/proyectos/servidor-casero/
+  -- Poner en .gitignore la carpeta con todas las canciones para no subirlas a github (que hay archivos de mas de 100mb y github falla)
+
+1- Crear app nativa con ionic y todas las canciones: https://ionicframework.com/docs/react/adding-ionic-react-to-an-existing-react-project
 
 1 - Poner todas las canciones en una carpeta en public
 2 - analizar todos los archivos de esa carpeta y obtener su url por medio de js. (ionic para crear app nativa para que funcione sin internet)
