@@ -5,6 +5,7 @@ import {
   useVideoPlayerStore,
 } from "./VideoPlayerStore";
 import VideoPlayerList from "./VideoPlayerList";
+import VideoPlayerListMyServerMedia from "./my-server-media/VideoPlayerListMyServerMedia";
 
 export default function VideoPlayer({ showUI = true }) {
   const selectedVideo = useVideoPlayerStore((state) => state.selectedVideo);
@@ -83,7 +84,8 @@ export default function VideoPlayer({ showUI = true }) {
 
   return (
     <>
-      <VideoPlayerList showUI={showUI} />
+      {/* <VideoPlayerList showUI={showUI} /> */}
+      <VideoPlayerListMyServerMedia showUI={showUI} />
       {/* <h1
         id="loading"
         style={{
