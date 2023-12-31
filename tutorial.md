@@ -1,7 +1,8 @@
 TODO:
 
-- Crear servidor web casero con raspberry y alojar ahi mi aplicacion con todos los videos: https://pedropablomoral.com/raspberrypi/proyectos/servidor-casero/
+- Crear servidor web casero con raspberry y alojar ahi mi aplicacion con todos los videos: (Hacerlo con nodejs el servidor) https://pedropablomoral.com/raspberrypi/proyectos/servidor-casero/
   -- Poner en .gitignore la carpeta con todas las canciones para no subirlas a github (que hay archivos de mas de 100mb y github falla)
+  https://www.adslzone.net/como-se-hace/internet/nube-almacenamiento-personal/
 
 1- Crear app nativa con ionic y todas las canciones: https://ionicframework.com/docs/react/adding-ionic-react-to-an-existing-react-project
 
