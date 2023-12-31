@@ -57,12 +57,17 @@ export const useVideoPlayerStore = create((set, get) => ({
 function convertUrlToMyServer(url) {
   const path_my_server = PATH_MY_SERVER_MEDIA;
   const url_without_spacing = reemplazarEspaciosConPorcentaje20(url);
-  return path_my_server + "/media/" + url_without_spacing;
+  const url_processed = reemplazarAlmohadilla(url_without_spacing);
+  return path_my_server + "/media/" + url_processed;
 }
 
 function reemplazarEspaciosConPorcentaje20(inputString) {
   // Utiliza la función replace con una expresión regular para buscar y reemplazar los espacios con '%20'
   return inputString.replace(/ /g, "%20");
+}
+
+function reemplazarAlmohadilla(inputString) {
+  return inputString.replace("#", "%23");
 }
 
 function playLocalVideo(localVideoUrl) {
