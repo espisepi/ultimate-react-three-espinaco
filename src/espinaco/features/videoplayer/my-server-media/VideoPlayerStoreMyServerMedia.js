@@ -25,8 +25,8 @@ export const useVideoPlayerStore = create((set, get) => ({
       const data = await response.json();
       set({
         videos: data.mediaFiles
-          // .sort((a, b) => a.name.localeCompare(b.name)) // Ordenarlo alfabeticamente
-          .map((media) => ({ name: media, url: media })), // Crear objeto video: {name: string, url: string}
+          .map((media) => ({ name: media, url: media })) // Crear objeto video: {name: string, url: string}
+          .sort((a, b) => a.name.localeCompare(b.name)), // Ordenarlo alfabeticamente
       });
     } catch (error) {
       console.error(error);
