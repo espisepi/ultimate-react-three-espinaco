@@ -15,6 +15,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
+import SketchbookComponent from "../../features/sketchbook/SketchbookComponent";
 
 // Coger efectos de codrops
 // Mezclar esos dos efectos para soto asa videoclip
@@ -115,6 +116,8 @@ export function Scene1() {
         fade /* speed={1} */
         /* saturation={1} */
       />
+
+      <SketchbookComponent />
     </>
   );
 }
