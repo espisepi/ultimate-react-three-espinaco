@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Float, Html } from "@react-three/drei";
 
-export default function App() {
+export default function IframeGBA() {
   return (
     <>
       <hemisphereLight groundColor="red" />
