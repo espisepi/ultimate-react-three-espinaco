@@ -3,7 +3,11 @@ import { useMemo, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Box, Float, Html } from "@react-three/drei";
 
-export default function IframeGBA({ visible = true, remove = false }) {
+export default function IframeGBA({
+  visible = true,
+  remove = false,
+  occludeBlending = true,
+}) {
   const { camera } = useThree();
   const [cameraInitialPosition] = useState(camera.position.clone());
   const restoreCameraPosition = () => {
@@ -17,7 +21,11 @@ export default function IframeGBA({ visible = true, remove = false }) {
     <>
       {remove ? null : (
         <group position={[0, 0, 0]}>
-          <Html occlude="blending" transform distanceFactor={100}>
+          <Html
+            occlude={occludeBlending ? "blending" : ""}
+            transform
+            distanceFactor={100}
+          >
             <button
               onPointerDown={restoreCameraPosition}
               style={{

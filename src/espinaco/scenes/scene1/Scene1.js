@@ -124,6 +124,7 @@ export default function Scene1Canvas({
   style,
   isGbaVisible = true,
   isGbaRemoved = false,
+  isOccludeBlending = true,
 }) {
   return (
     <>
@@ -140,7 +141,11 @@ export default function Scene1Canvas({
           <Scene1 />
         </Suspense>
 
-        <GBA visible={isGbaVisible} remove={isGbaRemoved} />
+        <GBA
+          visible={isGbaVisible}
+          remove={isGbaRemoved}
+          occludeBlending={isOccludeBlending}
+        />
 
         {/* <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
                 <MemoryCardGame />
