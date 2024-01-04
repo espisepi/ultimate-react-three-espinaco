@@ -120,7 +120,11 @@ export function Scene1() {
   );
 }
 
-export default function Scene1Canvas({ style }) {
+export default function Scene1Canvas({
+  style,
+  isGbaVisible = true,
+  isGbaRemoved = false,
+}) {
   return (
     <>
       <Canvas
@@ -136,7 +140,7 @@ export default function Scene1Canvas({ style }) {
           <Scene1 />
         </Suspense>
 
-        <GBA />
+        <GBA visible={isGbaVisible} remove={isGbaRemoved} />
 
         {/* <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
                 <MemoryCardGame />

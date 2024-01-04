@@ -373,12 +373,23 @@ export function App1Start({ url }) {
 
   //================================================
 
+  const [isGbaVisible, setIsGbaVisible] = useState(true);
+  const [isGbaRemoved, setIsGbaRemoved] = useState(false);
+  const handleToggleIsGbaVisible = () => {
+    setIsGbaVisible(!isGbaVisible);
+  };
+  const handleToggleIsGbaRemoved = () => {
+    setIsGbaRemoved(!isGbaRemoved);
+  };
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
   // TODO: Reproducir canciones aleatoriamente o en bucle la misma cancion (checkbox para elegir la opcion)
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen handle={handleFullScreen}>
         <Scene1Canvas
+          isGbaRemoved={isGbaRemoved}
+          isGbaVisible={isGbaVisible}
           style={{
             position: "relative",
             top: "0",
@@ -605,9 +616,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
-        >
-          ∫{" "}
-        </button>
+        ></button>
 
         <button
           onClick={handleShowVideo}
@@ -654,6 +663,38 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             cursor: showMenuButton ? "pointer" : "none",
+          }}
+        ></button>
+
+        {/* GBA Buttons */}
+        <button
+          onClick={handleToggleIsGbaVisible}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "170px",
+            right: "100px",
+            //   backgroundColor: "#ff00ff",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: 0.5,
+          }}
+        ></button>
+        <button
+          onClick={handleToggleIsGbaRemoved}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "170px",
+            right: "190px",
+            //   backgroundColor: "#ff00ff",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: 0.5,
           }}
         ></button>
       </FullScreen>
