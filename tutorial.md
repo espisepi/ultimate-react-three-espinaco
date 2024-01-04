@@ -1,5 +1,9 @@
 TODO:
 
+- Añadir gba.js.org desplegado en vercel mediante iframe
+
+- juego de naves en 2d por encima del videopoints con score y ranking
+
 - Crear servidor web casero con raspberry y alojar ahi mi aplicacion con todos los videos: (Hacerlo con nodejs el servidor) https://pedropablomoral.com/raspberrypi/proyectos/servidor-casero/
   -- Poner en .gitignore la carpeta con todas las canciones para no subirlas a github (que hay archivos de mas de 100mb y github falla)
   https://www.adslzone.net/como-se-hace/internet/nube-almacenamiento-personal/
