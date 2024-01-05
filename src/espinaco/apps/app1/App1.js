@@ -375,7 +375,7 @@ export function App1Start({ url }) {
 
   const [isGbaVisible, setIsGbaVisible] = useState(true);
   const [isGbaRemoved, setIsGbaRemoved] = useState(false);
-  const [isOccludeBlending, setIsOccludeBlending] = useState(true);
+  const [isOccludeBlending, setIsOccludeBlending] = useState(false);
   const handleToggleIsGbaVisible = () => {
     setIsGbaVisible(!isGbaVisible);
   };
