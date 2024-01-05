@@ -47,7 +47,7 @@ export default function IframeGBA({
       // TODO: Optimizar esta parte para no crear canvasTexture todo el tiempo
       const canvasTexture = new THREE.CanvasTexture(canvasIframe);
       videoPoints.material.uniforms.iChannel0.value = canvasTexture;
-    } else {
+    } else if (!displayTextureGbaGame && videoTexture) {
       videoPoints.material.uniforms.iChannel0.value = videoTexture;
     }
   });
