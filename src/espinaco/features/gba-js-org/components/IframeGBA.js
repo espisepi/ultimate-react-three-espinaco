@@ -1,12 +1,14 @@
 import * as THREE from "three";
-import { useMemo, useState } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Box, Float, Html } from "@react-three/drei";
+import useIframeCanvas from "../hooks/useIframeCanvas";
 
 export default function IframeGBA({
   visible = true,
   remove = false,
   occludeBlending = true,
+  displayTextureGbaGame = true,
 }) {
   const { camera } = useThree();
   const [cameraInitialPosition] = useState(camera.position.clone());
@@ -17,6 +19,49 @@ export default function IframeGBA({
       cameraInitialPosition.z
     );
   };
+
+  // const iframeRef = useRef(null);
+  // useEffect(() => {
+  //   if (iframeRef.current) {
+  //     console.log({ iframeRefCurrent: iframeRef.current });
+  //     const canvasIframe =
+  //       iframeRef.current.contentWindow.document.getElementById(
+  //         "emulator_target"
+  //       );
+  //     console.log({ canvasIframe });
+  //   }
+  // }, [iframeRef.current]);
+  const canvasIframe = useIframeCanvas();
+  const [videoPoints, setVideoPoints] = useState();
+  const [canvasTexture, setCanvasTexture] = useState();
+  const [videoTexture, setVideoTexture] = useState();
+  useEffect(() => {
+    if (canvasIframe) {
+      // console.log({ canvasIframe });
+      console.log({ videoPoints: window.videoPoints });
+      // Obtenemos el objeto videoPoints
+      const videoPoints = window.videoPoints;
+      setVideoPoints(videoPoints);
+      // Obtenemos el video texture de por si aka (acaso) lo queremos volver a poner
+      const videoTexture = videoPoints.material.uniforms.iChannel0.value;
+      setVideoTexture(videoTexture);
+      // Reemplazamos la textura del videoclip por el canvas
+      const canvasTexture = new THREE.CanvasTexture(canvasIframe);
+      canvasTexture.needsUpdate = true;
+      videoPoints.material.uniforms.iChannel0.value = canvasTexture;
+      videoPoints.material.needsUpdate = true;
+      setCanvasTexture(canvasTexture);
+    }
+  }, [canvasIframe]);
+  useFrame(() => {
+    if (displayTextureGbaGame && videoPoints && canvasTexture) {
+      // TODO: Optimizar esta parte para no crear canvasTexture todo el tiempo
+      const canvasTexture = new THREE.CanvasTexture(canvasIframe);
+      videoPoints.material.uniforms.iChannel0.value = canvasTexture;
+    } else {
+      videoPoints.material.uniforms.iChannel0.value = videoTexture;
+    }
+  });
   return (
     <>
       {remove ? null : (
@@ -42,6 +87,7 @@ export default function IframeGBA({
               }}
             ></button>
             <iframe
+              id="iframe-gba"
               style={
                 visible
                   ? {}
@@ -50,7 +96,7 @@ export default function IframeGBA({
               title="embed"
               width={1366}
               height={1024}
-              src="https://gba.js.org/"
+              src="/gba/index.html"
               frameBorder={0}
             />
           </Html>
