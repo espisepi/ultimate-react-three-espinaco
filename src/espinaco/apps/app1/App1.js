@@ -376,6 +376,7 @@ export function App1Start({ url }) {
   const [isGbaVisible, setIsGbaVisible] = useState(true);
   const [isGbaRemoved, setIsGbaRemoved] = useState(false);
   const [isOccludeBlending, setIsOccludeBlending] = useState(false);
+  const [isDisplayTextureGbaGame, setIsDisplayTextureGbaGame] = useState(true);
   const handleToggleIsGbaVisible = () => {
     setIsGbaVisible(!isGbaVisible);
   };
@@ -384,6 +385,9 @@ export function App1Start({ url }) {
   };
   const handleToggleIsOccludeBlending = () => {
     setIsOccludeBlending(!isOccludeBlending);
+  };
+  const handleToggleIsDisplayTextureGbaGame = () => {
+    setIsDisplayTextureGbaGame(!isDisplayTextureGbaGame);
   };
 
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
@@ -395,6 +399,7 @@ export function App1Start({ url }) {
           isGbaRemoved={isGbaRemoved}
           isGbaVisible={isGbaVisible}
           isOccludeBlending={isOccludeBlending}
+          isDisplayTextureGbaGame={isDisplayTextureGbaGame}
           style={{
             position: "relative",
             top: "0",
@@ -697,6 +702,21 @@ export function App1Start({ url }) {
             position: "absolute",
             bottom: "170px",
             right: "190px",
+            //   backgroundColor: "#ff00ff",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: 0.5,
+          }}
+        ></button>
+        <button
+          onClick={handleToggleIsDisplayTextureGbaGame}
+          style={{
+            display: showVideo ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            bottom: "170px",
+            right: "270px",
             //   backgroundColor: "#ff00ff",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,

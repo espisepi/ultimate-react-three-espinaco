@@ -125,6 +125,7 @@ export default function Scene1Canvas({
   isGbaVisible = true,
   isGbaRemoved = false,
   isOccludeBlending = true,
+  isDisplayTextureGbaGame = true,
 }) {
   return (
     <>
@@ -145,6 +146,7 @@ export default function Scene1Canvas({
           visible={isGbaVisible}
           remove={isGbaRemoved}
           occludeBlending={isOccludeBlending}
+          displayTextureGbaGame={isDisplayTextureGbaGame}
         />
 
         {/* <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
