@@ -692,7 +692,7 @@ export function App1Start({ url }) {
             opacity: 0.5,
           }}
         ></button>
-        <button
+        {/* <button
           onClick={handleToggleIsGbaRemoved}
           style={{
             display: showVideo ? "block" : "none",
@@ -701,12 +701,12 @@ export function App1Start({ url }) {
             borderRadius: "25px",
             position: "absolute",
             bottom: "170px",
-            right: "190px",
+            right: "190px", // Cambiar el right del handleToggleIsDisplayTextureGbaGame
             //   backgroundColor: "#ff00ff",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
-        ></button>
+        ></button> */}
         <button
           onClick={handleToggleIsDisplayTextureGbaGame}
           style={{
@@ -716,7 +716,7 @@ export function App1Start({ url }) {
             borderRadius: "25px",
             position: "absolute",
             bottom: "170px",
-            right: "270px",
+            right: "190px",
             //   backgroundColor: "#ff00ff",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
