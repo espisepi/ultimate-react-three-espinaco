@@ -20,17 +20,6 @@ export default function IframeGBA({
     );
   };
 
-  // const iframeRef = useRef(null);
-  // useEffect(() => {
-  //   if (iframeRef.current) {
-  //     console.log({ iframeRefCurrent: iframeRef.current });
-  //     const canvasIframe =
-  //       iframeRef.current.contentWindow.document.getElementById(
-  //         "emulator_target"
-  //       );
-  //     console.log({ canvasIframe });
-  //   }
-  // }, [iframeRef.current]);
   const canvasIframe = useIframeCanvas();
   const [videoPoints, setVideoPoints] = useState();
   const [canvasTexture, setCanvasTexture] = useState();
