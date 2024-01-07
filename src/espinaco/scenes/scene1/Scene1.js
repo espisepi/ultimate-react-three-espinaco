@@ -15,7 +15,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
-import GBA from "../../features/gba-js-org/GBA";
+// import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
 // Mezclar esos dos efectos para soto asa videoclip
@@ -142,12 +142,12 @@ export default function Scene1Canvas({
           <Scene1 />
         </Suspense>
 
-        <GBA
+        {/* <GBA
           visible={isGbaVisible}
           remove={isGbaRemoved}
           occludeBlending={isOccludeBlending}
           displayTextureGbaGame={isDisplayTextureGbaGame}
-        />
+        /> */}
 
         {/* <Suspense fallback={<Box material-color='green' material-wireframe='true'/>}>
                 <MemoryCardGame />
