@@ -136,21 +136,21 @@ export default function TextTesellation({
     setMesh(mesh);
   }, [text]);
 
-  useFrame(({ clock, mouse }) => {
+  useFrame(({ clock /*mouse*/ }) => {
     // No visible when pass 2 seconds
-    if (mesh && clock.getElapsedTime() > 1.5) {
-      mesh.visible = false;
-    }
+    // if (mesh && clock.getElapsedTime() > 1.5) {
+    //   mesh.visible = false;
+    // }
     if (mesh && mesh.material && mesh.material.uniforms.amplitude) {
       mesh.material.uniforms.amplitude.value =
         1.0 + Math.sin(clock.getElapsedTime() * 0.5);
       mesh.material.uniforms.iTime.value = clock.getElapsedTime();
     }
-    if (pointerAnimation && mesh && mesh.rotation) {
-      mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, mouse.x * 2, 0.1);
-      mesh.rotation.x = THREE.MathUtils.lerp(mesh.rotation.x, mouse.y / 2, 0.1);
-      mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, mouse.x / 2, 0.1);
-    }
+    // if (pointerAnimation && mesh && mesh.rotation) {
+    //   mesh.position.x = THREE.MathUtils.lerp(mesh.position.x, mouse.x * 2, 0.1);
+    //   mesh.rotation.x = THREE.MathUtils.lerp(mesh.rotation.x, mouse.y / 2, 0.1);
+    //   mesh.rotation.y = THREE.MathUtils.lerp(mesh.rotation.y, mouse.x / 2, 0.1);
+    // }
   });
 
   return <primitive object={mesh} {...props} />;
