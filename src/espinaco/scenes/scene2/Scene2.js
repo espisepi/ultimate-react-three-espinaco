@@ -1,7 +1,14 @@
 import React, { useCallback, useEffect, useRef } from "react";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Box, Stars } from "@react-three/drei";
+import {
+  OrbitControls,
+  Box,
+  Stars,
+  CubeCamera,
+  Float,
+  MeshReflectorMaterial,
+} from "@react-three/drei";
 
 import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
 import VideoPoints from "../../prefabs/VideoPoints";
@@ -17,6 +24,7 @@ import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Screen from "../../prefabs/screen/Screen";
+import FloorReflector from "../../prefabs/floor-reflector/FloorReflector";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // https://codesandbox.io/p/sandbox/volumetric-light-godray-yggpw5?file=%2Fsrc%2FApp.js
@@ -54,7 +62,27 @@ export function Scene2() {
 
       <VideoPoints />
 
+      {/** The screen uses postpro godrays */}
       <Screen />
+
+      {/** The sphere reflects the screen with a cube-cam */}
+      <Float rotationIntensity={3} floatIntensity={3} speed={1}>
+        <CubeCamera position={[-3, -1, -5]} resolution={256} frames={Infinity}>
+          {(texture) => (
+            <mesh>
+              <sphereGeometry args={[2, 32, 32]} />
+              <meshStandardMaterial
+                metalness={1}
+                roughness={0.1}
+                envMap={texture}
+              />
+            </mesh>
+          )}
+        </CubeCamera>
+      </Float>
+
+      {/** The floor uses drei/MeshReflectorMaterial */}
+      <FloorReflector />
 
       {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
 
