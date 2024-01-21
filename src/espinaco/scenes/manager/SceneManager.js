@@ -16,7 +16,7 @@ export default function SceneManager({
         setCameraPosition((v) => [0, 0, 400]);
         break;
       case 1:
-        setCameraPosition((v) => [0, 0, 30]);
+        setCameraPosition((v) => [0, 0, 0.1]);
         break;
       default:
         alert("No se ha definido la Scene elegida, PUTA Scene: " + id);
