@@ -19,12 +19,11 @@ export default function SceneManager({
         setCameraPosition((v) => [0, 0, 0.1]);
         break;
       default:
-        alert("No se ha definido la Scene elegida, PUTA Scene: " + id);
+        alert("No se ha definido la Scene elegida, Scene: " + id);
         setCameraPosition((v) => [0, 0, 0]);
         break;
     }
   }, [id]);
-  console.log(cameraPosition);
   return (
     <Canvas
       style={{ ...style, backgroundColor: "black" }}
