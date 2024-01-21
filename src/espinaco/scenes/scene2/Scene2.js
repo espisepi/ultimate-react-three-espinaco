@@ -8,6 +8,7 @@ import {
   CubeCamera,
   Float,
   MeshReflectorMaterial,
+  Stats,
 } from "@react-three/drei";
 
 import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
@@ -25,6 +26,7 @@ import TextTesellation from "../../features/text-tesellation/TextTesellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Screen from "../../prefabs/screen/Screen";
 import FloorReflector from "../../prefabs/floor-reflector/FloorReflector";
+import SphereCubeCamera from "../../prefabs/sphere-cubeCamera/SphereCubeCamera";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // https://codesandbox.io/p/sandbox/volumetric-light-godray-yggpw5?file=%2Fsrc%2FApp.js
@@ -66,20 +68,7 @@ export function Scene2() {
       <Screen />
 
       {/** The sphere reflects the screen with a cube-cam */}
-      <Float rotationIntensity={3} floatIntensity={3} speed={1}>
-        <CubeCamera position={[-3, -1, -5]} resolution={256} frames={Infinity}>
-          {(texture) => (
-            <mesh>
-              <sphereGeometry args={[2, 32, 32]} />
-              <meshStandardMaterial
-                metalness={1}
-                roughness={0.1}
-                envMap={texture}
-              />
-            </mesh>
-          )}
-        </CubeCamera>
-      </Float>
+      <SphereCubeCamera />
 
       {/** The floor uses drei/MeshReflectorMaterial */}
       <FloorReflector />
@@ -115,6 +104,7 @@ export default function Scene2Canvas({ style }) {
           <Scene2 />
         </Suspense>
         <GodCameraControls />
+        <Stats />
       </Canvas>
     </>
   );

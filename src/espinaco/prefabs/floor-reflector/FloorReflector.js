@@ -1,5 +1,8 @@
 import { MeshReflectorMaterial } from "@react-three/drei";
 
+{
+  /** The floor uses drei/MeshReflectorMaterial */
+}
 const FloorReflector = () => (
   <mesh position={[0, -5.02, 0]} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
     <planeGeometry args={[50, 50]} />

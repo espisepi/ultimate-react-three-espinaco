@@ -10,6 +10,7 @@ export default function Screen() {
   const [material, set] = useState();
   return (
     <>
+      {/** The screen uses postpro godrays */}
       <Emitter ref={set} />
       {material && (
         <EffectComposer disableNormalPass multisampling={8}>
