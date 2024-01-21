@@ -16,6 +16,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
 import Minecraft from "../../features/minecraft/Minecraft";
+import Screen from "../../prefabs/screen/Screen";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // https://codesandbox.io/p/sandbox/volumetric-light-godray-yggpw5?file=%2Fsrc%2FApp.js
@@ -48,6 +49,8 @@ export function Scene2() {
 
       <VideoPoints />
 
+      <Screen />
+
       {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
 
       <Stars
@@ -69,7 +72,7 @@ export default function Scene2Canvas({ style }) {
       <Canvas
         style={{ ...style, backgroundColor: "black" }}
         camera={{
-          position: [0, 0, -5],
+          position: [0, 0, 30],
           far: 9999999,
         }}
       >
