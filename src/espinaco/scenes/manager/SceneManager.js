@@ -34,7 +34,7 @@ export default function SceneManager({
       }}
     >
       <GodCameraControls position={cameraPosition} />
-      <Stats />
+      {/* <Stats /> */}
       <Suspense
         fallback={<Box material-color="red" material-wireframe="true" />}
       >
