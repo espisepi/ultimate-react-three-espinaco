@@ -392,6 +392,14 @@ export function App1Start({ url }) {
     setIsDisplayTextureGbaGame(!isDisplayTextureGbaGame);
   };
 
+  // SceneManager =========================================
+
+  const maxNumScenes = 2; // Poner aqui el numero de escenas maximas que haya creado
+  const [sceneId, setSceneId] = useState(0);
+  const handleChangeScene = () => {
+    setSceneId((value) => (value + 1) % maxNumScenes);
+  };
+
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
   // TODO: Reproducir canciones aleatoriamente o en bucle la misma cancion (checkbox para elegir la opcion)
   return (
@@ -418,7 +426,7 @@ export function App1Start({ url }) {
           }}
         /> */}
         <SceneManager
-          id="1"
+          id={sceneId}
           style={{
             position: "relative",
             top: "0",
@@ -692,6 +700,24 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             cursor: showMenuButton ? "pointer" : "none",
+          }}
+        ></button>
+
+        <button
+          onClick={handleChangeScene}
+          style={{
+            // visibility: showMenuButton ? "visible" : "hidden",
+            display: "block",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            top: 100,
+            right: 0,
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showMenuButton ? 0.3 : 0.0,
+            // cursor: showMenuButton ? "pointer" : "none",
           }}
         ></button>
 
