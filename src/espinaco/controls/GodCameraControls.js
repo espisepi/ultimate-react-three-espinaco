@@ -10,9 +10,25 @@ const vec = new THREE.Vector3();
 const SPEED_MIN_VALUE = 100;
 const SPEED_MAX_VALUE = 500;
 
-export default function GodCameraControls() {
+// position: [x,y,z] Array<number>
+// tagetPosition: same as position churritagorda
+export default function GodCameraControls({ position, targetPosition }) {
   const { camera } = useThree();
   const orbitControls = useRef();
+
+  useEffect(() => {
+    // Cambiar la posicion de la camara
+    camera?.position.set(position[0], position[1], position[2]);
+    if (targetPosition) {
+      orbitControls.current?.target.set(
+        targetPosition[0],
+        targetPosition[1],
+        targetPosition[2]
+      );
+    } else {
+      orbitControls.current?.target.set(0, 0, 0);
+    }
+  }, [position]);
 
   useEffect(() => {
     // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
