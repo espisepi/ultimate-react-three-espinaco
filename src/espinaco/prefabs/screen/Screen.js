@@ -12,7 +12,7 @@ export default function Screen() {
     <>
       {/** The screen uses postpro godrays */}
       <Emitter ref={set} />
-      {material && (
+      {/* {material && (
         <EffectComposer disableNormalPass multisampling={8}>
           <GodRays sun={material} exposure={0.34} decay={0.8} blur />
           <Bloom
@@ -22,7 +22,7 @@ export default function Screen() {
             intensity={1}
           />
         </EffectComposer>
-      )}
+      )} */}
     </>
   );
 }
@@ -40,7 +40,7 @@ const Emitter = forwardRef((props, forwardRef) => {
   useEffect(() => void video?.play(), [video]);
   if (video) {
     return (
-      <mesh ref={forwardRef} position={[0, 0, -16]} {...props}>
+      <mesh ref={forwardRef} position={[0, 0, -10]} {...props}>
         <planeGeometry args={[16, 10]} />
         <meshBasicMaterial>
           <videoTexture
