@@ -21,6 +21,11 @@ import Screen from "../../prefabs/screen/Screen";
 
 // https://codesandbox.io/p/sandbox/volumetric-light-godray-yggpw5?file=%2Fsrc%2FApp.js
 
+//TODO:
+// Conectar a mi ip privada server y si no a la lista de canciones aws s3
+// Quitar botones gba
+// Terminar la escena scene2
+
 export function Scene2() {
   const starsRef = useRef();
   useEffect(() => {
