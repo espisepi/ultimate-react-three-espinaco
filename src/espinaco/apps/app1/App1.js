@@ -21,6 +21,7 @@ import {
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
+import Scene2Canvas from "../../scenes/scene2/Scene2";
 import VideoPlayer from "../../features/videoplayer/VideoPlayer";
 import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
 import { NippleJoystick } from "../../controls/NippleJoystick";
@@ -395,11 +396,19 @@ export function App1Start({ url }) {
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen handle={handleFullScreen}>
-        <Scene1Canvas
+        {/* <Scene1Canvas
           isGbaRemoved={isGbaRemoved}
           isGbaVisible={isGbaVisible}
           isOccludeBlending={isOccludeBlending}
           isDisplayTextureGbaGame={isDisplayTextureGbaGame}
+          style={{
+            position: "relative",
+            top: "0",
+            width: "100%",
+            height: "100vh",
+          }}
+        /> */}
+        <Scene2Canvas
           style={{
             position: "relative",
             top: "0",
