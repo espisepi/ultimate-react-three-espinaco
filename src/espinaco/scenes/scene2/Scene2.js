@@ -68,10 +68,10 @@ export function Scene2() {
       <Screen />
 
       {/** The sphere reflects the screen with a cube-cam */}
-      <SphereCubeCamera />
+      {/* <SphereCubeCamera /> */}
 
       {/** The floor uses drei/MeshReflectorMaterial */}
-      <FloorReflector />
+      {/* <FloorReflector /> */}
 
       {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
 
