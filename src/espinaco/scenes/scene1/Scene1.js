@@ -15,6 +15,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
+import Minecraft from "../../features/minecraft/Minecraft";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -153,6 +154,7 @@ export default function Scene1Canvas({
                 <MemoryCardGame />
             </Suspense> */}
 
+        {/* <Minecraft /> */}
         <GodCameraControls />
       </Canvas>
     </>
