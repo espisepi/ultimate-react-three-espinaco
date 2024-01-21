@@ -60,7 +60,7 @@ export function Scene2() {
       <color attach="background" args={["#050505"]} />
       <ambientLight />
 
-      <VideoPoints />
+      {/* <VideoPoints /> */}
 
       {/** The screen uses postpro godrays */}
       <Screen />
