@@ -686,7 +686,7 @@ export function App1Start({ url }) {
         ></button>
 
         {/* GBA Buttons */}
-        <button
+        {/* <button
           onClick={handleToggleIsGbaVisible}
           style={{
             display: showVideo ? "block" : "none",
@@ -700,7 +700,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
-        ></button>
+        ></button> */}
         {/* <button
           onClick={handleToggleIsGbaRemoved}
           style={{
@@ -716,7 +716,7 @@ export function App1Start({ url }) {
             opacity: 0.5,
           }}
         ></button> */}
-        <button
+        {/* <button
           onClick={handleToggleIsDisplayTextureGbaGame}
           style={{
             display: showVideo ? "block" : "none",
@@ -730,8 +730,8 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
-        ></button>
-        <button
+        ></button> */}
+        {/* <button
           onClick={handleToggleIsOccludeBlending}
           style={{
             display: showVideo ? "block" : "none",
@@ -745,7 +745,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
           }}
-        ></button>
+        ></button> */}
       </FullScreen>
     </div>
   );
