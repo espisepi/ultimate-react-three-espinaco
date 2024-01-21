@@ -27,6 +27,7 @@ import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScre
 import { NippleJoystick } from "../../controls/NippleJoystick";
 import { useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
+import SceneManager from "../../scenes/manager/SceneManager";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -408,7 +409,16 @@ export function App1Start({ url }) {
             height: "100vh",
           }}
         /> */}
-        <Scene2Canvas
+        {/* <Scene2Canvas
+          style={{
+            position: "relative",
+            top: "0",
+            width: "100%",
+            height: "100vh",
+          }}
+        /> */}
+        <SceneManager
+          id="1"
           style={{
             position: "relative",
             top: "0",
