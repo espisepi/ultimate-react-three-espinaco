@@ -340,6 +340,30 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Lola Young - Don't Hate Me",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Lola+Young+-+Don't+Hate+Me.mp4",
     },
+    {
+      name: "DELLAFUENTE   ENAMORAO DE UNA EMO",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELLAFUENTE+++ENAMORAO+DE+UNA+EMO.mp4",
+    },
+    {
+      name: "Canserbero - Jeremías 175 (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Canserbero+-+Jerem%C3%ADas+175+(Video+Oficial).mp4",
+    },
+    {
+      name: "G-Vampires Corp. - DJ Set 2023",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/G-Vampires+Corp.+-+DJ+Set+2023.mp4",
+    },
+    {
+      name: "CRITICAL Pi - Noviembre   PROD LASIO",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/CRITICAL+Pi+-+Noviembre+++PROD+LASIO.mp4",
+    },
+    {
+      name: "Pony Pool Club - #VACKSTAGE - Fumar.mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Pony+Pool+Club+-+%23VACKSTAGE+-+Fumar.mp4",
+    },
+    {
+      name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP) Prod. Delson Aravena.mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+LA+ULTIMA+CENA+(VIDEOCLIP)+Prod.+Delson+Aravena.mp4",
+    },
 
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
