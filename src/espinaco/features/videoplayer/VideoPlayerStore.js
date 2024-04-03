@@ -13,7 +13,7 @@ export const LOVE_LO_HABITS = {
 };
 
 export const MCPI = {
-  name: "Critical Pi - John Cena (prod Lasio)",
+  name: "Critical Pi - John Cena (prod Lasio) (Live)",
   url: "videos/mcpi.mp4",
 };
 
