@@ -190,12 +190,6 @@ export const useVideoPlayerStore = create((set, get) => ({
       name: "Harry Styles - As It Was (Official Video)",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Harry+Styles+-+As+It+Was+(Official+Video).mp4",
     },
-    ,
-    {
-      name: "Explosions In The Sky - Your Hand In Mine   Live in Sydney   Moshcam",
-      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Explosions+In+The+Sky+-+Your+Hand+In+Mine+++Live+in+Sydney+++Moshcam.mp4",
-    },
-    ,
     {
       name: "D.NADIE - LOS OJOS COMO LUNAS (Visualizer)",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/D.NADIE+-+LOS+OJOS+COMO+LUNAS+(Visualizer).mp4",
@@ -357,14 +351,273 @@ export const useVideoPlayerStore = create((set, get) => ({
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/CRITICAL+Pi+-+Noviembre+++PROD+LASIO.mp4",
     },
     {
-      name: "Pony Pool Club - #VACKSTAGE - Fumar.mp4",
+      name: "Critical Pi - John Cena (prod Lasio)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Critical+Pi+-+John+Cena+(prod+Lasio).mp4",
+    },
+    {
+      name: "Pony Pool Club - #VACKSTAGE - Fumar",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Pony+Pool+Club+-+%23VACKSTAGE+-+Fumar.mp4",
     },
     {
-      name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP) Prod. Delson Aravena.mp4",
+      name: "TRAPANI - LA ULTIMA CENA (VIDEOCLIP) Prod. Delson Aravena",
       url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+LA+ULTIMA+CENA+(VIDEOCLIP)+Prod.+Delson+Aravena.mp4",
     },
-
+    {
+      name: "Danié & Murrah - Ohana (prod Lasio)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Dani%C3%A9+%26+Murrah+-+Ohana+(prod+Lasio).mp4",
+    },
+    {
+      name: "Danié & Lasio - 4 de Diciembre [VIDEOCLIP] #4dediciembre",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Dani%C3%A9+%26+Lasio+-+4+de+Diciembre+%5BVIDEOCLIP%5D+%234dediciembre.mp4",
+    },
+    {
+      name: "Clairo - Pretty Girl",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Clairo+-+Pretty+Girl.mp4",
+    },
+    {
+      name: "NIKITA - ВЕРЕВКИ [OFFICIAL VIDEO]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/NIKITA+-+%D0%92%D0%95%D0%A0%D0%95%D0%92%D0%9A%D0%98+%5BOFFICIAL+VIDEO%5D.mp4",
+    },
+    {
+      name: "Nemesixx - Monster High",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Nemesixx+-+Monster+High.mp4",
+    },
+    {
+      name: "JONA x JUANK - LA BOHÈME",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/JONA+x+JUANK+-+LA+BOH%C3%88ME.mp4",
+    },
+    {
+      name: "Estopa - Como Camaron (Videoclip)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Estopa+-+Como+Camaron+(Videoclip).mp4",
+    },
+    {
+      name: "Billie Eilish - everything i wanted (Official Music Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Billie+Eilish+-+everything+i+wanted+(Official+Music+Video).mp4",
+    },
+    {
+      name: "By the time you've finished your coffee   original song",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/By+the+time+you've+finished+your+coffee+++original+song.mp4",
+    },
+    {
+      name: "COCCO LEXA   MA BARRIERA (VIDEOCLIP OFICIAL)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/COCCO+LEXA+++MA+BARRIERA+(VIDEOCLIP+OFICIAL).mp4",
+    },
+    {
+      name: "CRUZ CAFUNÉ - AMÉN   VIDEO",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/CRUZ+CAFUN%C3%89+-+AM%C3%89N+++VIDEO.mp4",
+    },
+    {
+      name: "Coccolino Deep - Before Sunrise",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Coccolino+Deep+-+Before+Sunrise.mp4",
+    },
+    {
+      name: "DELAOSSA - NIGHTMARES (Directed by J.Blanco)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELAOSSA+-+NIGHTMARES+(Directed+by+J.Blanco).mp4",
+    },
+    {
+      name: "DELLAFUENTE - DILE [VIDEO OFICIAL]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DELLAFUENTE+-+DILE+%5BVIDEO+OFICIAL%5D.mp4",
+    },
+    {
+      name: "DaBaby - BOP on Broadway (Hip Hop Musical)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/DaBaby+-+BOP+on+Broadway+(Hip+Hop+Musical).mp4",
+    },
+    {
+      name: "Delaossa - Ojos Verdes",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Delaossa+-+Ojos+Verdes.mp4",
+    },
+    {
+      name: "Delaossa - Veneno (Prod. Kiddo Manteca y J.Moods) [Audio Oficial]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Delaossa+-+Veneno+(Prod.+Kiddo+Manteca+y+J.Moods)+%5BAudio+Oficial%5D.mp4",
+    },
+    {
+      name: "3. Guau Guau   METRIKA, D.Basto",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/3.+Guau+Guau+++METRIKA%2C+D.Basto.mp4",
+    },
+    {
+      name: "6LACK - PRBLMS [Official Music Video].mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/6LACK+-+PRBLMS+%5BOfficial+Music+Video%5D.mp4",
+    },
+    {
+      name: "999999999 - X0003000X [NTNLTD001X].mp4",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/999999999+-+X0003000X+%5BNTNLTD001X%5D.mp4",
+    },
+    {
+      name: "A$AP Rocky - Praise The Lord (Da Shine) (Official Video) ft. Skepta",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/A%24AP+Rocky+-+Praise+The+Lord+(Da+Shine)+(Official+Video)+ft.+Skepta.mp4",
+    },
+    {
+      name: "Dheformer & Ciclo - Cuello de gitano [ Supremo conocimiento del mundo]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Dheformer+%26+Ciclo+-+Cuello+de+gitano+%5B+Supremo+conocimiento+del+mundo%5D.mp4",
+    },
+    {
+      name: "Dheformer & Ciclo - Mercedes Benz feat N-Wise Allah",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Dheformer+%26+Ciclo+-+Mercedes+Benz+feat+N-Wise+Allah.mp4",
+    },
+    {
+      name: "ERICK HERVÉ - TE LA DEBÍA",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/ERICK+HERV%C3%89+-+TE+LA+DEB%C3%8DA.mp4",
+    },
+    {
+      name: "El After de Mi Kasa",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/El+After+de+Mi+Kasa.mp4",
+    },
+    {
+      name: "Eminem - Mockingbird [Official Music Video]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Eminem+-+Mockingbird+%5BOfficial+Music+Video%5D.mp4",
+    },
+    {
+      name: "Estopa - El Día Que Tú Te Marches (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Estopa+-+El+D%C3%ADa+Que+T%C3%BA+Te+Marches+(Video+Oficial).mp4",
+    },
+    {
+      name: "JONA - DÉPÊCHE-TOI",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/JONA+-+D%C3%89P%C3%8ACHE-TOI.mp4",
+    },
+    {
+      name: "JONA x PIEZAS - POBRE DIABLO",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/JONA+x+PIEZAS+-+POBRE+DIABLO.mp4",
+    },
+    {
+      name: "Joey Bada$$ -  Christ Conscious  (Official Music Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Joey+Bada%24%24+-++Christ+Conscious++(Official+Music+Video).mp4",
+    },
+    {
+      name: "KYNE - C#ÑØ!! (Videoclip Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/KYNE+-+C%23%C3%91%C3%98!!+(Videoclip+Oficial).mp4",
+    },
+    {
+      name: "KYNE, Jesse Baez - SSHOOTTAZZ (Dispara ya) (Official Video)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/KYNE%2C+Jesse+Baez+-+SSHOOTTAZZ+(Dispara+ya)+(Official+Video).mp4",
+    },
+    {
+      name: "Kaydy Cain Ft. Marko Italia - El infierno de tu gloria Remix (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Kaydy+Cain+Ft.+Marko+Italia+-+El+infierno+de+tu+gloria+Remix+(Video+Oficial).mp4",
+    },
+    {
+      name: "Kendrick Lamar - FEAR. (Subtitulada en Español)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Kendrick+Lamar+-+FEAR.+(Subtitulada+en+Espa%C3%B1ol).mp4",
+    },
+    {
+      name: "Manolo Garcia - Pajaros de Barro",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Manolo+Garcia+-+Pajaros+de+Barro.mp4",
+    },
+    {
+      name: "Moha La Squale - Bienvenue à la Banane",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Moha+La+Squale+-+Bienvenue+%C3%A0+la+Banane.mp4",
+    },
+    {
+      name: "NADAL015 -  STREET SHARK",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/NADAL015+-++STREET+SHARK.mp4",
+    },
+    {
+      name: "PESI - BLUE",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/PESI+-+BLUE.mp4",
+    },
+    {
+      name: "PXXR GVNG ~IMONMAPAPISHIT~",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/PXXR+GVNG+~IMONMAPAPISHIT~.mp4",
+    },
+    {
+      name: "YUNG BEEF - INTRO A.D.R.O.M.I.C.F.M.S",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/YUNG+BEEF+-+INTRO+A.D.R.O.M.I.C.F.M.S.mp4",
+    },
+    {
+      name: "Yung Beef - 27",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Yung+Beef+-+27.mp4",
+    },
+    {
+      name: "PXXR GVNG ~PERROS CALLEJEROS~",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/PXXR+GVNG+~PERROS+CALLEJEROS~.mp4",
+    },
+    {
+      name: "PXXR GVNG ~PIMPIN~ (OFFICIAL VIDEO)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/PXXR+GVNG+~PIMPIN~+(OFFICIAL+VIDEO).mp4",
+    },
+    {
+      name: "Rigoberta Bandini - Directo para el Museo Thyssen",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Rigoberta+Bandini+-+Directo+para+el+Museo+Thyssen.mp4",
+    },
+    {
+      name: "STARKIDS - PARAPULL (Prod. BENXNI) [Official Music Video]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/STARKIDS+-+PARAPULL+(Prod.+BENXNI)+%5BOfficial+Music+Video%5D.mp4",
+    },
+    {
+      name: "Spooky Black -  Without You",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Spooky+Black+-++Without+You.mp4",
+    },
+    {
+      name: "Spooky Black - Pull",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Spooky+Black+-+Pull.mp4",
+    },
+    {
+      name: "Sweater weather - The Neighbourhood (cover)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Sweater+weather+-+The+Neighbourhood+(cover).mp4",
+    },
+    {
+      name: "TRAPANI - DEL AMARGUE - (VIDEOCLIP)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+DEL+AMARGUE+-+(VIDEOCLIP).mp4",
+    },
+    {
+      name: "TRAPANI - ORALE (VIDEOCLIP) -",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+ORALE+(VIDEOCLIP)+-.mp4",
+    },
+    {
+      name: "TRAPANI - RENACER (VIDEOCLIP) -",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+RENACER+(VIDEOCLIP)+-.mp4",
+    },
+    {
+      name: "TRAPANI - SUBESTIMAO (VIDEOCLIP)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+SUBESTIMAO+(VIDEOCLIP).mp4",
+    },
+    {
+      name: "TRAPANI - VENGO (VIDEOCLIP)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+-+VENGO+(VIDEOCLIP).mp4",
+    },
+    {
+      name: "TRAPANI • CARRARA (VIDEOCLIP)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRAPANI+%E2%80%A2+CARRARA+(VIDEOCLIP).mp4",
+    },
+    {
+      name: "TRIANA PURA - DE FIESTA CON TRIANA PURA",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/TRIANA+PURA+-+DE+FIESTA+CON+TRIANA+PURA.mp4",
+    },
+    {
+      name: "Tash Sultana Tiny Desk Concert",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Tash+Sultana+Tiny+Desk+Concert.mp4",
+    },
+    {
+      name: "Tokischa - Twerk (Official Video) ft. Eladio Carrión",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Tokischa+-+Twerk+(Official+Video)+ft.+Eladio+Carri%C3%B3n.mp4",
+    },
+    {
+      name: "Toteking - Mira Cómo Tiemblan (Prod. El Arkeólogo)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Toteking+-+Mira+C%C3%B3mo+Tiemblan+(Prod.+El+Arke%C3%B3logo).mp4",
+    },
+    {
+      name: "Trueno - FEEL ME (Video Oficial)",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Trueno+-+FEEL+ME+(Video+Oficial).mp4",
+    },
+    {
+      name: "spooky black - idle",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/spooky+black+-+idle.mp4",
+    },
+    {
+      name: "spooky black - reason",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/spooky+black+-+reason.mp4",
+    },
+    {
+      name: "Selecto Picasso - BACK IN THE DAYS 3",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Selecto+Picasso+-+BACK+IN+THE+DAYS+3.mp4",
+    },
+    {
+      name: "Selecto Picasso - BACK IN THE DAYS 2 [Audio Oficial] [MADRILES]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Selecto+Picasso+-+BACK+IN+THE+DAYS+2+%5BAudio+Oficial%5D+%5BMADRILES%5D.mp4",
+    },
+    {
+      name: "Selecto Picasso - BACK IN THE DAYS [OneShot] [Inéditos]",
+      url: "https://videoclips-sepinaco.s3.eu-north-1.amazonaws.com/Selecto+Picasso+-+BACK+IN+THE+DAYS+%5BOneShot%5D+%5BIn%C3%A9ditos%5D.mp4",
+    }
     // {
     //   name: "FUFU - SLOU (OFFICIAL VIDEO)",
     //   url: "https://www.youtube.com/watch?v=JN4gBp3Ss24",
