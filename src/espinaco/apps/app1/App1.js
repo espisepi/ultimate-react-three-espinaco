@@ -451,9 +451,9 @@ export function App1Start({ url }) {
 
         <div
           id="div-input-range-video-point-size"
+          className="range"
           style={{
             display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
             bottom: 190 + MARGIN_BOTTOM_RANGES,
@@ -462,6 +462,7 @@ export function App1Start({ url }) {
           }}
         >
           <input
+            className="range1"
             type="range"
             ref={inputRangeVideoPointsSizeRef}
             onChange={(e) => handleVideoPointSize(e.target.value)}
@@ -473,9 +474,9 @@ export function App1Start({ url }) {
         </div>
         <div
           id="div-input-range-video-point-amplitude-distance"
+          className="range"
           style={{
             display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
             bottom: 220 + MARGIN_BOTTOM_RANGES,
@@ -484,6 +485,7 @@ export function App1Start({ url }) {
           }}
         >
           <input
+            className="range1"
             type="range"
             ref={inputRangeVideoPointsAmplitudeDistanceRef}
             onChange={(e) => handleVideoPointAmplitudeDistance(e.target.value)}
@@ -495,9 +497,9 @@ export function App1Start({ url }) {
         </div>
         <div
           id="div-input-range-video-point-scale"
+          className="range"
           style={{
             display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
             bottom: 160 + MARGIN_BOTTOM_RANGES,
@@ -506,6 +508,7 @@ export function App1Start({ url }) {
           }}
         >
           <input
+            className="range1"
             type="range"
             ref={inputRangeVideoPointsScaleRef}
             onChange={(e) => handleVideoPointScale(e.target.value)}
@@ -539,9 +542,9 @@ export function App1Start({ url }) {
         </div> */}
         <div
           id="div-input-range-stars-pointSize"
+          className="range"
           style={{
             display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
             bottom: 130 + MARGIN_BOTTOM_RANGES,
@@ -550,6 +553,7 @@ export function App1Start({ url }) {
           }}
         >
           <input
+            className="range1"
             type="range"
             ref={inputRangeStarsPointSizeRef}
             onChange={(e) => handleStarsPointSize(e.target.value)}
@@ -562,9 +566,9 @@ export function App1Start({ url }) {
 
         <div
           id="div-input-video-currentTime"
+          className="range"
           style={{
             display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             position: "absolute",
             left: 30,
             bottom: 100 + MARGIN_BOTTOM_RANGES,
@@ -573,6 +577,7 @@ export function App1Start({ url }) {
           }}
         >
           <input
+            className="range1"
             type="range"
             ref={inputRangeVideoCurrentTimeRef}
             onChange={(e) => handleVideoCurrentTime(e.target.value)}
@@ -614,6 +619,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "#ffff00",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
+            cursor: "pointer"
           }}
         >
           {" "}
@@ -652,6 +658,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "#ff00ff",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
+            cursor: "pointer",
           }}
         ></button>
 
@@ -668,6 +675,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 0.8 : 0.3,
+            cursor: "pointer"
           }}
         ></button>
         {/* <button
@@ -707,7 +715,7 @@ export function App1Start({ url }) {
           onClick={handleChangeScene}
           style={{
             // visibility: showMenuButton ? "visible" : "hidden",
-            display: "block",
+            display: showMenuButton ? "block" : "none",
             width: "50px",
             height: "50px",
             borderRadius: "25px",
@@ -718,6 +726,7 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             // cursor: showMenuButton ? "pointer" : "none",
+            cursor: "pointer",
           }}
         ></button>
 

@@ -37,3 +37,57 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #6f1ab6;
 }
+
+
+/* Custom input type Range */
+.range1 {
+  -webkit-appearance: none;
+  appearance: none; 
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.range1::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #3d1766;
+  border-radius: 16px;
+}
+
+.range1::-moz-range-track {
+  height: 15px;
+  background: #3d1766;
+  border-radius: 16px;
+}
+
+.range1::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 15px;
+  width: 15px;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: 2px solid #3d1766;
+  box-shadow: -407px 0 0 400px #3d1766;
+}
+
+.range1::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: 1px solid #3d1766;
+  box-shadow: -407px 0 0 400px #3d1766;
+}
+
+/*=============
+Aesthetics 
+=========================*/
+
+/* .range {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+} */
