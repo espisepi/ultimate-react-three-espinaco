@@ -97,12 +97,26 @@ export default function App1({}) {
 }
 
 export function App1ClickToStart({ setClicked }) {
+
+  // Mecanismo de contrasenia
+  const contrasenia = "3";
+  const [inputValue, setInputValue] = useState('');
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setInputValue(value);
+
+    if (value === contrasenia) {
+      setClicked(true)
+    }
+  };
+
   return (
     <div
       className="background-initial"
       style={{
         display: "flex",
         alignItems: "center",
+        flexDirection: "column",
         width: "100%",
         height: "100vh",
         color: "white",
@@ -111,9 +125,15 @@ export function App1ClickToStart({ setClicked }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      onClick={() => setClicked(true)}
+      // onClick={() => setClicked(true)}
     >
-      <h1 style={{ cursor: "hover" }}>Click to Start</h1>
+      {/* <h1 style={{ cursor: "hover" }}>Click to Start</h1> */}
+      <h1 style={{ cursor: "hover" }}>Enter Password</h1>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+      />
       {/* <a href="https://sketchbook-sepinaco.onrender.com">
         <h1
           style={{
