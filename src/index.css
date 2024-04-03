@@ -52,13 +52,13 @@ code {
 
 .range1::-webkit-slider-runnable-track {
   height: 15px;
-  background: #3d1766;
+  background: #636363;
   border-radius: 16px;
 }
 
 .range1::-moz-range-track {
   height: 15px;
-  background: #3d1766;
+  background: #636363;
   border-radius: 16px;
 }
 
@@ -69,7 +69,7 @@ code {
   width: 15px;
   background-color: #ccc;
   border-radius: 50%;
-  border: 2px solid #3d1766;
+  border: 2px solid #636363;
   box-shadow: -407px 0 0 400px #3d1766;
 }
 
@@ -78,7 +78,7 @@ code {
   width: 15px;
   background-color: #ccc;
   border-radius: 50%;
-  border: 1px solid #3d1766;
+  border: 1px solid #636363;
   box-shadow: -407px 0 0 400px #3d1766;
 }
 
