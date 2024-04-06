@@ -38,6 +38,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
                 padding: "0.2rem 1rem",
                 width: "100%",
                 textAlign: "start",
+                cursor:"pointer"
               }}
               onClick={() => selectVideo(video)}
             >
