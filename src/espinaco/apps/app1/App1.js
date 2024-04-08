@@ -357,17 +357,17 @@ export function App1Start({ url }) {
   const [showMenuButton, setShowMenuButton] = useState(true);
   useEffect(() => {
     function manejarTecla(event) {
-      if (event.key === "t") {
+      if (event.key === "2") {
         setShowMenuButton(true);
         setShowVideo(true);
         setShowUIMovement(true);
       }
-      if (event.key === "f") {
+      if (event.key === "1") {
         setShowMenuButton(false);
         setShowVideo(false);
         setShowUIMovement(false);
       }
-      if (event.key === "r") {
+      if (event.key === "3") {
         window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
       }
     }
