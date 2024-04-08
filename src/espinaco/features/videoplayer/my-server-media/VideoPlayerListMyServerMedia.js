@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { useVideoPlayerStore } from "./VideoPlayerStoreMyServerMedia";
 
+// Función para eliminar tildes y diacríticos
+const normalizeText = text =>
+  text
+    .normalize("NFD") // Descompone los caracteres en la forma de normalización de descomposición canónica
+    .replace(/[\u0300-\u036f]/g, "") // Elimina las marcas diacríticas usando una expresión regular
+    .toLowerCase(); // Convierte el texto a minúsculas para hacer la búsqueda insensible a mayúsculas
+
+
 export default function VideoPlayerListMyServerMedia({ showUI = true }) {
   const videos = useVideoPlayerStore((state) => state.videos);
   const selectVideo = useVideoPlayerStore((state) => state.selectVideo);
@@ -13,17 +21,22 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
   // Buscador ==================
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState(videos);
+
+  // Fix para que aparezcan los videos al empezar la app
   useEffect(()=>{
     setSearchResults(value=>videos);
   },[videos]);
 
   const handleChange = event => {
-    setSearchTerm(event.target.value);
-    if (event.target.value === '') {
+    const value = event.target.value;
+    setSearchTerm(value);
+
+    if (value === '') {
       setSearchResults([]);
     } else {
+      const normalizedSearchTerm = normalizeText(value);
       const results = videos.filter(video =>
-        video.name.toLowerCase().includes(event.target.value.toLowerCase())
+        normalizeText(video.name).includes(normalizedSearchTerm)
       );
       setSearchResults(results);
     }
