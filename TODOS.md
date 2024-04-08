@@ -12,12 +12,11 @@
 
  - Poner buscador que filtre por palabras que contiene el texto que se esta introduciendo (.includes())
 
- - Poner en desktop los botones fuera de la barra de scroll del listado de canciones
+ - OK: Poner en desktop los botones fuera de la barra de scroll del listado de canciones
 
  - Btoton de alante h atras para ir avanzando por letra abecedario (preguntar chatgpt como hacerlo)
 
- - Poner numero totsl de videos que se muestra
+ - Poner numero total de videos que se muestra
 
  - TODO: Hacer un clean code de todo el proyecto para poder trabajar en el mundo laboral con esta tecnologia
 
- 

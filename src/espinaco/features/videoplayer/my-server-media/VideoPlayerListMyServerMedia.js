@@ -47,6 +47,9 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
           </li>
         ))}
       </ul>
+      <div style={{textAlign: "right", paddingRight: "11rem"}}>
+        <h3>{videos.length} videos</h3>
+      </div>
     </div>
   );
 }
