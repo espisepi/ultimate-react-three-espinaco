@@ -31,12 +31,16 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
     const value = event.target.value;
     setSearchTerm(value);
 
-    if (value === '') {
+    if (value.trim() === '') {
       setSearchResults([]);
     } else {
-      const normalizedSearchTerm = normalizeText(value);
+      // Divide el término de búsqueda en palabras y normaliza
+      const searchWords = value.trim().split(/\s+/).map(word => normalizeText(word));
       const results = videos.filter(video =>
-        normalizeText(video.name).includes(normalizedSearchTerm)
+        // Verifica que cada palabra de búsqueda esté contenida en el nombre del video
+        searchWords.every(word =>
+          normalizeText(video.name).includes(word)
+        )
       );
       setSearchResults(results);
     }
