@@ -91,3 +91,26 @@ Aesthetics
   align-items: center;
   margin-bottom: 1rem;
 } */
+
+
+/* Input Search Styles */
+.input-search {
+  background-color: #2c2f33; /* Gris oscuro para el fondo */
+  color: #ffffff; /* Blanco para el texto */
+  border: 1px solid #555555; /* Un borde sutil */
+  padding: 5px; /* Algo de espacio dentro del input */
+  margin-left: 3rem;
+  font-size: 16px; /* Un tamaño de fuente legible */
+  outline: none; /* Elimina el contorno por defecto al enfocar */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Suaviza la transición de estilos */
+  border-radius: 8px; /* Anade bordes redondeados para un aspecto más suave y moderno */
+}
+
+.input-search::placeholder {
+  color: #bbbbbb; /* Un gris claro para el placeholder, menos intenso que el texto */
+}
+
+.input-search:focus {
+  border-color: #666666; /* Cambia el color del borde al enfocar */
+  box-shadow: 0 0 5px #666666; /* Anade un sombreado suave para resaltar */
+}

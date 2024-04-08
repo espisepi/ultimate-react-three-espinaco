@@ -13,7 +13,6 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
   // Buscador ==================
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState(videos);
-  console.log("POR QUEEEEEEEEE? ", searchResults)
   useEffect(()=>{
     setSearchResults(value=>videos);
   },[videos]);
@@ -31,6 +30,13 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
   };
   // FIN Buscador ==================
 
+  // Fix para cuando no se busquen videos se muestre todos los videos
+  useEffect(()=>{
+    if(searchTerm==="" && searchResults.length === 0) {
+      setSearchResults(value=>videos);
+    }
+  },[searchTerm,searchResults]);
+
 
 
   return (
@@ -43,13 +49,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
       }}
     >
       {/* <h2>Videos</h2> */}
-      <input
-        type="text"
-        placeholder="Buscar videos..."
-        value={searchTerm}
-        onChange={handleChange}
-      />
-      <div>
+      <div style={{minWidth:"100vw"}}>
         {searchResults.length > 0 ? (
           <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
             {searchResults.map((video, index) => (
@@ -74,7 +74,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
             ))}
           </ul>
         ) : (
-          searchTerm && <p>No se encontraron videos que coincidan con la búsqueda.</p>
+          searchTerm && <p>Not video found.</p>
         )}
       </div>
       {/* <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
@@ -102,7 +102,14 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
         ))}
       </ul> */}
       <div style={{textAlign: "right", paddingRight: "11rem"}}>
-        <h3>{videos.length} videos</h3>
+      <input
+        type="text"
+        placeholder="Search videos..."
+        value={searchTerm}
+        onChange={handleChange}
+        className="input-search"
+      />
+        <h3>{searchResults.length} videos</h3>
       </div>
     </div>
   );
