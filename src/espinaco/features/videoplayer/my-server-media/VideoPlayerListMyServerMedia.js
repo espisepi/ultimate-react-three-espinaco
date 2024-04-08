@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useVideoPlayerStore } from "./VideoPlayerStoreMyServerMedia";
 
 export default function VideoPlayerListMyServerMedia({ showUI = true }) {
@@ -8,10 +8,30 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
 
   useEffect(() => {
     fetchVideos();
-    console.log("JELOUUU");
   }, [fetchVideos]);
 
-  console.log(videos);
+  // Buscador ==================
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState(videos);
+  console.log("POR QUEEEEEEEEE? ", searchResults)
+  useEffect(()=>{
+    setSearchResults(value=>videos);
+  },[videos]);
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+    if (event.target.value === '') {
+      setSearchResults([]);
+    } else {
+      const results = videos.filter(video =>
+        video.name.toLowerCase().includes(event.target.value.toLowerCase())
+      );
+      setSearchResults(results);
+    }
+  };
+  // FIN Buscador ==================
+
+
 
   return (
     <div
@@ -23,7 +43,41 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
       }}
     >
       {/* <h2>Videos</h2> */}
-      <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
+      <input
+        type="text"
+        placeholder="Buscar videos..."
+        value={searchTerm}
+        onChange={handleChange}
+      />
+      <div>
+        {searchResults.length > 0 ? (
+          <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
+            {searchResults.map((video, index) => (
+              <li key={index} style={{ listStyle: "none" }}><button
+              style={{
+                // backgroundColor: "#636363",
+                background: "rgba(163, 163, 163, .1)",
+                color: "#a0b0c0",
+                border: "none",
+                borderRadius: "15px",
+                fontSize: "1.5rem",
+                marginBottom: "0.5rem",
+                padding: "0.2rem 1rem",
+                width: "100%",
+                textAlign: "start",
+                cursor:"pointer"
+              }}
+              onClick={() => selectVideo(video)}
+            >
+              {video.name}
+            </button></li>
+            ))}
+          </ul>
+        ) : (
+          searchTerm && <p>No se encontraron videos que coincidan con la búsqueda.</p>
+        )}
+      </div>
+      {/* <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
         {videos.map((video) => (
           <li style={{ listStyle: "none" }} key={video.name}>
             <button
@@ -46,7 +100,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
       <div style={{textAlign: "right", paddingRight: "11rem"}}>
         <h3>{videos.length} videos</h3>
       </div>
