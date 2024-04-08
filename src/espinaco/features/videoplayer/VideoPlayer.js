@@ -2,6 +2,7 @@ import { useCallback, useEffect } from "react";
 import {
   BASE_URL_RENDERER_YT_DL,
   LOVE_LO_HABITS,
+  ROSALIA,
   useVideoPlayerStore,
 } from "./VideoPlayerStore";
 import VideoPlayerList from "./VideoPlayerList";
@@ -84,9 +85,9 @@ export default function VideoPlayer({ showUI = true }) {
 
   return (
     <>
-      <VideoPlayerList showUI={showUI} />
+      {/* <VideoPlayerList showUI={showUI} /> */}
       {/* Descomentar para ver la lista de videos de mi servidor privado5 */}
-      {/* <VideoPlayerListMyServerMedia showUI={showUI} /> */}
+      <VideoPlayerListMyServerMedia showUI={showUI} />
       {/* <h1
         id="loading"
         style={{
