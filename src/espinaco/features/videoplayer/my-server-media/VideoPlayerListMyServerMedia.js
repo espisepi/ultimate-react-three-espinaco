@@ -68,7 +68,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
       {/* <h2>Videos</h2> */}
       <div style={{minWidth:"100vw"}}>
         {searchResults.length > 0 ? (
-          <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", width: "79%" }}>
+          <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", maxWidth: "79%" }}>
             {searchResults.map((video, index) => (
               <li key={index} style={{ listStyle: "none" }}><button
               style={{
