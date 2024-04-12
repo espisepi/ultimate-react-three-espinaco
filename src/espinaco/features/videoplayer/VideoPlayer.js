@@ -85,9 +85,9 @@ export default function VideoPlayer({ showUI = true }) {
 
   return (
     <>
-      {/* <VideoPlayerList showUI={showUI} /> */}
+      <VideoPlayerList showUI={showUI} />
       {/* Descomentar para ver la lista de videos de mi servidor privado5 */}
-      <VideoPlayerListMyServerMedia showUI={showUI} />
+      {/* <VideoPlayerListMyServerMedia showUI={showUI} /> */}
       {/* <h1
         id="loading"
         style={{
