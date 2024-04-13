@@ -270,4 +270,96 @@ Este es un ejemplo básico y deberías ajustarlo según las necesidades específ
 
 ========================================================
 
+no me ha capturado el sonido que se reproduce en la web mientras se visualiza el canvas, puedo capturar también el sonido e incluirlo en el vídeo que descargo?
+
 ========================================================
+
+Para incluir el audio junto con el video del canvas en la grabación, necesitas asegurarte de capturar también las fuentes de audio que deseas incluir. Esto puede implicar mezclar múltiples flujos de audio y video en un solo flujo para la grabación. Esto se puede hacer usando la API `MediaStream` para combinar flujos de audio y video antes de pasarlos al `MediaRecorder`.
+
+A continuación, te proporciono una guía paso a paso sobre cómo podrías modificar el componente de React para incluir audio:
+
+### Paso 1: Capturar el Audio
+
+Primero, necesitas obtener un flujo de audio. Esto podría ser desde un `<audio>` o `<video>` tag, o incluso capturando el audio del sistema o del micrófono. Aquí utilizaremos el micrófono como ejemplo:
+
+1. Solicita permisos para acceder al micrófono usando `navigator.mediaDevices.getUserMedia`.
+2. Combina este flujo de audio con el flujo de video del canvas.
+
+### Paso 2: Modificar el Componente React
+
+Aquí está cómo podrías modificar el componente `CanvasRecorder` para incluir audio de un micrófono:
+
+```jsx
+import React, { useRef, useState } from 'react';
+
+function CanvasRecorder() {
+  const canvasRef = useRef(null);
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [recording, setRecording] = useState(false);
+
+  const startRecording = async () => {
+    const canvas = canvasRef.current;
+    const videoStream = canvas.captureStream(60); // Captura a 60 FPS
+
+    try {
+      // Captura el audio del micrófono
+      const audioStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+      // Combina el audio y el video en un solo stream
+      const tracks = [...videoStream.getTracks(), ...audioStream.getTracks()];
+      const combinedStream = new MediaStream(tracks);
+
+      const recorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm' });
+
+      let recordedChunks = [];
+      recorder.ondataavailable = event => {
+        if (event.data.size > 0) recordedChunks.push(event.data);
+      };
+
+      recorder.onstop = () => {
+        const blob = new Blob(recordedChunks, {
+          type: 'video/webm',
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'canvasRecording.webm';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      };
+
+      recorder.start();
+      setMediaRecorder(recorder);
+      setRecording(true);
+      // Aquí puedes iniciar tu lógica de animación o dibujo en el canvas
+    } catch (error) {
+      console.error('Error al obtener el audio:', error);
+    }
+  };
+
+  const stopRecording = () => {
+    mediaRecorder.stop();
+    setRecording(false);
+    // Detener aquí tu lógica de animación o dibujo en el canvas
+  };
+
+  return (
+    <div>
+      <canvas ref={canvasRef} width="640" height="480" />
+      <button onClick={startRecording} disabled={recording}>Iniciar Grabación</button>
+      <button onClick={stopRecording} disabled={!recording}>Detener Grabación</button>
+    </div>
+  );
+}
+
+export default CanvasRecorder;
+```
+
+### Consideraciones Adicionales
+
+- **Permisos**: Asegúrate de que la aplicación solicita y obtiene los permisos necesarios para grabar audio. Los navegadores requieren que estos permisos sean otorgados explícitamente por el usuario.
+- **Rendimiento**: La inclusión de audio puede aumentar la complejidad de la grabación y podría afectar el rendimiento. Es importante probar en diferentes dispositivos y navegadores.
+- **Compatibilidad**: Verifica que los formatos y configuraciones sean compatibles con los navegadores en los que tu aplicación necesita operar.
+
+Esta solución captura tanto el audio como el video, permitiendo crear grabaciones más completas de las actividades en tu canvas.

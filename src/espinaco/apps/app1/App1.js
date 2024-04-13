@@ -28,6 +28,7 @@ import { NippleJoystick } from "../../controls/NippleJoystick";
 import { useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
+import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -456,6 +457,8 @@ export function App1Start({ url }) {
         />
 
         {/* <NippleJoystick showUI={showUIMovement} /> */}
+
+        <CanvasRecord />
 
         <VideoPlayer showUI={showVideo} />
 
