@@ -9,8 +9,12 @@ export default function CanvasRecord() {
     const startRecording = () => {
         console.log("Empieza la grabacion! canvas seleccionado: ", canvas);
         // const canvas = canvasRef.current;
-        const stream = canvas.captureStream(60); // Captura a 60 FPS
-        const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        const stream = canvas.captureStream(30); // Captura a 60 FPS
+
+        // Elige el tipo MIME basado en el soporte del navegador
+        const mimeType = MediaRecorder.isTypeSupported('video/mp4') ? 'video/mp4' : 'video/webm';
+
+        const recorder = new MediaRecorder(stream, { mimeType });
     
         let recordedChunks = [];
         recorder.ondataavailable = event => {
