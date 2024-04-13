@@ -458,7 +458,7 @@ export function App1Start({ url }) {
 
         {/* <NippleJoystick showUI={showUIMovement} /> */}
 
-        <CanvasRecord />
+        {/* <CanvasRecord /> */}
 
         <VideoPlayer showUI={showVideo} />
 
