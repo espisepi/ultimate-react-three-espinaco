@@ -5,6 +5,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import useAnalyser from "../hooks/analyser/useAnalyser";
 
 import VideoPointShader from "./shaders/VideoPointShader";
+import useVideo from "../hooks/useVideo";
 
 export default function VideoPoints({
   id_video = "video",
@@ -13,16 +14,7 @@ export default function VideoPoints({
   const { scene } = useThree();
 
   // Hacer un setInterval que finaliza hasta que encuentra el video y cuando lo encuentra se ejecuta el useEffect siguiente (crear useState para el video)
-  const [video, setVideo] = useState();
-  useEffect(() => {
-    const id_interval = setInterval(() => {
-      const videoEl = document.getElementById(id_video);
-      if (videoEl && videoEl.videoWidth !== 0 && videoEl.videoHeight !== 0) {
-        setVideo((v) => videoEl);
-        clearInterval(id_interval);
-      }
-    }, 100);
-  }, [id_video]);
+  const video = useVideo(id_video);
 
   // Crear particles con el video
   const [points, setPoints] = useState();

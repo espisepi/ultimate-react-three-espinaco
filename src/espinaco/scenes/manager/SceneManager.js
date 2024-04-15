@@ -52,3 +52,16 @@ export default function SceneManager({
     </Canvas>
   );
 }
+
+
+
+// TODO: Fix para el cambio de tamaño de imagen
+// const video = useVideo();
+// useEffect(() => {
+//   switch (id) {
+//     case 0:
+//       if(video && video.videoWidth !== 0 && video.videoHeight !== 0) {
+//         setCameraPosition((v) => [0, 0, ( video.videoWidth / (640/400) )]);
+//       } else {
+//         setCameraPosition((v) => [0, 0, 400]);
+//       }

@@ -20,3 +20,6 @@
 
  - TODO: Hacer un clean code de todo el proyecto para poder trabajar en el mundo laboral con esta tecnologia
 
+- TODO: Añadir un chat en vivo
+
+- TODO: Subir cada semana un videoclip de videopoints nuevo de los que tengo.
