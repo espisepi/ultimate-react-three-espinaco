@@ -38,6 +38,11 @@ code {
   background: #6f1ab6;
 }
 
+/* Soluciona el problema 1 (definido abajo de este fichero) */
+::-webkit-scrollbar-corner {
+  display: none;
+}
+
 
 /* Custom input type Range */
 .range1 {
@@ -114,3 +119,33 @@ Aesthetics
   border-color: #666666; /* Cambia el color del borde al enfocar */
   box-shadow: 0 0 5px #666666; /* Anade un sombreado suave para resaltar */
 }
+
+
+
+/*
+ Problema 1:
+ - sepinaco: 
+  -- Este código deja un cuadrado blanco feísimo debajo de la barra de scroll vertical y a la derecha de la barra de scroll horizontal. Cómo lo quito? ::-webkit-scrollbar {
+    width: 2rem;
+    height: 2rem;
+  }
+ - chatgpt: 
+  -- El problema que describes sucede porque al definir un `width` y `height` grandes para el scrollbar con la propiedad `::-webkit-scrollbar`, también afectas al espacio reservado para las esquinas donde se cruzan las barras de desplazamiento horizontal y vertical. Cuando estas barras son particularmente gruesas, el espacio en la esquina puede mostrarse como un cuadrado blanco no deseado.
+
+Para resolver este problema, puedes ajustar o eliminar el estilo de la esquina donde se cruzan las barras de desplazamiento. Esto se puede hacer usando la pseudo-elemento `::-webkit-scrollbar-corner`. Aquí te muestro cómo podrías ajustar tu código para intentar remover ese cuadrado blanco:
+
+```css
+::-webkit-scrollbar {
+    width: 2rem;
+    height: 2rem;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+```
+
+Al establecer `display: none` en el `::-webkit-scrollbar-corner`, estás eliminando la visualización de cualquier estilo en esa esquina, lo cual debería resolver el problema del cuadrado blanco. 
+
+Es importante probar este cambio en diferentes navegadores que usen WebKit para asegurarte de que se comporta como esperas. También, ten en cuenta que alterar de forma significativa la apariencia de las barras de desplazamiento puede afectar la usabilidad, especialmente para usuarios que dependen de señales visuales claras para la navegación.
+*/

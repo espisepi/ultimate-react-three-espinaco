@@ -55,10 +55,28 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
   },[searchTerm,searchResults]);
 
 
+  // Estilos responsives ===================
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const containerSearchVideosStyle = {
+    paddingRight: windowWidth < 768 ? "1rem" : "11rem",
+    textAlign: "right"
+  };
+  // FIN Estilos responsives ===================
+
+
+
 
   return (
     <div
       style={{
+        width: '100%',
         display: showUI ? "block" : "none",
         position: "absolute",
         top: 0,
@@ -66,7 +84,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
       }}
     >
       {/* <h2>Videos</h2> */}
-      <div style={{minWidth:"100vw"}}>
+      <div style={{minWidth:"100vw",minHeight:"48vh"}}>
         {searchResults.length > 0 ? (
           <ul style={{ height: "45vh", overflow: "auto", paddingRight: "100px", maxWidth: "79%" }}>
             {searchResults.map((video, index) => (
@@ -118,7 +136,7 @@ export default function VideoPlayerListMyServerMedia({ showUI = true }) {
           </li>
         ))}
       </ul> */}
-      <div style={{textAlign: "right", paddingRight: "11rem"}}>
+      <div style={containerSearchVideosStyle}>
       <input
         type="text"
         placeholder="Search videos..."

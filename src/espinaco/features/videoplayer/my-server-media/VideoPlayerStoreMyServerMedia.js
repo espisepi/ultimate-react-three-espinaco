@@ -10,7 +10,9 @@ export const BASE_URL_RENDERER_YT_DL =
 // ----- My Own Server Media // -----
 const useMyServer = true; //
 // const PATH_MY_SERVER_MEDIA = "http://192.168.1.134:3000";
-const PATH_MY_SERVER_MEDIA = "http://192.168.1.130:3000";
+// const PATH_MY_SERVER_MEDIA = "http://192.168.1.130:3000";
+const PATH_MY_SERVER_MEDIA = "http://79.116.40.102:3000";
+
 
 // ----- Fin My Own Server Media // -----
 

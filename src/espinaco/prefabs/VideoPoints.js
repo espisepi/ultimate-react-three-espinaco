@@ -25,8 +25,17 @@ export default function VideoPoints({
       const positions = [];
       const uvs = [];
 
+      // TODO: Crear listado de resoluciones (https://www.jvs-informatica.com/blog/que-es-la-resolucion-de-pantalla-y-cuales-son-las-mas-usadas/)
+      // junto con la opcion de resolucion original (que seria la que trae el video por defecto)
+      // TODO: Cambiar el range que modifica la scale del videopoints por un range que modifique la resolution del video, es decir su videoWidth y videoHeight
+      // TODO: Cambiar o añadir un Range para modificar la posicion en el eje z hacia delante y hacia atras de la camara
       const videoWidth = video.videoWidth;
       const videoHeight = video.videoHeight;
+      // const videoWidth = 1920;
+      // const videoHeight = 1080;
+      // const videoWidth = 1024;
+      // const videoHeight = 768;
+      
 
       for (let y = 0, height = videoHeight; y < height; y += 1) {
         for (let x = 0, width = videoWidth; x < width; x += 1) {
