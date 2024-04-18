@@ -43,11 +43,15 @@ export const useVideoPlayerStore = create((set, get) => ({
     const { selectedVideo } = get();
     console.log({ selectedVideo });
     if (selectedVideo?.url !== video.url) {
+
+      // Modificar atributo zustand
       set({ selectedVideo: video });
+
+      // extraer y procesar url del video
       const url = video.url;
       const url_ready_to_my_server = convertUrlToMyServer(url);
       console.log({ url_ready_to_my_server });
-      playLocalVideo(url_ready_to_my_server);
+      playLocalVideo(url_ready_to_my_server,set);
       // if (video?.url?.includes("www.youtube.com")) {
       //   fetchAndPlayYoutubeVideo(video.url);
       // } else {
@@ -55,6 +59,19 @@ export const useVideoPlayerStore = create((set, get) => ({
       // }
     }
   },
+
+  // manejar resoluciones del video (resoluciones aka cambiar el width y height del video xD)
+  resolution: { width: 640, height: 360 },
+  originalResolution: { width: 640, height: 360 }, // example: { width: 640, height: 360 }
+  resolutions: [
+    {width: 640, height: 360},
+    {width: 800, height: 800},
+  ],
+  setResolution: (newResolution) => set({ resolution: newResolution }),
+  // No lo utilizo porque de momento lo seteo en la funcion de abajo playLocalVideo() y lo hago directamente con el set
+  // setOriginalResolution: (width, height) => set({ originalResolution: { width, height } })
+  // FIN manejar resoluciones del video =======================================================
+
 }));
 
 function convertUrlToMyServer(url) {
@@ -73,7 +90,8 @@ function reemplazarAlmohadilla(inputString) {
   return inputString.replace("#", "%23");
 }
 
-function playLocalVideo(localVideoUrl) {
+function playLocalVideo(localVideoUrl, set /* metodo para poder modificar el estado de zustand */) {
+
   // Obtener la etiqueta de video
   const videoPlayer = document.getElementById("video");
 
@@ -84,6 +102,16 @@ function playLocalVideo(localVideoUrl) {
 
   // Reproducir el video (opcional)
   videoPlayer.play();
+
+  // Guardar resolucion original del video
+  // Hacemos lo del interval porque todavia no ha podido cargar el video, asi que modificamos los valores cuando lo cargue
+  const id_interval = setInterval(()=>{
+    if(videoPlayer.videoWidth !== 0 && videoPlayer.videoHeight !== 0 ){
+      set({ originalResolution: { width: videoPlayer.videoWidth, height: videoPlayer.videoHeight } });
+      clearInterval(id_interval);
+    }
+  },500);
+
 
   // ====== INPUT TEXT YOUTUBE URL ============
   // const inputTextYoutubeUrl = document.getElementById("input-text-youtubeUrl");

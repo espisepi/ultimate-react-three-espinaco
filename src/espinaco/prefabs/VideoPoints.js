@@ -7,6 +7,10 @@ import useAnalyser from "../hooks/analyser/useAnalyser";
 import VideoPointShader from "./shaders/VideoPointShader";
 import useVideo from "../hooks/useVideo";
 
+import { useVideoPlayerStore } from "../features/videoplayer/my-server-media/VideoPlayerStoreMyServerMedia";
+
+
+
 export default function VideoPoints({
   id_video = "video",
   position = [0, 0, 0],
@@ -15,6 +19,15 @@ export default function VideoPoints({
 
   // Hacer un setInterval que finaliza hasta que encuentra el video y cuando lo encuentra se ejecuta el useEffect siguiente (crear useState para el video)
   const video = useVideo(id_video);
+
+  // Obtener todo el tema de las resoluciones del video
+  const resolution = useVideoPlayerStore((state) => state.resolution);
+  // const originalResolution = useVideoPlayerStore((state) => state.originalResolution);
+  // const setResolution = useVideoPlayerStore((state) => state.setResolution);
+
+  
+
+
 
   // Crear particles con el video
   const [points, setPoints] = useState();
@@ -29,12 +42,14 @@ export default function VideoPoints({
       // junto con la opcion de resolucion original (que seria la que trae el video por defecto)
       // TODO: Cambiar el range que modifica la scale del videopoints por un range que modifique la resolution del video, es decir su videoWidth y videoHeight
       // TODO: Cambiar o añadir un Range para modificar la posicion en el eje z hacia delante y hacia atras de la camara
-      const videoWidth = video.videoWidth;
-      const videoHeight = video.videoHeight;
+      // const videoWidth = video.videoWidth;
+      // const videoHeight = video.videoHeight;
       // const videoWidth = 1920;
       // const videoHeight = 1080;
       // const videoWidth = 1024;
       // const videoHeight = 768;
+      const videoWidth = resolution.width;
+      const videoHeight = resolution.height;
       
 
       for (let y = 0, height = videoHeight; y < height; y += 1) {
@@ -82,7 +97,7 @@ export default function VideoPoints({
         setPoints((v) => null);
       };
     }
-  }, [video]);
+  }, [video, resolution]);
 
   const analyser = useAnalyser(video);
   useFrame(() => {
