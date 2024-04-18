@@ -65,6 +65,7 @@ export const useVideoPlayerStore = create((set, get) => ({
   originalResolution: { width: 640, height: 360 }, // example: { width: 640, height: 360 }
   resolutions: [
     {width: 640, height: 360},
+    {width: 220, height: 140},
     {width: 800, height: 800},
   ],
   setResolution: (newResolution) => set({ resolution: newResolution }),
