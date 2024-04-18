@@ -24,6 +24,8 @@
 
 - TODO: Subir cada semana un videoclip de videopoints nuevo de los que tengo.
 
+- TODO: Crear Range para desplazar por el eje z los vertices de los videopoints para los videos de mas resolucion ponerle mas desplazamiento
+
 - TODO:
       // TODO: Crear listado de resoluciones (https://www.jvs-informatica.com/blog/que-es-la-resolucion-de-pantalla-y-cuales-son-las-mas-usadas/)
       // junto con la opcion de resolucion original (que seria la que trae el video por defecto)
