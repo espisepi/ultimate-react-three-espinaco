@@ -26,7 +26,11 @@
 
 - TODO: Crear Range para desplazar por el eje z los vertices de los videopoints para los videos de mas resolucion ponerle mas desplazamiento
 
-- TODO:
+- TODO: ordenar los videos de más vistos a menos vistos (y viceversa). Para ello crear un atributo contador de visualizaciones para cada video que aumentara cuando un usuario haga una peticion a ese video. (mapearlo por el nombre del video)
+
+- TODO: Añadir reproduccion aleatoria cuando termina un video. Y alternar entre esta opcion o la del bucle
+
+- OK:
       // TODO: Crear listado de resoluciones (https://www.jvs-informatica.com/blog/que-es-la-resolucion-de-pantalla-y-cuales-son-las-mas-usadas/)
       // junto con la opcion de resolucion original (que seria la que trae el video por defecto)
       // TODO: Cambiar el range que modifica la scale del videopoints por un range que modifique la resolution del video, es decir su videoWidth y videoHeight
