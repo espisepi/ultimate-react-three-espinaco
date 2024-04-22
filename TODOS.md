@@ -30,6 +30,16 @@
 
 - TODO: Añadir reproduccion aleatoria cuando termina un video. Y alternar entre esta opcion o la del bucle
 
+- TODO: poner reproduccion de video: bucle (ya implementado), por orden y aleatorio.
+
+- TODO: Poner zoom en video sin videopoints (poner el target del orbitcontrols a 0 y no en la posicion de la camara)
+
+- TODO: Se muestran distintos videos para distintas contraseñas
+
+- TODO: Gestionar toda la funcionalidad en zustand. Y los componentes react solo se dedican a llamar a funciones y leer atributos de zustand, pero no se escribe ninguna logica en los componentes react.
+
+- TODO: sepinaco.com/trapani y muestra el primer video que encuentre que contenga en el titulo (string includes) la palabra trapani
+
 - OK:
       // TODO: Crear listado de resoluciones (https://www.jvs-informatica.com/blog/que-es-la-resolucion-de-pantalla-y-cuales-son-las-mas-usadas/)
       // junto con la opcion de resolucion original (que seria la que trae el video por defecto)
