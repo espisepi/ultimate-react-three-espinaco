@@ -40,24 +40,39 @@ export const useVideoPlayerStore = create((set, get) => ({
   selectedVideo: null,
   //selectVideo: (video) => set({ selectedVideo: video }),
   // video: {name: string, url: string}
-  selectVideo: (video) => {
+  // optionServer: Integer -> 
+  // 0: Sin servidor aka video alojado en este proyecto frontend
+  // 1: Servidor raspberry
+  selectVideo: (video,optionServer = 1) => {
     const { selectedVideo } = get();
     console.log({ selectedVideo });
-    if (selectedVideo?.url !== video.url) {
+    if (selectedVideo?.url !== video?.url) {
 
       // Modificar atributo zustand
       set({ selectedVideo: video });
 
       // extraer y procesar url del video
       const url = video.url;
-      const url_ready_to_my_server = convertUrlToMyServer(url);
-      console.log({ url_ready_to_my_server });
-      playLocalVideo(url_ready_to_my_server,set);
-      // if (video?.url?.includes("www.youtube.com")) {
-      //   fetchAndPlayYoutubeVideo(video.url);
-      // } else {
-      //   playLocalVideo(video.url);
-      // }
+      if(optionServer === 0) { 
+        console.log("Reproduciendo video alojado en esta aplicacion");
+        playLocalVideo(url,set);
+      }
+      else if(optionServer === 1) {
+        console.log("Reproduciendo video del servidor rasp");
+        const url_ready_to_my_server = convertUrlToMyServer(url);
+        console.log({ url_ready_to_my_server });
+        playLocalVideo(url_ready_to_my_server,set);
+        // if (video?.url?.includes("www.youtube.com")) {
+        //   fetchAndPlayYoutubeVideo(video.url);
+        // } else {
+        //   playLocalVideo(video.url);
+        // }
+      }
+      else {
+        // Repito lo mismo que en if(optionServer === 0)
+        console.log("Reproduciendo video alojado en esta aplicacion");
+        playLocalVideo(url,set);
+      }
     }
   },
 

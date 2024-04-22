@@ -1,28 +1,74 @@
 import { useCallback, useEffect } from "react";
-import {
-  BASE_URL_RENDERER_YT_DL,
-  LOVE_LO_HABITS,
-  ROSALIA,
-  useVideoPlayerStore,
-} from "./VideoPlayerStore";
+// import {
+//   BASE_URL_RENDERER_YT_DL,
+//   LOVE_LO_HABITS,
+//   ROSALIA,
+//   useVideoPlayerStore,
+// } from "./VideoPlayerStore";
+import { useVideoPlayerStore } from "./my-server-media/VideoPlayerStoreMyServerMedia"
 import VideoPlayerList from "./VideoPlayerList";
 import VideoPlayerListMyServerMedia from "./my-server-media/VideoPlayerListMyServerMedia";
 
+
+const LOVE_LO_HABITS = {
+  name: "Tove Lo - Habits (Stay High)",
+  url: "videos/stayHigh.mp4",
+};
+
+// Función para eliminar tildes y diacríticos
+export const normalizeText = text =>
+  text
+    .normalize("NFD") // Descompone los caracteres en la forma de normalización de descomposición canónica
+    .replace(/[\u0300-\u036f]/g, "") // Elimina las marcas diacríticas usando una expresión regular
+    .toLowerCase(); // Convierte el texto a minúsculas para hacer la búsqueda insensible a mayúsculas
+
+
 export default function VideoPlayer({ showUI = true }) {
-  const selectedVideo = useVideoPlayerStore((state) => state.selectedVideo);
+  // const selectedVideo = useVideoPlayerStore((state) => state.selectedVideo);
   const selectVideo = useVideoPlayerStore((state) => state.selectVideo);
+  const videos = useVideoPlayerStore((state) => state.videos);
+
+  
 
   useEffect(() => {
+    console.log({videos})
+    // Obtiene la URL completa
     const urlFull = window.location.href;
-    //?url=https://www.youtube.com/watch?v=JN4gBp3Ss24
-    const urlYoutube =
-      urlFull.split("url=").length > 1 ? urlFull.split("url=")[1] : null;
-    if (urlYoutube) {
-      selectVideo({ name: "youtube", url: urlYoutube });
+
+    // Divide la URL por '/'
+    const urlPieces = urlFull.split('/');
+
+    // Obtiene el último elemento del array, que debería ser 'trapani'
+    //  http://localhost:3000/trapani   ->  obtiene "trapani"
+    const titleVideo = urlPieces[urlPieces.length - 1];
+
+    console.log(titleVideo); // Debería mostrar 'trapani'
+
+    if (titleVideo && videos.length !== 0) {
+      // find es igual que filter pero te da el primer elemento que encuentre, en vez de un array con todos los elementos que es lo que hace filter
+      const video = videos.find(video => normalizeText(video.name).includes(titleVideo))
+      if(video) {
+        console.log("Video encontrado! :) : " + video);
+        selectVideo(video);
+      } else {
+        selectVideo(LOVE_LO_HABITS, 0);
+      }
     } else {
-      selectVideo(LOVE_LO_HABITS);
+      selectVideo(LOVE_LO_HABITS, 0);
     }
-  }, []);
+  }, [videos]);
+
+  // useEffect(() => {
+  //   const urlFull = window.location.href;
+  //   //?url=https://www.youtube.com/watch?v=JN4gBp3Ss24
+  //   const urlYoutube =
+  //     urlFull.split("url=").length > 1 ? urlFull.split("url=")[1] : null;
+  //   if (urlYoutube) {
+  //     selectVideo({ name: "youtube", url: urlYoutube });
+  //   } else {
+  //     selectVideo(LOVE_LO_HABITS);
+  //   }
+  // }, []);
 
   // Code for Safari reasons
   //   useEffect(() => {
@@ -50,38 +96,38 @@ export default function VideoPlayer({ showUI = true }) {
   //     }, 500);
   //   }, []);
 
-  const handleInputText = useCallback((youtubeUrl) => {
-    // console.log("OYEE");
-    selectVideo({ name: "youtube", url: youtubeUrl });
-    // const youtubeUrl = event.target.value;
-    // setLink((v) => BASE_URL_LOCAL_VIDEO_YT_DL + youtubeUrl);
-    // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
-    // setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
-    // // show Loading
-    // const loadingEl = document.getElementById("loading");
-    // loadingEl.style.display = "block";
-    // // Fetch del video (se hace asi para que funcione en safari)
-    // fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
-    //   .then((response) => {
-    //     return response.blob();
-    //   })
-    //   .then((blob) => {
-    //     // Crear una URL temporal para el blob del video
-    //     const videoBlobUrl = URL.createObjectURL(blob);
-    //     // Obtener la etiqueta de video
-    //     const videoPlayer = document.getElementById("video");
-    //     // Establecer la fuente del video
-    //     videoPlayer.src = videoBlobUrl;
-    //     // Reproducir el video (opcional)
-    //     videoPlayer.play();
-    //     // hidden Loading
-    //     const loadingEl = document.getElementById("loading");
-    //     loadingEl.style.display = "none";
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error al cargar el video:", error);
-    //   });
-  }, []);
+  // const handleInputText = useCallback((youtubeUrl) => {
+  //   // console.log("OYEE");
+  //   selectVideo({ name: "youtube", url: youtubeUrl });
+  //   // const youtubeUrl = event.target.value;
+  //   // setLink((v) => BASE_URL_LOCAL_VIDEO_YT_DL + youtubeUrl);
+  //   // setLink((v) => BASE_URL_HEROKU_VIDEO_YT_DL + youtubeUrl);
+  //   // setLink((v) => BASE_URL_RENDERER_YT_DL + youtubeUrl);
+  //   // // show Loading
+  //   // const loadingEl = document.getElementById("loading");
+  //   // loadingEl.style.display = "block";
+  //   // // Fetch del video (se hace asi para que funcione en safari)
+  //   // fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
+  //   //   .then((response) => {
+  //   //     return response.blob();
+  //   //   })
+  //   //   .then((blob) => {
+  //   //     // Crear una URL temporal para el blob del video
+  //   //     const videoBlobUrl = URL.createObjectURL(blob);
+  //   //     // Obtener la etiqueta de video
+  //   //     const videoPlayer = document.getElementById("video");
+  //   //     // Establecer la fuente del video
+  //   //     videoPlayer.src = videoBlobUrl;
+  //   //     // Reproducir el video (opcional)
+  //   //     videoPlayer.play();
+  //   //     // hidden Loading
+  //   //     const loadingEl = document.getElementById("loading");
+  //   //     loadingEl.style.display = "none";
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.error("Error al cargar el video:", error);
+  //   //   });
+  // }, []);
 
   return (
     <>
