@@ -129,7 +129,7 @@ export function App1ClickToStart({ setClicked }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      // onClick={() => setClicked(true)}
+      onClick={() => setClicked(true)}
     >
       {/* <h1 style={{ cursor: "hover" }}>Click to Start</h1> */}
       <h1 style={{ cursor: "hover" }}>Enter Password</h1>
