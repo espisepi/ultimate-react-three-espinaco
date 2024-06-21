@@ -33,7 +33,7 @@ export default function SceneManager({
         far: 9999999,
       }}
     >
-      <GodCameraControls position={cameraPosition} />
+      {/* <GodCameraControls position={cameraPosition} /> */}
       <RollercoasterControls />
       {/* <Stats /> */}
       <Suspense
