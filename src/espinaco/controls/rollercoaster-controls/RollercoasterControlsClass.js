@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 
 export default class RollercoasterControlsClass {
-  constructor({ scene, camera }) {
+  constructor({ scene, camera, video, isWireframe = false, isColor = false }) {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
@@ -16,6 +16,8 @@ export default class RollercoasterControlsClass {
     train.add(camera);
 
     const PI2 = Math.PI * 2;
+
+    const SIZE_ROLLERCOASTER = 5;
 
     const curve = (function () {
       const vector = new THREE.Vector3();
@@ -29,7 +31,7 @@ export default class RollercoasterControlsClass {
           const y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
           const z = Math.sin(t) * Math.sin(t * 4) * 50;
 
-          return vector.set(x, y, z).multiplyScalar(2);
+          return vector.set(x, y, z).multiplyScalar(SIZE_ROLLERCOASTER);
         },
 
         getTangentAt: function (t) {
@@ -47,22 +49,26 @@ export default class RollercoasterControlsClass {
 
     geometry = new RollerCoasterGeometry(curve, 1500);
     material = new THREE.MeshPhongMaterial({
-      vertexColors: true,
+      vertexColors: isColor,
+      wireframe: isWireframe,
+      map: new THREE.VideoTexture(video)
     });
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
     geometry = new RollerCoasterLiftersGeometry(curve, 100);
-    material = new THREE.MeshPhongMaterial();
+    material = new THREE.MeshPhongMaterial({wireframe: isWireframe, map: new THREE.VideoTexture(video)});
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
     scene.add(mesh);
 
     geometry = new RollerCoasterShadowGeometry(curve, 500);
     material = new THREE.MeshBasicMaterial({
-      color: 0x305000,
+      color: isColor ? 0x305000 : null,
       depthWrite: false,
       transparent: true,
+      wireframe: isWireframe,
+      map: new THREE.VideoTexture(video)
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
@@ -74,7 +80,9 @@ export default class RollercoasterControlsClass {
 
     geometry = new THREE.CylinderGeometry(10, 10, 5, 15);
     material = new THREE.MeshLambertMaterial({
-      color: 0xff8080,
+      color: isColor ? 0xff8080 : null,
+      wireframe: isWireframe,
+      map: new THREE.VideoTexture(video)
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(-80, 10, -70);
@@ -85,7 +93,9 @@ export default class RollercoasterControlsClass {
 
     geometry = new THREE.CylinderGeometry(5, 6, 4, 10);
     material = new THREE.MeshLambertMaterial({
-      color: 0x8080ff,
+      color:  isColor ? 0x8080ff : null,
+      wireframe: isWireframe,
+      map: new THREE.VideoTexture(video)
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(50, 2, 30);
