@@ -31,6 +31,7 @@ import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
 import { useVideoPlayerStore } from "../../features/videoplayer/my-server-media/VideoPlayerStoreMyServerMedia";
+import SceneManagerXR from "../../scenes/manager/SceneManagerXR";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -155,7 +156,7 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url }) {
+export function App1Start({ url, xrmode = false }) {
   const [clicked, setClicked] = useState(false);
 
   //======================================
@@ -477,15 +478,29 @@ export function App1Start({ url }) {
             height: "100vh",
           }}
         /> */}
-        <SceneManager
-          id={sceneId}
-          style={{
-            position: "relative",
-            top: "0",
-            width: "100%",
-            height: "100vh",
-          }}
-        />
+
+        { xrmode ? (
+           <SceneManagerXR 
+              id={sceneId}
+              style={{
+                position: "relative",
+                top: "0",
+                width: "100%",
+                height: "100vh",
+              }}
+            />
+          ) : (
+            <SceneManager
+              id={sceneId}
+              style={{
+                position: "relative",
+                top: "0",
+                width: "100%",
+                height: "100vh",
+              }}
+            />
+        )}
+
 
         {/* <NippleJoystick showUI={showUIMovement} /> */}
 
