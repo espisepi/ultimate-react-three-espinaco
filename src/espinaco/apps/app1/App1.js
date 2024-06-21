@@ -156,7 +156,7 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url, xrmode = false }) {
+export function App1Start({ url, xrmode = true }) {
   const [clicked, setClicked] = useState(false);
 
   //======================================
