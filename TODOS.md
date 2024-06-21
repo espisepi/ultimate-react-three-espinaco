@@ -1,3 +1,15 @@
+
+TODO: Crear ionic app android ios
+
+TODO: Crear electron app mac windows linux
+
+TODO: Crear opcion VR / XR / ¿AR?
+
+TODO: Crear control (a parte de orbitcontrols) rail con camara en movimiento con videopoints => https://threejs.org/examples/?q=vr#webxr_vr_rollercoaster
+
+
+===========================================
+
 - TODO: Hacer Webcomponent con params:
  - TODO: showUI = true o false (mostrar/nomostrar la ui, normalmente no mostrarla)
  - TODO: url = "https:..." (url del video a reproducir)
