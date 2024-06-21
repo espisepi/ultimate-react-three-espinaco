@@ -4,6 +4,7 @@ import Scene2Canvas, { Scene2 } from "../scene2/Scene2";
 import { Canvas } from "@react-three/fiber";
 import { Box, PerspectiveCamera, Stats } from "@react-three/drei";
 import GodCameraControls from "../../controls/GodCameraControls";
+import RollercoasterControls from "../../controls/rollercoaster-controls/RollercoasterControls";
 
 export default function SceneManager({
   id = 0,
@@ -33,6 +34,7 @@ export default function SceneManager({
       }}
     >
       <GodCameraControls position={cameraPosition} />
+      <RollercoasterControls />
       {/* <Stats /> */}
       <Suspense
         fallback={<Box material-color="red" material-wireframe="true" />}

@@ -5,7 +5,7 @@ TODO: Crear electron app mac windows linux
 
 TODO: Crear opcion VR / XR / ¿AR?
 
-TODO: Crear control (a parte de orbitcontrols) rail con camara en movimiento con videopoints => https://threejs.org/examples/?q=vr#webxr_vr_rollercoaster
+EMPIEZO CON TODO: Crear control (a parte de orbitcontrols) rail con camara en movimiento con videopoints => https://threejs.org/examples/?q=vr#webxr_vr_rollercoaster
 
 
 ===========================================
