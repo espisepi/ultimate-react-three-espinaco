@@ -18,6 +18,7 @@ export default class RollercoasterControlsClass {
     const PI2 = Math.PI * 2;
 
     const SIZE_ROLLERCOASTER = 5;
+    const SIZE_FUNCHAIRS = 2;
 
     const curve = (function () {
       const vector = new THREE.Vector3();
@@ -102,6 +103,25 @@ export default class RollercoasterControlsClass {
     scene.add(mesh);
 
     funfairs.push(mesh);
+
+    geometry = new THREE.BoxGeometry(10, 10, 10);
+    material = new THREE.MeshLambertMaterial({
+      color:  isColor ? 0x8080ff : null,
+      wireframe: isWireframe,
+      map: new THREE.VideoTexture(video)
+    });
+    mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(0, 2, 50);
+    scene.add(mesh);
+
+    funfairs.push(mesh);
+
+    // scale funchairs
+    for (let i = 0; i < funfairs.length; i++) {
+      funfairs[i].scale.set(SIZE_FUNCHAIRS, SIZE_FUNCHAIRS, SIZE_FUNCHAIRS);
+      console.log(funfairs[i].scale)
+    }
+
 
     //
 
