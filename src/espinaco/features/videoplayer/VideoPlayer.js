@@ -184,6 +184,7 @@ export default function VideoPlayer({ showUI = true }) {
         crossOrigin="anonymous"
         width={660}
         height={300}
+        muted={false}
       ></video>
     </>
   );

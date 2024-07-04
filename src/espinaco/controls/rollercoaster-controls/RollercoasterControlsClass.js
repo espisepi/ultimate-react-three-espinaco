@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 
 export default class RollercoasterControlsClass {
-  constructor({ scene, camera, video, isWireframe = false, isColor = false }) {
+  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp3', volume = 1.0 }) {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
@@ -135,7 +135,7 @@ export default class RollercoasterControlsClass {
 
     let prevTime = performance.now();
 
-    // Used variables in update method
+    // Used variables in update method ============
     this.prevTime = prevTime;
     this.funfairs = funfairs;
     this.progress = progress;
@@ -145,6 +145,36 @@ export default class RollercoasterControlsClass {
     this.tangent = tangent;
     this.velocity = velocity;
     this.lookAt = lookAt;
+    this.camera = camera;
+    this.urlSound = urlSound;
+    this.volume = volume;
+
+    // init sound
+    this.initSound();
+
+  }
+
+  initSound() {
+    // Audio setup
+    const audioListener = new THREE.AudioListener();
+    this.camera.add(audioListener);
+
+    const audio = new THREE.Audio(audioListener);
+
+    const volume = this.volume;
+
+    const audioLoader = new THREE.AudioLoader();
+    audioLoader.load(this.urlSound, function(buffer) {
+      console.log({buffer,audio})
+      audio.setBuffer(buffer);
+      audio.setLoop(true);
+      audio.setVolume(volume);
+      audio.play();
+      // audio.hasPlaybackControl = true; // default
+    });
+
+    // Used variables in update method ============
+    this.audio = audio;
 
   }
 
@@ -178,5 +208,14 @@ export default class RollercoasterControlsClass {
     // renderer.render(scene, camera);
 
     this.prevTime = time;
+
+    // update sound ======================
+    // Adjust audio playback rate based on speed
+
+    if (this.audio?.isPlaying) {
+      // console.log(this.audio.playbackRate)
+      // console.log( this.velocity * 10000 )
+      this.audio.setPlaybackRate(this.velocity * 10000);  // Adjust the multiplier as needed for realism
+    } 
   }
 }
