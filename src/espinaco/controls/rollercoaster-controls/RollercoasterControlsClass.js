@@ -75,6 +75,38 @@ export default class RollercoasterControlsClass {
     mesh.position.y = 0.1;
     scene.add(mesh);
 
+
+    // pintar tuberia en las vias ====================
+    class CustomSinCurve extends THREE.Curve {
+
+      constructor( scale = 1 ) {
+        super();
+        this.scale = scale;
+      }
+
+      getPoint( t) {
+        const vector = new THREE.Vector3();
+
+         t = t * PI2;
+
+          const x = Math.sin(t * 3) * Math.cos(t * 4) * 50;
+          const y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
+          const z = Math.sin(t) * Math.sin(t * 4) * 50;
+
+          return vector.set(x, y, z).multiplyScalar(SIZE_ROLLERCOASTER);
+      }
+    }
+
+    const path  = new CustomSinCurve( 100 );
+    geometry = new THREE.TubeGeometry( path, 500, 10, 500, false );
+    material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
+    mesh = new THREE.Mesh( geometry, material );
+    scene.add( mesh );
+
+    // FIN pintar tuberia en las vias ====================
+
+    // funfairs ==========================
+
     const funfairs = [];
 
     //
