@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 
 export default class RollercoasterControlsClass {
-  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp3', volume = 1.0 }) {
+  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp3', volume = 1.0, circuit = 0 }) {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
@@ -28,9 +28,21 @@ export default class RollercoasterControlsClass {
         getPointAt: function (t) {
           t = t * PI2;
 
-          const x = Math.sin(t * 3) * Math.cos(t * 4) * 50;
-          const y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
-          const z = Math.sin(t) * Math.sin(t * 4) * 50;
+          let x,y,z;
+
+          // Circuito 1
+          if(circuit === 0) {
+            x = Math.sin(t * 3) * Math.cos(t * 4) * 50;
+            y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
+            z = Math.sin(t) * Math.sin(t * 4) * 50;
+          }
+
+          // Circuito 2
+          if(circuit === 1) {
+            x = Math.sin(t * 6) * Math.cos(t * 3) * 70;
+            y = Math.sin(t * 10) * 30 + Math.cos(t * 15) * 10 + 20;
+            z = Math.sin(t * 8) * Math.cos(t * 4) * 60;
+          }
 
           return vector.set(x, y, z).multiplyScalar(SIZE_ROLLERCOASTER);
         },
@@ -87,13 +99,25 @@ export default class RollercoasterControlsClass {
       getPoint( t) {
         const vector = new THREE.Vector3();
 
-         t = t * PI2;
+        t = t * PI2;
 
-          const x = Math.sin(t * 3) * Math.cos(t * 4) * 50;
-          const y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
-          const z = Math.sin(t) * Math.sin(t * 4) * 50;
+        let x,y,z;
 
-          return vector.set(x, y, z).multiplyScalar(SIZE_ROLLERCOASTER);
+        // Circuito 1
+        if(circuit === 0) {
+          x = Math.sin(t * 3) * Math.cos(t * 4) * 50;
+          y = Math.sin(t * 10) * 2 + Math.cos(t * 17) * 2 + 5;
+          z = Math.sin(t) * Math.sin(t * 4) * 50;
+        }
+
+        // Circuito 2
+        if(circuit === 1) {
+          x = Math.sin(t * 6) * Math.cos(t * 3) * 70;
+          y = Math.sin(t * 10) * 30 + Math.cos(t * 15) * 10 + 20;
+          z = Math.sin(t * 8) * Math.cos(t * 4) * 60;
+        }
+
+        return vector.set(x, y, z).multiplyScalar(SIZE_ROLLERCOASTER);
       }
     }
 
