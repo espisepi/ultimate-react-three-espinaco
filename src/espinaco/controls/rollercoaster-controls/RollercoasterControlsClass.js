@@ -99,6 +99,21 @@ export default class RollercoasterControlsClass {
 
     const path  = new CustomSinCurve( 100 );
     geometry = new THREE.TubeGeometry( path, 500, 10, 500, false );
+
+    // Modificar los atributos UV ========
+    // const uvAttribute = geometry.attributes.uv;
+    // const uvRepeatX = 50; // Número de repeticiones en el eje X
+    // const uvRepeatY = 50; // Número de repeticiones en el eje Y
+
+    // for (let i = 0; i < uvAttribute.count; i++) {
+    //     const u = uvAttribute.getX(i) * uvRepeatX;
+    //     const v = uvAttribute.getY(i) * uvRepeatY;
+    //     uvAttribute.setXY(i, u, v);
+    // }
+    // uvAttribute.needsUpdate = true;
+    // Modificar los atributos UV ========
+
+
     material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
     mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
