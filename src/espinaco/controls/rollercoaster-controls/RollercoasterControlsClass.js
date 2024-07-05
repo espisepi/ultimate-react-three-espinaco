@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 
 export default class RollercoasterControlsClass {
-  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp3', volume = 1.0, circuit = 0 }) {
+  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp3', volume = 1.0, circuit = 0, isVisibleTube = true }) {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
@@ -141,6 +141,8 @@ export default class RollercoasterControlsClass {
     material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
     mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
+
+    mesh.visible = isVisibleTube;
 
     // FIN pintar tuberia en las vias ====================
 
