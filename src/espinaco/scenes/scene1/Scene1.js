@@ -16,6 +16,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTesellation from "../../features/text-tesellation/TextTesellation";
 import Minecraft from "../../features/minecraft/Minecraft";
+import Ocean from "../../prefabs/ocean/Ocean";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -78,6 +79,8 @@ export function Scene1() {
       {/* <Box /> */}
       {/* <BoxVideo /> */}
       {/* <BoxShader /> */}
+
+      {/* <Ocean /> */}
 
       <VideoPoints />
 
