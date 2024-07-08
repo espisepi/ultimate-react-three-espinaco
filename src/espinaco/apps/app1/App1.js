@@ -424,6 +424,14 @@ export function App1Start({ url, xrmode = false }) {
     setSceneId((value) => (value + 1) % maxNumScenes);
   };
 
+  // ControlsManager =========================================
+
+  const maxNumControls = 2; // Poner aqui el numero de controles maximos que haya creado
+  const [controlId, setControlId] = useState(0);
+  const handleChangeControl = () => {
+    setControlId((value) => (value + 1) % maxNumControls);
+  };
+
   // Resolution manager
   // Obtener todo el tema de las resoluciones del video
   // const resolution = useVideoPlayerStore((state) => state.resolution);
@@ -490,7 +498,7 @@ export function App1Start({ url, xrmode = false }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={1} id_scene={sceneId} />
+              <ControlsManager id_control={controlId} id_scene={sceneId} />
               <SceneManager id={sceneId} />
             </CanvasXR >
           ) : (
@@ -503,7 +511,7 @@ export function App1Start({ url, xrmode = false }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={1} id_scene={sceneId} />
+              <ControlsManager id_control={controlId} id_scene={sceneId} />
               <SceneManager id={sceneId} />
             </CanvasDefault >
         )}
@@ -816,6 +824,25 @@ export function App1Start({ url, xrmode = false }) {
             borderRadius: "25px",
             position: "absolute",
             top: 200,
+            right: 0,
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showMenuButton ? 0.3 : 0.0,
+            // cursor: showMenuButton ? "pointer" : "none",
+            cursor: "pointer",
+          }}
+        ></button>
+
+        <button
+          onClick={handleChangeControl}
+          style={{
+            // visibility: showMenuButton ? "visible" : "hidden",
+            display: showMenuButton ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            top: 280,
             right: 0,
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
