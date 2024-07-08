@@ -5,9 +5,9 @@ import { useCallback, useEffect } from "react";
 //   ROSALIA,
 //   useVideoPlayerStore,
 // } from "./VideoPlayerStore";
-import VideoPlayerList from "./components/VideoPlayerList";
-import { useVideoPlayerStore } from "./hook/useVideoPlayerStore";
-import { normalizeText } from "../../utils/normalizeText";
+import VideoPlayerList from "./VideoPlayerList";
+import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
+import { normalizeText } from "../../../utils/normalizeText";
 
 
 const LOVE_LO_HABITS = {

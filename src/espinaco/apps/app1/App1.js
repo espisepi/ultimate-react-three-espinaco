@@ -22,8 +22,7 @@ import {
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import Scene2Canvas from "../../scenes/scene2/Scene2";
-import VideoPlayer from "../../features/videoplayer/VideoPlayer";
-import VideoPlayerScreenCapture from "../../features/videoplayer/VideoPlayerScreenCapture";
+import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
 import { NippleJoystick } from "../../controls/NippleJoystick";
 import { useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
