@@ -27,10 +27,10 @@ import useVideo from "../../hooks/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
-import SceneManagerXR from "../../scenes/manager/SceneManagerXR";
 import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
+import CanvasXR from "../../components/canvas/CanvasXR";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -478,21 +478,10 @@ export function App1Start({ url, xrmode = false }) {
           }}
         /> */}
 
-        <CanvasDefault 
-          id={sceneId}
-          style={{
-            position: "relative",
-            top: "0",
-            width: "100%",
-            height: "100vh",
-          }}
-        >
-          <ControlsManager id_control={1} id_scene={sceneId} />
-          <SceneManager id={sceneId} />
-        </CanvasDefault >
+       
 
-        {/* { xrmode ? (
-           <SceneManagerXR 
+        { xrmode ? (
+            <CanvasXR 
               id={sceneId}
               style={{
                 position: "relative",
@@ -500,9 +489,12 @@ export function App1Start({ url, xrmode = false }) {
                 width: "100%",
                 height: "100vh",
               }}
-            />
+            >
+              <ControlsManager id_control={1} id_scene={sceneId} />
+              <SceneManager id={sceneId} />
+            </CanvasXR >
           ) : (
-            <SceneManager
+             <CanvasDefault 
               id={sceneId}
               style={{
                 position: "relative",
@@ -510,8 +502,11 @@ export function App1Start({ url, xrmode = false }) {
                 width: "100%",
                 height: "100vh",
               }}
-            />
-        )} */}
+            >
+              <ControlsManager id_control={1} id_scene={sceneId} />
+              <SceneManager id={sceneId} />
+            </CanvasDefault >
+        )}
 
 
         {/* <NippleJoystick showUI={showUIMovement} /> */}

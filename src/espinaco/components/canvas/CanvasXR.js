@@ -1,9 +1,10 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
+import { VRButton, ARButton, XR, Controllers, Hands } from '@react-three/xr'
 
 export default function CanvasXR({
   style = { position: "absolute", top: "0", width: "100%", height: "100vh" },
-  ...children
+  children
 }) {
     return (
      <>
@@ -28,7 +29,7 @@ export default function CanvasXR({
         <XR>
           <Controllers />
           <Hands />
-          {{ children }}
+          { children }
         </XR>
       </Canvas>
     </>
