@@ -9,7 +9,7 @@ const normalizeText = text =>
     .toLowerCase(); // Convierte el texto a minúsculas para hacer la búsqueda insensible a mayúsculas
 
 
-export default function VideoPlayerListMyServerMedia({ showUI = true }) {
+export default function VideoPlayerList({ showUI = true }) {
   const videos = useVideoPlayerStore((state) => state.videos);
   const selectVideo = useVideoPlayerStore((state) => state.selectVideo);
   const fetchVideos = useVideoPlayerStore((state) => state.fetchVideos);

@@ -5,8 +5,7 @@ import { useCallback, useEffect } from "react";
 //   ROSALIA,
 //   useVideoPlayerStore,
 // } from "./VideoPlayerStore";
-import VideoPlayerList from "./VideoPlayerList";
-import VideoPlayerListMyServerMedia from "./my-server-media/VideoPlayerListMyServerMedia";
+import VideoPlayerList from "./components/VideoPlayerList";
 import { useVideoPlayerStore } from "./hook/useVideoPlayerStore";
 
 
@@ -133,7 +132,7 @@ export default function VideoPlayer({ showUI = true }) {
     <>
       {/* <VideoPlayerList showUI={showUI} /> */}
       {/* Descomentar para ver la lista de videos de mi servidor privado5 */}
-      <VideoPlayerListMyServerMedia showUI={showUI} />
+      <VideoPlayerList showUI={showUI} />
       {/* <h1
         id="loading"
         style={{
