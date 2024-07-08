@@ -1,0 +1,11 @@
+En la biblioteca Zustand, se utiliza el término "store" en lugar de "state" para referirse al objeto que mantiene y gestiona el estado de la aplicación. Hay varias razones para esta elección terminológica:
+
+1. **Convención**: En muchas bibliotecas de gestión de estado, como Redux y MobX, el término "store" se usa para describir el contenedor central del estado de la aplicación. Zustand sigue esta convención para que los desarrolladores que están familiarizados con otras bibliotecas puedan entender más fácilmente su estructura y propósito.
+
+2. **Distinción**: "State" se refiere generalmente a los datos en sí mismos, mientras que "store" se refiere a una abstracción que incluye no solo los datos, sino también los métodos y la lógica para gestionar esos datos. El "store" en Zustand no solo contiene el estado, sino también funciones para actualizarlo y suscribirse a cambios, lo que lo hace más que simplemente "state".
+
+3. **Claridad**: Usar "store" ayuda a diferenciar claramente entre el estado local del componente y el estado global gestionado por Zustand. El estado local de un componente podría simplemente llamarse "state", mientras que el estado gestionado por Zustand es parte de un "store" más amplio.
+
+4. **Consistencia**: Al usar "store", Zustand mantiene consistencia terminológica con la idea de un "almacén" centralizado de estado, lo que facilita el entendimiento y la integración con otras soluciones de gestión de estado que usan un concepto similar.
+
+Por estas razones, Zustand opta por usar "store" en lugar de "state" para describir el objeto central que gestiona el estado de la aplicación.

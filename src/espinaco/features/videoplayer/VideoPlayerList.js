@@ -1,4 +1,5 @@
-import { useVideoPlayerStore } from "./VideoPlayerStore";
+import { useVideoPlayerStore } from "./hook/useVideoPlayerStore";
+
 
 export default function VideoPlayerList({ showUI = true }) {
   const videos = useVideoPlayerStore((state) => state.videos);

@@ -1,0 +1,15 @@
+/**
+ * @typedef {Object} Persona
+ * @property {string} nombre - El nombre de la persona.
+ * @property {number} edad - La edad de la persona.
+ */
+
+/**
+ * Crea una nueva persona.
+ * @param {string} nombre - El nombre de la persona.
+ * @param {number} edad - La edad de la persona.
+ * @returns {Persona} - La nueva persona creada.
+ */
+function crearPersona(nombre, edad) {
+    return { nombre, edad };
+}

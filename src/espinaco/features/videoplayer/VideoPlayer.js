@@ -5,9 +5,9 @@ import { useCallback, useEffect } from "react";
 //   ROSALIA,
 //   useVideoPlayerStore,
 // } from "./VideoPlayerStore";
-import { useVideoPlayerStore } from "./my-server-media/VideoPlayerStoreMyServerMedia"
 import VideoPlayerList from "./VideoPlayerList";
 import VideoPlayerListMyServerMedia from "./my-server-media/VideoPlayerListMyServerMedia";
+import { useVideoPlayerStore } from "./hook/useVideoPlayerStore";
 
 
 const LOVE_LO_HABITS = {

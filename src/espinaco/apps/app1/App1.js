@@ -30,8 +30,8 @@ import useVideo from "../../hooks/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
-import { useVideoPlayerStore } from "../../features/videoplayer/my-server-media/VideoPlayerStoreMyServerMedia";
 import SceneManagerXR from "../../scenes/manager/SceneManagerXR";
+import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -156,7 +156,7 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url, xrmode = true }) {
+export function App1Start({ url, xrmode = false }) {
   const [clicked, setClicked] = useState(false);
 
   //======================================

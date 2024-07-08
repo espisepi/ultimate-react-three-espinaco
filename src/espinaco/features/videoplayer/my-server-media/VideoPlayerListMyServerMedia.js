@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useVideoPlayerStore } from "./VideoPlayerStoreMyServerMedia";
+import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
 
 // Función para eliminar tildes y diacríticos
 const normalizeText = text =>

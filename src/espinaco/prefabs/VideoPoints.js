@@ -7,7 +7,7 @@ import useAnalyser from "../hooks/analyser/useAnalyser";
 import VideoPointShader from "./shaders/VideoPointShader";
 import useVideo from "../hooks/useVideo";
 
-import { useVideoPlayerStore } from "../features/videoplayer/my-server-media/VideoPlayerStoreMyServerMedia";
+import { useVideoPlayerStore } from "../features/videoplayer/hook/useVideoPlayerStore";
 
 
 
