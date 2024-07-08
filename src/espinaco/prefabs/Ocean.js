@@ -23,7 +23,7 @@ const Ocean = ({ geometry=new THREE.BoxBufferGeometry( 100, 100, 100 ), position
                     side:THREE.DoubleSide,
                     textureWidth: 512,
                     textureHeight: 512,
-                    waterNormals: new THREE.TextureLoader().load( 'img/waternormals.jpg', function ( texture ) {
+                    waterNormals: new THREE.TextureLoader().load( '/waternormals.jpeg', function ( texture ) {
 
                         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
