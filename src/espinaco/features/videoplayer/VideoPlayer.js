@@ -7,19 +7,13 @@ import { useCallback, useEffect } from "react";
 // } from "./VideoPlayerStore";
 import VideoPlayerList from "./components/VideoPlayerList";
 import { useVideoPlayerStore } from "./hook/useVideoPlayerStore";
+import { normalizeText } from "../../utils/normalizeText";
 
 
 const LOVE_LO_HABITS = {
   name: "Tove Lo - Habits (Stay High)",
   url: "videos/stayHigh.mp4",
 };
-
-// Función para eliminar tildes y diacríticos
-export const normalizeText = text =>
-  text
-    .normalize("NFD") // Descompone los caracteres en la forma de normalización de descomposición canónica
-    .replace(/[\u0300-\u036f]/g, "") // Elimina las marcas diacríticas usando una expresión regular
-    .toLowerCase(); // Convierte el texto a minúsculas para hacer la búsqueda insensible a mayúsculas
 
 
 export default function VideoPlayer({ showUI = true }) {

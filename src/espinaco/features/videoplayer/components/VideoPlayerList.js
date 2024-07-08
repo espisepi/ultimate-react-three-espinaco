@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
-
-// Función para eliminar tildes y diacríticos
-const normalizeText = text =>
-  text
-    .normalize("NFD") // Descompone los caracteres en la forma de normalización de descomposición canónica
-    .replace(/[\u0300-\u036f]/g, "") // Elimina las marcas diacríticas usando una expresión regular
-    .toLowerCase(); // Convierte el texto a minúsculas para hacer la búsqueda insensible a mayúsculas
-
+import { normalizeText } from "../../../utils/normalizeText";
 
 export default function VideoPlayerList({ showUI = true }) {
   const videos = useVideoPlayerStore((state) => state.videos);
