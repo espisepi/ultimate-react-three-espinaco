@@ -1,29 +1,13 @@
 import { create } from "zustand";
+import { env } from "../../../config/env"
 
-export const BASE_URL_HEROKU_VIDEO_YT_DL =
-  "https://video-dl-esp.herokuapp.com/video/video?url=";
-export const BASE_URL_LOCAL_VIDEO_YT_DL =
-  "http://localhost:4000/video/video?url=";
-export const BASE_URL_RENDERER_YT_DL =
-  "https://video-dl.onrender.com/video/video?url=";
-
-// ----- My Own Server Media // -----
-const useMyServer = true; //
-// const PATH_MY_SERVER_MEDIA = "http://192.168.1.134:3000";
-const PATH_MY_SERVER_MEDIA = "http://192.168.1.130:3000";
-// const PATH_MY_SERVER_MEDIA = "https://79.116.40.102:3000";
-// Descomentar
-// const PATH_MY_SERVER_MEDIA = "https://sepinaco.com:3000";
-
-
-// ----- Fin My Own Server Media // -----
 
 export const useVideoPlayerStore = create((set, get) => ({
   // My server Media
   videos: [],
   fetchVideos: async () => {
     try {
-      const response = await fetch(PATH_MY_SERVER_MEDIA + "/media-list");
+      const response = await fetch(env.PATH_MY_SERVER_MEDIA + "/media-list");
       if (!response.ok) {
         throw new Error("Error al obtener la lista de recursos.");
       }
@@ -93,7 +77,7 @@ export const useVideoPlayerStore = create((set, get) => ({
 }));
 
 function convertUrlToMyServer(url) {
-  const path_my_server = PATH_MY_SERVER_MEDIA;
+  const path_my_server = env.PATH_MY_SERVER_MEDIA;
   const url_without_spacing = reemplazarEspaciosConPorcentaje20(url);
   const url_processed = reemplazarAlmohadilla(url_without_spacing);
   return path_my_server + "/media/" + url_processed;
@@ -143,7 +127,7 @@ function fetchAndPlayYoutubeVideo(youtubeUrl) {
   loadingEl.style.display = "block";
 
   // Fetch del video (se hace asi para que funcione en safari)
-  fetch(BASE_URL_RENDERER_YT_DL + youtubeUrl)
+  fetch(env.BASE_URL_YT_DL_SERVER + youtubeUrl)
     .then((response) => {
       return response.blob();
     })
