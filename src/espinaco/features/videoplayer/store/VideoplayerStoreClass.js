@@ -1,6 +1,8 @@
 import { env } from "../../../config/env";
 
 class VideoPlayerStoreClass {
+
+  // zustand attributes get, set
   constructor(set, get) {
 
     // zustand attributes
