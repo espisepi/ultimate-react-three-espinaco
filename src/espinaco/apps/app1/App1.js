@@ -15,8 +15,6 @@ import {
   ShaderMaterial,
 } from "three";
 
-// import SceneManager from "./espinaco/scenes/manager/SceneManager";
-
 // import { NippleJoystick } from "./espinaco/controls/NippleJoystick";
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
@@ -31,6 +29,8 @@ import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
 import SceneManagerXR from "../../scenes/manager/SceneManagerXR";
 import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
+import ControlsManager from "../../controls/manager/ControlsManager";
+import CanvasDefault from "../../components/canvas/CanvasDefault";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -478,7 +478,20 @@ export function App1Start({ url, xrmode = false }) {
           }}
         /> */}
 
-        { xrmode ? (
+        <CanvasDefault 
+          id={sceneId}
+          style={{
+            position: "relative",
+            top: "0",
+            width: "100%",
+            height: "100vh",
+          }}
+        >
+          <ControlsManager id_control={1} id_scene={sceneId} />
+          <SceneManager id={sceneId} />
+        </CanvasDefault >
+
+        {/* { xrmode ? (
            <SceneManagerXR 
               id={sceneId}
               style={{
@@ -498,7 +511,7 @@ export function App1Start({ url, xrmode = false }) {
                 height: "100vh",
               }}
             />
-        )}
+        )} */}
 
 
         {/* <NippleJoystick showUI={showUIMovement} /> */}
