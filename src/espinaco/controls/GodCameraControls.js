@@ -18,15 +18,17 @@ export default function GodCameraControls({ position, targetPosition }) {
 
   useEffect(() => {
     // Cambiar la posicion de la camara
-    camera?.position.set(position[0], position[1], position[2]);
-    if (targetPosition) {
-      orbitControls.current?.target.set(
-        targetPosition[0],
-        targetPosition[1],
-        targetPosition[2]
-      );
-    } else {
-      orbitControls.current?.target.set(0, 0, 0);
+    if(position) {
+      camera?.position.set(position[0], position[1], position[2]);
+      if (targetPosition) {
+        orbitControls.current?.target.set(
+          targetPosition[0],
+          targetPosition[1],
+          targetPosition[2]
+        );
+      } else {
+        orbitControls.current?.target.set(0, 0, 0);
+      }
     }
   }, [position]);
 
