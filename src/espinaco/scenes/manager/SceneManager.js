@@ -24,7 +24,7 @@ export default function SceneManager({
       {/* <Stats /> */}
 
       {/* TODO: El <ControlsManager> va fuera de Scenemanager.js, y el <Canvas> tambien */}
-      <ControlsManager id_control={0} id_scene={id} />
+      <ControlsManager id_control={1} id_scene={id} />
 
       
       <Suspense
