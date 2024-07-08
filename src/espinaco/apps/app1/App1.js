@@ -155,7 +155,7 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url, xrmode = false }) {
+export function App1Start({ url, xrmode = true }) {
   const [clicked, setClicked] = useState(false);
 
   //======================================
@@ -427,7 +427,7 @@ export function App1Start({ url, xrmode = false }) {
   // ControlsManager =========================================
 
   const maxNumControls = 2; // Poner aqui el numero de controles maximos que haya creado
-  const [controlId, setControlId] = useState(0);
+  const [controlId, setControlId] = useState(1);
   const handleChangeControl = () => {
     setControlId((value) => (value + 1) % maxNumControls);
   };
