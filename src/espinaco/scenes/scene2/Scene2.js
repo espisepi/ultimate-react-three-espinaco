@@ -22,7 +22,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
-import TextTesellation from "../../features/text-tesellation/TextTesellation";
+import TextTesellation from "../../prefabs/text-tesellation/TextTesellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Screen from "../../prefabs/screen/Screen";
 import FloorReflector from "../../prefabs/floor-reflector/FloorReflector";
