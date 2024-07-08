@@ -87,25 +87,3 @@ export function Scene2() {
     </>
   );
 }
-
-export default function Scene2Canvas({ style }) {
-  return (
-    <>
-      <Canvas
-        style={{ ...style, backgroundColor: "black" }}
-        camera={{
-          position: [0, 0, 30],
-          far: 9999999,
-        }}
-      >
-        <Suspense
-          fallback={<Box material-color="red" material-wireframe="true" />}
-        >
-          <Scene2 />
-        </Suspense>
-        <GodCameraControls />
-        <Stats />
-      </Canvas>
-    </>
-  );
-}
