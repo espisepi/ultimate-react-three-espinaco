@@ -22,7 +22,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
-import TextTesellation from "../../prefabs/text-tesellation/TextTesellation";
+import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Screen from "../../prefabs/screen/Screen";
 import FloorReflector from "../../prefabs/floor-reflector/FloorReflector";
@@ -73,7 +73,7 @@ export function Scene2() {
       {/** The floor uses drei/MeshReflectorMaterial */}
       {/* <FloorReflector /> */}
 
-      {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
+      {/* <TextTessellation text="Sepinaco" position={[0, 0, 0]} /> */}
 
       <Stars
         ref={starsRef}

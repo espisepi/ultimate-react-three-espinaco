@@ -14,7 +14,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
 import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
-import TextTesellation from "../../prefabs/text-tesellation/TextTesellation";
+import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
 // import GBA from "../../features/gba-js-org/GBA";
@@ -84,7 +84,7 @@ export function Scene1() {
 
       <VideoPoints />
 
-      {/* <TextTesellation text="Sepinaco" position={[0, 0, 0]} /> */}
+      <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
 
       {/* <group>
             <group>
