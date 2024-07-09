@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 
 export default class RollercoasterControlsClass {
-  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.5, circuit = 0, isVisibleTube = true }) {
+  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.5, circuit = 0, isVisibleTube = false }) {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
