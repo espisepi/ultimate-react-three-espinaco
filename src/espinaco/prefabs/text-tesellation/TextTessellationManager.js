@@ -4,12 +4,19 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 const vertexShader = `
+
     uniform float amplitude;
+
     attribute vec3 customColor;
     attribute vec3 displacement;
+
     varying vec3 vNormal;
     varying vec3 vColor;
+
+    varying vec2 vUv;
+
     void main() {
+        vUv = uv;
         vNormal = normal;
         vColor = customColor;
         vec3 newPosition = position + normal * amplitude * displacement;
@@ -18,25 +25,55 @@ const vertexShader = `
 `;
 
 const fragmentShader = `
+
     uniform float iTime;
+    uniform sampler2D videoTexture;
+
     varying vec3 vNormal;
     varying vec3 vColor;
+
+    varying vec2 vUv;
+
     void main() {
-        const float ambient = 0.4;
+        const float ambient = 0.5;
         vec3 light = vec3( 1.0 );
         light = normalize( light );
         float directional = max( dot( vNormal, light ), 0.0 );
-        vec3 colorFinal = vec3(sin(iTime*vNormal.z * 0.5 ),sin(iTime*vColor.g * 0.5 ),sin(iTime*vColor.z * 0.5 ));
-        gl_FragColor = vec4( ( directional + ambient ) * colorFinal, 1.0 );
+
+        //vec3 colorFinal = vec3(sin(iTime*vNormal.z * 0.5 ),sin(iTime*vColor.g * 0.5 ),sin(iTime*vColor.z * 0.5 ));
+
+        vec3 videoColor = texture2D(videoTexture, vUv).rgb;
+        //vec3 colorFinal = mix(vColor, videoColor, 0.5) * vec3(sin(iTime * vNormal.z * 0.5), sin(iTime * vColor.g * 0.5), sin(iTime * vColor.z * 0.5));
+
+        gl_FragColor = vec4( ( directional + ambient ) * videoColor, 1.0 );
+        //gl_FragColor = vec4( ( directional + ambient ) * colorFinal, 1.0 );
     }
 `;
+
+// const fragmentShader = `
+//     uniform float iTime;
+//     uniform sampler2D videoTexture;
+//     varying vec3 vNormal;
+//     varying vec3 vColor;
+//     varying vec2 vUv;
+//     void main() {
+//         const float ambient = 0.4;
+//         vec3 light = vec3( 1.0 );
+//         light = normalize( light );
+//         float directional = max( dot( vNormal, light ), 0.0 );
+//         vec3 videoColor = texture2D(videoTexture, vUv).rgb;
+//         vec3 colorFinal = mix(vColor, videoColor, 0.5) * vec3(sin(iTime * vNormal.z * 0.5), sin(iTime * vColor.g * 0.5), sin(iTime * vColor.z * 0.5));
+//         gl_FragColor = vec4( ( directional + ambient ) * colorFinal, 1.0 );
+//     }
+// `;
 
 class TextTessellationManager {
   constructor() {
     this.mesh = null;
+    this.videoTexture = null;
   }
 
-  async initialize(text, size) {
+  async initialize(text, size, videoElement) {
     const fontLoader = new FontLoader();
     const font = await fontLoader.loadAsync('helvetiker_bold.typeface.json');
 
@@ -79,9 +116,12 @@ class TextTessellationManager {
     geometry.setAttribute('customColor', new THREE.BufferAttribute(colors, 3));
     geometry.setAttribute('displacement', new THREE.BufferAttribute(displacement, 3));
 
+    this.videoTexture = new THREE.VideoTexture(videoElement);
+
     const uniforms = {
       amplitude: { value: 0.0 },
       iTime: { value: 0.0 },
+      videoTexture: { value: this.videoTexture },
     };
 
     const shaderMaterial = new THREE.ShaderMaterial({
