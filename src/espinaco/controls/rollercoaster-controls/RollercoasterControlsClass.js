@@ -6,9 +6,13 @@ import {
   TreesGeometry,
   SkyGeometry,
 } from "three/addons/misc/RollerCoaster.js";
+import { disposeAll } from "../../utils/disposeAll";
 
 export default class RollercoasterControlsClass {
   constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.0, circuit = 0, isVisibleTube = false }) {
+
+    this.meshesRollercoaster = [];
+    
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
@@ -68,12 +72,15 @@ export default class RollercoasterControlsClass {
     });
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+    this.meshesRollercoaster.push(mesh);
 
     geometry = new RollerCoasterLiftersGeometry(curve, 100);
     material = new THREE.MeshPhongMaterial({wireframe: isWireframe, map: new THREE.VideoTexture(video)});
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
     scene.add(mesh);
+    this.meshesRollercoaster.push(mesh);
+
 
     geometry = new RollerCoasterShadowGeometry(curve, 500);
     material = new THREE.MeshBasicMaterial({
@@ -86,6 +93,7 @@ export default class RollercoasterControlsClass {
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
     scene.add(mesh);
+    this.meshesRollercoaster.push(mesh);
 
 
     // pintar tuberia en las vias ====================
@@ -121,29 +129,30 @@ export default class RollercoasterControlsClass {
       }
     }
 
-    const path  = new CustomSinCurve( 100 );
-    geometry = new THREE.TubeGeometry( path, 500, 10, 500, false );
+    if(isVisibleTube) {
+      const path  = new CustomSinCurve( 100 );
+      geometry = new THREE.TubeGeometry( path, 500, 10, 500, false );
 
-    // Modificar los atributos UV ========
-    // const uvAttribute = geometry.attributes.uv;
-    // const uvRepeatX = 50; // Número de repeticiones en el eje X
-    // const uvRepeatY = 50; // Número de repeticiones en el eje Y
+      // Modificar los atributos UV ========
+      // const uvAttribute = geometry.attributes.uv;
+      // const uvRepeatX = 50; // Número de repeticiones en el eje X
+      // const uvRepeatY = 50; // Número de repeticiones en el eje Y
 
-    // for (let i = 0; i < uvAttribute.count; i++) {
-    //     const u = uvAttribute.getX(i) * uvRepeatX;
-    //     const v = uvAttribute.getY(i) * uvRepeatY;
-    //     uvAttribute.setXY(i, u, v);
-    // }
-    // uvAttribute.needsUpdate = true;
-    // Modificar los atributos UV ========
+      // for (let i = 0; i < uvAttribute.count; i++) {
+      //     const u = uvAttribute.getX(i) * uvRepeatX;
+      //     const v = uvAttribute.getY(i) * uvRepeatY;
+      //     uvAttribute.setXY(i, u, v);
+      // }
+      // uvAttribute.needsUpdate = true;
+      // Modificar los atributos UV ========
 
+      material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
+      mesh = new THREE.Mesh( geometry, material );
+      scene.add( mesh );
+      this.meshesRollercoaster.push(mesh);
+      // mesh.visible = isVisibleTube; // Por performance, no creo el mesh en vez de ocultarlo
 
-    material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
-    mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
-
-    mesh.visible = isVisibleTube;
-
+    }
     // FIN pintar tuberia en las vias ====================
 
     // funfairs ==========================
@@ -195,6 +204,8 @@ export default class RollercoasterControlsClass {
       console.log(funfairs[i].scale)
     }
 
+    this.funfairs = funfairs;
+
 
     //
 
@@ -221,6 +232,9 @@ export default class RollercoasterControlsClass {
     this.camera = camera;
     this.urlSound = urlSound;
     this.volume = volume;
+
+    // Used variables in another methods (as dispose())
+    this.scene = scene;
 
     // init sound
     this.initSound();
@@ -290,5 +304,20 @@ export default class RollercoasterControlsClass {
       // console.log( this.velocity * 10000 )
       this.audio.setPlaybackRate(this.velocity * 10000);  // Adjust the multiplier as needed for realism
     } 
+  }
+
+  // TODO: Hacer dispose para cuando quitemos el rollercoaster controls
+  dispose() {
+    // dispose meshes rollercoaster
+    this.meshesRollercoaster.forEach((mesh) => {
+      this.scene.remove(mesh);
+      disposeAll(mesh);
+    });
+
+    // dispose meshes funfairs
+    this.funfairs.forEach((mesh) => {
+      this.scene.remove(mesh);
+      disposeAll(mesh);
+    });
   }
 }

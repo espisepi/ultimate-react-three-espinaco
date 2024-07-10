@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import RollercoasterControlsClass from "./RollercoasterControlsClass";
 import { useFrame, useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
@@ -7,7 +7,25 @@ import useVideo from "../../hooks/useVideo";
 export default function RollercoasterControls() {
   const { scene, camera } = useThree();
   const video = useVideo();
-  const rollercoasterControls = useMemo(()=> video ? new RollercoasterControlsClass({scene,camera,video}) : null,[video]);
+
+  // TODO: Usar en useEffect y poner en el return rollercoasterControls.dispose()
+  // const rollercoasterControls = useMemo(()=> video ? new RollercoasterControlsClass({scene,camera,video}) : null,[video]);
+  const [rollercoasterControls, setRollercoasterControls] = useState();
+  const rollercoasterControlsRef = useRef();
+
+  useEffect(() => {
+    if (video) {
+      const controls = new RollercoasterControlsClass({ scene, camera, video });
+      setRollercoasterControls(controls);
+      rollercoasterControlsRef.current = controls;
+    }
+
+    return () => {
+      if (rollercoasterControlsRef.current) {
+        rollercoasterControlsRef.current.dispose();
+      }
+    };
+  }, [video]);
 
   useFrame(()=>{
     if(rollercoasterControls) {
