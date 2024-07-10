@@ -22,7 +22,9 @@ export default function RollercoasterControls() {
 
     return () => {
       if (rollercoasterControlsRef.current) {
-        rollercoasterControlsRef.current.dispose();
+        // TODO IMPORTANTE: DESCOMENTAR PARA MEJORAR RENDIMIENTO Y QUITAR EL ROLLERCOASTER
+        // AL QUITAR EL COMPONENTE
+        // rollercoasterControlsRef.current.dispose();
       }
     };
   }, [video]);
