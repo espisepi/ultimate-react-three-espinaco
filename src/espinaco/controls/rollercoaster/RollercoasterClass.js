@@ -20,7 +20,7 @@ export default class RollercoasterClass {
     scene.add(train);
     // Este codigo es el que se encarga de controlar la camara
     // Para cambiar de control hay que jugar con el add y remove
-    // train.add(camera);
+    train.add(camera);
     this.train = train;
 
     const PI2 = Math.PI * 2;
