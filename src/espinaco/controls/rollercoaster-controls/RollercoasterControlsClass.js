@@ -16,8 +16,12 @@ export default class RollercoasterControlsClass {
     let geometry, material, mesh;
 
     const train = new THREE.Object3D();
+    train.name = "train";
     scene.add(train);
-    train.add(camera);
+    // Este codigo es el que se encarga de controlar la camara
+    // Para cambiar de control hay que jugar con el add y remove
+    // train.add(camera);
+    this.train = train;
 
     const PI2 = Math.PI * 2;
 

@@ -1,4 +1,11 @@
 
+
+TODO: Movimiento modo dios vr con joystick
+TODO: boton quitar poner ruido montaña rusa
+TODO: Movimiento velocidad rollercoaster en vr o sin vr
+
+
+
 TODO: Crear ionic app android ios
 
 TODO: Crear electron app mac windows linux
