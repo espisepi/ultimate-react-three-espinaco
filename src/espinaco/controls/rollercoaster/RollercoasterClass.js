@@ -8,7 +8,7 @@ import {
 } from "three/addons/misc/RollerCoaster.js";
 import { disposeAll } from "../../utils/disposeAll";
 
-export default class RollercoasterControlsClass {
+export default class RollercoasterClass {
   constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.0, circuit = 0, isVisibleTube = false }) {
 
     this.meshesRollercoaster = [];
