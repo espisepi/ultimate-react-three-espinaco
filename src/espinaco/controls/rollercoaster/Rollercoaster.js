@@ -8,7 +8,7 @@ export default function Rollercoaster() {
   const { scene, camera } = useThree();
   const video = useVideo();
 
-  // TODO: Usar en useEffect y poner en el return rollercoaster.dispose()
+  // Usar en useEffect y poner en el return rollercoaster.dispose()
   // const rollercoaster = useMemo(()=> video ? new rollercoasterClass({scene,camera,video}) : null,[video]);
   const [rollercoaster, setRollercoaster] = useState();
   const rollercoasterRef = useRef();
