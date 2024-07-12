@@ -1,5 +1,5 @@
 
-
+TODO: PONER PERSONAJES DE MIEDO QUE APARECEN y persiguen al rollercoaster como atraccion de feria del carrito de miedo (o la furia de los dioses de isla magica)
 TODO: Movimiento modo dios vr con joystick
 TODO: boton quitar poner ruido montaña rusa
 TODO: Movimiento velocidad rollercoaster en vr o sin vr
