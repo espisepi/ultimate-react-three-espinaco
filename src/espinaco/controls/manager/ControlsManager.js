@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GodCameraControls from "../../controls/GodCameraControls";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
+import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
 
 export default function ControlsManager({
   id_control = 0,
@@ -28,7 +29,7 @@ return (
             case 0:
               return <GodCameraControls position={cameraPosition} /> ;
             case 1:
-              return <Rollercoaster />;
+              return <RollercoasterControls />;
             default:
               console.warn("No se ha definido el control elegido, Control: " + id_control);
               return null;

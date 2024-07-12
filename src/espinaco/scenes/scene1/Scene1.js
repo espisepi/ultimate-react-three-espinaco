@@ -17,6 +17,7 @@ import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
 import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
+import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -85,6 +86,8 @@ export function Scene1() {
       <VideoPoints />
 
       <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
+      
+      <Rollercoaster />
 
       {/* <group>
             <group>
