@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import GodCameraControls from "../../controls/GodCameraControls";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
+import { useThree } from "@react-three/fiber";
 
 export default function ControlsManager({
   id_control = 0,
   id_scene = 0
 }) {
+    const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect
     useEffect(() => {
         switch (id_scene) {
@@ -21,7 +23,12 @@ export default function ControlsManager({
             setCameraPosition((v) => [0, 0, 0]);
             break;
         }
-    }, [id_scene]);
+
+        if(id_control === 1) {
+          camera?.position.set(0, 0, 0);
+          camera?.rotation.set(0, 0, 0);
+        }
+    }, [id_scene, id_control]);
 return (
     <>
         {(() => {
