@@ -22,7 +22,6 @@ export default function Rollercoaster() {
 
     return () => {
       if (rollercoasterRef.current) {
-        // TODO IMPORTANTE: DESCOMENTAR PARA MEJORAR RENDIMIENTO Y QUITAR EL ROLLERCOASTER
         rollercoasterRef.current.dispose();
       }
     };
