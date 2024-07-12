@@ -310,7 +310,7 @@ export default class RollercoasterClass {
     } 
   }
 
-  // TODO: Hacer dispose para cuando quitemos el rollercoaster controls
+  // Hacer dispose para cuando quitemos el rollercoaster controls
   dispose() {
     // dispose meshes rollercoaster
     this.meshesRollercoaster.forEach((mesh) => {
