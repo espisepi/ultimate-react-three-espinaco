@@ -15,13 +15,12 @@ import {
   ShaderMaterial,
 } from "three";
 
-// import { NippleJoystick } from "./espinaco/controls/NippleJoystick";
 
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import Scene2Canvas from "../../scenes/scene2/Scene2";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
-import { NippleJoystick } from "../../controls/NippleJoystick";
+import { NippleJoystick } from "../../controls/nipplejoystick/NippleJoystick";
 import { useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
