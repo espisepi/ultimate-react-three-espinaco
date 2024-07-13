@@ -3,7 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 import { useFrame, useThree } from "@react-three/fiber";
-import useKeyPress from "../hooks/useKeyPress";
+import useKeyPress from "../../hooks/useKeyPress";
 
 const vec = new THREE.Vector3();
 

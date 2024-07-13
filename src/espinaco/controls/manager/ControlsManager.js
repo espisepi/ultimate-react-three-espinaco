@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import GodCameraControls from "../../controls/GodCameraControls";
+import GodCameraControls from "../god/GodCameraControls";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";

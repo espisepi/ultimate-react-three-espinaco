@@ -7,7 +7,7 @@ import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
 import VideoPoints from "../../prefabs/VideoPoints";
 import { Suspense } from "react";
 
-import GodCameraControls from "../../controls/GodCameraControls";
+import GodCameraControls from "../../controls/god/GodCameraControls";
 import { MusicVisualCubeReact } from "../../prefabs/musicVisualCube/MusicVisualCube";
 import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
