@@ -13,30 +13,15 @@ const SPEED_MAX_VALUE = 500;
 
 // position: [x,y,z] Array<number>
 // tagetPosition: same as position churritagorda
-export default function GodCameraControlsXR({ position, targetPosition }) {
+export default function GodCameraControlsXR({ position }) {
   const { camera } = useThree();
-  const orbitControls = useRef();
 
   useEffect(() => {
     // Cambiar la posicion de la camara
     if(position) {
       camera?.position.set(position[0], position[1], position[2]);
-      if (targetPosition) {
-        orbitControls.current?.target.set(
-          targetPosition[0],
-          targetPosition[1],
-          targetPosition[2]
-        );
-      } else {
-        orbitControls.current?.target.set(0, 0, 0);
-      }
     }
   }, [position]);
-
-  useEffect(() => {
-    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
-    window.orbitControls = orbitControls?.current;
-  }, [orbitControls]);
 
   useEffect(() => {
     // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
@@ -55,17 +40,14 @@ export default function GodCameraControlsXR({ position, targetPosition }) {
     vec.setFromMatrixColumn(camera.matrix, 0);
     vec.crossVectors(camera.up, vec);
     camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
   }, []);
   const moveRight = useCallback((distance) => {
     vec.setFromMatrixColumn(camera.matrix, 0);
     camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
   }, []);
   const moveY = useCallback((distance) => {
     vec.set(0, 1, 0);
     camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
   }, []);
 
   useFrame((_, delta) => {
