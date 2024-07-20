@@ -4,12 +4,15 @@ import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
+import useControlsStore from "../store/ControlsStore";
 
 export default function ControlsManager({
-  id_control = 0,
   id_scene = 0,
   xrmode = false
 }) {
+
+    const controlsId = useControlsStore( state => state.controlsId );
+
     const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect
     useEffect(() => {
@@ -26,21 +29,21 @@ export default function ControlsManager({
             break;
         }
 
-        if(id_control === 1) {
+        if(controlsId === 1) {
           camera?.position.set(0, 0, 0);
           camera?.rotation.set(0, 0, 0);
         }
-    }, [id_scene, id_control]);
+    }, [id_scene, controlsId]);
     return (
         <>
             {(() => {
-              switch (id_control) {
+              switch (controlsId) {
                 case 0:
                   return xrmode ? <GodCameraControlsXR position={cameraPosition} /> : <GodCameraControls position={cameraPosition} /> ;
                 case 1:
                   return <RollercoasterControls />;
                 default:
-                  console.warn("No se ha definido el control elegido, Control: " + id_control);
+                  console.warn("No se ha definido el control elegido, Control: " + controlsId);
                   return null;
               }
             })()}

@@ -32,6 +32,7 @@ import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
 import useAppStore from "../store/AppStore";
+import useControlsStore from "../../controls/store/ControlsStore";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -429,10 +430,12 @@ export function App1Start({ url }) {
 
   // ControlsManager =========================================
 
-  const maxNumControls = 2; // Poner aqui el numero de controles maximos que haya creado
-  const [controlId, setControlId] = useState(1);
+  const controlsId = useControlsStore( state => state.controlsId );
+  const setControlsId = useControlsStore( state => state.setControlsId );
+  const maxNumControls = useControlsStore( state => state.maxNumControls );
   const handleChangeControl = () => {
-    setControlId((value) => (value + 1) % maxNumControls);
+    const newControlsId = (controlsId + 1) % maxNumControls;
+    setControlsId(newControlsId);
   };
 
   // Resolution manager
@@ -501,7 +504,7 @@ export function App1Start({ url }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlId} id_scene={sceneId} xrmode={xrmode} />
+              <ControlsManager id_control={controlsId} id_scene={sceneId} xrmode={xrmode} />
               <SceneManager id={sceneId} />
             </CanvasXR >
           ) : (
@@ -514,7 +517,7 @@ export function App1Start({ url }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlId} id_scene={sceneId} xrmode={xrmode} />
+              <ControlsManager id_control={controlsId} id_scene={sceneId} xrmode={xrmode} />
               <SceneManager id={sceneId} />
             </CanvasDefault >
         )}

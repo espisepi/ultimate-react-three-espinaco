@@ -1,9 +1,10 @@
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 import ControlsManager from "../../controls/manager/ControlsManager";
+import useControlsStore from "../../controls/store/ControlsStore";
 import SceneManager from "../../scenes/manager/SceneManager";
 
-export default function App2({ xrmode = false, controlId = 1, sceneId = 0 }) {
+export default function App2({ xrmode = false, sceneId = 0 }) {
   return (
     <>
       <>
@@ -18,7 +19,6 @@ export default function App2({ xrmode = false, controlId = 1, sceneId = 0 }) {
             }}
           >
             <ControlsManager
-              id_control={controlId}
               id_scene={sceneId}
               xrmode={xrmode}
             />
@@ -34,7 +34,6 @@ export default function App2({ xrmode = false, controlId = 1, sceneId = 0 }) {
             }}
           >
             <ControlsManager
-              id_control={controlId}
               id_scene={sceneId}
               xrmode={xrmode}
             />
