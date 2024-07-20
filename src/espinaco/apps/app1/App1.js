@@ -497,7 +497,7 @@ export function App1Start({ url, xrmode = true }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlId} id_scene={sceneId} />
+              <ControlsManager id_control={controlId} id_scene={sceneId} xrmode={xrmode} />
               <SceneManager id={sceneId} />
             </CanvasXR >
           ) : (
@@ -510,7 +510,7 @@ export function App1Start({ url, xrmode = true }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlId} id_scene={sceneId} />
+              <ControlsManager id_control={controlId} id_scene={sceneId} xrmode={xrmode} />
               <SceneManager id={sceneId} />
             </CanvasDefault >
         )}
