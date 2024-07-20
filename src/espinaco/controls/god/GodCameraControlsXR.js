@@ -56,7 +56,6 @@ export default function GodCameraControlsXR() {
     setPitch((prev) =>
       Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev + deltaPitch))
     );
-    ref.current.rotation.set(pitch, yaw, 0, "YXZ");
   }, [ref.current]);
 
   // define render ==========
@@ -106,6 +105,8 @@ export default function GodCameraControlsXR() {
     const yAxisRight = thumstickStateRight.yAxis ?? 0;
 
     updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
+    ref.current.rotation.set(pitch, yaw, 0, "YXZ");
+
   });
   return <XROrigin ref={ref} />;
 }
