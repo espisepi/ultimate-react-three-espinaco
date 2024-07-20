@@ -129,13 +129,31 @@ export default function GodCameraControlsXR({ position }) {
     if (XRFrame) {
       if (rightController) {
         const rightGamePad = rightController.inputSource.gamepad;
-        console.log(rightGamePad);
-        /* right joystick values are stored in rightGamePad.axes */
+        if (rightGamePad) {
+          const [rx, ry] = rightGamePad.axes;
+          setYaw((prev) => prev + rx * delta);
+          setPitch((prev) =>
+            Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev - ry * delta))
+          );
+        }
       }
       if (leftController) {
         const leftGamePad = leftController.inputSource.gamepad;
-        console.log(leftGamePad);
-        /* left joystick values are stored in leftGamePad.axes */
+        if (leftGamePad) {
+          const [lx, ly] = leftGamePad.axes;
+          moveForward(
+            ly * delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE
+          );
+          moveRight(
+            lx * delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE
+          );
+          if (leftGamePad.buttons[0].pressed) {
+            moveY(-delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE); // Botón A baja la cámara
+          }
+          if (leftGamePad.buttons[1].pressed) {
+            moveY(delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE); // Botón B sube la cámara
+          }
+        }
       }
     }
   });
