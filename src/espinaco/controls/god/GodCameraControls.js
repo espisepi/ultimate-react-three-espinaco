@@ -1,48 +1,24 @@
-
-// DEPRECATED: Not used, use GodCameraControlsXR
-
-
-import React, { useCallback, useEffect, useRef } from "react";
-import { OrbitControls } from "@react-three/drei";
+import React, { useCallback, useEffect, useState } from "react";
 import * as THREE from "three";
-
 import { useFrame, useThree } from "@react-three/fiber";
 import useKeyPress from "../../hooks/useKeyPress";
-
-const vec = new THREE.Vector3();
+import { useController } from "@react-three/xr";
 
 const SPEED_MIN_VALUE = 100;
 const SPEED_MAX_VALUE = 500;
 
-// position: [x,y,z] Array<number>
-// tagetPosition: same as position churritagorda
-export default function GodCameraControls({ position, targetPosition }) {
+export default function GodCameraControlsXR({ position }) {
   const { camera } = useThree();
-  const orbitControls = useRef();
+  const [yaw, setYaw] = useState(0);
+  const [pitch, setPitch] = useState(0);
 
   useEffect(() => {
-    // Cambiar la posicion de la camara
-    if(position) {
-      camera?.position.set(position[0], position[1], position[2]);
-      if (targetPosition) {
-        orbitControls.current?.target.set(
-          targetPosition[0],
-          targetPosition[1],
-          targetPosition[2]
-        );
-      } else {
-        orbitControls.current?.target.set(0, 0, 0);
-      }
+    if (position) {
+      camera.position.set(position[0], position[1], position[2]);
     }
-  }, [position]);
+  }, [position, camera]);
 
   useEffect(() => {
-    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
-    window.orbitControls = orbitControls?.current;
-  }, [orbitControls]);
-
-  useEffect(() => {
-    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
     window.camera = camera;
   }, [camera]);
 
@@ -53,46 +29,93 @@ export default function GodCameraControls({ position, targetPosition }) {
   const moveRightKeyPress = useKeyPress("d");
   const moveHeight = useKeyPress("e");
   const moveDown = useKeyPress("q");
+  const rotateLeftKeyPress = useKeyPress("l");
+  const rotateUpKeyPress = useKeyPress("k");
+  const rotateDownKeyPress = useKeyPress("i");
+  const rotateRightKeyPress = useKeyPress("j");
 
-  const moveForward = useCallback((distance) => {
-    vec.setFromMatrixColumn(camera.matrix, 0);
-    vec.crossVectors(camera.up, vec);
-    camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
-  }, []);
-  const moveRight = useCallback((distance) => {
-    vec.setFromMatrixColumn(camera.matrix, 0);
-    camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
-  }, []);
-  const moveY = useCallback((distance) => {
-    vec.set(0, 1, 0);
-    camera.position.addScaledVector(vec, distance);
-    orbitControls.current.target.addScaledVector(vec, distance);
+  const moveForward = useCallback(
+    (distance) => {
+      const direction = new THREE.Vector3();
+      camera.getWorldDirection(direction);
+      direction.y = 0;
+      direction.normalize();
+      camera.position.addScaledVector(direction, distance);
+    },
+    [camera]
+  );
+
+  const moveRight = useCallback(
+    (distance) => {
+      const direction = new THREE.Vector3();
+      camera.getWorldDirection(direction);
+      direction.y = 0;
+      direction.normalize();
+      direction.cross(camera.up);
+      camera.position.addScaledVector(direction, distance);
+    },
+    [camera]
+  );
+
+  const moveY = useCallback(
+    (distance) => {
+      camera.position.y += distance;
+    },
+    [camera]
+  );
+
+  const updateRotation = useCallback((deltaYaw, deltaPitch) => {
+    setYaw((prev) => prev + deltaYaw);
+    setPitch((prev) => Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev + deltaPitch)));
   }, []);
 
   useFrame((_, delta) => {
     const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
-    if (moveForwardKeyPress) {
-      moveForward(delta * speed);
-    }
-    if (moveBackKeyPress) {
-      moveForward(-delta * speed);
-    }
-    if (moveRightKeyPress) {
-      moveRight(delta * speed);
-    }
-    if (moveLeftKeyPress) {
-      moveRight(-delta * speed);
-    }
-    if (moveHeight) {
-      moveY(delta * speed);
-    }
-    if (moveDown) {
-      moveY(-delta * speed);
-    }
-    // camera.updateMatrixWorld();
+    const rotationSpeed = delta * 1;
+
+    if (moveForwardKeyPress) moveForward(delta * speed);
+    if (moveBackKeyPress) moveForward(-delta * speed);
+    if (moveRightKeyPress) moveRight(delta * speed);
+    if (moveLeftKeyPress) moveRight(-delta * speed);
+    if (moveHeight) moveY(delta * speed);
+    if (moveDown) moveY(-delta * speed);
+
+    if (rotateLeftKeyPress) updateRotation(-rotationSpeed, 0);
+    if (rotateRightKeyPress) updateRotation(rotationSpeed, 0);
+    if (rotateUpKeyPress) updateRotation(0, -rotationSpeed);
+    if (rotateDownKeyPress) updateRotation(0, rotationSpeed);
+
+    camera.rotation.set(pitch, yaw, 0, "YXZ");
   });
 
-  return <OrbitControls ref={orbitControls} />;
+  // const leftController = useController("left");
+  // const rightController = useController("right");
+
+  // useFrame((state, delta, XRFrame) => {
+  //   if (XRFrame) {
+  //     const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
+  //     const rotationSpeed = delta * 2;
+
+  //     if (rightController) {
+  //       const rightGamePad = rightController.inputSource.gamepad;
+  //       if (rightGamePad) {
+  //         const [rx, ry] = rightGamePad.axes;
+  //         updateRotation(rx * rotationSpeed, -ry * rotationSpeed);
+  //       }
+  //     }
+
+  //     if (leftController) {
+  //       const leftGamePad = leftController.inputSource.gamepad;
+  //       if (leftGamePad) {
+  //         const [lx, ly] = leftGamePad.axes;
+  //         moveForward(ly * delta * speed);
+  //         moveRight(lx * delta * speed);
+  //         if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
+  //         if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
+  //       }
+  //     }
+  //   }
+  // });
+
+  return null;
 }
