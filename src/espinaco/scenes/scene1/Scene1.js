@@ -18,6 +18,7 @@ import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
+import useAppStore from "../../apps/store/AppStore";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -74,6 +75,9 @@ export function Scene1() {
       }
     }
   });
+
+  const xrmode = useAppStore( state => state.xrmode );
+
   return (
     <>
       <ambientLight />
@@ -114,6 +118,8 @@ export function Scene1() {
       {/* <MusicVisualCubeReact /> */}
       {/* <SubtitleMesh /> */}
       {/* <MeshSurfaceSampler /> */}
+
+      {!xrmode && (  
       <Stars
         ref={starsRef}
         radius={1000}
@@ -123,6 +129,8 @@ export function Scene1() {
         fade /* speed={1} */
         /* saturation={1} */
       />
+      )}
+
     </>
   );
 }
