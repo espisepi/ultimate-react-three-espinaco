@@ -3,6 +3,7 @@ import "./App.css";
 
 import { inject } from "@vercel/analytics";
 import AppManager from "./espinaco/apps/manager/AppManager";
+import useAppStore from "./AppStore";
 
 export default function App() {
 
@@ -10,9 +11,9 @@ export default function App() {
     inject();
   }, []);
 
-  const [appId, setAppId] = useState(1);
+  const appId = useAppStore(state => state.appId);
 
-  if ( appId <= 1 ) { return <AppManager id={appId} />; }
+  if ( appId <= 2 ) { return <AppManager id={appId} />; }
 
   else { return (
     <>
