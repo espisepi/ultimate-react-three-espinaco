@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -18,7 +18,7 @@ export default function GodCameraControlsXR({ position }) {
 
   useEffect(() => {
     // Cambiar la posicion de la camara
-    if(position) {
+    if (position) {
       camera?.position.set(position[0], position[1], position[2]);
     }
   }, [position]);
@@ -28,30 +28,62 @@ export default function GodCameraControlsXR({ position }) {
     window.camera = camera;
   }, [camera]);
 
+  const SPEED_MAX_VALUE = 500;
+  const SPEED_MIN_VALUE = 100;
+
   const speedKeyPress = useKeyPress("ShiftLeft");
+
   const moveForwardKeyPress = useKeyPress("w");
   const moveBackKeyPress = useKeyPress("s");
+
   const moveLeftKeyPress = useKeyPress("a");
   const moveRightKeyPress = useKeyPress("d");
+
   const moveHeight = useKeyPress("e");
   const moveDown = useKeyPress("q");
 
-  const moveForward = useCallback((distance) => {
-    vec.setFromMatrixColumn(camera.matrix, 0);
-    vec.crossVectors(camera.up, vec);
-    camera.position.addScaledVector(vec, distance);
-  }, []);
-  const moveRight = useCallback((distance) => {
-    vec.setFromMatrixColumn(camera.matrix, 0);
-    camera.position.addScaledVector(vec, distance);
-  }, []);
-  const moveY = useCallback((distance) => {
-    vec.set(0, 1, 0);
-    camera.position.addScaledVector(vec, distance);
-  }, []);
+  const rotateLeftKeyPress = useKeyPress("l");
+  const rotateUpKeyPress = useKeyPress("k");
+  const rotateDownKeyPress = useKeyPress("i");
+  const rotateRightKeyPress = useKeyPress("j");
+
+  const [yaw, setYaw] = useState(0);
+  const [pitch, setPitch] = useState(0);
+
+  const moveForward = useCallback(
+    (distance) => {
+      const direction = new THREE.Vector3();
+      camera.getWorldDirection(direction);
+      direction.y = 0;
+      direction.normalize();
+      camera.position.addScaledVector(direction, distance);
+    },
+    [camera]
+  );
+
+  const moveRight = useCallback(
+    (distance) => {
+      const direction = new THREE.Vector3();
+      camera.getWorldDirection(direction);
+      direction.y = 0;
+      direction.normalize();
+      direction.cross(camera.up);
+      camera.position.addScaledVector(direction, distance);
+    },
+    [camera]
+  );
+
+  const moveY = useCallback(
+    (distance) => {
+      camera.position.y += distance;
+    },
+    [camera]
+  );
 
   useFrame((_, delta) => {
     const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
+    const rotationSpeed = delta * 0.5; // Velocidad de rotación, ajusta según tu necesidad
+
     if (moveForwardKeyPress) {
       moveForward(delta * speed);
     }
@@ -70,27 +102,43 @@ export default function GodCameraControlsXR({ position }) {
     if (moveDown) {
       moveY(-delta * speed);
     }
+
+    if (rotateLeftKeyPress) {
+      setYaw((prev) => prev - rotationSpeed); // Rotar hacia la izquierda (eje Y)
+    }
+    if (rotateRightKeyPress) {
+      setYaw((prev) => prev + rotationSpeed); // Rotar hacia la derecha (eje Y)
+    }
+    if (rotateUpKeyPress) {
+      setPitch((prev) => Math.max(-Math.PI / 2, prev - rotationSpeed)); // Rotar hacia arriba (eje X)
+    }
+    if (rotateDownKeyPress) {
+      setPitch((prev) => Math.min(Math.PI / 2, prev + rotationSpeed)); // Rotar hacia abajo (eje X)
+    }
+
+    camera.rotation.set(pitch, yaw, 0, "YXZ");
+
     // camera.updateMatrixWorld();
   });
 
   // Codigo para XR
-  const leftController = useController('left')
-  const rightController = useController('right')
+  const leftController = useController("left");
+  const rightController = useController("right");
 
   useFrame((state, delta, XRFrame) => {
     if (XRFrame) {
       if (rightController) {
-        const rightGamePad = rightController.inputSource.gamepad
-        console.log(rightGamePad)
-       /* right joystick values are stored in rightGamePad.axes */
+        const rightGamePad = rightController.inputSource.gamepad;
+        console.log(rightGamePad);
+        /* right joystick values are stored in rightGamePad.axes */
       }
       if (leftController) {
-        const leftGamePad = leftController.inputSource.gamepad
-        console.log(leftGamePad)
+        const leftGamePad = leftController.inputSource.gamepad;
+        console.log(leftGamePad);
         /* left joystick values are stored in leftGamePad.axes */
       }
     }
-  })
+  });
 
   return null;
 }
