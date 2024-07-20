@@ -87,7 +87,7 @@ export default function GodCameraControlsXR() {
     const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
 
     moveForward(yAxisLeft * delta * speed);
-    moveRight(xAxisLeft * delta * speed);
+    moveRight(-xAxisLeft * delta * speed);
     // if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
     // if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
 

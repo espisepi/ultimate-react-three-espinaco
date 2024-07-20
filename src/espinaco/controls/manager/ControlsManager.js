@@ -6,6 +6,7 @@ import { useThree } from "@react-three/fiber";
 import useControlsStore from "../store/ControlsStore";
 import OrbitControls from "../orbitControls/OrbitControls";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
+import RollercoasterControlsXR from "../rollercoaster/controls/RollercoasterControlsXR";
 
 export default function ControlsManager({
   id_scene = 0,
@@ -45,7 +46,7 @@ export default function ControlsManager({
                 case 0:
                   return <OrbitControls position={cameraPosition} />;
                 case 1:
-                  return <RollercoasterControls />;
+                  return xrmode ? <RollercoasterControlsXR /> : <RollercoasterControls />;
                 case 2:
                   return xrmode ? <GodCameraControlsXR /> : <GodCameraControls position={cameraPosition} />;
                 default:
