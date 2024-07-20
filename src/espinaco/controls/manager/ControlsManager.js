@@ -5,6 +5,7 @@ import RollercoasterControls from "../rollercoaster/controls/RollercoasterContro
 import { useThree } from "@react-three/fiber";
 import useControlsStore from "../store/ControlsStore";
 import OrbitControls from "../orbitControls/OrbitControls";
+import GodCameraControlsXR from "../god/GodCameraControlsXR";
 
 export default function ControlsManager({
   id_scene = 0,
@@ -46,7 +47,7 @@ export default function ControlsManager({
                 case 1:
                   return <RollercoasterControls />;
                 case 2:
-                  return <GodCameraControls position={cameraPosition} />;
+                  return xrmode ? <GodCameraControlsXR /> : <GodCameraControls position={cameraPosition} />;
                 default:
                   console.warn("No se ha definido el control elegido, Control: " + controlsId);
                   return null;

@@ -7,7 +7,7 @@ import { useController } from "@react-three/xr";
 const SPEED_MIN_VALUE = 100;
 const SPEED_MAX_VALUE = 500;
 
-export default function GodCameraControlsXR({ position }) {
+export default function GodCameraControls({ position }) {
   const { camera } = useThree();
   const [yaw, setYaw] = useState(0);
   const [pitch, setPitch] = useState(0);

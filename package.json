@@ -5,7 +5,7 @@
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.12",
     "@react-three/rapier": "^1.2.1",
-    "@react-three/xr": "^5.7.1",
+    "@react-three/xr": "^6.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
