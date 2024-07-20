@@ -104,8 +104,10 @@ export default function GodCameraControlsXR() {
     const xAxisRight = thumstickStateRight.xAxis ?? 0;
     const yAxisRight = thumstickStateRight.yAxis ?? 0;
 
-    updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
-    ref.current.rotation.set(pitch, yaw, 0, "YXZ");
+    // updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
+    // ref.current.rotation.set(pitch, yaw, 0, "YXZ");
+    moveY(yAxisRight * delta * speed);
+
 
   });
   return <XROrigin ref={ref} />;
