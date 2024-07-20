@@ -31,6 +31,8 @@ import ControlsManager from "../../controls/manager/ControlsManager";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
+import useAppStore from "../../../AppStore";
+
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -154,8 +156,10 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url, xrmode = true }) {
+export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
+
+  const xrmode = useAppStore( state => state.xrmode );
 
   //======================================
 
