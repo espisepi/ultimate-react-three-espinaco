@@ -71,7 +71,7 @@ export default function GodCameraControlsXR({ position }) {
 
   useFrame((_, delta) => {
     const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
-    const rotationSpeed = delta * 2;
+    const rotationSpeed = delta * 1;
 
     if (moveForwardKeyPress) moveForward(delta * speed);
     if (moveBackKeyPress) moveForward(-delta * speed);
@@ -88,34 +88,34 @@ export default function GodCameraControlsXR({ position }) {
     camera.rotation.set(pitch, yaw, 0, "YXZ");
   });
 
-  const leftController = useController("left");
-  const rightController = useController("right");
+  // const leftController = useController("left");
+  // const rightController = useController("right");
 
-  useFrame((state, delta, XRFrame) => {
-    if (XRFrame) {
-      const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
-      const rotationSpeed = delta * 2;
+  // useFrame((state, delta, XRFrame) => {
+  //   if (XRFrame) {
+  //     const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
+  //     const rotationSpeed = delta * 2;
 
-      if (rightController) {
-        const rightGamePad = rightController.inputSource.gamepad;
-        if (rightGamePad) {
-          const [rx, ry] = rightGamePad.axes;
-          updateRotation(rx * rotationSpeed, -ry * rotationSpeed);
-        }
-      }
+  //     if (rightController) {
+  //       const rightGamePad = rightController.inputSource.gamepad;
+  //       if (rightGamePad) {
+  //         const [rx, ry] = rightGamePad.axes;
+  //         updateRotation(rx * rotationSpeed, -ry * rotationSpeed);
+  //       }
+  //     }
 
-      if (leftController) {
-        const leftGamePad = leftController.inputSource.gamepad;
-        if (leftGamePad) {
-          const [lx, ly] = leftGamePad.axes;
-          moveForward(ly * delta * speed);
-          moveRight(lx * delta * speed);
-          if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
-          if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
-        }
-      }
-    }
-  });
+  //     if (leftController) {
+  //       const leftGamePad = leftController.inputSource.gamepad;
+  //       if (leftGamePad) {
+  //         const [lx, ly] = leftGamePad.axes;
+  //         moveForward(ly * delta * speed);
+  //         moveRight(lx * delta * speed);
+  //         if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
+  //         if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
+  //       }
+  //     }
+  //   }
+  // });
 
   return null;
 }
