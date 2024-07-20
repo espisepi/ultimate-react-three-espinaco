@@ -106,7 +106,7 @@ export default function GodCameraControlsXR() {
 
     // updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
     // ref.current.rotation.set(pitch, yaw, 0, "YXZ");
-    moveY(yAxisRight * delta * speed);
+    moveY(-yAxisRight * delta * speed);
 
 
   });
