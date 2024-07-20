@@ -14,7 +14,7 @@ export default function App0() {
                 width: "10rem",
                 height: "10rem",
                 backgroundColor: "red"
-            }}>App 1</button>
+            }}>Rollercoaster</button>
             <button
             onClick={()=>setAppId(2)}
             style={{
