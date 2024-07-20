@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 
 const useAppStore = create(set => ({
-  appId: 0,
+  appId: 1,
   setAppId: (newAppId) => set({ appId: newAppId }),
 }));
 
