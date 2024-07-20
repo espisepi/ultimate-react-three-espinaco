@@ -11,7 +11,7 @@ export default function AppManager({ id = 0 }) {
           case 1:
             return <App2 />;
           default:
-            alert("No se ha definido la App elegida, App: " + id);
+            console.error("No se ha definido la App elegida, App: " + id);
             return null;
         }
       })()}

@@ -16,7 +16,7 @@ export default function SceneManager({
           case 1:
             return <Scene2 />;
           default:
-            alert("No se ha definido la Scene elegida, Scene: " + id);
+            console.error("No se ha definido la Scene elegida, Scene: " + id);
             return null;
         }
       })()}

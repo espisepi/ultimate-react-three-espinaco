@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 import { inject } from "@vercel/analytics";
@@ -8,5 +8,7 @@ export default function App() {
   useEffect(() => {
     inject();
   }, []);
-  return <AppManager id={0} />;
+  const [appId, setAppId] = useState(0);
+
+  return <AppManager id={appId} />;
 }
