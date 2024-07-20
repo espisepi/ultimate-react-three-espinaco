@@ -1,4 +1,4 @@
-import useAppStore from "../../../AppStore";
+import useAppStore from "../store/AppStore";
 
 
 export default function App0() {

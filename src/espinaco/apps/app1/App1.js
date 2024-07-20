@@ -31,7 +31,7 @@ import ControlsManager from "../../controls/manager/ControlsManager";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
-import useAppStore from "../../../AppStore";
+import useAppStore from "../store/AppStore";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =

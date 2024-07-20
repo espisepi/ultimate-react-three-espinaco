@@ -3,7 +3,7 @@ import "./App.css";
 
 import { inject } from "@vercel/analytics";
 import AppManager from "./espinaco/apps/manager/AppManager";
-import useAppStore from "./AppStore";
+import useAppStore from "./espinaco/apps/store/AppStore";
 
 export default function App() {
 
