@@ -16,7 +16,6 @@ export default function GodCameraControlsXR() {
 
   // define attributes =======
 
-  const { camera } = useThree();
   const [yaw, setYaw] = useState(0);
   const [pitch, setPitch] = useState(0);
 
@@ -25,31 +24,31 @@ export default function GodCameraControlsXR() {
   const moveForward = useCallback(
     (distance) => {
       const direction = new THREE.Vector3();
-      camera.getWorldDirection(direction);
+      ref.current.getWorldDirection(direction);
       direction.y = 0;
       direction.normalize();
-      camera.position.addScaledVector(direction, distance);
+      ref.current.position.addScaledVector(direction, distance);
     },
-    [camera]
+    [ref.current]
   );
 
   const moveRight = useCallback(
     (distance) => {
       const direction = new THREE.Vector3();
-      camera.getWorldDirection(direction);
+      ref.current.getWorldDirection(direction);
       direction.y = 0;
       direction.normalize();
-      direction.cross(camera.up);
-      camera.position.addScaledVector(direction, distance);
+      direction.cross(ref.current.up);
+      ref.current.position.addScaledVector(direction, distance);
     },
-    [camera]
+    [ref.current]
   );
 
   const moveY = useCallback(
     (distance) => {
-      camera.position.y += distance;
+      ref.current.position.y += distance;
     },
-    [camera]
+    [ref.current]
   );
 
   const updateRotation = useCallback((deltaYaw, deltaPitch) => {
@@ -57,7 +56,8 @@ export default function GodCameraControlsXR() {
     setPitch((prev) =>
       Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev + deltaPitch))
     );
-  }, []);
+    ref.current.rotation.set(pitch, yaw, 0, "YXZ");
+  }, [ref.current]);
 
   // define render ==========
 
