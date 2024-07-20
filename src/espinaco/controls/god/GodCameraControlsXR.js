@@ -127,32 +127,26 @@ export default function GodCameraControlsXR({ position }) {
 
   useFrame((state, delta, XRFrame) => {
     if (XRFrame) {
+      const speed = speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE;
+      const rotationSpeed = delta * 2; // Ajusta según sea necesario
+
       if (rightController) {
         const rightGamePad = rightController.inputSource.gamepad;
         if (rightGamePad) {
           const [rx, ry] = rightGamePad.axes;
-          setYaw((prev) => prev + rx * delta);
-          setPitch((prev) =>
-            Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev - ry * delta))
-          );
+          setYaw((prev) => prev + rx * rotationSpeed);
+          setPitch((prev) => Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev - ry * rotationSpeed)));
         }
       }
+
       if (leftController) {
         const leftGamePad = leftController.inputSource.gamepad;
         if (leftGamePad) {
           const [lx, ly] = leftGamePad.axes;
-          moveForward(
-            ly * delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE
-          );
-          moveRight(
-            lx * delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE
-          );
-          if (leftGamePad.buttons[0].pressed) {
-            moveY(-delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE); // Botón A baja la cámara
-          }
-          if (leftGamePad.buttons[1].pressed) {
-            moveY(delta * speedKeyPress ? SPEED_MAX_VALUE : SPEED_MIN_VALUE); // Botón B sube la cámara
-          }
+          moveForward(ly * delta * speed);
+          moveRight(lx * delta * speed);
+          if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
+          if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
         }
       }
     }
