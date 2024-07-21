@@ -14,7 +14,8 @@ export default function CameraInfoText() {
   // useFrame(() => camera.getWorldPosition(target))
   useFrame(() => setCameraProperties(v => ({
     near: camera.near,
-    far: camera.far
+    far: camera.far,
+    position: camera.position
   })));
 
   useFrame(() => {
