@@ -161,6 +161,8 @@ export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
 
   const xrmode = useAppStore( state => state.xrmode );
+  const displayVideoplayer = useAppStore( state => state.displayVideoplayer );
+
 
   //======================================
 
@@ -526,8 +528,9 @@ export function App1Start({ url }) {
         {/* <NippleJoystick showUI={showUIMovement} /> */}
 
         {/* <CanvasRecord /> */}
-
-        <VideoPlayer showUI={showVideo} />
+        {displayVideoplayer && (  
+          <VideoPlayer showUI={showVideo} />
+        )}
 
         {/* <VideoPlayerScreenCapture /> */}
 
