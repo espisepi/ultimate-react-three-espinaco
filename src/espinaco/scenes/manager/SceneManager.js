@@ -1,18 +1,19 @@
 import React, { Suspense, useEffect, useMemo, useState } from "react";
-import { Scene1 } from "../scene1/Scene1";
+import { Scene1, Scene1XR } from "../scene1/Scene1";
 import { Scene2 } from "../scene2/Scene2";
 import { Box } from "@react-three/drei";
-export default function SceneManager({
-  id = 0,
-}) {
+import useAppStore from "../../apps/store/AppStore";
+
+export default function SceneManager({ id = 0 }) {
+
+  const xrmode = useAppStore((state) => state.xrmode);
+
   return (
-    <Suspense
-      fallback={<Box material-color="red" material-wireframe="true" />}
-    >
+    <Suspense fallback={<Box material-color="red" material-wireframe="true" />}>
       {(() => {
         switch (id) {
           case 0:
-            return <Scene1 />;
+            return xrmode ? <Scene1XR /> : <Scene1 />;
           case 1:
             return <Scene2 />;
           default:
@@ -23,8 +24,6 @@ export default function SceneManager({
     </Suspense>
   );
 }
-
-
 
 // TODO: Fix para el cambio de tamaño de imagen
 // const video = useVideo();

@@ -19,6 +19,8 @@ import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 import useAppStore from "../../apps/store/AppStore";
+import { Scene } from "three";
+import PerformanceText from "../../features/espinaco-xr/components/performanceText/PerformanceText";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -133,4 +135,13 @@ export function Scene1() {
 
     </>
   );
+}
+
+export function Scene1XR() {
+  return (
+    <>
+      <Scene1 />
+      <PerformanceText />
+    </>
+  )
 }
