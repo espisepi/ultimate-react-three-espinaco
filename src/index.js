@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { sendToVercelAnalytics } from './vitals';
 
 // Microfrontend hecho a partir del tutorial:
 // https://tekinico.medium.com/build-a-react-embeddable-widget-c46b7f7999d8
@@ -41,5 +39,3 @@ widgetDivs.forEach(div => {
 //     <App />
 //   </React.StrictMode>
 // );
-
-reportWebVitals(sendToVercelAnalytics);
