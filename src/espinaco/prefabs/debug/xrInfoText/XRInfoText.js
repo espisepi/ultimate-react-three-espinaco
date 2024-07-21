@@ -18,12 +18,20 @@ export default function XRInfoText() {
     //     .add(new THREE.Vector3(0, 0.2, -2)); // Ajusta la posición según sea necesario
     // }
   });
-
-  return (
-    <Text ref={textRef} fontSize={0.1} color="white" position={[0, 0.2, -2]}>
-      XR Info: 
-      {/* { JSON.stringify( camera.toJSON() ) } */}
-      {JSON.stringify({ ...xrState })}
-    </Text>
-  );
+  if (xrState) {
+    return (
+      <Text ref={textRef} fontSize={0.1} color="white" position={[0, 0.2, -2]}>
+        XR Info:
+        {JSON.stringify({ ...xrState })}
+      </Text>
+    );
+  }
+  else {
+    return (
+      <Text ref={textRef} fontSize={0.1} color="white" position={[0, 0.2, -2]}>
+        XR Info:
+        Cargando Informacion...
+      </Text>
+    );
+  }
 }

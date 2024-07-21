@@ -23,6 +23,7 @@ import { Scene } from "three";
 import PerformanceText from "../../prefabs/debug/performanceText/PerformanceText";
 import CameraInfoText from "../../prefabs/debug/cameraInfoText/CameraInfoText";
 import XRInfoText from "../../prefabs/debug/xrInfoText/XRInfoText";
+import useScene1Store from "./Scene1Store";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -81,6 +82,11 @@ export function Scene1() {
   });
 
   const xrmode = useAppStore( state => state.xrmode );
+  
+  const showVideoPoints = useScene1Store( state => state.showVideoPoints);
+  const showTextTessellation = useScene1Store( state => state.showTextTessellation);
+  const showRollercoaster = useScene1Store( state => state.showRollercoaster);
+
 
   return (
     <>
@@ -91,11 +97,18 @@ export function Scene1() {
 
       {/* <Ocean /> */}
 
-      <VideoPoints />
+      {showVideoPoints && (  
+        <VideoPoints />
+      )}
 
-      <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
-      
-      <Rollercoaster />
+      {showTextTessellation && (  
+        <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
+      )}
+
+      {showRollercoaster && (  
+        <Rollercoaster />
+      )}
+
 
       {/* <group>
             <group>
