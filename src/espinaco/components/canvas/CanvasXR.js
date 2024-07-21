@@ -33,7 +33,7 @@ export default function CanvasXR({
       >
         Enter VR
       </button>
-      <Canvas style={{ ...style, backgroundColor: "black" }}>
+      <Canvas style={{ ...style }}>
         <XR store={store}>
           {children}
         </XR>
