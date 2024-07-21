@@ -80,7 +80,7 @@ class TextTessellationManager {
     let geometry = new TextGeometry(text, {
       font: font,
       size: size,
-      height: 5,
+      depth: 5,
       curveSegments: 3,
       bevelThickness: 2,
       bevelSize: 1,
