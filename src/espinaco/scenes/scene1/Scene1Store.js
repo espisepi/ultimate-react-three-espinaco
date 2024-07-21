@@ -4,8 +4,8 @@ import { create } from 'zustand';
 const useScene1Store = create(set => ({
 
   showVideoPoints: true,
-  showTextTessellation: false,
-  showRollercoaster: false,
+  showTextTessellation: true,
+  showRollercoaster: true,
 
   setShowVideoPoints: (newShowVideoPoints) => set({ showVideoPoints: newShowVideoPoints }),
   setShowTextTessellation: (newTextTessellation) => set({ showTextTessellation: newTextTessellation }),
