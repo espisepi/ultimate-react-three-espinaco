@@ -78,7 +78,7 @@ export default function GodCameraControlsXR() {
 
     if (
       // ref.current == null || // Lo he chequeado al principio del metodo
-      leftController !== null
+      leftController?.gamepad
     ) {
       const thumstickStateLeft =
         leftController.gamepad["xr-standard-thumbstick"];
@@ -98,7 +98,7 @@ export default function GodCameraControlsXR() {
     // Right controllers ========================
     if (
       // ref.current == null || // Lo he chequeado al principio del metodo
-      rightController !== null
+      rightController.gamepad
     ) {
       const thumstickStateRight =
         rightController.gamepad["xr-standard-thumbstick"];
