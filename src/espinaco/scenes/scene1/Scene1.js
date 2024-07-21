@@ -22,6 +22,7 @@ import useAppStore from "../../apps/store/AppStore";
 import { Scene } from "three";
 import PerformanceText from "../../prefabs/debug/performanceText/PerformanceText";
 import CameraInfoText from "../../prefabs/debug/cameraInfoText/CameraInfoText";
+import XRInfoText from "../../prefabs/debug/xrInfoText/XRInfoText";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
@@ -144,6 +145,7 @@ export function Scene1XR() {
       <Scene1 />
       {/* <PerformanceText /> */}
       <CameraInfoText />
+      <XRInfoText />
     </>
   )
 }
