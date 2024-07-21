@@ -144,7 +144,7 @@ export function Scene1XR() {
     <>
       <Scene1 />
       {/* <PerformanceText /> */}
-      <CameraInfoText />
+      {/* <CameraInfoText /> */}
       <XRInfoText />
     </>
   )

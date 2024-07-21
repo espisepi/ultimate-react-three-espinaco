@@ -12,11 +12,11 @@ export default function XRInfoText() {
   const xrState = useXR();
 
   useFrame(() => {
-    if (textRef.current) {
-      textRef.current.position
-        .copy(camera.position)
-        .add(new THREE.Vector3(0, 0.2, -2)); // Ajusta la posición según sea necesario
-    }
+    // if (textRef.current) {
+    //   textRef.current.position
+    //     .copy(camera.position)
+    //     .add(new THREE.Vector3(0, 0.2, -2)); // Ajusta la posición según sea necesario
+    // }
   });
 
   return (
