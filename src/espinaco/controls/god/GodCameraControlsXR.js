@@ -5,6 +5,7 @@ import * as THREE from "three";
 
 
 const SPEED_VALUE = 50;
+const ROTATION_SPEED_VALUE = 0.5;
 
 export default function GodCameraControlsXR() {
   // define attributes XR ========
@@ -73,8 +74,8 @@ export default function GodCameraControlsXR() {
 
     // Define attributes =================
 
-    const speed = SPEED_VALUE;
-    const rotationSpeed = delta * 1;
+    const speed = delta * SPEED_VALUE;
+    const rotationSpeed = delta * ROTATION_SPEED_VALUE;
 
     // Left controllers ========================
 
@@ -86,8 +87,8 @@ export default function GodCameraControlsXR() {
     const xAxisLeft = thumstickStateLeft.xAxis ?? 0;
     const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
 
-    moveForward(yAxisLeft * delta * speed);
-    moveRight(-xAxisLeft * delta * speed);
+    moveForward(yAxisLeft * speed);
+    moveRight(-xAxisLeft * speed);
     // if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
     // if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
 
@@ -107,7 +108,7 @@ export default function GodCameraControlsXR() {
     updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
     ref.current.rotation.set(0, -yaw, 0, "YXZ");
     // ref.current.rotation.set(pitch, yaw, 0, "YXZ");
-    moveY(-yAxisRight * delta * speed);
+    moveY(-yAxisRight * speed);
 
 
   });
