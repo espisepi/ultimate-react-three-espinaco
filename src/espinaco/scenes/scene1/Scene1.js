@@ -20,7 +20,7 @@ import Ocean from "../../prefabs/ocean/Ocean";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
 import useAppStore from "../../apps/store/AppStore";
 import { Scene } from "three";
-import PerformanceText from "../../prefabs/performanceText/PerformanceText";
+import PerformanceText from "../../prefabs/debug/performanceText/PerformanceText";
 // import GBA from "../../features/gba-js-org/GBA";
 
 // Coger efectos de codrops
