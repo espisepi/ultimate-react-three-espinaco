@@ -9,8 +9,13 @@ export default function CameraInfoText() {
   const textRef = useRef();
 
   // Read camera position in XR https://docs.pmnd.rs/xr/advanced/pitfalls#reading-the-camera-position-in-xr
-  const camera = useThree(state => state.camera)
-//   useFrame(() => camera.getWorldPosition(target))
+  const camera = useThree(state => state.camera);
+  const [cameraProperties, setCameraProperties] = useState({});
+  // useFrame(() => camera.getWorldPosition(target))
+  useFrame(() => setCameraProperties(v => ({
+    near: camera.near,
+    far: camera.far
+  })));
 
   useFrame(() => {
     if (textRef.current) {
@@ -22,7 +27,7 @@ export default function CameraInfoText() {
     <Text ref={textRef} fontSize={0.1} color="white" position={[0, 0, -2]}>
       Camera: 
       {/* { JSON.stringify( camera.toJSON() ) } */}
-      { JSON.stringify( { near: camera.near, far: camera.far } ) }
+      { JSON.stringify( { ...cameraProperties } ) }
 
     </Text>
   );
