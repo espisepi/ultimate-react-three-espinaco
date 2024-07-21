@@ -194,7 +194,8 @@ export default class RollercoasterClass {
     material = new THREE.MeshLambertMaterial({
       color:  isColor ? 0x8080ff : null,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video)
+      map: new THREE.VideoTexture(video),
+      side: THREE.DoubleSide
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(0, 2, 50);
