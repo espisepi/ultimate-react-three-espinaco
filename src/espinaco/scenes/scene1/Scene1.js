@@ -87,11 +87,11 @@ export function Scene1() {
 
       {/* <Ocean /> */}
 
-      {/* <VideoPoints /> */}
+      <VideoPoints />
 
       <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
       
-      {/* <Rollercoaster /> */}
+      <Rollercoaster />
 
       {/* <group>
             <group>
