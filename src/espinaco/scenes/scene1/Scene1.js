@@ -82,7 +82,7 @@ export function Scene1() {
   });
 
   const xrmode = useAppStore( state => state.xrmode );
-  
+
   const showVideoPoints = useScene1Store( state => state.showVideoPoints);
   const showTextTessellation = useScene1Store( state => state.showTextTessellation);
   const showRollercoaster = useScene1Store( state => state.showRollercoaster);
@@ -158,7 +158,7 @@ export function Scene1XR() {
       <Scene1 />
       {/* <PerformanceText /> */}
       {/* <CameraInfoText /> */}
-      <XRInfoText />
+      {/* <XRInfoText /> */}
     </>
   )
 }
