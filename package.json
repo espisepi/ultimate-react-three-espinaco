@@ -15,10 +15,7 @@
     "react-nipple": "^1.0.2",
     "react-scripts": "5.0.1",
     "three": "^0.160.0",
-    "zustand": "^4.5.4",
-    "@types/react": "18.3.3",
-    "@types/three": "0.166.0",
-    "typescript": "5.5.3"
+    "zustand": "^4.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -52,9 +49,6 @@
     "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
-    "parcel-bundler": "^1.12.5",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "typescript": "5.5.3"
+    "parcel-bundler": "^1.12.5"
   }
 }
