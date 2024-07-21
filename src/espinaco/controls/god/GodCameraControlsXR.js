@@ -3,6 +3,7 @@ import { XROrigin, useXRControllerState } from "@react-three/xr";
 import { useCallback, useRef, useState } from "react";
 import * as THREE from "three";
 
+
 const SPEED_VALUE = 50;
 
 export default function GodCameraControlsXR() {
@@ -50,22 +51,23 @@ export default function GodCameraControlsXR() {
     [ref.current]
   );
 
-  const updateRotation = useCallback(
-    (deltaYaw, deltaPitch) => {
-      setYaw((prev) => prev + deltaYaw);
-      setPitch((prev) =>
-        Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev + deltaPitch))
-      );
-    },
-    [ref.current]
-  );
+  const updateRotation = useCallback((deltaYaw, deltaPitch) => {
+    setYaw((prev) => prev + deltaYaw);
+    setPitch((prev) =>
+      Math.max(-Math.PI / 2, Math.min(Math.PI / 2, prev + deltaPitch))
+    );
+  }, [ref.current]);
 
   // define render ==========
 
   useFrame((_, delta) => {
     // Check attributes ==============
 
-    if (ref.current == null) {
+    if (
+      ref.current == null ||
+      rightController == null ||
+      leftController == null
+    ) {
       return;
     }
 
@@ -76,45 +78,37 @@ export default function GodCameraControlsXR() {
 
     // Left controllers ========================
 
-    if (
-      // ref.current == null || // Lo he chequeado al principio del metodo
-      leftController?.gamepad
-    ) {
-      const thumstickStateLeft =
-        leftController.gamepad["xr-standard-thumbstick"];
-      if (thumstickStateLeft == null) {
-        return;
-      }
-
-      const xAxisLeft = thumstickStateLeft.xAxis ?? 0;
-      const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
-
-      moveForward(yAxisLeft * delta * speed);
-      moveRight(-xAxisLeft * delta * speed);
-      // if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
-      // if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
+    const thumstickStateLeft = leftController.gamepad["xr-standard-thumbstick"];
+    if (thumstickStateLeft == null) {
+      return;
     }
+
+    const xAxisLeft = thumstickStateLeft.xAxis ?? 0;
+    const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
+
+    moveForward(yAxisLeft * delta * speed);
+    moveRight(-xAxisLeft * delta * speed);
+    // if (leftGamePad.buttons[0].pressed) moveY(-delta * speed); // Botón A
+    // if (leftGamePad.buttons[1].pressed) moveY(delta * speed);  // Botón B
 
     // Right controllers ========================
-    if (
-      // ref.current == null || // Lo he chequeado al principio del metodo
-      rightController.gamepad
-    ) {
-      const thumstickStateRight =
-        rightController.gamepad["xr-standard-thumbstick"];
-      if (thumstickStateRight == null) {
-        return;
-      }
 
-      // ref.current.position.x += (thumstickStateRight.xAxis ?? 0) * delta
-      // ref.current.position.z += (thumstickStateRight.yAxis ?? 0) * delta
-      const xAxisRight = thumstickStateRight.xAxis ?? 0;
-      const yAxisRight = thumstickStateRight.yAxis ?? 0;
-
-      // updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
-      // ref.current.rotation.set(pitch, yaw, 0, "YXZ");
-      moveY(-yAxisRight * delta * speed);
+    const thumstickStateRight =
+      rightController.gamepad["xr-standard-thumbstick"];
+    if (thumstickStateRight == null) {
+      return;
     }
+
+    // ref.current.position.x += (thumstickStateRight.xAxis ?? 0) * delta
+    // ref.current.position.z += (thumstickStateRight.yAxis ?? 0) * delta
+    const xAxisRight = thumstickStateRight.xAxis ?? 0;
+    const yAxisRight = thumstickStateRight.yAxis ?? 0;
+
+    // updateRotation(xAxisRight * rotationSpeed, -yAxisRight * rotationSpeed);
+    // ref.current.rotation.set(pitch, yaw, 0, "YXZ");
+    moveY(-yAxisRight * delta * speed);
+
+
   });
   return <XROrigin ref={ref} />;
 }
