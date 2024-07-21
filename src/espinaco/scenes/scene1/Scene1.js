@@ -81,12 +81,13 @@ export function Scene1() {
     }
   });
 
-  const xrmode = useAppStore( state => state.xrmode );
+  const xrmode = useAppStore((state) => state.xrmode);
 
-  const showVideoPoints = useScene1Store( state => state.showVideoPoints);
-  const showTextTessellation = useScene1Store( state => state.showTextTessellation);
-  const showRollercoaster = useScene1Store( state => state.showRollercoaster);
-
+  const showVideoPoints = useScene1Store((state) => state.showVideoPoints);
+  const showTextTessellation = useScene1Store(
+    (state) => state.showTextTessellation
+  );
+  const showRollercoaster = useScene1Store((state) => state.showRollercoaster);
 
   return (
     <>
@@ -97,18 +98,13 @@ export function Scene1() {
 
       {/* <Ocean /> */}
 
-      {showVideoPoints && (  
-        <VideoPoints />
-      )}
+      {showVideoPoints && <VideoPoints />}
 
-      {showTextTessellation && (  
+      {showTextTessellation && (
         <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
       )}
 
-      {showRollercoaster && (  
-        <Rollercoaster />
-      )}
-
+      {showRollercoaster && <Rollercoaster />}
 
       {/* <group>
             <group>
@@ -147,12 +143,11 @@ export function Scene1() {
         /* saturation={1} */
       />
       {/* )} */}
-
     </>
   );
 }
 
-export function Scene1XR() {
+export const Scene1XR = React.memo(({}) => {
   return (
     <>
       <Scene1 />
@@ -160,5 +155,5 @@ export function Scene1XR() {
       {/* <CameraInfoText /> */}
       {/* <XRInfoText /> */}
     </>
-  )
-}
+  );
+});
