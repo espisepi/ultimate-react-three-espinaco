@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import { forwardRef, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { CubeCamera, Float, MeshReflectorMaterial } from "@react-three/drei";
-import { EffectComposer, GodRays, Bloom } from "@react-three/postprocessing";
-import { easing } from "maath";
+// import { Canvas, useFrame } from "@react-three/fiber";
+// import { CubeCamera, Float, MeshReflectorMaterial } from "@react-three/drei";
+// import { EffectComposer, GodRays, Bloom } from "@react-three/postprocessing";
+// import { easing } from "maath";
 import useVideo from "../../hooks/useVideo";
 
 export default function Screen() {
