@@ -527,7 +527,7 @@ export function App1Start({ url }) {
 
         {/* <CanvasRecord /> */}
 
-        <VideoPlayer showUI={showVideo} />
+        {/* <VideoPlayer showUI={showVideo} /> */}
 
         {/* <VideoPlayerScreenCapture /> */}
 
