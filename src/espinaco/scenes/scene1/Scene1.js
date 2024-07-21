@@ -119,7 +119,7 @@ export function Scene1() {
       {/* <SubtitleMesh /> */}
       {/* <MeshSurfaceSampler /> */}
 
-      {!xrmode && (  
+      {/* {!xrmode && (   */}
       <Stars
         ref={starsRef}
         radius={1000}
@@ -129,7 +129,7 @@ export function Scene1() {
         fade /* speed={1} */
         /* saturation={1} */
       />
-      )}
+      {/* )} */}
 
     </>
   );
