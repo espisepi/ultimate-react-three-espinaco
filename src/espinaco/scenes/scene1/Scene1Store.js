@@ -5,7 +5,7 @@ const useScene1Store = create(set => ({
 
   showVideoPoints: true,
   showTextTessellation: false,
-  showRollercoaster: true,
+  showRollercoaster: false,
 
   setShowVideoPoints: (newShowVideoPoints) => set({ showVideoPoints: newShowVideoPoints }),
   setShowTextTessellation: (newTextTessellation) => set({ showTextTessellation: newTextTessellation }),
