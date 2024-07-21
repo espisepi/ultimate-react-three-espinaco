@@ -71,9 +71,12 @@ class TextTessellationManager {
   constructor() {
     this.mesh = null;
     this.videoTexture = null;
+    this.isInitialized = false; // to avoid run initialize method twice
   }
 
-  async initialize(text, size, videoElement) {
+  async initialize(text, size, videoElement, scene) {
+    if(this.isInitialized) { return; }
+    this.isInitialized = true;
     const fontLoader = new FontLoader();
     const font = await fontLoader.loadAsync('helvetiker_bold.typeface.json');
 
@@ -131,6 +134,8 @@ class TextTessellationManager {
     });
 
     this.mesh = new THREE.Mesh(geometry, shaderMaterial);
+    scene.add(this.mesh);
+
   }
 
   update(clock) {
