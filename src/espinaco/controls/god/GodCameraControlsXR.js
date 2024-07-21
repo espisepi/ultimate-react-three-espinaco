@@ -4,7 +4,7 @@ import { useCallback, useRef, useState } from "react";
 import * as THREE from "three";
 
 
-const SPEED_VALUE = 50;
+const SPEED_VALUE = 20;
 const ROTATION_SPEED_VALUE = 0.5;
 
 export default function GodCameraControlsXR() {
