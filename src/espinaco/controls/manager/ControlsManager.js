@@ -44,7 +44,7 @@ export default function ControlsManager({
             {(() => {
               switch (controlsId) {
                 case 0:
-                  return <OrbitControls position={cameraPosition} />;
+                  return xrmode ? <GodCameraControlsXR /> : <OrbitControls position={cameraPosition} />;
                 case 1:
                   return xrmode ? <RollercoasterControlsXR /> : <RollercoasterControls />;
                 case 2:
