@@ -1,8 +1,3 @@
-import CanvasDefault from "../../components/canvas/CanvasDefault";
-import CanvasXR from "../../components/canvas/CanvasXR";
-import ControlsManager from "../../controls/manager/ControlsManager";
-import useControlsStore from "../../controls/store/ControlsStore";
-import SceneManager from "../../scenes/manager/SceneManager";
 import useAppStore from "../store/AppStore";
 
 export default function App2({ }) {
@@ -12,7 +7,8 @@ export default function App2({ }) {
   return (
     <>
       <>
-      <h1>TODO: NO APARECE ROLLERCOASTER</h1>
+      <h1> App 2 Hello World </h1>
+      {/* <h1>TODO: NO APARECE ROLLERCOASTER</h1>
         {xrmode ? (
           <CanvasXR
             style={{
@@ -41,7 +37,7 @@ export default function App2({ }) {
             />
             <SceneManager />
           </CanvasDefault>
-        )}
+        )} */}
       </>
     </>
   );

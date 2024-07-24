@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import GodCameraControls from "../god/GodCameraControls";
 import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
-import useControlsStore from "../store/ControlsStore";
 import OrbitControls from "../orbitControls/OrbitControls";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
+import useControlsManagerStore from './store/ControlsManagerStore';
 
 export default function ControlsManager() {
 
-    const controlsId = useControlsStore( state => state.controlsId );
+    const controlsId = useControlsManagerStore( state => state.controlsId );
     const sceneId = useSceneManagerStore( state => state.sceneId );
 
     const { camera } = useThree();

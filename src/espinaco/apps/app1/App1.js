@@ -27,13 +27,13 @@ import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasRecord from "../../features/canvas-record/CanvasRecord";
 
 import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
-import ControlsManager from "../../controls/manager/ControlsManager";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
 import useAppStore from "../store/AppStore";
-import useControlsStore from "../../controls/store/ControlsStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
+import ControlsManager from "../../controls/manager/ControlsManager";
+import useControlsManagerStore from "../../controls/manager/store/ControlsManagerStore";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import useControlsManagerXRStore from "../../controls/manager/store/ControlsManagerXRStore";
 
@@ -450,9 +450,9 @@ export function App1Start({ url }) {
 
   // ControlsManager =========================================
 
-  const controlsId = useControlsStore( state => state.controlsId );
-  const setControlsId = useControlsStore( state => state.setControlsId );
-  const maxNumControls = useControlsStore( state => state.maxNumControls );
+  const controlsId = useControlsManagerStore( state => state.controlsId );
+  const setControlsId = useControlsManagerStore( state => state.setControlsId );
+  const maxNumControls = useControlsManagerStore( state => state.maxNumControls );
 
   // xr controls
   const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
