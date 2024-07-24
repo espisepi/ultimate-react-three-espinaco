@@ -3,21 +3,24 @@ import { Scene1, Scene1XR } from "../scene1/Scene1";
 import { Scene2 } from "../scene2/Scene2";
 import { Box } from "@react-three/drei";
 import useAppStore from "../../apps/store/AppStore";
+import useSceneManagerStore from "./store/SceneManagerStore";
 
-export default function SceneManager({ id = 0 }) {
+export default function SceneManager() {
 
   const xrmode = useAppStore((state) => state.xrmode);
+  const sceneId = useSceneManagerStore((state) => state.sceneId);
+
 
   return (
     <Suspense fallback={<Box material-color="red" material-wireframe="true" />}>
       {(() => {
-        switch (id) {
+        switch (sceneId) {
           case 0:
             return xrmode ? <Scene1XR /> : <Scene1 />;
           case 1:
             return <Scene2 />;
           default:
-            console.error("No se ha definido la Scene elegida, Scene: " + id);
+            console.error("No se ha definido la Scene elegida, Scene: " + sceneId);
             return null;
         }
       })()}

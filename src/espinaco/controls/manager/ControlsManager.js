@@ -8,18 +8,18 @@ import OrbitControls from "../orbitControls/OrbitControls";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import RollercoasterControlsXR from "../rollercoaster/controls/RollercoasterControlsXR";
 import useAppStore from "../../apps/store/AppStore";
+import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 
-export default function ControlsManager({
-  id_scene = 0
-}) {
+export default function ControlsManager() {
 
     const controlsId = useControlsStore( state => state.controlsId );
     const xrmode = useAppStore( state => state.xrmode );
+    const sceneId = useSceneManagerStore( state => state.sceneId );
 
     const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect
     useEffect(() => {
-        switch (id_scene) {
+        switch (sceneId) {
         case 0:
             setCameraPosition((v) => [0, 0, 400]);
             break;
@@ -30,7 +30,7 @@ export default function ControlsManager({
             setCameraPosition((v) => [0, 0, 400]);
             break;
         default:
-            console.log("No se ha definido un cameraPosition para la Scene elegida, Scene: " + id_scene);
+            console.log("No se ha definido un cameraPosition para la Scene elegida, Scene: " + sceneId);
             setCameraPosition((v) => [0, 0, 0]);
             break;
         }
@@ -39,7 +39,7 @@ export default function ControlsManager({
           camera?.position.set(0, 0, 0);
           camera?.rotation.set(0, 0, 0);
         }
-    }, [id_scene, controlsId]);
+    }, [sceneId, controlsId]);
     return (
         <>
             {(() => {

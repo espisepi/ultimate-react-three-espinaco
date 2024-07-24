@@ -33,6 +33,7 @@ import CanvasXR from "../../components/canvas/CanvasXR";
 
 import useAppStore from "../store/AppStore";
 import useControlsStore from "../../controls/store/ControlsStore";
+import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -424,10 +425,15 @@ export function App1Start({ url }) {
 
   // SceneManager =========================================
 
-  const maxNumScenes = 2; // Poner aqui el numero de escenas maximas que haya creado
-  const [sceneId, setSceneId] = useState(0);
+  // const maxNumScenes = 2; // Poner aqui el numero de escenas maximas que haya creado
+  // const [sceneId, setSceneId] = useState(0);
+  const sceneId = useSceneManagerStore( state => state.sceneId);
+  const setSceneId = useSceneManagerStore( state => state.setSceneId);
+  const maxNumScenes = useSceneManagerStore( state => state.maxNumScenes );
+
   const handleChangeScene = () => {
-    setSceneId((value) => (value + 1) % maxNumScenes);
+    const newSceneId = (sceneId + 1) % maxNumScenes;
+    setSceneId( newSceneId );
   };
 
   // ControlsManager =========================================
@@ -498,7 +504,6 @@ export function App1Start({ url }) {
 
         { xrmode ? (
             <CanvasXR 
-              id={sceneId}
               style={{
                 position: "relative",
                 top: "0",
@@ -506,12 +511,11 @@ export function App1Start({ url }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlsId} id_scene={sceneId} />
-              <SceneManager id={sceneId} />
+              <ControlsManager />
+              <SceneManager/>
             </CanvasXR >
           ) : (
              <CanvasDefault 
-              id={sceneId}
               style={{
                 position: "relative",
                 top: "0",
@@ -519,8 +523,8 @@ export function App1Start({ url }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager id_control={controlsId} id_scene={sceneId} />
-              <SceneManager id={sceneId} />
+              <ControlsManager />
+              <SceneManager />
             </CanvasDefault >
         )}
 

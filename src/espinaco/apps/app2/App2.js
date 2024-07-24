@@ -5,7 +5,7 @@ import useControlsStore from "../../controls/store/ControlsStore";
 import SceneManager from "../../scenes/manager/SceneManager";
 import useAppStore from "../store/AppStore";
 
-export default function App2({ sceneId = 0 }) {
+export default function App2({ }) {
 
   const xrmode = useAppStore( state => state.xrmode );
 
@@ -23,10 +23,9 @@ export default function App2({ sceneId = 0 }) {
             }}
           >
             <ControlsManager
-              id_scene={sceneId}
               xrmode={xrmode}
             />
-            <SceneManager id={sceneId} />
+            <SceneManager />
           </CanvasXR>
         ) : (
           <CanvasDefault
@@ -38,10 +37,9 @@ export default function App2({ sceneId = 0 }) {
             }}
           >
             <ControlsManager
-              id_scene={sceneId}
               xrmode={xrmode}
             />
-            <SceneManager id={sceneId} />
+            <SceneManager />
           </CanvasDefault>
         )}
       </>
