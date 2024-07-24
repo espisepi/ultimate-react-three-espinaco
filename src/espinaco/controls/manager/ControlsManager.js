@@ -7,13 +7,14 @@ import useControlsStore from "../store/ControlsStore";
 import OrbitControls from "../orbitControls/OrbitControls";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import RollercoasterControlsXR from "../rollercoaster/controls/RollercoasterControlsXR";
+import useAppStore from "../../apps/store/AppStore";
 
 export default function ControlsManager({
-  id_scene = 0,
-  xrmode = false
+  id_scene = 0
 }) {
 
     const controlsId = useControlsStore( state => state.controlsId );
+    const xrmode = useAppStore( state => state.xrmode );
 
     const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect

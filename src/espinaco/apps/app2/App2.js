@@ -3,8 +3,12 @@ import CanvasXR from "../../components/canvas/CanvasXR";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import useControlsStore from "../../controls/store/ControlsStore";
 import SceneManager from "../../scenes/manager/SceneManager";
+import useAppStore from "../store/AppStore";
 
-export default function App2({ xrmode = false, sceneId = 0 }) {
+export default function App2({ sceneId = 0 }) {
+
+  const xrmode = useAppStore( state => state.xrmode );
+
   return (
     <>
       <>
