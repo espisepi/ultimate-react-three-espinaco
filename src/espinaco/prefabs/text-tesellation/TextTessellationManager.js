@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { TessellateModifier } from 'three/examples/jsm/modifiers/TessellateModifier.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import { disposeAll } from '../../utils/disposeAll';
 
 const vertexShader = `
 
@@ -135,6 +136,7 @@ class TextTessellationManager {
 
     this.mesh = new THREE.Mesh(geometry, shaderMaterial);
     scene.add(this.mesh);
+    this.scene = scene; // to dispose() method
 
   }
 
@@ -143,6 +145,11 @@ class TextTessellationManager {
       this.mesh.material.uniforms.amplitude.value = 1.0 + Math.sin(clock.getElapsedTime() * 0.5);
       this.mesh.material.uniforms.iTime.value = clock.getElapsedTime();
     }
+  }
+
+  dispose() {
+    this.scene.remove(this.mesh);
+    disposeAll(this.mesh);
   }
 }
 

@@ -12,6 +12,10 @@ export default function TextTessellation({ text = 'Text Default', size = 40, ...
   useEffect(() => {
     if(text && size && textManager && video && scene) {
       textManager.initialize(text, size, video, scene);
+
+      return () => {
+        textManager.dispose();
+      }
     }
   }, [text, size, textManager, video, scene]);
 
