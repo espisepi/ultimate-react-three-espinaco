@@ -423,6 +423,16 @@ export function App1Start({ url }) {
     setIsDisplayTextureGbaGame(!isDisplayTextureGbaGame);
   };
 
+  // XR MODE =========================================
+
+
+  // const xrmode = useAppStore( state => state.xrmode ); // defined above
+  const setXrmode = useAppStore( state => state.setXrmode );
+  const handleChangeXRMode = () => {
+    const newXrmode = !xrmode;
+    setXrmode(newXrmode);
+  };
+
   // SceneManager =========================================
 
   // const maxNumScenes = 2; // Poner aqui el numero de escenas maximas que haya creado
@@ -805,8 +815,9 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             cursor: showMenuButton ? "pointer" : "none",
+            color: "white"
           }}
-        ></button>
+        >Hidden</button>
 
         <button
           onClick={handleChangeScene}
@@ -824,8 +835,9 @@ export function App1Start({ url }) {
             opacity: showMenuButton ? 0.3 : 0.0,
             // cursor: showMenuButton ? "pointer" : "none",
             cursor: "pointer",
+            color: "white"
           }}
-        ></button>
+        >Scene</button>
 
         <button
           onClick={handleChangeResolutionVideo}
@@ -843,8 +855,9 @@ export function App1Start({ url }) {
             opacity: showMenuButton ? 0.3 : 0.0,
             // cursor: showMenuButton ? "pointer" : "none",
             cursor: "pointer",
+            color: "white"
           }}
-        ></button>
+        >Resolution video</button>
 
         <button
           onClick={handleChangeControl}
@@ -862,8 +875,29 @@ export function App1Start({ url }) {
             opacity: showMenuButton ? 0.3 : 0.0,
             // cursor: showMenuButton ? "pointer" : "none",
             cursor: "pointer",
+            color: "white"
           }}
-        ></button>
+        >Control</button>
+
+             <button
+          onClick={handleChangeXRMode}
+          style={{
+            // visibility: showMenuButton ? "visible" : "hidden",
+            display: showMenuButton ? "block" : "none",
+            width: "50px",
+            height: "50px",
+            borderRadius: "25px",
+            position: "absolute",
+            top: 350,
+            right: 0,
+            //   backgroundColor: "white",
+            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
+            opacity: showMenuButton ? 0.3 : 0.0,
+            // cursor: showMenuButton ? "pointer" : "none",
+            cursor: "pointer",
+            color: "white"
+          }}
+        >VR</button>
 
         {/* GBA Buttons */}
         {/* <button
