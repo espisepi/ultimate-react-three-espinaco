@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import GodCameraControls from "../god/GodCameraControls";
 import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
-import useControlsStore from "../store/ControlsStore";
 import OrbitControls from "../orbitControls/OrbitControls";
+import GodCameraControlsXR from "../god/GodCameraControlsXR";
+import RollercoasterControlsXR from "../rollercoaster/controls/RollercoasterControlsXR";
+import useAppStore from "../../apps/store/AppStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
+import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
 
-export default function ControlsManager() {
+export default function ControlsManagerXR() {
 
-    const controlsId = useControlsStore( state => state.controlsId );
+    const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
+    const xrmode = useAppStore( state => state.xrmode );
     const sceneId = useSceneManagerStore( state => state.sceneId );
 
     const { camera } = useThree();
@@ -30,23 +34,21 @@ export default function ControlsManager() {
             break;
         }
 
-        if(controlsId === 1) {
+        if(controlsXRId === 1) {
           camera?.position.set(0, 0, 0);
           camera?.rotation.set(0, 0, 0);
         }
-    }, [sceneId, controlsId]);
+    }, [sceneId, controlsXRId]);
     return (
         <>
             {(() => {
-              switch (controlsId) {
+              switch (controlsXRId) {
                 case 0:
-                  return <OrbitControls position={cameraPosition} />;
+                  return <GodCameraControlsXR />;
                 case 1:
-                  return <RollercoasterControls />;
-                case 2:
-                  return <GodCameraControls position={cameraPosition} />;
+                  return <RollercoasterControlsXR />;
                 default:
-                  console.warn("No se ha definido el control elegido, Control: " + controlsId);
+                  console.warn("No se ha definido el control XR elegido, Control: " + controlsXRId);
                   return null;
               }
             })()}

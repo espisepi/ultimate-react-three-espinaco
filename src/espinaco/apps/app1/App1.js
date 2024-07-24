@@ -34,6 +34,8 @@ import CanvasXR from "../../components/canvas/CanvasXR";
 import useAppStore from "../store/AppStore";
 import useControlsStore from "../../controls/store/ControlsStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
+import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
+import useControlsManagerXRStore from "../../controls/manager/store/ControlsManagerXRStore";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -451,9 +453,20 @@ export function App1Start({ url }) {
   const controlsId = useControlsStore( state => state.controlsId );
   const setControlsId = useControlsStore( state => state.setControlsId );
   const maxNumControls = useControlsStore( state => state.maxNumControls );
+
+  // xr controls
+  const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
+  const setControlsXRId = useControlsManagerXRStore( state => state.setControlsXRId );
+  const maxNumControlsXR = useControlsManagerXRStore( state => state.maxNumControlsXR );
+
   const handleChangeControl = () => {
-    const newControlsId = (controlsId + 1) % maxNumControls;
-    setControlsId(newControlsId);
+    if(xrmode) {
+      const newControlsXRId = (controlsXRId + 1) % maxNumControlsXR;
+      setControlsXRId(newControlsXRId);
+    } else {
+      const newControlsId = (controlsId + 1) % maxNumControls;
+      setControlsId(newControlsId);
+    }
   };
 
   // Resolution manager
@@ -521,7 +534,7 @@ export function App1Start({ url }) {
                 height: "100vh",
               }}
             >
-              <ControlsManager />
+              <ControlsManagerXR />
               <SceneManager/>
             </CanvasXR >
           ) : (
