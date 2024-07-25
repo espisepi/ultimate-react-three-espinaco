@@ -160,6 +160,7 @@ export function App1Start({ url }) {
         )}
 
         {/* <CanvasRecord /> */}
+
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
         <InputRangeVideoPointsSize showUI={showVideo} />
@@ -188,8 +189,9 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 0.8 : 0.3,
             cursor: "pointer",
+            color: "white"
           }}
-        ></button>
+        >Menu</button>
 
         <button
           onClick={handleShowMenuButton}
