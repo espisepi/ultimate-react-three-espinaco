@@ -61,7 +61,7 @@ export function App1ClickToStart({ setClicked }) {
   );
 }
 
-export function App1Start({ url }) {
+export function App1Start() {
   const displayVideoplayer = useAppManagerStore(
     (state) => state.displayVideoplayer
   );
@@ -114,8 +114,6 @@ export function App1Start({ url }) {
       <FullScreen showButton={showVideo}>
         <CanvasManager />
 
-        {/* <CanvasRecord /> */}
-
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
         <InputRangeVideoPointsSize showUI={showVideo} />
@@ -129,6 +127,14 @@ export function App1Start({ url }) {
         <InputRangeVideoCurrentTime showUI={showVideo} />
 
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
+
+        <ButtonChangeScene showButton={showMenuButton} />
+
+        <ButtonChangeResolutionVideo showButton={showMenuButton} />
+
+        <ButtonChangeControls showButton={showMenuButton} />
+
+        <ButtonChangeXRMode showButton={showMenuButton} />
 
         <button
           onClick={handleShowVideo}
@@ -171,13 +177,6 @@ export function App1Start({ url }) {
           Hidden
         </button>
 
-        <ButtonChangeScene showButton={showMenuButton} />
-
-        <ButtonChangeResolutionVideo showButton={showMenuButton} />
-
-        <ButtonChangeControls showButton={showMenuButton} />
-
-        <ButtonChangeXRMode showButton={showMenuButton} />
       </FullScreen>
     </div>
   );
