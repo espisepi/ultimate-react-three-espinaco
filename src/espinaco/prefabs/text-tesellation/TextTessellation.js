@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import TextTessellationManager from './TextTessellationManager';
 import useVideo from '../../features/videoplayer/hook/useVideo';

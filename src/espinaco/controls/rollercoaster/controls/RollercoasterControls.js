@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { useThree } from "@react-three/fiber";
 
 
 export default function RollercoasterControls({name="train", interval = 1}) {
