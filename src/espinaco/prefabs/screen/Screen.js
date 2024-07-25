@@ -4,7 +4,7 @@ import { forwardRef, useState, useEffect } from "react";
 // import { CubeCamera, Float, MeshReflectorMaterial } from "@react-three/drei";
 // import { EffectComposer, GodRays, Bloom } from "@react-three/postprocessing";
 // import { easing } from "maath";
-import useVideo from "../../hooks/useVideo";
+import useVideo from "../../features/videoplayer/hook/useVideo";
 
 export default function Screen() {
   const [material, set] = useState();

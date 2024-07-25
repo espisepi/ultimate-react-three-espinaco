@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import RollercoasterClass from "./RollercoasterClass";
 import { useFrame, useThree } from "@react-three/fiber";
-import useVideo from "../../hooks/useVideo";
+import useVideo from "../../features/videoplayer/hook/useVideo";
 
 
 export default function Rollercoaster() {

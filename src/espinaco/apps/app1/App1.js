@@ -5,7 +5,7 @@ import React, {
   useCallback
 } from "react";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
-import useVideo from "../../hooks/useVideo";
+import useVideo from "../../features/videoplayer/hook/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";

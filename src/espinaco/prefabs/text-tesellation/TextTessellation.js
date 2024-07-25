@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import TextTessellationManager from './TextTessellationManager';
-import useVideo from '../../hooks/useVideo';
+import useVideo from '../../features/videoplayer/hook/useVideo';
 
 export default function TextTessellation({ text = 'Text Default', size = 40, ...props }) {
   const [textManager] = useState(() => new TextTessellationManager());
