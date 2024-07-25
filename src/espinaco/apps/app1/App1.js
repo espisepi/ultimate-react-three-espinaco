@@ -13,51 +13,17 @@ import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/co
 import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
+import { ClickToStart } from "../../components/clickToStart/ClickToStart";
 
 const window_showVideo = window.showVideo || false;
 
 export default function App1({}) {
-  const [clicked, setClicked] = useState(false);
-  if (clicked) {
-    return <App1Start />;
-  }
-  return <App1ClickToStart setClicked={setClicked} />;
-}
-
-export function App1ClickToStart({ setClicked }) {
-  // Mecanismo de contrasenia
-  const contrasenia = "3";
-  const [inputValue, setInputValue] = useState("");
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setInputValue(value);
-
-    if (value === contrasenia || true) {
-      setClicked(true);
-    }
-  };
-
   return (
-    <div
-      className="background-initial"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        width: "100%",
-        height: "100vh",
-        color: "white",
-        backgroundColor: "#500050",
-        backgroundImage: 'url("images/portada.jpg")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      onClick={() => setClicked(true)}
-    >
-      {/* <h1 style={{ cursor: "hover" }}>Click to Start</h1> */}
-      <h1 style={{ cursor: "hover" }}>Enter Password</h1>
-      <input type="text" value={inputValue} onChange={handleChange} />
-    </div>
+    <>
+      <ClickToStart password="">
+        <App1Start />
+      </ClickToStart>
+    </>
   );
 }
 
@@ -108,7 +74,6 @@ export function App1Start() {
     }
   };
 
-  
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
@@ -176,7 +141,6 @@ export function App1Start() {
         >
           Hidden
         </button>
-
       </FullScreen>
     </div>
   );
