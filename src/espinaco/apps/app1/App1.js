@@ -43,6 +43,7 @@ import FullScreen from "../../features/fullscreen/FullScreen";
 import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
 import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsSize";
 import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
+import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -97,8 +98,6 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
 
 // TODO: Poner licencia de que se puede utilizar libremente el codigo pero sin fines de lucro.
 
-const DEFAULT_STARS_POINTSIZE = 55;
-const DEFAULT_STARS_SCALE = 1;
 
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
@@ -176,58 +175,7 @@ export function App1Start({ url }) {
 
   //======================================
 
-  const inputRangeStarsPointSizeRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeStarsPointSizeRef.current) {
-      inputRangeStarsPointSizeRef.current.value = DEFAULT_STARS_POINTSIZE;
-    }
-  }, [inputRangeStarsPointSizeRef]);
-  const handleStarsPointSize = useCallback((value) => {
-    if (window.stars) {
-      //count, depth, factor, radius, saturation
-      const count = 1999;
-      const saturation = 1.0;
-      const radius = 1000;
-      const depth = 400;
-      const factor = value || 55;
-      const genStar = (r) => {
-        return new Vector3().setFromSpherical(
-          new Spherical(
-            r,
-            Math.acos(1 - Math.random() * 2),
-            Math.random() * 2 * Math.PI
-          )
-        );
-      };
-
-      const [position, color, size] = (() => {
-        const positions = [];
-        const colors = [];
-        const sizes = Array.from(
-          { length: count },
-          () => (0.5 + 0.5 * Math.random()) * factor
-        );
-        const color = new Color();
-        let r = radius + depth;
-        const increment = depth / count;
-        for (let i = 0; i < count; i++) {
-          r -= increment * Math.random();
-          positions.push(...genStar(r).toArray());
-          color.setHSL(i / count, saturation, 0.9);
-          colors.push(color.r, color.g, color.b);
-        }
-        return [
-          new Float32Array(positions),
-          new Float32Array(colors),
-          new Float32Array(sizes),
-        ];
-      })();
-
-      // Sustituir los valores
-      window.stars.geometry.attributes.size.array = size;
-      window.stars.geometry.attributes.size.needsUpdate = true;
-    }
-  }, []);
+ 
 
   //================================================
 
@@ -308,29 +256,7 @@ export function App1Start({ url }) {
 
         <InputRangeVideoPointsScale showUI={showVideo} />
 
-        <div
-          id="div-input-range-stars-pointSize"
-          className="range"
-          style={{
-            display: showVideo ? "block" : "none",
-            position: "absolute",
-            left: 30,
-            bottom: 130 + MARGIN_BOTTOM_RANGES,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            className="range1"
-            type="range"
-            ref={inputRangeStarsPointSizeRef}
-            onChange={(e) => handleStarsPointSize(e.target.value)}
-            min={0.0}
-            max={1000.0}
-            step={1}
-            // value={0.0}
-          ></input>
-        </div>
+        <InputRangeStarsPointSize showUI={showVideo} />
 
         <div
           id="div-input-video-currentTime"
@@ -355,8 +281,6 @@ export function App1Start({ url }) {
             // value={0.0}
           ></input>
         </div>
-
-  
 
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
 
