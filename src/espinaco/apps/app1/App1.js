@@ -39,6 +39,7 @@ import ButtonChangeControls from "../../controls/manager/components/buttons/Butt
 import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
+import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -173,11 +174,7 @@ export function App1Start({ url }) {
 
   //======================================
 
-  const handleAutoRotate = useCallback(() => {
-    if (window.orbitControls) {
-      window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
-    }
-  }, []);
+ 
 
   //======================================
   // Para poner el valor actual en el input range
@@ -528,24 +525,7 @@ export function App1Start({ url }) {
           {" "}
         </button> */}
 
-        <button
-          onClick={handleAutoRotate}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "100px",
-            right: "190px",
-            //   backgroundColor: "#ffff00",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-            cursor: "pointer",
-          }}
-        >
-          {" "}
-        </button>
+        <ButtonOrbitControlsAutorotate showButton={showVideo} />
 
         <button
           onClick={toggleFullScreen}
