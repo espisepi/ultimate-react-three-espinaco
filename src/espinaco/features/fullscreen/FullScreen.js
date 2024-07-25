@@ -30,8 +30,9 @@ export default function FullScreen({ showButton = true, children }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
             cursor: "pointer",
+            color: "white"
           }}
-        ></button>
+        >Screen</button>
 
       </FullScreenLibrary>
     </>
