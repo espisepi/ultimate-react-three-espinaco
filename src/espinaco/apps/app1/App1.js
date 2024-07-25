@@ -22,6 +22,7 @@ import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom
 import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsSize";
 import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
+import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 
 
 const window_showVideo = window.showVideo || false;
@@ -85,23 +86,6 @@ export function App1Start({ url }) {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
 
-  //====================================== Video current time
-  const video = useVideo();
-  const inputRangeVideoCurrentTimeRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeVideoCurrentTimeRef.current) {
-      inputRangeVideoCurrentTimeRef.current.value = 0.0;
-    }
-  }, []);
-  const handleVideoCurrentTime = useCallback((value) => {
-    // value -> Rango [0,1000]
-    const valueNormalized = value / 1000.0 - 0.01; // -0.01 para evitar errores al llegar al valor maximo en la cancion
-    if (video?.currentTime) {
-      video.currentTime = valueNormalized * video.duration;
-    }
-  });
-
-  //======================================
 
  
 
@@ -186,29 +170,7 @@ export function App1Start({ url }) {
 
         <InputRangeStarsPointSize showUI={showVideo} />
 
-        <div
-          id="div-input-video-currentTime"
-          className="range"
-          style={{
-            display: showVideo ? "block" : "none",
-            position: "absolute",
-            left: 30,
-            bottom: 100 + MARGIN_BOTTOM_RANGES,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            className="range1"
-            type="range"
-            ref={inputRangeVideoCurrentTimeRef}
-            onChange={(e) => handleVideoCurrentTime(e.target.value)}
-            min={1.0}
-            max={1000.0}
-            step={1}
-            // value={0.0}
-          ></input>
-        </div>
+        <InputRangeVideoCurrentTime showUI={showVideo} />
 
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
 
