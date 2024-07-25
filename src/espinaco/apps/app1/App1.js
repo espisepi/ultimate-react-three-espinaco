@@ -147,19 +147,6 @@ export function App1ClickToStart({ setClicked }) {
         value={inputValue}
         onChange={handleChange}
       />
-      {/* <a href="https://sketchbook-sepinaco.onrender.com">
-        <h1
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            paddingRight: 50,
-            cursor: "hover",
-          }}
-        >
-          Access Grand Theft Espinaco
-        </h1>
-      </a> */}
     </div>
   );
 }
@@ -427,27 +414,6 @@ export function App1Start({ url }) {
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen handle={handleFullScreen}>
-        {/* <Scene1Canvas
-          isGbaRemoved={isGbaRemoved}
-          isGbaVisible={isGbaVisible}
-          isOccludeBlending={isOccludeBlending}
-          isDisplayTextureGbaGame={isDisplayTextureGbaGame}
-          style={{
-            position: "relative",
-            top: "0",
-            width: "100%",
-            height: "100vh",
-          }}
-        /> */}
-        {/* <Scene2Canvas
-          style={{
-            position: "relative",
-            top: "0",
-            width: "100%",
-            height: "100vh",
-          }}
-        /> */}
-
        
 
         { xrmode ? (
@@ -550,28 +516,7 @@ export function App1Start({ url }) {
             // value={0.0}
           ></input>
         </div>
-        {/* <div
-          id="div-input-range-stars-scale"
-          style={{
-            display: showVideo ? "block" : "none",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            position: "absolute",
-            left: 30,
-            bottom: 100,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            type="range"
-            ref={inputRangeStarsPointSizeRef}
-            onChange={(e) => handleStarsScale(e.target.value)}
-            min={1.0}
-            max={30.0}
-            step={1}
-            // value={0.0}
-          ></input>
-        </div> */}
+
         <div
           id="div-input-range-stars-pointSize"
           className="range"
