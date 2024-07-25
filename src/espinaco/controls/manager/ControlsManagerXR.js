@@ -12,7 +12,6 @@ import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
 export default function ControlsManagerXR() {
 
     const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
-    const xrmode = useAppStore( state => state.xrmode );
     const sceneId = useSceneManagerStore( state => state.sceneId );
 
     const { camera } = useThree();
