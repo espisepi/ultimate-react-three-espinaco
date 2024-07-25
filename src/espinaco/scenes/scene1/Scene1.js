@@ -1,54 +1,12 @@
-import React, { useCallback, useEffect, useRef } from "react";
-
-import { Canvas, useFrame } from "@react-three/fiber";
-
-import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
+import React from "react";
 import VideoPoints from "../../prefabs/videoPoints/VideoPoints";
-import { Suspense } from "react";
-
-import GodCameraControls from "../../controls/god/GodCameraControls";
-import { MusicVisualCubeReact } from "../../prefabs/musicVisualCube/MusicVisualCube";
-import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
-
-// import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
-
-import { MemoryCardGame } from "../../features/memoryCardGame/MemoryCardGame";
 import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
-import Minecraft from "../../features/minecraft/Minecraft";
-import Ocean from "../../prefabs/ocean/Ocean";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
-import useAppStore from "../../apps/manager/store/AppManagerStore";
-import { Scene } from "three";
-import PerformanceText from "../../prefabs/debug/performanceText/PerformanceText";
-import CameraInfoText from "../../prefabs/debug/cameraInfoText/CameraInfoText";
-import XRInfoText from "../../prefabs/debug/xrInfoText/XRInfoText";
 import useScene1Store from "./Scene1Store";
 import Stars from "../../prefabs/stars/Stars";
-// import GBA from "../../features/gba-js-org/GBA";
-
-// Coger efectos de codrops
-// Mezclar esos dos efectos para soto asa videoclip
-// https://tympanus.net/Tutorials/text-trail-effect/
-// https://tympanus.net/codrops/2021/08/31/surface-sampling-in-three-js/
-// https://tympanus.net/Tutorials/SurfaceSampling/index3.html
-// Para efectos de letras: https://tympanus.net/Development/3DTypeEffects/03_flowers.html
-
-// dataRotation (individual for each song)
-// const dataRotations = [
-//   {
-//     name: "name-song",
-//     timelines: [
-//       { elapsedTime: 3.0, rotate: true },
-//       { elapsedTime: 7.0, rotate: false },
-//     ],
-//   },
-// ];
-
-// const dataRotation = dataRotations[0];
-
-export function Scene1() {
 
 
+export const Scene1 = React.memo(({}) => {
   const showVideoPoints = useScene1Store((state) => state.showVideoPoints);
   const showTextTessellation = useScene1Store(
     (state) => state.showTextTessellation
@@ -58,11 +16,8 @@ export function Scene1() {
   return (
     <>
       <ambientLight />
-      {/* <Box /> */}
-      {/* <BoxVideo /> */}
-      {/* <BoxShader /> */}
 
-      {/* <Ocean /> */}
+      <Stars />
 
       {showVideoPoints && <VideoPoints />}
 
@@ -94,14 +49,17 @@ export function Scene1() {
             </group>
         </group> */}
 
+      {/* <Box /> */}
+      {/* <BoxVideo /> */}
+      {/* <BoxShader /> */}
+
+      {/* <Ocean /> */}
       {/* <MusicVisualCubeReact /> */}
       {/* <SubtitleMesh /> */}
       {/* <MeshSurfaceSampler /> */}
-
-      <Stars />
     </>
   );
-}
+});
 
 export const Scene1XR = React.memo(({}) => {
   return (
