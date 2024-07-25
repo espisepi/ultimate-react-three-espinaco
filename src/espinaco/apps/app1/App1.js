@@ -36,6 +36,7 @@ import ControlsManager from "../../controls/manager/ControlsManager";
 import useControlsManagerStore from "../../controls/manager/store/ControlsManagerStore";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import useControlsManagerXRStore from "../../controls/manager/store/ControlsManagerXRStore";
+import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -448,26 +449,7 @@ export function App1Start({ url }) {
     setSceneId( newSceneId );
   };
 
-  // ControlsManager =========================================
 
-  const controlsId = useControlsManagerStore( state => state.controlsId );
-  const setControlsId = useControlsManagerStore( state => state.setControlsId );
-  const maxNumControls = useControlsManagerStore( state => state.maxNumControls );
-
-  // xr controls
-  const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
-  const setControlsXRId = useControlsManagerXRStore( state => state.setControlsXRId );
-  const maxNumControlsXR = useControlsManagerXRStore( state => state.maxNumControlsXR );
-
-  const handleChangeControl = () => {
-    if(xrmode) {
-      const newControlsXRId = (controlsXRId + 1) % maxNumControlsXR;
-      setControlsXRId(newControlsXRId);
-    } else {
-      const newControlsId = (controlsId + 1) % maxNumControls;
-      setControlsId(newControlsId);
-    }
-  };
 
   // Resolution manager
   // Obtener todo el tema de las resoluciones del video
@@ -872,25 +854,7 @@ export function App1Start({ url }) {
           }}
         >Resolution video</button>
 
-        <button
-          onClick={handleChangeControl}
-          style={{
-            // visibility: showMenuButton ? "visible" : "hidden",
-            display: showMenuButton ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            top: 280,
-            right: 0,
-            //   backgroundColor: "white",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: showMenuButton ? 0.3 : 0.0,
-            // cursor: showMenuButton ? "pointer" : "none",
-            cursor: "pointer",
-            color: "white"
-          }}
-        >Control</button>
+          <ButtonChangeControls showButton={showMenuButton} />
 
              <button
           onClick={handleChangeXRMode}
