@@ -176,29 +176,6 @@ export function App1Start({ url }) {
 
   //======================================
 
-  //======================================
-
-  const inputRangeStarsScaleRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeStarsScaleRef.current) {
-      inputRangeStarsScaleRef.current.value = DEFAULT_STARS_SCALE;
-    }
-  }, [inputRangeStarsScaleRef]);
-  const handleStarsScale = useCallback((value) => {
-    // TODO: Utilizar la funcion definida en handleStarsPointSize pero con:  const radius = value || 55;
-  }, []);
-  //======================================
-
-  //======================================
-
-  const handleRotationStars = useCallback(() => {
-    if (window.stars) {
-      window.stars.isRotating = !window.stars.isRotating;
-    }
-  }, []);
-
-  //======================================
-
   const inputRangeStarsPointSizeRef = useRef(null);
   useEffect(() => {
     if (inputRangeStarsPointSizeRef.current) {
@@ -379,23 +356,7 @@ export function App1Start({ url }) {
           ></input>
         </div>
 
-        {/* <button
-          onClick={handleRotationStars}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "100px",
-            right: "150px",
-            //   backgroundColor: "#ffff00",
-            background: "linear-gradient(90deg, #0cb300 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        >
-          {" "}
-        </button> */}
+  
 
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
 
