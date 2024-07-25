@@ -1,17 +1,10 @@
 import React, {
   useEffect,
   useState,
-  useRef,
   useCallback
 } from "react";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
-import useVideo from "../../features/videoplayer/hook/useVideo";
-import SceneManager from "../../scenes/manager/SceneManager";
-import CanvasDefault from "../../components/canvas/CanvasDefault";
-import CanvasXR from "../../components/canvas/CanvasXR";
 import useAppManagerStore from "../manager/store/AppManagerStore";
-import ControlsManager from "../../controls/manager/ControlsManager";
-import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
 import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
@@ -23,6 +16,7 @@ import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/
 import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
+import { CanvasManager } from "../../components/canvas/CanvasManager";
 
 
 const window_showVideo = window.showVideo || false;
@@ -74,7 +68,6 @@ export function App1ClickToStart({ setClicked }) {
 }
 
 export function App1Start({ url }) {
-  const xrmode = useAppManagerStore((state) => state.xrmode);
   const displayVideoplayer = useAppManagerStore(
     (state) => state.displayVideoplayer
   );
@@ -124,8 +117,6 @@ export function App1Start({ url }) {
     }
   };
 
-  const MARGIN_BOTTOM_RANGES = 65;
-
   //================================================
 
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
@@ -133,31 +124,8 @@ export function App1Start({ url }) {
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
-        {xrmode ? (
-          <CanvasXR
-            style={{
-              position: "relative",
-              top: "0",
-              width: "100%",
-              height: "100vh",
-            }}
-          >
-            <ControlsManagerXR />
-            <SceneManager />
-          </CanvasXR>
-        ) : (
-          <CanvasDefault
-            style={{
-              position: "relative",
-              top: "0",
-              width: "100%",
-              height: "100vh",
-            }}
-          >
-            <ControlsManager />
-            <SceneManager />
-          </CanvasDefault>
-        )}
+        
+        <CanvasManager />
 
         {/* <CanvasRecord /> */}
 
