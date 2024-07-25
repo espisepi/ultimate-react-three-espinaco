@@ -4,7 +4,7 @@ import { create } from 'zustand';
 const useAppStore = create(set => ({
 
   appId: 1,
-  xrmode: true,
+  xrmode: false,
   displayVideoplayer: true,
 
   setAppId: (newAppId) => set({ appId: newAppId }),
