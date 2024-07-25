@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useCallback
-} from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
 import useAppManagerStore from "../manager/store/AppManagerStore";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
@@ -18,9 +14,7 @@ import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ran
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
 
-
 const window_showVideo = window.showVideo || false;
-
 
 export default function App1({}) {
   const [clicked, setClicked] = useState(false);
@@ -79,9 +73,6 @@ export function App1Start({ url }) {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
 
-
- 
-
   //================================================
 
   const [showMenuButton, setShowMenuButton] = useState(true);
@@ -124,7 +115,6 @@ export function App1Start({ url }) {
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
-        
         <CanvasManager />
 
         {/* <CanvasRecord /> */}
@@ -157,9 +147,11 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 0.8 : 0.3,
             cursor: "pointer",
-            color: "white"
+            color: "white",
           }}
-        >Menu</button>
+        >
+          Menu
+        </button>
 
         <button
           onClick={handleShowMenuButton}
