@@ -15,7 +15,6 @@ import {
   ShaderMaterial,
 } from "three";
 
-
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import Scene2Canvas from "../../scenes/scene2/Scene2";
@@ -40,7 +39,6 @@ import ButtonChangeControls from "../../controls/manager/components/buttons/Butt
 import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
-
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -110,16 +108,15 @@ export default function App1({}) {
 }
 
 export function App1ClickToStart({ setClicked }) {
-
   // Mecanismo de contrasenia
   const contrasenia = "3";
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const handleChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
 
     if (value === contrasenia || true) {
-      setClicked(true)
+      setClicked(true);
     }
   };
 
@@ -142,11 +139,7 @@ export function App1ClickToStart({ setClicked }) {
     >
       {/* <h1 style={{ cursor: "hover" }}>Click to Start</h1> */}
       <h1 style={{ cursor: "hover" }}>Enter Password</h1>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-      />
+      <input type="text" value={inputValue} onChange={handleChange} />
     </div>
   );
 }
@@ -154,9 +147,10 @@ export function App1ClickToStart({ setClicked }) {
 export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
 
-  const xrmode = useAppManagerStore( state => state.xrmode );
-  const displayVideoplayer = useAppManagerStore( state => state.displayVideoplayer );
-
+  const xrmode = useAppManagerStore((state) => state.xrmode);
+  const displayVideoplayer = useAppManagerStore(
+    (state) => state.displayVideoplayer
+  );
 
   //======================================
 
@@ -388,64 +382,39 @@ export function App1Start({ url }) {
 
   //================================================
 
-  const [isGbaVisible, setIsGbaVisible] = useState(true);
-  const [isGbaRemoved, setIsGbaRemoved] = useState(false);
-  const [isOccludeBlending, setIsOccludeBlending] = useState(false);
-  const [isDisplayTextureGbaGame, setIsDisplayTextureGbaGame] = useState(true);
-  const handleToggleIsGbaVisible = () => {
-    setIsGbaVisible(!isGbaVisible);
-  };
-  const handleToggleIsGbaRemoved = () => {
-    setIsGbaRemoved(!isGbaRemoved);
-  };
-  const handleToggleIsOccludeBlending = () => {
-    setIsOccludeBlending(!isOccludeBlending);
-  };
-  const handleToggleIsDisplayTextureGbaGame = () => {
-    setIsDisplayTextureGbaGame(!isDisplayTextureGbaGame);
-  };
-
-  
-
-
-
   // TODO: UI Para mostrar todas las canciones y poder cambiar de cancion en la lista de reproduccion que he hecho (la variable dataMusic)
   // TODO: Reproducir canciones aleatoriamente o en bucle la misma cancion (checkbox para elegir la opcion)
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen handle={handleFullScreen}>
-       
-
-        { xrmode ? (
-            <CanvasXR 
-              style={{
-                position: "relative",
-                top: "0",
-                width: "100%",
-                height: "100vh",
-              }}
-            >
-              <ControlsManagerXR />
-              <SceneManager/>
-            </CanvasXR >
-          ) : (
-             <CanvasDefault 
-              style={{
-                position: "relative",
-                top: "0",
-                width: "100%",
-                height: "100vh",
-              }}
-            >
-              <ControlsManager />
-              <SceneManager />
-            </CanvasDefault >
+        {xrmode ? (
+          <CanvasXR
+            style={{
+              position: "relative",
+              top: "0",
+              width: "100%",
+              height: "100vh",
+            }}
+          >
+            <ControlsManagerXR />
+            <SceneManager />
+          </CanvasXR>
+        ) : (
+          <CanvasDefault
+            style={{
+              position: "relative",
+              top: "0",
+              width: "100%",
+              height: "100vh",
+            }}
+          >
+            <ControlsManager />
+            <SceneManager />
+          </CanvasDefault>
         )}
 
         {/* <CanvasRecord /> */}
-        {displayVideoplayer && (  
-          <VideoPlayer showUI={showVideo} />
-        )}
+        {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
         <div
           id="div-input-range-video-point-size"
@@ -596,7 +565,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "#ffff00",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {" "}
@@ -632,7 +601,7 @@ export function App1Start({ url }) {
             //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 0.8 : 0.3,
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         ></button>
 
@@ -651,84 +620,19 @@ export function App1Start({ url }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             cursor: showMenuButton ? "pointer" : "none",
-            color: "white"
+            color: "white",
           }}
-        >Hidden</button>
+        >
+          Hidden
+        </button>
 
-       
-       <ButtonChangeScene showButton={showMenuButton} />
-          
-          <ButtonChangeResolutionVideo showButton={showMenuButton} />
+        <ButtonChangeScene showButton={showMenuButton} />
 
-          <ButtonChangeControls showButton={showMenuButton} />
+        <ButtonChangeResolutionVideo showButton={showMenuButton} />
 
-          <ButtonChangeXRMode showButton={showMenuButton} />
+        <ButtonChangeControls showButton={showMenuButton} />
 
-   
-
- 
-
-        {/* GBA Buttons */}
-        {/* <button
-          onClick={handleToggleIsGbaVisible}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "170px",
-            right: "100px",
-            //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        ></button> */}
-        {/* <button
-          onClick={handleToggleIsGbaRemoved}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "170px",
-            right: "190px", // Cambiar el right del handleToggleIsDisplayTextureGbaGame
-            //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        ></button> */}
-        {/* <button
-          onClick={handleToggleIsDisplayTextureGbaGame}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "170px",
-            right: "190px",
-            //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        ></button> */}
-        {/* <button
-          onClick={handleToggleIsOccludeBlending}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "170px",
-            right: "10px",
-            //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        ></button> */}
+        <ButtonChangeXRMode showButton={showMenuButton} />
       </FullScreen>
     </div>
   );
