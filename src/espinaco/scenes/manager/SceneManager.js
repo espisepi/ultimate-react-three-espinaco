@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useMemo, useState } from "react";
 import { Scene1, Scene1XR } from "../scene1/Scene1";
 import { Scene2 } from "../scene2/Scene2";
 import { Box } from "@react-three/drei";
-import useAppStore from "../../apps/store/AppStore";
+import useAppStore from "../../apps/manager/store/AppManagerStore";
 import useSceneManagerStore from "./store/SceneManagerStore";
 
 export default function SceneManager() {

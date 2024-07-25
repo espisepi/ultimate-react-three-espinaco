@@ -1,8 +1,5 @@
-import useAppStore from "../store/AppStore";
 
 export default function App2({ }) {
-
-  const xrmode = useAppStore( state => state.xrmode );
 
   return (
     <>

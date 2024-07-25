@@ -1,7 +1,7 @@
 // store.js
 import { create } from 'zustand';
 
-const useAppStore = create(set => ({
+const useAppManagerStore = create(set => ({
 
   appId: 1,
   xrmode: false,
@@ -14,4 +14,4 @@ const useAppStore = create(set => ({
   
 }));
 
-export default useAppStore;
+export default useAppManagerStore;

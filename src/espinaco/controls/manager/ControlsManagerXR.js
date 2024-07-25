@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import RollercoasterControlsXR from "../rollercoaster/controls/RollercoasterControlsXR";
-import useAppStore from "../../apps/store/AppStore";
+import useAppStore from "../../apps/manager/store/AppManagerStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
 

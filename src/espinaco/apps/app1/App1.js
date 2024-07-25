@@ -30,7 +30,7 @@ import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPla
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
-import useAppStore from "../store/AppStore";
+import useAppStore from "../manager/store/AppManagerStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import useControlsManagerStore from "../../controls/manager/store/ControlsManagerStore";

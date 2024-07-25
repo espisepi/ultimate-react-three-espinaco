@@ -18,7 +18,7 @@ import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
 import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
-import useAppStore from "../../apps/store/AppStore";
+import useAppStore from "../../apps/manager/store/AppManagerStore";
 import { Scene } from "three";
 import PerformanceText from "../../prefabs/debug/performanceText/PerformanceText";
 import CameraInfoText from "../../prefabs/debug/cameraInfoText/CameraInfoText";
