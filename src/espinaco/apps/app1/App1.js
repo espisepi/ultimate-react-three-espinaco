@@ -42,6 +42,7 @@ import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/componen
 import FullScreen from "../../features/fullscreen/FullScreen";
 import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
 import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsSize";
+import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -96,7 +97,6 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
 
 // TODO: Poner licencia de que se puede utilizar libremente el codigo pero sin fines de lucro.
 
-const DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE = 1.0;
 const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_STARS_SCALE = 1;
 
@@ -157,32 +157,6 @@ export function App1Start({ url }) {
   const handleShowVideo = useCallback(() => {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
-
-
-
-  //======================================
-  // Para poner el valor actual en el input range
-
-  //======================================
-
-  //======================================
-  // Para poner el valor actual en el input range
-  const inputRangeVideoPointsAmplitudeDistanceRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeVideoPointsAmplitudeDistanceRef.current) {
-      inputRangeVideoPointsAmplitudeDistanceRef.current.value =
-        DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE;
-    }
-  }, [inputRangeVideoPointsAmplitudeDistanceRef]);
-  // Modificar el inputRange
-  const handleVideoPointAmplitudeDistance = useCallback((value) => {
-    if (window.videoPoints) {
-      window.videoPoints.material.uniforms.amplitudeDistance.value = value;
-    }
-  }, []);
-  //======================================
-
-
 
   //====================================== Video current time
   const video = useVideo();
@@ -351,31 +325,11 @@ export function App1Start({ url }) {
         {/* <CanvasRecord /> */}
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
-       <InputRangeVideoPointsSize showUI={showVideo} />
-        <div
-          id="div-input-range-video-point-amplitude-distance"
-          className="range"
-          style={{
-            display: showVideo ? "block" : "none",
-            position: "absolute",
-            left: 30,
-            bottom: 220 + MARGIN_BOTTOM_RANGES,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            className="range1"
-            type="range"
-            ref={inputRangeVideoPointsAmplitudeDistanceRef}
-            onChange={(e) => handleVideoPointAmplitudeDistance(e.target.value)}
-            min={-9000.0}
-            max={9000.0}
-            step={1}
-            // value={0.0}
-          ></input>
-        </div>
-          <InputRangeVideoPointsScale showUI={showVideo} />
+        <InputRangeVideoPointsSize showUI={showVideo} />
+
+        <InputRangeVideoPointsAmplitudeDistance showUI={showVideo} />
+
+        <InputRangeVideoPointsScale showUI={showVideo} />
 
         <div
           id="div-input-range-stars-pointSize"
