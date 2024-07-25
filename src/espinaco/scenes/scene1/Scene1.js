@@ -13,7 +13,7 @@ import { SubtitleMesh } from "../../prefabs/subtitleMesh/SubtitleMesh";
 
 // import { MeshSurfaceSampler } from '../prefabs/meshSurfaceSampler/MeshSurfaceSampler';
 
-import { MemoryCardGame } from "../../games/memoryCardGame/MemoryCardGame";
+import { MemoryCardGame } from "../../features/memoryCardGame/MemoryCardGame";
 import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
 import Minecraft from "../../features/minecraft/Minecraft";
 import Ocean from "../../prefabs/ocean/Ocean";
