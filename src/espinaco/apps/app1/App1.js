@@ -15,7 +15,6 @@ import {
   ShaderMaterial,
 } from "three";
 
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Scene1Canvas from "../../scenes/scene1/Scene1";
 import Scene2Canvas from "../../scenes/scene2/Scene2";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
@@ -40,6 +39,7 @@ import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
+import FullScreen from "../../features/fullscreen/FullScreen";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -161,14 +161,6 @@ export function App1Start({ url }) {
 
   //======================================
 
-  const handleFullScreen = useFullScreenHandle();
-  const toggleFullScreen = useCallback(() => {
-    if (handleFullScreen.active) {
-      handleFullScreen.exit();
-    } else {
-      handleFullScreen.enter();
-    }
-  }, [handleFullScreen]);
 
 
 
@@ -359,7 +351,7 @@ export function App1Start({ url }) {
   // TODO: Reproducir canciones aleatoriamente o en bucle la misma cancion (checkbox para elegir la opcion)
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
-      <FullScreen handle={handleFullScreen}>
+      <FullScreen showButton={showVideo}>
         {xrmode ? (
           <CanvasXR
             style={{
@@ -526,23 +518,6 @@ export function App1Start({ url }) {
         </button> */}
 
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
-
-        <button
-          onClick={toggleFullScreen}
-          style={{
-            display: showVideo ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "100px",
-            right: "100px",
-            //   backgroundColor: "#ff00ff",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: 0.5,
-            cursor: "pointer",
-          }}
-        ></button>
 
         <button
           onClick={handleShowVideo}
