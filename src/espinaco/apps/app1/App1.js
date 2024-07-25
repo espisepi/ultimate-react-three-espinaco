@@ -30,13 +30,14 @@ import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPla
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
 
-import useAppStore from "../manager/store/AppManagerStore";
+import useAppManagerStore from "../manager/store/AppManagerStore";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import useControlsManagerStore from "../../controls/manager/store/ControlsManagerStore";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import useControlsManagerXRStore from "../../controls/manager/store/ControlsManagerXRStore";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
+import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
 
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
@@ -164,8 +165,8 @@ export function App1ClickToStart({ setClicked }) {
 export function App1Start({ url }) {
   const [clicked, setClicked] = useState(false);
 
-  const xrmode = useAppStore( state => state.xrmode );
-  const displayVideoplayer = useAppStore( state => state.displayVideoplayer );
+  const xrmode = useAppManagerStore( state => state.xrmode );
+  const displayVideoplayer = useAppManagerStore( state => state.displayVideoplayer );
 
 
   //======================================
@@ -426,16 +427,7 @@ export function App1Start({ url }) {
     setIsDisplayTextureGbaGame(!isDisplayTextureGbaGame);
   };
 
-  // XR MODE =========================================
-
-
-  // const xrmode = useAppStore( state => state.xrmode ); // defined above
-  const setXrmode = useAppStore( state => state.setXrmode );
-  const handleChangeXRMode = () => {
-    const newXrmode = !xrmode;
-    setXrmode(newXrmode);
-  };
-
+  
   // SceneManager =========================================
 
   // const maxNumScenes = 2; // Poner aqui el numero de escenas maximas que haya creado
@@ -856,25 +848,11 @@ export function App1Start({ url }) {
 
           <ButtonChangeControls showButton={showMenuButton} />
 
-             <button
-          onClick={handleChangeXRMode}
-          style={{
-            // visibility: showMenuButton ? "visible" : "hidden",
-            display: showMenuButton ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            top: 350,
-            right: 0,
-            //   backgroundColor: "white",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: showMenuButton ? 0.3 : 0.0,
-            // cursor: showMenuButton ? "pointer" : "none",
-            cursor: "pointer",
-            color: "white"
-          }}
-        >VR</button>
+          <ButtonChangeXRMode showButton={showMenuButton} />
+
+   
+
+ 
 
         {/* GBA Buttons */}
         {/* <button
