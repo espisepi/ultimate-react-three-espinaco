@@ -145,7 +145,6 @@ export function App1ClickToStart({ setClicked }) {
 }
 
 export function App1Start({ url }) {
-  const [clicked, setClicked] = useState(false);
 
   const xrmode = useAppManagerStore((state) => state.xrmode);
   const displayVideoplayer = useAppManagerStore(
@@ -170,30 +169,7 @@ export function App1Start({ url }) {
     }
   }, [handleFullScreen]);
 
-  //======================================
 
-  const [
-    booleanForHandleTargetOrbitControls,
-    setBooleanForHandleTargetOrbitControls,
-  ] = useState(true);
-  const handleTargetOrbitControls = useCallback(() => {
-    if ((window.orbitControls, window.camera, window.videoPoints)) {
-      setBooleanForHandleTargetOrbitControls(
-        !booleanForHandleTargetOrbitControls
-      );
-      if (booleanForHandleTargetOrbitControls) {
-        window.orbitControls.target.copy(
-          new Vector3(
-            window.camera.position.x,
-            window.camera.position.y,
-            window.camera.position.z - 0.1
-          )
-        );
-      } else {
-        window.orbitControls.target.copy(window.videoPoints.position);
-      }
-    }
-  });
 
   //======================================
 
