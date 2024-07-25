@@ -2,38 +2,16 @@ import React, {
   useEffect,
   useState,
   useRef,
-  useCallback,
-  useMemo,
+  useCallback
 } from "react";
-
-import {
-  Points,
-  Vector3,
-  Spherical,
-  Color,
-  AdditiveBlending,
-  ShaderMaterial,
-} from "three";
-
-import Scene1Canvas from "../../scenes/scene1/Scene1";
-import Scene2Canvas from "../../scenes/scene2/Scene2";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
-import { NippleJoystick } from "../../controls/nipplejoystick/NippleJoystick";
-import { useThree } from "@react-three/fiber";
 import useVideo from "../../hooks/useVideo";
 import SceneManager from "../../scenes/manager/SceneManager";
-import CanvasRecord from "../../features/canvas-record/CanvasRecord";
-
-import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
 import CanvasDefault from "../../components/canvas/CanvasDefault";
 import CanvasXR from "../../components/canvas/CanvasXR";
-
 import useAppManagerStore from "../manager/store/AppManagerStore";
-import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
-import useControlsManagerStore from "../../controls/manager/store/ControlsManagerStore";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
-import useControlsManagerXRStore from "../../controls/manager/store/ControlsManagerXRStore";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
 import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
@@ -45,58 +23,8 @@ import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/
 import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 
-const BASE_URL_HEROKU_VIDEO_YT_DL =
-  "https://video-dl-esp.herokuapp.com/video/video?url=";
-const BASE_URL_LOCAL_VIDEO_YT_DL = "http://localhost:4000/video/video?url=";
-const BASE_URL_RENDERER_YT_DL =
-  "https://video-dl.onrender.com/video/video?url=";
 
-// let window_url_youtube = window.urlYoutube || "";
-// window.urlYoutube = window_url_youtube;
-
-// let window_show_video = window.showVideo || true;
-// window.showVideo = window_show_video;
-
-// const window_urlYoutube = 'videos/mcpi.mp4';
-// const window_urlYoutube = window.urlYoutube || BASE_URL_HEROKU_VIDEO_YT_DL + "https://www.youtube.com/watch?v=MaaEVFNDQLo";
 const window_showVideo = window.showVideo || false;
-// const INIT_STATE = { window_urlYoutube, window_showVideo };
-
-// (COMENTARIO ANTIGUO DE CUANDO REALIZABA LA BUILD A MANO Y LA INCLUIA EN WORDPRESS COPIANDO Y PEGANDO LA CARPETA BUILD POR FTP, AHORA LO HACEMOS CON MICROFRONTEND DESPLEGADO EN UNA URL JEJE) TODO ACORDARSE!!!: CADA VEZ QUE SE HACE BUILD HAY QUE CAMBIAR LOS NOMBRES DE LOS FICHEROS JS Y CSS GENERADOS EN LA PAGINA DE WORDPRESS.
-
-// Errores a mejorar
-// Cuando se pone en horizontal aparece margen blanco en los laterales
-// añadir logo de cargando video mientras carga el video OK
-// que se pueda pasar por url el video de youtube a mostrar
-
-/**
- * 
- * FUFU - SLOU
-Feid, Young Miko - Classy 101 (Official Video)
-MIDAS ALONSO FT J.ROLDAN - A-6 (VIDEOCLIP OFICIAL) PROD.BY DELSON ARAVENA
-D.NADIE - LOS OJOS COMO LUNAS (Visualizer)
-SOSAD.97 | SOUKIN - PRESCRITO (prod. Fulston)
-MOLINA - CODO CON CODO
-Soto Asa - Gibraltar (Videoclip)
-2. Soto Asa - La Primera (ft. Mala Rodríguez)
-Saiko - Supernova (Official Video)
-Saiko, Feid, Quevedo, Mora - Polaris Remix (Video Oficial)
-https://www.youtube.com/watch?v=fLzU21ltH4U
-https://www.youtube.com/watch?v=4DFxeyPiRkM
- * 
- */
-
-// TODO: Añadir analiticas para ver cuantas personas se meten dentro de la web, desde que lugares y si es smartphone u ordenador
-// TODO: Añadir en la pantalla de introduccion mis redes sociales (sepinaco)
-
-// TODO HECHO: Moverse con joystick y el target del orbitcontrols en la camara del player para que simule el movimiento de la cabeza
-
-// TODO: Poder visualizar un streaming con videoPoints : WEBRTC, grabar pantalla js
-// TODO: Subir video desde el movil/pc y reproducirlo
-
-// TODO: Sketchbook con codigo ts dentro de este proyecto react
-
-// TODO: Poner licencia de que se puede utilizar libremente el codigo pero sin fines de lucro.
 
 
 export default function App1({}) {
