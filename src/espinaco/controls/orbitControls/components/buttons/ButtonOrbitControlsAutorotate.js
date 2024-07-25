@@ -24,9 +24,10 @@ export default function ButtonOrbitControlsAutorotate({ showButton = true }) {
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: 0.5,
             cursor: "pointer",
+            color: "white"
           }}
         >
-          {" "}
+          Rotate
         </button>
 
     </>
