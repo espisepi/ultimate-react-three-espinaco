@@ -40,6 +40,7 @@ import ButtonChangeResolutionVideo from "../../features/videoplayer/components/b
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
 import FullScreen from "../../features/fullscreen/FullScreen";
+import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -97,7 +98,6 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
 const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE = 1.0;
 const DEFAULT_STARS_POINTSIZE = 55;
-const DEFAULT_VIDEOPOINTS_SCALE = 1;
 const DEFAULT_STARS_SCALE = 1;
 
 export default function App1({}) {
@@ -146,7 +146,6 @@ export function App1ClickToStart({ setClicked }) {
 }
 
 export function App1Start({ url }) {
-
   const xrmode = useAppManagerStore((state) => state.xrmode);
   const displayVideoplayer = useAppManagerStore(
     (state) => state.displayVideoplayer
@@ -159,14 +158,7 @@ export function App1Start({ url }) {
     setShowVideo((v) => !showVideo);
   }, [showVideo]);
 
-  //======================================
 
-
-
-
-  //======================================
-
- 
 
   //======================================
   // Para poner el valor actual en el input range
@@ -202,17 +194,7 @@ export function App1Start({ url }) {
   }, []);
   //======================================
 
-  const inputRangeVideoPointsScaleRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeVideoPointsScaleRef.current) {
-      inputRangeVideoPointsScaleRef.current.value = DEFAULT_VIDEOPOINTS_SCALE;
-    }
-  }, [inputRangeVideoPointsScaleRef]);
-  const handleVideoPointScale = useCallback((value) => {
-    if (window.videoPoints) {
-      window.videoPoints.scale.set(value, value, value);
-    }
-  }, []);
+
 
   //====================================== Video current time
   const video = useVideo();
@@ -427,29 +409,7 @@ export function App1Start({ url }) {
             // value={0.0}
           ></input>
         </div>
-        <div
-          id="div-input-range-video-point-scale"
-          className="range"
-          style={{
-            display: showVideo ? "block" : "none",
-            position: "absolute",
-            left: 30,
-            bottom: 160 + MARGIN_BOTTOM_RANGES,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            className="range1"
-            type="range"
-            ref={inputRangeVideoPointsScaleRef}
-            onChange={(e) => handleVideoPointScale(e.target.value)}
-            min={0.1}
-            max={30.0}
-            step={0.1}
-            // value={0.0}
-          ></input>
-        </div>
+          <InputRangeVideoPointsScale showUI={showVideo} />
 
         <div
           id="div-input-range-stars-pointSize"
