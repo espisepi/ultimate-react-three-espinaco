@@ -12,7 +12,7 @@ import {
 } from "@react-three/drei";
 
 import { BoxVideo, BoxShader } from "../../prefabs/BoxCustom";
-import VideoPoints from "../../prefabs/VideoPoints";
+import VideoPoints from "../../prefabs/videoPoints/VideoPoints";
 import { Suspense } from "react";
 
 import GodCameraControls from "../../controls/god/GodCameraControls";
