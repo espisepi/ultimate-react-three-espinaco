@@ -180,13 +180,6 @@ export function App1Start({ url }) {
 
   //======================================
 
-  const [showUIMovement, setShowUIMovement] = useState(window_showVideo);
-  const handleShowUIMovement = useCallback(() => {
-    setShowUIMovement((v) => !showUIMovement);
-  }, [showUIMovement]);
-
-  //======================================
-
   const handleFullScreen = useFullScreenHandle();
   const toggleFullScreen = useCallback(() => {
     if (handleFullScreen.active) {
@@ -377,12 +370,10 @@ export function App1Start({ url }) {
       if (event.key === "2") {
         setShowMenuButton(true);
         setShowVideo(true);
-        setShowUIMovement(true);
       }
       if (event.key === "1") {
         setShowMenuButton(false);
         setShowVideo(false);
-        setShowUIMovement(false);
       }
       if (event.key === "3") {
         window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
@@ -400,11 +391,9 @@ export function App1Start({ url }) {
     if (showMenuButton) {
       setShowMenuButton(false);
       setShowVideo(false);
-      setShowUIMovement(false);
     } else {
       setShowMenuButton(true);
       setShowVideo(true);
-      setShowUIMovement(true);
     }
   };
 
@@ -487,23 +476,10 @@ export function App1Start({ url }) {
             </CanvasDefault >
         )}
 
-
-        {/* <NippleJoystick showUI={showUIMovement} /> */}
-
         {/* <CanvasRecord /> */}
         {displayVideoplayer && (  
           <VideoPlayer showUI={showVideo} />
         )}
-
-        {/* <VideoPlayerScreenCapture /> */}
-
-        {/* <video id="video" style={{ display: showVideo ? 'block' : 'none', width: '25vw', height: '25vh', top: 0, zIndex: 100, position: 'absolute' }}
-            src={link} controls={true} autoPlay={true} crossOrigin="anonymous"></video> */}
-
-        {/* <div id="ui-controls-godCamera" style={{ display: showVideo ? 'block' : 'none', position: "relative" }}> */}
-        {/* Aqui se ponen botones visuales para manejar la camara para todos los lados -> Asociar cada boton visual a un boton de teclado cuando se pulse */}
-        {/* <NippleJoystick style={{ display: showVideo ? 'block' : 'none' }} /> */}
-        {/* </div> */}
 
         <div
           id="div-input-range-video-point-size"
@@ -681,26 +657,6 @@ export function App1Start({ url }) {
           {" "}
         </button>
 
-        {/* <button
-          onClick={handleTargetOrbitControls}
-          style={{
-            display: showUIMovement ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "200px",
-            right: "100px",
-            //   backgroundColor: "#ff00ff",
-            background: booleanForHandleTargetOrbitControls
-              ? "linear-gradient(90deg, #d27407 0%, #2f1f56 100%)"
-              : "linear-gradient(90deg, #9220de 0%, #000000 100%)",
-            opacity: 0.5,
-          }}
-        >
-          ∫{" "}
-        </button> */}
-
         <button
           onClick={toggleFullScreen}
           style={{
@@ -734,21 +690,7 @@ export function App1Start({ url }) {
             cursor: "pointer"
           }}
         ></button>
-        {/* <button
-          onClick={handleShowUIMovement}
-          style={{
-            display: showMenuButton ? "block" : "none",
-            width: "50px",
-            height: "50px",
-            borderRadius: "25px",
-            position: "absolute",
-            bottom: "200px",
-            right: "10px",
-            //   backgroundColor: "white",
-            background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
-            opacity: showUIMovement ? 0.8 : 0.3,
-          }}
-        ></button> */}
+
         <button
           onClick={handleShowMenuButton}
           style={{
