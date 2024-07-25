@@ -41,6 +41,7 @@ import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonCha
 import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
 import FullScreen from "../../features/fullscreen/FullScreen";
 import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
+import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsSize";
 
 const BASE_URL_HEROKU_VIDEO_YT_DL =
   "https://video-dl-esp.herokuapp.com/video/video?url=";
@@ -95,7 +96,6 @@ https://www.youtube.com/watch?v=4DFxeyPiRkM
 
 // TODO: Poner licencia de que se puede utilizar libremente el codigo pero sin fines de lucro.
 
-const DEFAULT_VIDEOPOINTS_POINTSSIZE = 1.5; //Mirar este valor en VideoPointsShader.js -> pointSize: { type: "f", value: 1.5 },
 const DEFAULT_VIDEOPOINTS_AMPLITUDEDISTANCE = 1.0;
 const DEFAULT_STARS_POINTSIZE = 55;
 const DEFAULT_STARS_SCALE = 1;
@@ -162,19 +162,7 @@ export function App1Start({ url }) {
 
   //======================================
   // Para poner el valor actual en el input range
-  const inputRangeVideoPointsSizeRef = useRef(null);
-  useEffect(() => {
-    if (inputRangeVideoPointsSizeRef.current) {
-      inputRangeVideoPointsSizeRef.current.value =
-        DEFAULT_VIDEOPOINTS_POINTSSIZE;
-    }
-  }, [inputRangeVideoPointsSizeRef]);
-  // Modificar el inputRange
-  const handleVideoPointSize = useCallback((value) => {
-    if (window.videoPoints) {
-      window.videoPoints.material.uniforms.pointSize.value = value;
-    }
-  }, []);
+
   //======================================
 
   //======================================
@@ -363,29 +351,7 @@ export function App1Start({ url }) {
         {/* <CanvasRecord /> */}
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
-        <div
-          id="div-input-range-video-point-size"
-          className="range"
-          style={{
-            display: showVideo ? "block" : "none",
-            position: "absolute",
-            left: 30,
-            bottom: 190 + MARGIN_BOTTOM_RANGES,
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          <input
-            className="range1"
-            type="range"
-            ref={inputRangeVideoPointsSizeRef}
-            onChange={(e) => handleVideoPointSize(e.target.value)}
-            min={0.1}
-            max={30.0}
-            step={0.1}
-            // value={0.0}
-          ></input>
-        </div>
+       <InputRangeVideoPointsSize showUI={showVideo} />
         <div
           id="div-input-range-video-point-amplitude-distance"
           className="range"
