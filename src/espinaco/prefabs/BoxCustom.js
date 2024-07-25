@@ -49,11 +49,11 @@ export function BoxVideo({ id='video' }) {
     useFrame(()=>{
         if(analyser){
             // analyser.update();
-            console.log(analyser.getUpdateLowerMax());
+            // console.log(analyser.getUpdateLowerMax());
         }
     })
 
-    console.log('holi');
+    // console.log('holi');
 
     const textureVideo = useMemo(()=>(new THREE.VideoTexture( video ) ),[video]);
 

@@ -24,7 +24,7 @@ export default function VideoPlayer({ showUI = true }) {
   
 
   useEffect(() => {
-    console.log({videos})
+    // console.log({videos})
     // Obtiene la URL completa
     const urlFull = window.location.href;
 
@@ -35,13 +35,13 @@ export default function VideoPlayer({ showUI = true }) {
     //  http://localhost:3000/trapani   ->  obtiene "trapani"
     const titleVideo = urlPieces[urlPieces.length - 1];
 
-    console.log(titleVideo); // Debería mostrar 'trapani'
+    // console.log(titleVideo); // Debería mostrar 'trapani'
 
     if (titleVideo && videos.length !== 0) {
       // find es igual que filter pero te da el primer elemento que encuentre, en vez de un array con todos los elementos que es lo que hace filter
       const video = videos.find(video => normalizeText(video.name).includes(titleVideo))
       if(video) {
-        console.log("Video encontrado! :) : " + video);
+        // console.log("Video encontrado! :) : " + video);
         selectVideo(video);
       } else {
         selectVideo(LOVE_LO_HABITS, 0);

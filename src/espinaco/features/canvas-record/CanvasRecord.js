@@ -7,7 +7,7 @@ export default function CanvasRecord() {
     const [recording, setRecording] = useState(false);
 
     const startRecording = () => {
-        console.log("Empieza la grabacion! canvas seleccionado: ", canvas);
+        // console.log("Empieza la grabacion! canvas seleccionado: ", canvas);
         // const canvas = canvasRef.current;
         const stream = canvas.captureStream(30); // Captura a 60 FPS
 

@@ -206,7 +206,7 @@ export default class RollercoasterClass {
     // scale funchairs
     for (let i = 0; i < funfairs.length; i++) {
       funfairs[i].scale.set(SIZE_FUNCHAIRS, SIZE_FUNCHAIRS, SIZE_FUNCHAIRS);
-      console.log(funfairs[i].scale)
+      // console.log(funfairs[i].scale)
     }
 
     this.funfairs = funfairs;
@@ -257,7 +257,7 @@ export default class RollercoasterClass {
 
     const audioLoader = new THREE.AudioLoader();
     audioLoader.load(this.urlSound, function(buffer) {
-      console.log({buffer,audio})
+      // console.log({buffer,audio})
       audio.setBuffer(buffer);
       audio.setLoop(true);
       audio.setVolume(volume);

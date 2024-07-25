@@ -13,15 +13,15 @@ export default function ButtonChangeResolutionVideo({ showButton = true }) {
   const [resolutionOptionSelected, setResolutionOptionSelected] = useState(1);
   const handleChangeResolutionVideo = useCallback(() => {
     // Manejamos la opcion seleccionada
-    console.log({resolutionOptionSelected});
+    // console.log({resolutionOptionSelected});
     if (resolutionOptionSelected <= resolutions.length - 1) {
-      console.log(
-        "selected resolution: ",
-        resolutions[resolutionOptionSelected]
-      );
+      // console.log(
+      //   "selected resolution: ",
+      //   resolutions[resolutionOptionSelected]
+      // );
       setResolution(resolutions[resolutionOptionSelected]);
     } else {
-      console.log("original selected resolution: ", originalResolution);
+      // console.log("original selected resolution: ", originalResolution);
       setResolution(originalResolution);
     }
 

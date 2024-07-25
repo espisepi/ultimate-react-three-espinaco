@@ -28,7 +28,7 @@ export default function ControlsManagerXR() {
             setCameraPosition((v) => [0, 0, 400]);
             break;
         default:
-            console.log("No se ha definido un cameraPosition para la Scene elegida, Scene: " + sceneId);
+            // console.log("No se ha definido un cameraPosition para la Scene elegida, Scene: " + sceneId);
             setCameraPosition((v) => [0, 0, 0]);
             break;
         }

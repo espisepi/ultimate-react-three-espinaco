@@ -27,7 +27,7 @@ export default function IframeGBA({
   useEffect(() => {
     if (canvasIframe) {
       // console.log({ canvasIframe });
-      console.log({ videoPoints: window.videoPoints });
+      // console.log({ videoPoints: window.videoPoints });
       // Obtenemos el objeto videoPoints
       const videoPoints = window.videoPoints;
       setVideoPoints(videoPoints);

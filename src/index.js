@@ -13,7 +13,7 @@ const widgetDivs = document.querySelectorAll('.ultimate-react-three-espinaco, #u
 // Inject our React App into each class
 widgetDivs.forEach(div => {
   const root = ReactDOM.createRoot(div);
-  console.log(div.dataset.symbol);
+  // console.log(div.dataset.symbol);
   root.render(
     <React.StrictMode>
       <App url={div.dataset.symbol}/>

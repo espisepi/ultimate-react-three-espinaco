@@ -5,7 +5,7 @@ export class GameManager {
     constructor(cards) {
         this.score = 0;
         this.cards = cards;
-        console.log(cards.children);
+        // console.log(cards.children);
         // cards.children.forEach(c => c.userData.startAnimationFlipCardToTexture());
         // Duplicar Cards y barajarlas aka cambiarlas de posicion
         const self = this;
@@ -18,7 +18,6 @@ export class GameManager {
 
 
     update() {
-        console.log("OYEEE")
         // update contShowCard
         let contShowCard = 0;
         let cardsShowCard = [];

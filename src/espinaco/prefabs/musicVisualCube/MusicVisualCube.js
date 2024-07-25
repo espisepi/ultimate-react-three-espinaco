@@ -28,7 +28,7 @@ export function MusicVisualCubeReact() {
     const [musicVisualCube, setMusicVisualCube] = useState();
 
     useEffect(() => {
-        console.log(scene)
+        // console.log(scene)
         // AQUI COMIENZA ==================================
         const mesh1 = leePerryMesh.scene.children[0]
         const musicVisualCubeClass = new MusicVisualCubeClass(scene,mesh1);

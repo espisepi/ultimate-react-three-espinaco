@@ -39,7 +39,7 @@ class VideoPlayerStoreClass {
 
   selectVideo(video, optionServer = 1) {
     const { selectedVideo } = this.get();
-    console.log({ selectedVideo });
+    // console.log({ selectedVideo });
     if (selectedVideo?.url !== video?.url) {
       this.set({ selectedVideo: video });
       this.handleVideoSelection(video.url, optionServer);
@@ -52,15 +52,15 @@ class VideoPlayerStoreClass {
 
   handleVideoSelection(url, optionServer) {
     if (optionServer === 0) {
-      console.log("Reproduciendo video alojado en esta aplicacion");
+      // console.log("Reproduciendo video alojado en esta aplicacion");
       this.playLocalVideo(url);
     } else if (optionServer === 1) {
-      console.log("Reproduciendo video del servidor rasp");
+      // console.log("Reproduciendo video del servidor rasp");
       const urlReadyToMyServer = this.convertUrlToMyServer(url);
-      console.log({ urlReadyToMyServer });
+      // console.log({ urlReadyToMyServer });
       this.playLocalVideo(urlReadyToMyServer);
     } else {
-      console.log("Reproduciendo video alojado en esta aplicacion");
+      // console.log("Reproduciendo video alojado en esta aplicacion");
       this.playLocalVideo(url);
     }
   }
@@ -83,7 +83,7 @@ class VideoPlayerStoreClass {
   playLocalVideo(localVideoUrl) {
     const videoPlayer = document.getElementById("video");
 
-    console.log(localVideoUrl);
+    // console.log(localVideoUrl);
     videoPlayer.src = localVideoUrl;
     videoPlayer.play();
 

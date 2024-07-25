@@ -63,8 +63,8 @@ export default function VideoPoints({
           uvs.push(x / videoWidth, y / videoHeight);
         }
       }
-      console.log("video height: " + videoHeight);
-      console.log("video width: " + videoWidth);
+      // console.log("video height: " + videoHeight);
+      // console.log("video width: " + videoWidth);
 
       geometry.setAttribute(
         "position",

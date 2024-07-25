@@ -19,7 +19,7 @@ export default function useAnalyser(
   useEffect(() => {
     if (video) {
       const analyser = new Analyser(video, fftSize);
-      console.log(analyser);
+      // console.log(analyser);
       setAnalyser((v) => analyser);
     }
   }, [video]);

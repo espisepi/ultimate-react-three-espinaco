@@ -2,7 +2,6 @@ import * as THREE from "three";
 
 export class MusicVisualCubeClass {
   constructor(scene, mesh1) {
-    console.log("HOLIIII");
     this.mesh1 = mesh1;
     const geometry = this.createGeometry();
     const material = this.createMaterial();
@@ -61,7 +60,7 @@ export class MusicVisualCubeClass {
     const sphereAttributePositionArray = sphereAttributePosition.array;
 
     // espisepi: AQUI LO DEJO!! TENGO QUE CORREGIR EL PASO DE UNA POSICION A OTRA POR VERTEX
-    console.log(this.mesh1.geometry.getAttribute("position").array);
+    // console.log(this.mesh1.geometry.getAttribute("position").array);
 
     const arrayPosition1 = boxAttributePositionArray;
     const arrayPosition2 = sphereAttributePositionArray;
@@ -111,7 +110,7 @@ export class MusicVisualCubeClass {
       orientationsEnd.push(vector.x, vector.y, vector.z, vector.w);
     }
 
-    console.log(orientationsStart);
+    // console.log(orientationsStart);
 
     const geometry = new THREE.InstancedBufferGeometry();
     geometry.instanceCount = instances; // set so its initalized for dat.GUI, will be set in first draw otherwise
