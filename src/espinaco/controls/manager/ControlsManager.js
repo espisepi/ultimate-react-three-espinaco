@@ -5,6 +5,7 @@ import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import useControlsManagerStore from './store/ControlsManagerStore';
+import { GTAWorldControls } from "../../features/gta/GTAWorldControls";
 
 export default function ControlsManager() {
 
@@ -35,6 +36,8 @@ export default function ControlsManager() {
           camera?.rotation.set(0, 0, 0);
         }
     }, [sceneId, controlsId]);
+
+
     return (
         <>
             {(() => {
@@ -45,6 +48,8 @@ export default function ControlsManager() {
                   return <RollercoasterControls />;
                 case 2:
                   return <GodCameraControls position={cameraPosition} />;
+                case 3:
+                  return <GTAWorldControls />
                 default:
                   console.warn("No se ha definido el control elegido, Control: " + controlsId);
                   return null;
