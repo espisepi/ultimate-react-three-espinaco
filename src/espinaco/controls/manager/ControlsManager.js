@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GodCameraControls from "../god/GodCameraControls";
-import RollercoasterControls from "../rollercoaster/controls/RollercoasterControls";
+import { RollercoasterControls } from "../../features/rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";

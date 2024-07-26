@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useThree } from "@react-three/fiber";
 
 
-export default function RollercoasterControls({name="train", interval = 1}) {
+export function RollercoasterControls({name="train", interval = 1}) {
 
     // 1 - obtener de la scene el train
     const { scene, camera } = useThree();

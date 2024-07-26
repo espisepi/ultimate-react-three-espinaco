@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { XROrigin } from "@react-three/xr";
 
-export default function RollercoasterControlsXR({
+export function RollercoasterControlsXR({
   name = "train",
   interval = 1,
 }) {

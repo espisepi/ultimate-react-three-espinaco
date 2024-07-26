@@ -1,7 +1,7 @@
 import React from "react";
 import VideoPoints from "../../prefabs/videoPoints/VideoPoints";
 import TextTessellation from "../../prefabs/text-tesellation/TextTessellation";
-import Rollercoaster from "../../controls/rollercoaster/Rollercoaster";
+import { Rollercoaster } from "../../features/rollercoaster/Rollercoaster";
 import useScene1Store from "./Scene1Store";
 import Stars from "../../prefabs/stars/Stars";
 
