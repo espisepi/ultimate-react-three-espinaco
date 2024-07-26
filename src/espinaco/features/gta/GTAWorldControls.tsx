@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { World } from "./world/World";
+import { RaycastVehicle } from "./vehicles/raycastVehicle/RaycastVehicle";
 
 type GTAWorldControlsProps = {};
 
@@ -12,5 +13,5 @@ export const GTAWorldControls: React.FC<GTAWorldControlsProps> = React.memo(() =
       console.log("useefect destruido");
     }
   }, []);
-  return null;
+  return <RaycastVehicle />;
 });
