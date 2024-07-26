@@ -1,0 +1,128 @@
+
+
+yarn upgrade typescript fork-ts-checker-webpack-plugin
+
+borrar carpeta node_modules y yarn.lock y volver a instalar dependencias con yarn install
+
+
+SOLUCION: El error era por tener dependencias antiguas de babel y las quite
+porque lo tenia por build:widget para hacer "componentes web"
+
+
+
+
+==== chatgpt =====
+
+tengo este error, que significa y como lo soluciono? TypeError: Cannot set property mark of #<Object> which has only a getter
+    at Object.connectTypeScriptPerformance (/Users/joseangel/Proyectos/Web/games/ultimate-react-three-espinaco/node_modules/fork-ts-checker-webpack-plugin/lib/typescript-reporter/profile/TypeScriptPerformance.js:12:36)
+
+
+Este error `TypeError: Cannot set property mark of #<Object> which has only a getter` se debe a que está intentando establecer una propiedad `mark` en un objeto que solo tiene un getter definido para esa propiedad. Esto suele ocurrir cuando hay un conflicto o un mal uso de bibliotecas y sus versiones, particularmente con TypeScript y plugins de Webpack.
+
+Vamos a abordar este problema paso a paso:
+
+### 1. **Actualizar Dependencias**
+
+Asegúrate de que todas tus dependencias estén actualizadas. En particular, asegúrate de que `fork-ts-checker-webpack-plugin` y `typescript` estén en sus versiones más recientes:
+
+```bash
+yarn upgrade typescript fork-ts-checker-webpack-plugin
+```
+
+### 2. **Verificar la Configuración de Webpack**
+
+Asegúrate de que tu configuración de Webpack esté configurada correctamente para usar `fork-ts-checker-webpack-plugin`. Aquí tienes un ejemplo básico de cómo debería verse:
+
+```js
+// webpack.config.js
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+module.exports = {
+  // ...otras configuraciones
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
+  ],
+  // ...otras configuraciones
+};
+```
+
+### 3. **Revisar las Versiones de TypeScript y ForkTsCheckerWebpackPlugin**
+
+Es importante asegurarse de que la versión de `fork-ts-checker-webpack-plugin` sea compatible con la versión de TypeScript que estás usando. Si hay algún conflicto de versiones, puede provocar errores como el que estás viendo.
+
+### 4. **Comprobar si hay Configuración Específica para TypeScript**
+
+Algunas veces, la configuración específica de TypeScript puede causar problemas. Asegúrate de que el archivo `tsconfig.json` esté correctamente configurado y compatible con tu proyecto:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"]
+}
+```
+
+### 5. **Eliminar Cache de Node_modules y Reinstalar**
+
+A veces, una limpieza del caché y una reinstalación pueden resolver problemas inesperados. Prueba los siguientes comandos:
+
+```bash
+yarn cache clean
+rm -rf node_modules
+yarn install
+```
+
+### 6. **Revisar Configuraciones de Performance**
+
+Dado que el error específico está en `TypeScriptPerformance.js`, puede que haya un problema relacionado con la configuración de rendimiento en `fork-ts-checker-webpack-plugin`. Intenta deshabilitar o ajustar las configuraciones relacionadas:
+
+```js
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+module.exports = {
+  // ...otras configuraciones
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        // Ajusta las opciones de rendimiento según sea necesario
+        memoryLimit: 4096, // Por ejemplo, aumentar el límite de memoria
+      },
+    }),
+  ],
+  // ...otras configuraciones
+};
+```
+
+### 7. **Consultar Issues del Plugin**
+
+Si todo lo anterior falla, puede haber un problema conocido con la versión específica de `fork-ts-checker-webpack-plugin` que estás usando. Consulta la [página de issues del proyecto en GitHub](https://github.com/TypeStrong/fork-ts-checker-webpack-plugin/issues) para ver si hay alguna solución o workaround para tu problema.
+
+Siguiendo estos pasos, deberías poder identificar y solucionar el problema con `fork-ts-checker-webpack-plugin`. Si el problema persiste, proporciona más detalles sobre tu configuración de Webpack y cualquier otro plugin que estés usando para que podamos ayudarte mejor.
