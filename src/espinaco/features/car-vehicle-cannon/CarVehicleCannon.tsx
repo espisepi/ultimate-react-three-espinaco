@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-import { World } from "./world/World";
 import { RaycastVehicle } from "./vehicles/raycastVehicle/RaycastVehicle";
 
-type GTAWorldControlsProps = {};
+type CarVehicleCannonProps = {};
 
-export const GTAWorldControls: React.FC<GTAWorldControlsProps> = React.memo(() => {
-  console.log("HELLO GTAWORLD");
+export const CarVehicleCannon: React.FC<CarVehicleCannonProps> = React.memo(() => {
+  console.log("HELLO Car Vehicle CANNON");
   useEffect(() => {
     console.log("useeffect");
-    const gtaWorld = new World();
     return () => {
       console.log("useefect destruido");
     }

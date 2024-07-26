@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import useControlsManagerStore from './store/ControlsManagerStore';
-import { GTAWorldControls } from "../../features/gta/GTAWorldControls";
+import { CarVehicleCannon } from '../../features/car-vehicle-cannon/CarVehicleCannon';
 
 export default function ControlsManager() {
 
@@ -49,7 +49,7 @@ export default function ControlsManager() {
                 case 2:
                   return <GodCameraControls position={cameraPosition} />;
                 case 3:
-                  return <GTAWorldControls />
+                  return <CarVehicleCannon />
                 default:
                   console.warn("No se ha definido el control elegido, Control: " + controlsId);
                   return null;
