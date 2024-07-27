@@ -83,13 +83,13 @@ const VehicleScene = () => {
         allowSleep
       >
         {/* <ToggledDebug> */}
-          <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
-          <Vehicle
-            position={[0, 2, 0]}
-            rotation={[0, -Math.PI / 4, 0]}
-            angularVelocity={[0, 0.5, 0]}
-          />
-          {/* <Pillar position={[-5, 2.5, -5]} userData={{ id: 'pillar-1' }} />
+        <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
+        <Vehicle
+          position={[0, 2, 0]}
+          rotation={[0, -Math.PI / 4, 0]}
+          angularVelocity={[0, 0.5, 0]}
+        />
+        {/* <Pillar position={[-5, 2.5, -5]} userData={{ id: 'pillar-1' }} />
             <Pillar position={[0, 2.5, -5]} userData={{ id: 'pillar-2' }} />
             <Pillar position={[5, 2.5, -5]} userData={{ id: 'pillar-3' }} /> */}
         {/* </ToggledwwaDebug> */}

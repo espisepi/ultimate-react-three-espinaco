@@ -4,6 +4,7 @@ import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import { RollercoasterControlsXR } from "../../features/rollercoaster/controls/RollercoasterControlsXR";
 import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
 import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
+import { CarVehicleCannonVR } from "../../features/car-vehicle-cannon/CarVehicleCannonVR";
 
 export default function ControlsManagerXR() {
 
@@ -42,6 +43,8 @@ export default function ControlsManagerXR() {
                   return <GodCameraControlsXR />;
                 case 1:
                   return <RollercoasterControlsXR />;
+                case 2:
+                  return <CarVehicleCannonVR />;
                 default:
                   console.warn("No se ha definido el control XR elegido, Control: " + controlsXRId);
                   return null;
