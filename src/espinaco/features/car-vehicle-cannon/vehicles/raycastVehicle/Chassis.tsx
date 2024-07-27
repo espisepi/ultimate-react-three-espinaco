@@ -67,22 +67,22 @@ export const Chassis = forwardRef<Mesh>((_, ref) => {
   return (
     <mesh name="car" ref={ref}>
       <group position={[0, -0.6, 0]}>
-        <mesh material={materialVideo} geometry={nodes.chassis_1.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_2.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_3.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_4.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_5.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_6.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_7.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_8.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_9.geometry} />
-        <mesh material={materialVideo}geometry={nodes.chassis_10.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_11.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_12.geometry} />
-        <mesh material={materialVideo}geometry={nodes.chassis_13.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_14.geometry} />
-        <mesh material={materialVideo} geometry={nodes.chassis_15.geometry} />
-        <mesh material={materialVideo}geometry={nodes.chassis_16.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_1.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_2.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_3.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_4.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_5.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_6.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_7.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_8.geometry} />
+        <mesh visible={false} material={materialVideo} geometry={nodes.chassis_9.geometry} />
+        <mesh visible={true} material={materialVideo}geometry={nodes.chassis_10.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_11.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_12.geometry} />
+        <mesh visible={true} material={materialVideo}geometry={nodes.chassis_13.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_14.geometry} />
+        <mesh visible={true} material={materialVideo} geometry={nodes.chassis_15.geometry} />
+        <mesh visible={true} material={materialVideo}geometry={nodes.chassis_16.geometry} />
       </group>
     </mesh>
   )
