@@ -2,6 +2,8 @@ import { useGLTF } from '@react-three/drei'
 import { forwardRef, useMemo } from 'react'
 import type { Material, Mesh } from 'three'
 import type { GLTF } from 'three-stdlib/loaders/GLTFLoader'
+import { useVideoTexture } from "../../../videoplayer/hook/useVideoTexture";
+import * as THREE from "three";
 
 useGLTF.preload('/Beetle.glb')
 
@@ -55,27 +57,32 @@ type BeetleGLTF = GLTF & {
 }
 
 export const Chassis = forwardRef<Mesh>((_, ref) => {
-  const { nodes, materials } = useGLTF('/Beetle.glb') as BeetleGLTF
+  const { nodes, materials } = useGLTF('/Beetle.glb') as BeetleGLTF;
+
+  const videoTexture = useVideoTexture();
+  const materialVideo = useMemo<THREE.MeshBasicMaterial>(()=>{
+    return new THREE.MeshBasicMaterial({map:videoTexture ?? null, wireframe: true});
+  },[videoTexture]);
 
   return (
     <mesh name="car" ref={ref}>
       <group position={[0, -0.6, 0]}>
-        <mesh material-wireframe={true} geometry={nodes.chassis_1.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_2.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_3.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_4.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_5.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_6.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_7.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_8.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_9.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_10.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_11.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_12.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_13.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_14.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_15.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.chassis_16.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_1.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_2.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_3.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_4.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_5.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_6.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_7.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_8.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_9.geometry} />
+        <mesh material={materialVideo}geometry={nodes.chassis_10.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_11.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_12.geometry} />
+        <mesh material={materialVideo}geometry={nodes.chassis_13.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_14.geometry} />
+        <mesh material={materialVideo} geometry={nodes.chassis_15.geometry} />
+        <mesh material={materialVideo}geometry={nodes.chassis_16.geometry} />
       </group>
     </mesh>
   )
