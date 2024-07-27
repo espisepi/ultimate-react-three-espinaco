@@ -1,21 +1,21 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import RollercoasterClass from "./RollercoasterClass";
 import { useFrame, useThree } from "@react-three/fiber";
-import useVideo from "../videoplayer/hook/useVideo";
+import { useVideoTexture } from "../videoplayer/hook/useVideoTexture";
 
 
 export function Rollercoaster() {
-  const { scene, camera } = useThree();
-  const video = useVideo();
 
-  // Usar en useEffect y poner en el return rollercoaster.dispose()
-  // const rollercoaster = useMemo(()=> video ? new rollercoasterClass({scene,camera,video}) : null,[video]);
+  const { scene, camera } = useThree();
+
+  const videoTexture = useVideoTexture();
+
   const [rollercoaster, setRollercoaster] = useState();
   const rollercoasterRef = useRef();
 
   useEffect(() => {
-    if (video) {
-      const controls = new RollercoasterClass({ scene, camera, video });
+    if (videoTexture) {
+      const controls = new RollercoasterClass({ scene, camera, videoTexture });
       setRollercoaster(controls);
       rollercoasterRef.current = controls;
     }
@@ -25,7 +25,7 @@ export function Rollercoaster() {
         rollercoasterRef.current.dispose();
       }
     };
-  }, [video]);
+  }, [videoTexture]);
 
   useFrame(()=>{
     if(rollercoaster) {

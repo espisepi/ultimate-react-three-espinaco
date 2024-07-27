@@ -9,7 +9,7 @@ import {
 import { disposeAll } from "../../utils/disposeAll";
 
 export default class RollercoasterClass {
-  constructor({ scene, camera, video, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.0, circuit = 0, isVisibleTube = false }) {
+  constructor({ scene, camera, videoTexture, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.0, circuit = 0, isVisibleTube = false }) {
 
     this.meshesRollercoaster = [];
     
@@ -72,14 +72,14 @@ export default class RollercoasterClass {
     material = new THREE.MeshPhongMaterial({
       vertexColors: isColor,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video)
+      map: videoTexture
     });
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
     this.meshesRollercoaster.push(mesh);
 
     geometry = new RollerCoasterLiftersGeometry(curve, 100);
-    material = new THREE.MeshPhongMaterial({wireframe: isWireframe, map: new THREE.VideoTexture(video)});
+    material = new THREE.MeshPhongMaterial({wireframe: isWireframe, map: videoTexture});
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
     scene.add(mesh);
@@ -92,7 +92,7 @@ export default class RollercoasterClass {
       depthWrite: false,
       transparent: true,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video)
+      map: videoTexture
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.y = 0.1;
@@ -150,7 +150,7 @@ export default class RollercoasterClass {
       // uvAttribute.needsUpdate = true;
       // Modificar los atributos UV ========
 
-      material = new THREE.MeshBasicMaterial( { wireframe: true, map: new THREE.VideoTexture(video), side: THREE.DoubleSide } );
+      material = new THREE.MeshBasicMaterial( { wireframe: true, map: videoTexture, side: THREE.DoubleSide } );
       mesh = new THREE.Mesh( geometry, material );
       scene.add( mesh );
       this.meshesRollercoaster.push(mesh);
@@ -169,7 +169,7 @@ export default class RollercoasterClass {
     material = new THREE.MeshLambertMaterial({
       color: isColor ? 0xff8080 : null,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video)
+      map: videoTexture
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(-80, 10, -70);
@@ -182,7 +182,7 @@ export default class RollercoasterClass {
     material = new THREE.MeshLambertMaterial({
       color:  isColor ? 0x8080ff : null,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video)
+      map: videoTexture
     });
     mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(50, 2, 30);
@@ -194,7 +194,7 @@ export default class RollercoasterClass {
     material = new THREE.MeshLambertMaterial({
       color:  isColor ? 0x8080ff : null,
       wireframe: isWireframe,
-      map: new THREE.VideoTexture(video),
+      map: videoTexture,
       side: THREE.DoubleSide
     });
     mesh = new THREE.Mesh(geometry, material);
