@@ -38,7 +38,7 @@ export const VehicleSceneVR = () => {
         <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
         <VehicleVR
           position={[0, 2, 0]}
-          rotation={[0, -Math.PI / 4, 0]}
+          rotation={[0, 0, 0]}
           angularVelocity={[0, 0.5, 0]}
         />
       </Physics>

@@ -144,7 +144,7 @@ function Vehicle({
       right = true;
     }
     if (yAxisLeft < 0.0) {
-      // backward = true;
+      backward = true;
     }
     if (yAxisLeft > 0.0) {
       // forward = true;
