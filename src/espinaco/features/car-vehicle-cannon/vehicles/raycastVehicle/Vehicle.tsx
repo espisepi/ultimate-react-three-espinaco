@@ -29,20 +29,20 @@ function Vehicle({
   position,
   radius = 0.7,
   rotation,
-  steer = 0.5,
+  steer = 0.5, // Permite giros mas agresivos
   width = 1.2,
 }: VehicleProps) {
   const wheels = [useRef<Group>(null), useRef<Group>(null), useRef<Group>(null), useRef<Group>(null)]
 
   const controls = useControls()
 
-  const wheelInfo: WheelInfoOptions = {
-    axleLocal: [-1, 0, 0], // This is inverted for asymmetrical wheel models (left v. right sided)
+  const wheelInfoFront: WheelInfoOptions = {
+    axleLocal: [-1, 0, 0],
     customSlidingRotationalSpeed: -30,
     dampingCompression: 4.4,
     dampingRelaxation: 10,
-    directionLocal: [0, -1, 0], // set to same as Physics Gravity
-    frictionSlip: 2,
+    directionLocal: [0, -1, 0],
+    frictionSlip: 2, // Friccion normal para las ruedas delanteras
     maxSuspensionForce: 1e4,
     maxSuspensionTravel: 0.3,
     radius,
@@ -51,23 +51,28 @@ function Vehicle({
     useCustomSlidingRotationalSpeed: true,
   }
 
+  const wheelInfoBack: WheelInfoOptions = {
+    ...wheelInfoFront,
+    frictionSlip: 0.8, // Baja fricción para las ruedas traseras para facilitar el drift
+  }
+
   const wheelInfo1: WheelInfoOptions = {
-    ...wheelInfo,
+    ...wheelInfoFront,
     chassisConnectionPointLocal: [-width / 2, height, front],
     isFrontWheel: true,
   }
   const wheelInfo2: WheelInfoOptions = {
-    ...wheelInfo,
+    ...wheelInfoFront,
     chassisConnectionPointLocal: [width / 2, height, front],
     isFrontWheel: true,
   }
   const wheelInfo3: WheelInfoOptions = {
-    ...wheelInfo,
+    ...wheelInfoBack,
     chassisConnectionPointLocal: [-width / 2, height, back],
     isFrontWheel: false,
   }
   const wheelInfo4: WheelInfoOptions = {
-    ...wheelInfo,
+    ...wheelInfoBack,
     chassisConnectionPointLocal: [width / 2, height, back],
     isFrontWheel: false,
   }
@@ -77,7 +82,7 @@ function Vehicle({
       allowSleep: false,
       angularVelocity,
       args: [1.7, 1, 4],
-      mass: 500,
+      mass: 500, // Aumenta la masa del chasis para mejorar la estabilidad
       onCollide: (e) => console.log('bonk', e.body.userData),
       position,
       rotation,
@@ -94,13 +99,13 @@ function Vehicle({
     useRef<Group>(null),
   )
 
-  // useEffect(() => vehicleApi.sliding.subscribe((v) => console.log('sliding', v)), [])
+  useEffect(() => vehicleApi.sliding.subscribe((v) => console.log('sliding', v)), [])
 
   useFrame(() => {
-    const { backward, brake, forward, left, reset, right } = controls.current
+    const { backward, brake, forward, left, reset, right, handbrake } = controls.current
 
     for (let e = 2; e < 4; e++) {
-      vehicleApi.applyEngineForce(forward || backward ? force * (forward && !backward ? -1 : 1) : 0, 2)
+      vehicleApi.applyEngineForce(forward || backward ? force * (forward && !backward ? -1 : 1) : 0, e)
     }
 
     for (let s = 0; s < 2; s++) {
@@ -108,7 +113,7 @@ function Vehicle({
     }
 
     for (let b = 2; b < 4; b++) {
-      vehicleApi.setBrake(brake ? maxBrake : 0, b)
+      vehicleApi.setBrake(brake || handbrake ? maxBrake * (handbrake ? 2 : 1) : 0, b)
     }
 
     if (reset) {

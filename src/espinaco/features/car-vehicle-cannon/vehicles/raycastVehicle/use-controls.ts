@@ -24,7 +24,8 @@ function useKeyControls(
 }
 
 const keyControlMap = {
-  ' ': 'brake',
+  'shift': 'brake',
+  ' ': 'handbrake',
   ArrowDown: 'backward',
   ArrowLeft: 'left',
   ArrowRight: 'right',
@@ -50,6 +51,7 @@ export function useControls() {
     left: false,
     reset: false,
     right: false,
+    handbrake: false,
   })
 
   useKeyControls(controls, keyControlMap)
