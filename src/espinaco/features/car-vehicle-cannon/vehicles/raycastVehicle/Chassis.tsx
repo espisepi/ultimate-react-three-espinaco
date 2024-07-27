@@ -58,7 +58,7 @@ export const Chassis = forwardRef<Mesh>((_, ref) => {
   const { nodes, materials } = useGLTF('/Beetle.glb') as BeetleGLTF
 
   return (
-    <mesh ref={ref}>
+    <mesh name="car" ref={ref}>
       <group position={[0, -0.6, 0]}>
         <mesh material-wireframe={true} geometry={nodes.chassis_1.geometry} />
         <mesh material-wireframe={true} geometry={nodes.chassis_2.geometry} />
