@@ -61,7 +61,7 @@ export const Chassis = forwardRef<Mesh>((_, ref) => {
 
   const videoTexture = useVideoTexture();
   const materialVideo = useMemo<THREE.MeshBasicMaterial>(()=>{
-    return new THREE.MeshBasicMaterial({map:videoTexture ?? null, wireframe: true});
+    return new THREE.MeshBasicMaterial({map:videoTexture ?? null, wireframe: false});
   },[videoTexture]);
 
   return (
