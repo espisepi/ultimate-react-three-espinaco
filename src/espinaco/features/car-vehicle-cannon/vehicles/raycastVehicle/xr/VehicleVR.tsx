@@ -137,10 +137,10 @@ function Vehicle({
     const xAxisLeft = thumstickStateLeft.xAxis ?? 0;
     const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
 
-    if (-xAxisLeft < 0.0) {
+    if (xAxisLeft < 0.0) {
       left = true;
     }
-    if (-xAxisLeft > 0.0) {
+    if (xAxisLeft > 0.0) {
       right = true;
     }
     if (-yAxisLeft < 0.0) {

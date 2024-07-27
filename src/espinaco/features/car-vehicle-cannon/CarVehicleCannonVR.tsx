@@ -11,7 +11,7 @@ export const CarVehicleCannonVR: React.FC<CarVehicleCannonVRProps> = React.memo(
     return (
       <>
         <RaycastVehicleVR />
-        <CameraFollowObjectVR name="car" position={[0,0.6,0.0]} rotation={[0.0,0.0,0]} />
+        <CameraFollowObjectVR name="car" position={[0,0.6,0.0]} rotation={[0.0,1.0,0]} />
       </>
     );
   }
