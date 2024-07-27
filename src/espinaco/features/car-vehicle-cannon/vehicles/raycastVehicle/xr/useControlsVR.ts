@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { useXRControllerState } from "@react-three/xr";
 import * as THREE from "three";
 
+// IMPORTANT: This file is not used because not work !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 function useControlsVROculus(
   { current }: MutableRefObject<Record<GameControl, boolean>>,
   map: Record<ButtonName, GameControl>
