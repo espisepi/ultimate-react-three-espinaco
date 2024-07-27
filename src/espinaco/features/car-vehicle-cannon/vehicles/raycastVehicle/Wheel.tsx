@@ -1,9 +1,11 @@
 import type { CylinderProps } from '@react-three/cannon'
 import { useCompoundBody } from '@react-three/cannon'
 import { useGLTF } from '@react-three/drei'
-import { forwardRef } from 'react'
+import { forwardRef, useMemo } from 'react'
 import type { Group, Material, Mesh } from 'three'
 import type { GLTF } from 'three-stdlib/loaders/GLTFLoader'
+import { useVideoTexture } from '../../../videoplayer/hook/useVideoTexture'
+import * as THREE from 'three'
 
 useGLTF.preload('/wheel.glb')
 
@@ -37,12 +39,18 @@ export const Wheel = forwardRef<Group, WheelProps>(({ leftSide, radius = 0.7, ..
     ref,
   )
 
+
+  const videoTexture = useVideoTexture();
+  const materialVideo = useMemo<THREE.MeshBasicMaterial>(()=>{
+    return new THREE.MeshBasicMaterial({map:videoTexture ?? null, wireframe: true});
+  },[videoTexture]);
+
   return (
     <group ref={ref}>
       <group rotation={[0, 0, ((leftSide ? 1 : -1) * Math.PI) / 2]}>
-        <mesh material-wireframe={true} geometry={nodes.wheel_1.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.wheel_2.geometry} />
-        <mesh material-wireframe={true} geometry={nodes.wheel_3.geometry} />
+        <mesh material={materialVideo} geometry={nodes.wheel_1.geometry} />
+        <mesh material={materialVideo} geometry={nodes.wheel_2.geometry} />
+        <mesh material={materialVideo} geometry={nodes.wheel_3.geometry} />
       </group>
     </group>
   )
