@@ -58,7 +58,7 @@ const style = {
 } as const;
 
 const VehicleScene = () => {
-  const ToggledDebug = useToggledControl(Debug, "?");
+  // const ToggledDebug = useToggledControl(Debug, "?");
 
   return (
     <>
@@ -82,7 +82,7 @@ const VehicleScene = () => {
         }}
         allowSleep
       >
-        <ToggledDebug>
+        {/* <ToggledDebug> */}
           <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
           <Vehicle
             position={[0, 2, 0]}
@@ -92,7 +92,7 @@ const VehicleScene = () => {
           {/* <Pillar position={[-5, 2.5, -5]} userData={{ id: 'pillar-1' }} />
             <Pillar position={[0, 2.5, -5]} userData={{ id: 'pillar-2' }} />
             <Pillar position={[5, 2.5, -5]} userData={{ id: 'pillar-3' }} /> */}
-        </ToggledDebug>
+        {/* </ToggledwwaDebug> */}
       </Physics>
       {/* <Suspense fallback={null}>
           <Environment preset="night" />

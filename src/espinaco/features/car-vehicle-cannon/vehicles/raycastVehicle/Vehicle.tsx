@@ -99,7 +99,7 @@ function Vehicle({
     useRef<Group>(null),
   )
 
-  useEffect(() => vehicleApi.sliding.subscribe((v) => console.log('sliding', v)), [])
+  // useEffect(() => vehicleApi.sliding.subscribe((v) => console.log('sliding', v)), [])
 
   useFrame(() => {
     const { backward, brake, forward, left, reset, right, handbrake } = controls.current
