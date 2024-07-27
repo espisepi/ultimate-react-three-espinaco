@@ -137,16 +137,16 @@ function Vehicle({
     const xAxisLeft = thumstickStateLeft.xAxis ?? 0;
     const yAxisLeft = thumstickStateLeft.yAxis ?? 0;
 
-    if (xAxisLeft < 0.1) {
+    if (-xAxisLeft < 0.0) {
       left = true;
     }
-    if (xAxisLeft > 0.1) {
+    if (-xAxisLeft > 0.0) {
       right = true;
     }
-    if (yAxisLeft < 0.1) {
+    if (yAxisLeft < 0.0) {
       backward = true;
     }
-    if (yAxisLeft > 0.1) {
+    if (yAxisLeft > 0.0) {
       forward = true;
     }
     // FIN Left controllers ========================
@@ -167,10 +167,10 @@ function Vehicle({
     if (xAxisRight > 0.1) {
       right = true;
     }
-    if (yAxisRight < 0.1) {
+    if (-yAxisRight < 0.1) {
       handbrake = true;
     }
-    if (yAxisRight > 0.1) {
+    if (-yAxisRight > 0.1) {
       forward = true;
     }
     // FIN Right controllers ========================
