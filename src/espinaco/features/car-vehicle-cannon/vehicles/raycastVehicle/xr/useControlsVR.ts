@@ -1,46 +1,47 @@
 import type { MutableRefObject } from "react";
 import { useEffect, useRef } from "react";
-import { useXR } from "@react-three/xr";
+import { useXRControllerState } from "@react-three/xr";
+import * as THREE from "three";
 
 function useControlsVROculus(
   { current }: MutableRefObject<Record<GameControl, boolean>>,
   map: Record<ButtonName, GameControl>
 ) {
-  const { controllers } = useXR();
+  const leftController = useXRControllerState("left");
+  const rightController = useXRControllerState("right");
 
   useEffect(() => {
-    const handleButtonDown = (event: any) => {
-      const buttonName = event.data.name as unknown;
-      if (!isButtonName(buttonName)) return;
-      current[map[buttonName]] = true;
-    };
-
-    const handleButtonUp = (event: any) => {
-      const buttonName = event.data.name as unknown;
-      if (!isButtonName(buttonName)) return;
-      current[map[buttonName]] = false;
-    };
-
-    if (controllers) {
-      controllers.forEach((controller: any) => {
-        controller.addEventListener("selectstart", handleButtonDown);
-        controller.addEventListener("selectend", handleButtonUp);
-        controller.addEventListener("squeezestart", handleButtonDown);
-        controller.addEventListener("squeezeend", handleButtonUp);
-      });
-    }
-
-    return () => {
-      if (controllers) {
-        controllers.forEach((controller: any) => {
-          controller.removeEventListener("selectstart", handleButtonDown);
-          controller.removeEventListener("selectend", handleButtonUp);
-          controller.removeEventListener("squeezestart", handleButtonDown);
-          controller.removeEventListener("squeezeend", handleButtonUp);
-        });
+    const handleButtonChange = () => {
+      if (leftController) {
+        const thumbstickLeft = leftController.inputSource.gamepad?.axes;
+        if (thumbstickLeft) {
+          const [x, y] = thumbstickLeft;
+          current[map["thumbstick-left"]] = x < -0.5;
+          current[map["thumbstick-right"]] = x > 0.5;
+          current[map["thumbstick-up"]] = y < -0.5;
+          current[map["thumbstick-down"]] = y > 0.5;
+        }
+      }
+      if (rightController) {
+        const thumbstickRight = rightController.inputSource.gamepad?.axes;
+        if (thumbstickRight) {
+          const [x, y] = thumbstickRight;
+          current[map["thumbstick-left"]] = x < -0.5;
+          current[map["thumbstick-right"]] = x > 0.5;
+          current[map["thumbstick-up"]] = y < -0.5;
+          current[map["thumbstick-down"]] = y > 0.5;
+        }
       }
     };
-  }, [current, map, controllers]);
+
+    handleButtonChange();
+
+    const interval = setInterval(handleButtonChange, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [current, map, leftController, rightController]);
 }
 
 const vrControlMap = {
