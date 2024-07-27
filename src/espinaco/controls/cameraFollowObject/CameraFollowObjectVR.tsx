@@ -33,7 +33,7 @@ export function CameraFollowObjectVR({name="", interval = 1, position=[0,0,0], r
 
         // 2.2 - Recolocar la camara
         (ref.current as THREE.Object3D).position.set(position[0],position[1], position[2]);
-        // (ref.current as THREE.Object3D).rotation.set(rotation[0],rotation[1], rotation[2]);
+        (ref.current as THREE.Object3D).rotation.set(rotation[0],rotation[1], rotation[2]);
 
         // console.log("ENCONTRADO! ", {trainRef})
       }

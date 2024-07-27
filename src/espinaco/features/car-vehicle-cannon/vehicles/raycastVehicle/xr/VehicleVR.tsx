@@ -143,10 +143,10 @@ function Vehicle({
     if (-xAxisLeft > 0.0) {
       right = true;
     }
-    if (yAxisLeft < 0.0) {
+    if (-yAxisLeft < 0.0) {
       backward = true;
     }
-    if (yAxisLeft > 0.0) {
+    if (-yAxisLeft > 0.0) {
       // forward = true;
     }
     // FIN Left controllers ========================
