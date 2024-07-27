@@ -9,7 +9,7 @@ export const CarVehicleCannon: React.FC<CarVehicleCannonProps> = React.memo(
     return (
       <>
         <RaycastVehicle />
-        <CameraFollowObject name="car" position={[0,2.6,-4.0]} rotation={[0.3,3.1,0]} />
+        <CameraFollowObject name="car" position={[0,0.6,-0.0]} rotation={[0.3,3.1,0]} />
       </>
     );
   }
