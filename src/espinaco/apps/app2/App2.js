@@ -1,5 +1,5 @@
-import "./css/App2.css";
-import "./css/disabledDefaultStyles.css";
+// import "./css/App2.css";
+// import "./css/disabledDefaultStyles.css";
 
 
 export default function App2({ }) {
