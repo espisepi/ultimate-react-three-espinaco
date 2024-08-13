@@ -21,16 +21,16 @@ export type VehicleProps = Required<Pick<BoxProps, 'angularVelocity' | 'position
 
 function Vehicle({
   angularVelocity,
-  back = -1.15,
-  force = 1500,
-  front = 1.3,
-  height = -0.04,
-  maxBrake = 50,
+  back = -1.4,
+  force = 4000, // Fuerza aumentada para simular un motor potente de rally
+  front = 1.5,
+  height = -0.1,
+  maxBrake = 100, // Frenos más potentes para un coche de rally
   position,
-  radius = 0.7,
+  radius = 0.5, // Radios de ruedas más pequeños y realistas
   rotation,
-  steer = 0.5, // Permite giros mas agresivos
-  width = 1.2,
+  steer = 0.35, // Menos ángulo de giro para simular un control más realista
+  width = 1.6,
 }: VehicleProps) {
   const wheels = [useRef<Group>(null), useRef<Group>(null), useRef<Group>(null), useRef<Group>(null)]
 
@@ -39,21 +39,21 @@ function Vehicle({
   const wheelInfoFront: WheelInfoOptions = {
     axleLocal: [-1, 0, 0],
     customSlidingRotationalSpeed: -30,
-    dampingCompression: 4.4,
-    dampingRelaxation: 10,
+    dampingCompression: 4.5, // Un poco más de amortiguación para el terreno irregular
+    dampingRelaxation: 6.5, // Amortiguación más relajada para un coche de rally
     directionLocal: [0, -1, 0],
-    frictionSlip: 2, // Friccion normal para las ruedas delanteras
-    maxSuspensionForce: 1e4,
-    maxSuspensionTravel: 0.3,
+    frictionSlip: 1.5, // Fricción ajustada para buen agarre en distintas superficies
+    maxSuspensionForce: 20000, // Suspensión robusta para terrenos difíciles
+    maxSuspensionTravel: 0.5, // Mayor recorrido de suspensión para terreno irregular
     radius,
-    suspensionRestLength: 0.3,
-    suspensionStiffness: 30,
+    suspensionRestLength: 0.4, // Longitud de suspensión un poco más larga
+    suspensionStiffness: 45, // Suspensión más rígida para manejo en rally
     useCustomSlidingRotationalSpeed: true,
   }
 
   const wheelInfoBack: WheelInfoOptions = {
     ...wheelInfoFront,
-    frictionSlip: 0.8, // Baja fricción para las ruedas traseras para facilitar el drift
+    frictionSlip: 1.2, // Un poco menos de fricción en las ruedas traseras para facilitar el derrape controlado
   }
 
   const wheelInfo1: WheelInfoOptions = {
@@ -81,8 +81,8 @@ function Vehicle({
     () => ({
       allowSleep: false,
       angularVelocity,
-      args: [1.7, 1, 4],
-      mass: 500, // Aumenta la masa del chasis para mejorar la estabilidad
+      args: [1.8, 0.8, 4.2], // Ajustado para reflejar un coche de rally más largo y estrecho
+      mass: 1200, // Masa realista para un coche de rally
       onCollide: (e) => console.log('bonk', e.body.userData),
       position,
       rotation,
@@ -98,8 +98,6 @@ function Vehicle({
     }),
     useRef<Group>(null),
   )
-
-  // useEffect(() => vehicleApi.sliding.subscribe((v) => console.log('sliding', v)), [])
 
   useFrame(() => {
     const { backward, brake, forward, left, reset, right, handbrake } = controls.current

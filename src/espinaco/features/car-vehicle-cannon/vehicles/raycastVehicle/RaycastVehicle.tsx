@@ -74,26 +74,30 @@ const VehicleScene = () => {
           penumbra={1}
           position={[10, 10, 10]}
         /> */}
-      <Physics
-        broadphase="SAP"
-        defaultContactMaterial={{
-          contactEquationRelaxation: 4,
-          friction: 1e-3,
-        }}
-        allowSleep
-      >
-        {/* <ToggledDebug> */}
-        <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
-        <Vehicle
-          position={[0, 2, 0]}
-          rotation={[0, -Math.PI / 4, 0]}
-          angularVelocity={[0, 0.5, 0]}
-        />
-        {/* <Pillar position={[-5, 2.5, -5]} userData={{ id: 'pillar-1' }} />
-            <Pillar position={[0, 2.5, -5]} userData={{ id: 'pillar-2' }} />
-            <Pillar position={[5, 2.5, -5]} userData={{ id: 'pillar-3' }} /> */}
-        {/* </ToggledwwaDebug> */}
-      </Physics>
+<Physics
+  broadphase="SAP"
+  defaultContactMaterial={{
+    contactEquationRelaxation: 2.5, // Mantén una ligera relajación para evitar rebotes duros
+    friction: 1.5, // Alta fricción para asegurar que el coche no derrape fácilmente
+  }}
+  allowSleep
+>
+  <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
+  <Vehicle
+    position={[0, 1.5, 0]} // Altura estándar para un coche de rally
+    rotation={[0, 0, 0]} // Sin rotación inicial para un arranque más estable
+    angularVelocity={[0, 0.2, 0]} // Baja velocidad angular para minimizar el riesgo de trompo
+    force={3000} // Fuerza del motor moderada para facilitar el control
+    maxBrake={150} // Frenos muy potentes para una parada rápida y estable
+    radius={0.6} // Ruedas ligeramente más grandes para mayor estabilidad
+    steer={0.25} // Dirección reducida para evitar giros bruscos
+    width={2.0} // Ancho aumentado para mejorar la estabilidad lateral
+    height={-0.05} // Ruedas más cerca del suelo para bajar el centro de gravedad
+    back={-1.6} // Posición de las ruedas traseras más retrasada para mayor estabilidad
+    front={1.6} // Posición de las ruedas delanteras más adelantada para mejor control
+  />
+</Physics>
+
       {/* <Suspense fallback={null}>
           <Environment preset="night" />
         </Suspense>
