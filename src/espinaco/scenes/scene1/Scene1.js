@@ -29,7 +29,7 @@ export const Scene1 = React.memo(({}) => {
 
       {showRollercoaster && <Rollercoaster />}
 
-      {/* <GoogleMaps3DScene /> */}
+      <GoogleMaps3DScene />
 
       {/* <Scene1UI /> */}
 
