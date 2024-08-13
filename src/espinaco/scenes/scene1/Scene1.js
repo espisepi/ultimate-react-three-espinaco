@@ -5,6 +5,7 @@ import { Rollercoaster } from "../../features/rollercoaster/Rollercoaster";
 import useScene1Store from "./Scene1Store";
 import Stars from "../../prefabs/stars/Stars";
 import { Scene1UI } from "./Scene1UI";
+import { GoogleMaps3DScene } from "../../features/googlemaps3d/GoogleMaps3DScene";
 
 
 export const Scene1 = React.memo(({}) => {
@@ -27,6 +28,8 @@ export const Scene1 = React.memo(({}) => {
       )}
 
       {showRollercoaster && <Rollercoaster />}
+
+      {/* <GoogleMaps3DScene /> */}
 
       {/* <Scene1UI /> */}
 

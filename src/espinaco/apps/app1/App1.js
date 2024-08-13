@@ -14,13 +14,19 @@ import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ran
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../components/clickToStart/ClickToStart";
+import GoogleMaps3D from "../../features/googlemaps3d/GoogleMaps3D";
 
 const window_showVideo = window.showVideo || false;
 
 export default function App1({}) {
+  const [hidden,setHidden] = useState(false);
   return (
     <>
       <ClickToStart password="">
+        <button onClick={()=>setHidden(v=>!v)}>PULSA</button>
+        <div style={{ position: "relative", top: 0, zIndex: 999999, display: hidden ? 'none' : 'block'}}>
+        <GoogleMaps3D />
+        </div>
         <App1Start />
       </ClickToStart>
     </>
