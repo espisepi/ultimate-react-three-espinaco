@@ -5,6 +5,7 @@ import { Rollercoaster } from "../../features/rollercoaster/Rollercoaster";
 import useScene1Store from "./Scene1Store";
 import Stars from "../../prefabs/stars/Stars";
 import { Scene1UI } from "./Scene1UI";
+import GBA from "../../features/gba-js-org/GBA";
 
 
 export const Scene1 = React.memo(({}) => {
@@ -13,6 +14,8 @@ export const Scene1 = React.memo(({}) => {
     (state) => state.showTextTessellation
   );
   const showRollercoaster = useScene1Store((state) => state.showRollercoaster);
+  const showGBA = useScene1Store((state) => state.showGBA);
+
 
   return (
     <>
@@ -27,6 +30,8 @@ export const Scene1 = React.memo(({}) => {
       )}
 
       {showRollercoaster && <Rollercoaster />}
+
+      {showGBA && <GBA />}
 
       {/* <Scene1UI /> */}
 

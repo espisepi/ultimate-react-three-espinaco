@@ -85,7 +85,7 @@ export default function IframeGBA({
               title="embed"
               width={1366}
               height={1024}
-              src="/gba/index.html"
+              src="/gbajs/index.html"
               frameBorder={0}
             />
           </Html>
