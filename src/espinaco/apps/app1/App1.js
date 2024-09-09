@@ -14,6 +14,8 @@ import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ran
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../components/clickToStart/ClickToStart";
+import useScene1Store from "../../scenes/scene1/Scene1Store";
+import "./App1.css";
 
 const window_showVideo = window.showVideo || false;
 
@@ -29,7 +31,7 @@ export default function App1({}) {
 
 export function App1Start() {
   const displayVideoplayer = useAppManagerStore(
-    (state) => state.displayVideoplayer
+    (state) => state.displayVideoplayer,
   );
 
   //======================================
@@ -74,10 +76,39 @@ export function App1Start() {
     }
   };
 
+  // Show Menu Secondary
+  // const [showMenuSecondary, setShowMenuSecondary] = useState(true);
+  // const handleShowMenuSecondary = useCallback(() => {
+  //   setShowMenuSecondary((v) => !showMenuSecondary);
+  // }, [showVideo]);
+
+  // const showGBA = useScene1Store((state) => state.showGBA);
+  // const setShowGBA = useScene1Store((state) => state.setShowGBA);
+
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
         <CanvasManager />
+
+        {/* <div
+          className="container-menu-secondary"
+          style={{ display: showMenuSecondary ? "block" : "none" }}
+        >
+          <ul>
+            <li>
+              <button onClick={() => handleShowMenuSecondary()}>
+                Quitar menu
+              </button>
+            </li>
+            <li>
+              <button onClick={() => setShowGBA(!showGBA)}>
+                { showGBA && 'No Mostrar '}
+                { !showGBA && 'Mostrar '}
+                 GBA
+              </button>
+            </li>
+          </ul>
+        </div> */}
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 

@@ -21,10 +21,12 @@ export default function IframeGBA({
   };
 
   const canvasIframe = useIframeCanvas();
+  // const canvasIframeRef = useRef(null);
   const [videoPoints, setVideoPoints] = useState();
   const [canvasTexture, setCanvasTexture] = useState();
   const [videoTexture, setVideoTexture] = useState();
   useEffect(() => {
+    // if (canvasIframeRef.current) {
     if (canvasIframe) {
       // console.log({ canvasIframe });
       // console.log({ videoPoints: window.videoPoints });
@@ -35,16 +37,27 @@ export default function IframeGBA({
       const videoTexture = videoPoints.material.uniforms.iChannel0.value;
       setVideoTexture(videoTexture);
       // Reemplazamos la textura del videoclip por el canvas
+      // const canvasTexture = new THREE.CanvasTexture(canvasIframeRef.current);
       const canvasTexture = new THREE.CanvasTexture(canvasIframe);
       canvasTexture.needsUpdate = true;
       videoPoints.material.uniforms.iChannel0.value = canvasTexture;
       videoPoints.material.needsUpdate = true;
       setCanvasTexture(canvasTexture);
     }
+
+    // return () => {
+    //   setCanvasTexture(null);
+    // }
+  // }, [canvasIframeRef.current]);
   }, [canvasIframe]);
+
   useFrame(() => {
+      // console.log(displayTextureGbaGame,videoPoints,canvasTexture)
+
+    // if (displayTextureGbaGame && videoPoints && canvasTexture && canvasIframeRef.current) {console.log("ss")
     if (displayTextureGbaGame && videoPoints && canvasTexture) {
       // TODO: Optimizar esta parte para no crear canvasTexture todo el tiempo
+      // const canvasTexture = new THREE.CanvasTexture(canvasIframeRef.current);
       const canvasTexture = new THREE.CanvasTexture(canvasIframe);
       videoPoints.material.uniforms.iChannel0.value = canvasTexture;
     } else if (!displayTextureGbaGame && videoTexture) {
@@ -76,6 +89,7 @@ export default function IframeGBA({
               }}
             ></button>
             <iframe
+            // ref={canvasIframeRef}
               id="iframe-gba"
               style={
                 visible
