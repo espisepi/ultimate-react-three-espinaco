@@ -1,0 +1,29 @@
+
+
+2 menus:
+
+- Menu boton izquierda aka menu 1: Menu para Cambiar opciones de la aplicacion, aqui iria:
+  -- El video mp4 con sus botones de manipulacion
+  -- El listado de videos disponibles
+  -- La opcion para subir un video
+  -- Botones de cambio de escena, resolucion video, control, VR
+
+- Menu boton derecha aka menu 2: Menu para Cambiar opciones de una escena, aqui iria:
+  -- poner/quitar elementos de la escena (rollercoaster, texto sepinaco, Stars...)
+  -- modificar elementos de la escena (los sliders actuales que tengo que modifican los elementos de la escena como el tamaño de puntos de videopoints o de las Stars)
+
+=============================
+
+Pantalla principal, aparecen 3 botones en el centro inferior de la patalla y un boton en la esquina derecha para fullscreen:
+
+- Boton central: Boton para ocultar todos los 3 botones y el raton si se hace hover sobre ese boton.
+
+- Boton izquierda: Boton para abrir el menu 1 que se superpone en la pantalla con las opciones
+
+- Boton derecha: Boton para abrir el menu 2 que se superpone en la pantalla con las opciones
+
+- Boton esquina derecha: fullscreen
+
+=============================
+
+
