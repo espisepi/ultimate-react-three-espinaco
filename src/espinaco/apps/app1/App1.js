@@ -90,25 +90,20 @@ export function App1Start() {
       <FullScreen showButton={showVideo}>
         <CanvasManager />
 
-        {/* <div
-          className="container-menu-secondary"
-          style={{ display: showMenuSecondary ? "block" : "none" }}
-        >
-          <ul>
-            <li>
-              <button onClick={() => handleShowMenuSecondary()}>
-                Quitar menu
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setShowGBA(!showGBA)}>
-                { showGBA && 'No Mostrar '}
-                { !showGBA && 'Mostrar '}
-                 GBA
-              </button>
-            </li>
-          </ul>
-        </div> */}
+        <div className="menu-container menu-1 active">
+          <button class="menu-button">Abrir menu 1</button>
+          <button class="menu-button">Esconder botones</button>
+          <button class="menu-button">Abrir menu 2</button>
+        </div>
+
+        <div className="menu-container menu-2">
+          <h1>OYEEEEEEEEEE</h1>
+
+        </div>
+
+        <div className="menu-container menu-3">
+          <h1>OYEEEEEEEEEE</h1>
+        </div>
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
