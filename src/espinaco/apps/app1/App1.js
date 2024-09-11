@@ -16,7 +16,7 @@ import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../components/clickToStart/ClickToStart";
 import useScene1Store from "../../scenes/scene1/Scene1Store";
 import "./App1.css";
-import { UIManager } from "./features/ui/manager/UIManager";
+import { UIRouter } from "./features/ui/router/UIRouter";
 
 const window_showVideo = window.showVideo || false;
 
@@ -91,7 +91,7 @@ export function App1Start() {
       <FullScreen showButton={showVideo}>
         <CanvasManager />
 
-        <UIManager />
+        <UIRouter />
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
