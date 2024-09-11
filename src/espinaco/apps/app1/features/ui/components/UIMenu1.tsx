@@ -1,15 +1,10 @@
 import useUIManagerStore, { ScreenID } from "../store/UIManagerStore";
 
-export interface UIMenu1Props {
-  visibility: boolean;
-}
-
-export const UIMenu1 = ({ visibility = true }: UIMenu1Props) => {
+export const UIMenu1 = () => {
   // Ver el estado de las pantallas
-  const screenStates = useUIManagerStore((state) => state.screens);
-  const { screen1 } = screenStates;
-  const { screen2 } = screenStates;
-  const { screen3 } = screenStates;
+  const { screen1, screen2, screen3 } = useUIManagerStore(
+    (state) => state.screens,
+  );
 
   // Modificar el estado de las pantallas
   const setVisibleScreen = useUIManagerStore((state) => state.setVisibleScreen);
@@ -31,7 +26,7 @@ export const UIMenu1 = ({ visibility = true }: UIMenu1Props) => {
 
   return (
     <>
-      <div className={`menu-container menu-1 ${visibility ? "active" : ""}`}>
+      <div className={`menu-container menu-1 ${screen1 ? "active" : ""}`}>
         <button
           className="menu-button button-style icon-container"
           onClick={() => toggleActivateScreen2()}
