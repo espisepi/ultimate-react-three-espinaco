@@ -16,7 +16,7 @@ import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../components/clickToStart/ClickToStart";
 import useScene1Store from "../../scenes/scene1/Scene1Store";
 import "./App1.css";
-import { UIManager } from "./components/ui/manager/UIManager";
+import { UIManager } from "./features/ui/manager/UIManager";
 
 const window_showVideo = window.showVideo || false;
 

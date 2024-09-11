@@ -1,5 +1,5 @@
 import React from "react";
-import { UIMenu1 } from "../features/UIMenu1";
+import { UIMenu1 } from "../components/UIMenu1";
 
 export const UIManager = () => {
   return (
