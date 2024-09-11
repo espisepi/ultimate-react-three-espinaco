@@ -1,6 +1,6 @@
 import React from "react";
 import { UIMenu1 } from "../components/UIMenu1";
-import useUIManagerStore, { ScreenID } from "../store/UIManagerStore";
+import useUIManagerStore from "../store/UIManagerStore";
 import { UIMenu2 } from "../components/UIMenu2";
 import { UIMenu3 } from "../components/UIMenu3";
 

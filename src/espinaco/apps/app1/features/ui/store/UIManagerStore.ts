@@ -10,8 +10,9 @@ export enum ScreenID {
 
 interface ScreenState {
   screens: { [key in ScreenID]: boolean }; // Tipado dinamico con el enum
-  setActiveScreen: (id: ScreenID) => void;
-  setDesactiveScreen: (id: ScreenID) => void;
+  // setActiveScreen: (id: ScreenID) => void;
+  // setDesactiveScreen: (id: ScreenID) => void;
+  setVisibleScreen: (id: ScreenID, isVisible: boolean) => void;
 }
 
 const useUIManagerStore = create<ScreenState>((set) => ({
@@ -22,19 +23,28 @@ const useUIManagerStore = create<ScreenState>((set) => ({
     // Si agregas mas pantallas, anadelas aqui tambien
   },
 
-  setActiveScreen: (id: ScreenID) =>
-    set((state) => ({
-      screens: {
-        ...state.screens,
-        [id]: true, // Activamos la pantalla usando el enum
-      },
-    })),
+  // setActiveScreen: (id: ScreenID) =>
+  //   set((state) => ({
+  //     screens: {
+  //       ...state.screens,
+  //       [id]: true, // Activamos la pantalla usando el enum
+  //     },
+  //   })),
 
-  setDesactiveScreen: (id: ScreenID) =>
+  // setDesactiveScreen: (id: ScreenID) =>
+  //   set((state) => ({
+  //     screens: {
+  //       ...state.screens,
+  //       [id]: false, // Desactivamos la pantalla usando el enum
+  //     },
+  //   })),
+
+  setVisibleScreen: (id: ScreenID, isVisible: boolean) =>
     set((state) => ({
       screens: {
-        ...state.screens,
-        [id]: false, // Desactivamos la pantalla usando el enum
+        screen1: id == ScreenID.Screen1 ? isVisible : true, // Por defecto es true porque los botones de la screen1 controlan las demas screen y tienen que aparecer siempre
+        screen2: id == ScreenID.Screen2 ? isVisible : false, // Por defecto es false para que no se muestre si se selecciona otro screen
+        screen3: id == ScreenID.Screen3 ? isVisible : false, // idem anterior
       },
     })),
 }));
