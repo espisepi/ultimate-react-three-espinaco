@@ -1,6 +1,6 @@
 import { ScreenID, useUIStore } from "../store/UIStore";
 
-export const UIMenu1 = () => {
+export const UIPage1 = () => {
   // Ver el estado de las pantallas
   const { screen1, screen2, screen3 } = useUIStore(
     (state) => state.screens,

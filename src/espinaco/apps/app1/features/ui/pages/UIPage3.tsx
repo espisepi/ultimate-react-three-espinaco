@@ -1,6 +1,6 @@
 import { useUIStore } from "../store/UIStore";
 
-export const UIMenu3 = () => {
+export const UIPage3 = () => {
   const { screen3 } = useUIStore((state) => state.screens);
 
   return (

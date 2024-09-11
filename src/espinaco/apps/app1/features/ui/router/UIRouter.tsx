@@ -1,15 +1,16 @@
-import { UIMenu1 } from "../pages/UIMenu1";
-import { UIMenu2 } from "../pages/UIMenu2";
-import { UIMenu3 } from "../pages/UIMenu3";
+import { UIPage1 } from "../pages/UIPage1";
+import { UIPage2 } from "../pages/UIPage2";
+import { UIPage3 } from "../pages/UIPage3";
+
 
 export const UIRouter = () => {
   return (
     <>
-      <UIMenu1 />
+      <UIPage1 />
 
-      <UIMenu2 />
+      <UIPage2 />
 
-      <UIMenu3 />
+      <UIPage3 />
     </>
   );
 };
