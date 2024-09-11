@@ -1,16 +1,17 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 // Definimos el enumerado para los IDs de pantalla
 export enum ScreenID {
-  Screen1 = 'screen1',
-  Screen2 = 'screen2',
-  Screen3 = 'screen3',
+  Screen1 = "screen1",
+  Screen2 = "screen2",
+  Screen3 = "screen3",
   // Agrega más pantallas aqui si es necesario
 }
 
 interface ScreenState {
-  screens: { [key in ScreenID]: boolean };  // Tipado dinamico con el enum
+  screens: { [key in ScreenID]: boolean }; // Tipado dinamico con el enum
   setActiveScreen: (id: ScreenID) => void;
+  setDesactiveScreen: (id: ScreenID) => void;
 }
 
 const useUIManagerStore = create<ScreenState>((set) => ({
@@ -21,17 +22,24 @@ const useUIManagerStore = create<ScreenState>((set) => ({
     // Si agregas mas pantallas, anadelas aqui tambien
   },
 
-  setActiveScreen: (id: ScreenID) => set((state) => ({
-    screens: {
-      ...state.screens,
-      [id]: true,  // Activamos la pantalla usando el enum
-    }
-  })),
+  setActiveScreen: (id: ScreenID) =>
+    set((state) => ({
+      screens: {
+        ...state.screens,
+        [id]: true, // Activamos la pantalla usando el enum
+      },
+    })),
+
+  setDesactiveScreen: (id: ScreenID) =>
+    set((state) => ({
+      screens: {
+        ...state.screens,
+        [id]: false, // Desactivamos la pantalla usando el enum
+      },
+    })),
 }));
 
 export default useUIManagerStore;
-
-
 
 // Codigo sin usar enumerado
 
