@@ -85,7 +85,10 @@
 }
 
 .icon-container {
-  
+
+  width: 5rem;
+  height: 5rem;
+
   background-size: 4rem;
   background-repeat: no-repeat;
   background-position: center;
