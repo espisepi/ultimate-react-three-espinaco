@@ -1,6 +1,6 @@
 import React from "react";
 import { UIMenu1 } from "../components/UIMenu1";
-import useUIManagerStore from "../store/UIManagerStore";
+import useUIManagerStore, { ScreenID } from "../store/UIManagerStore";
 
 export const UIManager = () => {
 
@@ -15,17 +15,17 @@ export const UIManager = () => {
 
   // Activa la pantalla 1
   const activateScreen1 = () => {
-    setActiveScreen("screen1");
+    setActiveScreen(ScreenID.Screen1);
   };
 
   // Activa la pantalla 2
   const activateScreen2 = () => {
-    setActiveScreen("screen2");
+    setActiveScreen(ScreenID.Screen2);
   };
 
   // Activa la pantalla 3
   const activateScreen3 = () => {
-    setActiveScreen("screen3");
+    setActiveScreen(ScreenID.Screen3);
   };
 
   return (
