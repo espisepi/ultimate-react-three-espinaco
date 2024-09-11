@@ -1,7 +1,7 @@
-import useUIManagerStore from "../store/UIManagerStore";
+import { useUIStore } from "../store/UIStore";
 
 export const UIMenu3 = () => {
-  const { screen3 } = useUIManagerStore((state) => state.screens);
+  const { screen3 } = useUIStore((state) => state.screens);
 
   return (
     <>

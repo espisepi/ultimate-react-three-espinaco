@@ -1,13 +1,13 @@
-import useUIManagerStore, { ScreenID } from "../store/UIManagerStore";
+import { ScreenID, useUIStore } from "../store/UIStore";
 
 export const UIMenu1 = () => {
   // Ver el estado de las pantallas
-  const { screen1, screen2, screen3 } = useUIManagerStore(
+  const { screen1, screen2, screen3 } = useUIStore(
     (state) => state.screens,
   );
 
   // Modificar el estado de las pantallas
-  const setVisibleScreen = useUIManagerStore((state) => state.setVisibleScreen);
+  const setVisibleScreen = useUIStore((state) => state.setVisibleScreen);
 
   // Activa la pantalla 1
   const toggleActivateScreen1 = () => {

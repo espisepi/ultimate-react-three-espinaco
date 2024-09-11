@@ -1,7 +1,7 @@
-import useUIManagerStore from "../store/UIManagerStore";
+import { useUIStore } from "../store/UIStore";
 
 export const UIMenu2 = () => {
-  const { screen2 } = useUIManagerStore((state) => state.screens);
+  const { screen2 } = useUIStore((state) => state.screens);
   return (
     <>
       <div className={`menu-container menu-2 ${screen2 ? "active" : ""}`}>

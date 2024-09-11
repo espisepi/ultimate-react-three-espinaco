@@ -8,14 +8,14 @@ export enum ScreenID {
   // Agrega más pantallas aqui si es necesario
 }
 
-interface ScreenState {
+export interface ScreenState {
   screens: { [key in ScreenID]: boolean }; // Tipado dinamico con el enum
   // setActiveScreen: (id: ScreenID) => void;
   // setDesactiveScreen: (id: ScreenID) => void;
   setVisibleScreen: (id: ScreenID, isVisible: boolean) => void;
 }
 
-const useUIManagerStore = create<ScreenState>((set) => ({
+export const useUIStore = create<ScreenState>((set) => ({
   screens: {
     [ScreenID.Screen1]: true,
     [ScreenID.Screen2]: false,
@@ -49,7 +49,6 @@ const useUIManagerStore = create<ScreenState>((set) => ({
     })),
 }));
 
-export default useUIManagerStore;
 
 // Codigo sin usar enumerado
 
