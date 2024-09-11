@@ -1,7 +1,7 @@
-import useAppManagerStore from "../manager/store/AppManagerStore";
+import { useAppStore } from "../../store/AppStore";
 
 export default function App0() {
-  const setAppId = useAppManagerStore((state) => state.setAppId);
+  const setAppId = useAppStore((state) => state.setAppId);
 
   return (
     <>

@@ -1,7 +1,7 @@
 // store.ts
 import { create } from 'zustand';
 
-interface AppManagerState {
+export interface AppState {
   appId: number;
   xrmode: boolean;
   displayVideoplayer: boolean;
@@ -10,7 +10,7 @@ interface AppManagerState {
   setDisplayVideoPlayer: (newDisplayVideoPlayer: boolean) => void;
 }
 
-const useAppManagerStore = create<AppManagerState>((set) => ({
+export const useAppStore = create<AppState>((set) => ({
   appId: 1,
   xrmode: false,
   displayVideoplayer: true,
@@ -19,5 +19,3 @@ const useAppManagerStore = create<AppManagerState>((set) => ({
   setXrmode: (newXrmode) => set({ xrmode: newXrmode }),
   setDisplayVideoPlayer: (newDisplayVideoPlayer) => set({ displayVideoplayer: newDisplayVideoPlayer }),
 }));
-
-export default useAppManagerStore;

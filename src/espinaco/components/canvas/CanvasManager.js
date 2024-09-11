@@ -1,4 +1,4 @@
-import useAppManagerStore from "../../apps/manager/store/AppManagerStore";
+import { useAppStore } from "../../store/AppStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import SceneManager from "../../scenes/manager/SceneManager";
@@ -8,7 +8,7 @@ import CanvasXR from "./CanvasXR";
 
 
 export function CanvasManager() {
-      const xrmode = useAppManagerStore((state) => state.xrmode);
+      const xrmode = useAppStore((state) => state.xrmode);
 
     return (
         <>
