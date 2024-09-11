@@ -1,6 +1,6 @@
-import { UIMenu1 } from "../components/UIMenu1";
-import { UIMenu2 } from "../components/UIMenu2";
-import { UIMenu3 } from "../components/UIMenu3";
+import { UIMenu1 } from "../screens/UIMenu1";
+import { UIMenu2 } from "../screens/UIMenu2";
+import { UIMenu3 } from "../screens/UIMenu3";
 
 export const UIManager = () => {
   return (
