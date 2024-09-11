@@ -1,4 +1,4 @@
-import { ScreenID, useUIStore } from "../store/UIStore";
+import { ScreenID, useUIStore } from "../../store/UIStore";
 
 export const UIPage1 = () => {
   // Ver el estado de las pantallas

@@ -1,6 +1,6 @@
-import { UIPage1 } from "../pages/UIPage1";
-import { UIPage2 } from "../pages/UIPage2";
-import { UIPage3 } from "../pages/UIPage3";
+import { UIPage1 } from "../pages/page1/UIPage1";
+import { UIPage2 } from "../pages/page2/UIPage2";
+import { UIPage3 } from "../pages/page3/UIPage3";
 
 
 export const UIRouter = () => {

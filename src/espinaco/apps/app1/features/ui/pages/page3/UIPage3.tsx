@@ -1,4 +1,4 @@
-import { useUIStore } from "../store/UIStore";
+import { useUIStore } from "../../store/UIStore";
 
 export const UIPage3 = () => {
   const { screen3 } = useUIStore((state) => state.screens);
