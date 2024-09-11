@@ -1,3 +1,8 @@
 - TODO Upload video
 
 - TODO gba iframe game
+
+- UI styled component: https://blog.logrocket.com/using-styled-components-in-typescript-a-tutorial-with-examples/
+  -- yarn add styled-components
+  -- yarn add -D @types/styled-components
+  -- yarn add @material-ui/icons @material-ui/core (https://mui.com/material-ui/material-icons/)
