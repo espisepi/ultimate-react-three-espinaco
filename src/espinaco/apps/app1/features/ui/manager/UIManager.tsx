@@ -1,6 +1,7 @@
 import React from "react";
 import { UIMenu1 } from "../components/UIMenu1";
 import useUIManagerStore, { ScreenID } from "../store/UIManagerStore";
+import { UIMenu2 } from "../components/UIMenu2";
 
 export const UIManager = () => {
 
@@ -32,9 +33,7 @@ export const UIManager = () => {
     <>
       <UIMenu1 visibility={screen1} />
 
-      <div className="menu-container menu-2">
-        <h1>OYEEEEEEEEEE</h1>
-      </div>
+      <UIMenu2 visibility={screen2} />
 
       <div className="menu-container menu-3">
         <h1>OYEEEEEEEEEE</h1>
