@@ -5,23 +5,28 @@ export interface UIMenu1Props {
 }
 
 export const UIMenu1 = ({ visibility = true }: UIMenu1Props) => {
+  // Ver el estado de las pantallas
+  const screenStates = useUIManagerStore((state) => state.screens);
+  const { screen1 } = screenStates;
+  const { screen2 } = screenStates;
+  const { screen3 } = screenStates;
 
   // Modificar el estado de las pantallas
   const setVisibleScreen = useUIManagerStore((state) => state.setVisibleScreen);
 
   // Activa la pantalla 1
   const toggleActivateScreen1 = () => {
-    setVisibleScreen(ScreenID.Screen1, true);
+    setVisibleScreen(ScreenID.Screen1, !screen1);
   };
 
   // Activa la pantalla 2
   const toggleActivateScreen2 = () => {
-    setVisibleScreen(ScreenID.Screen2, true);
+    setVisibleScreen(ScreenID.Screen2, !screen2);
   };
 
   // Activa la pantalla 3
   const toggleActivateScreen3 = () => {
-    setVisibleScreen(ScreenID.Screen3, true);
+    setVisibleScreen(ScreenID.Screen3, !screen3);
   };
 
   return (
