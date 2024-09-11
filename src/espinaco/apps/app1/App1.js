@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
 import useAppManagerStore from "../manager/store/AppManagerStore";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
-import ButtonChangeXRMode from "../manager/components/buttons/ButtonChangeXRMode";
+import { ButtonChangeXRMode } from "../../components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";

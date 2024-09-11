@@ -1,6 +1,6 @@
-import useAppManagerStore from "../../store/AppManagerStore";
+import useAppManagerStore from "../../apps/manager/store/AppManagerStore";
 
-export default function ButtonChangeXRMode({ showButton = true }) {
+export function ButtonChangeXRMode({ showButton = true }) {
     
   const xrmode = useAppManagerStore((state) => state.xrmode);
   const setXrmode = useAppManagerStore((state) => state.setXrmode);

@@ -7,7 +7,6 @@ import type { Group, Mesh } from "three";
 import { Chassis } from "../Chassis";
 import { useControlsVR } from "./useControlsVR";
 import { Wheel } from "../Wheel";
-import useAppManagerStore from "../../../../../apps/manager/store/AppManagerStore";
 import { useXRControllerState } from "@react-three/xr";
 
 export type VehicleProps = Required<
