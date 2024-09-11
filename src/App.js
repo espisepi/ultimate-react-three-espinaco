@@ -1,7 +1,7 @@
 import "./App.css";
 
-import AppManager from "./espinaco/apps/manager/AppManager";
+import { AppRouter } from "./espinaco/router/AppRouter";
 
 export default function App() {
-  return <AppManager />;
+  return <AppRouter />;
 }

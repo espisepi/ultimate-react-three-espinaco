@@ -1,9 +1,9 @@
-import App0 from "../app0/App0";
-import App1 from "../app1/App1";
-import App2 from "../app2/App2";
-import useAppManagerStore from "./store/AppManagerStore";
+import App0 from "../apps/app0/App0";
+import App1 from "../apps/app1/App1";
+import App2 from "../apps/app2/App2";
+import useAppManagerStore from "../apps/manager/store/AppManagerStore";
 
-export default function AppManager() {
+export const AppRouter = () => {
   const appId = useAppManagerStore((state) => state.appId);
   return (
     <>
