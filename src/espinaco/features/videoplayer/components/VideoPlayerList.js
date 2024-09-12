@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
-import { normalizeText } from "../../../utils/normalizeText";
+import { normalizeText } from "../utils/normalizeText";
 
 export default function VideoPlayerList({ showUI = true }) {
   const videos = useVideoPlayerStore((state) => state.videos);

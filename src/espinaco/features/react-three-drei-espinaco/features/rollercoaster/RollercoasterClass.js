@@ -6,7 +6,7 @@ import {
   TreesGeometry,
   SkyGeometry,
 } from "three/addons/misc/RollerCoaster.js";
-import { disposeAll } from "../../../../utils/disposeAll";
+import { disposeAll } from "../../utils/disposeAll";
 
 export default class RollercoasterClass {
   constructor({ scene, camera, videoTexture, isWireframe = false, isColor = false, urlSound = 'videos/jaguar.mp4', volume = 0.0, circuit = 0, isVisibleTube = false }) {
