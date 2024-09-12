@@ -5,7 +5,7 @@ import { useCallback, useEffect } from "react";
 //   ROSALIA,
 //   useVideoPlayerStore,
 // } from "./VideoPlayerStore";
-import VideoPlayerList from "./VideoPlayerList";
+import VideoPlayerList from "../components/VideoPlayerList";
 import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
 import { normalizeText } from "../../../utils/normalizeText";
 

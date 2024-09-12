@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import VideoPlayer from "../../../features/videoplayer/components/VideoPlayer";
+import VideoPlayer from "../../../features/videoplayer/pages/VideoPlayer";
 import { useAppStore } from "../../../app-module/store/AppStore";
 import ButtonChangeControls from "../../../features/react-three-drei-espinaco/controls/manager/components/buttons/ButtonChangeControls";
 import { ButtonChangeXRMode } from "../../../components/button-change-xr-mode/ButtonChangeXRMode";
