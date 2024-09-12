@@ -1,11 +1,11 @@
 import React from "react";
 import VideoPoints from "../../../prefabs/videoPoints/VideoPoints";
 import TextTessellation from "../../../prefabs/text-tesellation/TextTessellation";
-import { Rollercoaster } from "../../../features/rollercoaster/Rollercoaster";
+import { Rollercoaster } from "../../../../../features/rollercoaster/Rollercoaster";
 import useScene1Store from "./Scene1Store";
 import Stars from "../../../prefabs/stars/Stars";
 import { Scene1UI } from "./Scene1UI";
-import GBA from "../../../features/gba-js-org/GBA";
+import GBA from "../../../../../features/gba-js-org/GBA";
 
 
 export const Scene1 = React.memo(({}) => {

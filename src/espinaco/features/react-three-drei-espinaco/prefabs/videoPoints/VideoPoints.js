@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
 
-import useAnalyser from "../../hooks/analyser/useAnalyser";
+import useAnalyser from "../../../../hooks/analyser/useAnalyser";
 
 import VideoPointShader from "../shaders/VideoPointShader";
-import useVideo from "../../features/videoplayer/hook/useVideo";
+import useVideo from "../../../../features/videoplayer/hook/useVideo";
 
-import { useVideoPlayerStore } from "../../features/videoplayer/hook/useVideoPlayerStore";
+import { useVideoPlayerStore } from "../../../../features/videoplayer/hook/useVideoPlayerStore";
 
 
 

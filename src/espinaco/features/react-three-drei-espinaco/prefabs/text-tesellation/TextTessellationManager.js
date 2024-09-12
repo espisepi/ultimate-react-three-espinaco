@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { TessellateModifier } from 'three/examples/jsm/modifiers/TessellateModifier.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
-import { disposeAll } from '../../utils/disposeAll';
+import { disposeAll } from '../../../../utils/disposeAll';
 
 const vertexShader = `
 

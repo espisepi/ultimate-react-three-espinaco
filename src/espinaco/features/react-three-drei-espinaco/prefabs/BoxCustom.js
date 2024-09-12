@@ -7,7 +7,7 @@ import img1 from "./shaders/img/img1.jpg";
 import img2 from "./shaders/img/img2.jpg";
 import img3 from "./shaders/img/disp3.jpg";
 
-import useAnalyser from "../hooks/analyser/useAnalyser";
+import useAnalyser from "../../../hooks/analyser/useAnalyser";
 import useVideo from "../hooks/useVideo";
 
 import './shaders/audioVisualizer/AudioVisualizerShader1'; // <audioVisualizerShader1 />

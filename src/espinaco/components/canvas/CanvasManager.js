@@ -1,7 +1,7 @@
 import { useAppStore } from "../../app-module/store/AppStore";
 import ControlsManager from "../../features/react-three-drei-espinaco/controls/manager/ControlsManager";
 import ControlsManagerXR from "../../features/react-three-drei-espinaco/controls/manager/ControlsManagerXR";
-import { SceneRouter } from "../../scene-module/router/SceneRouter";
+import { SceneRouter } from "../../features/react-three-drei-espinaco/scene-module/router/SceneRouter";
 import CanvasDefault from "./CanvasDefault";
 import CanvasXR from "./CanvasXR";
 
