@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../../features/videoplayer/pages/VideoPlayer";
 import { useAppStore } from "../../../app-module/store/AppStore";
 import ButtonChangeControls from "../../../features/react-three-drei-espinaco/controls/manager/components/buttons/ButtonChangeControls";
-import { ButtonChangeXRMode } from "../../../components/button-change-xr-mode/ButtonChangeXRMode";
+import { ButtonChangeXRMode } from "../../../features/react-three-drei-espinaco/components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../../features/react-three-drei-espinaco/scene-module/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../../features/react-three-drei-espinaco/controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
@@ -12,7 +12,7 @@ import InputRangeVideoPointsSize from "../../../features/react-three-drei-espina
 import InputRangeVideoPointsAmplitudeDistance from "../../../features/react-three-drei-espinaco/prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 import { InputRangeStarsPointSize } from "../../../features/react-three-drei-espinaco/prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 import { InputRangeVideoCurrentTime } from "../../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
-import { CanvasManager } from "../../../components/canvas/CanvasManager";
+import { CanvasManager } from "../../../features/react-three-drei-espinaco/components/canvas/CanvasManager";
 import { ClickToStart } from "../../../components/clickToStart/ClickToStart";
 import "./App1.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
