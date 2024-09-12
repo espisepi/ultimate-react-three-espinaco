@@ -1,7 +1,7 @@
 import { useAppStore } from "../../store/AppStore";
 import ControlsManager from "../../features/react-three-drei-espinaco/controls/manager/ControlsManager";
 import ControlsManagerXR from "../../features/react-three-drei-espinaco/controls/manager/ControlsManagerXR";
-import SceneManager from "../../scenes/manager/SceneManager";
+import { SceneRouter } from "../../scenes/router/SceneRouter";
 import CanvasDefault from "./CanvasDefault";
 import CanvasXR from "./CanvasXR";
 
@@ -22,7 +22,7 @@ export function CanvasManager() {
             }}
           >
             <ControlsManagerXR />
-            <SceneManager />
+            <SceneRouter />
           </CanvasXR>
         ) : (
           <CanvasDefault
@@ -34,7 +34,7 @@ export function CanvasManager() {
             }}
           >
             <ControlsManager />
-            <SceneManager />
+            <SceneRouter />
           </CanvasDefault>
         )}
         </>
