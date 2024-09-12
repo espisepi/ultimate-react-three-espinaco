@@ -1,15 +1,45 @@
 import { env } from "../../../config/env";
+import { StateCreator } from "zustand";
 
-class VideoPlayerStoreClass {
+export interface Resolution {
+  width: number;
+  height: number;
+}
 
-  // zustand attributes get, set
-  constructor(set, get) {
+export interface Video {
+  name: string;
+  url: string;
+}
 
-    // zustand attributes
+export interface VideoPlayerStoreState {
+  videos: Video[];
+  selectedVideo: Video | null;
+  resolution: Resolution;
+  originalResolution: Resolution;
+  resolutions: Resolution[];
+}
+
+export class VideoPlayerStoreClass {
+  private set: (
+    partial: Partial<VideoPlayerStoreState>,
+    replace?: boolean,
+  ) => void;
+
+  private get: () => VideoPlayerStoreState;
+
+  public videos: Video[];
+  public selectedVideo: Video | null;
+  public resolution: Resolution;
+  public originalResolution: Resolution;
+  public resolutions: Resolution[];
+
+  constructor(
+    set: (partial: Partial<VideoPlayerStoreState>, replace?: boolean) => void,
+    get: () => VideoPlayerStoreState,
+  ) {
     this.set = set;
     this.get = get;
 
-    // attributes
     this.videos = [];
     this.selectedVideo = null;
     this.resolution = { width: 640, height: 360 };
@@ -21,89 +51,89 @@ class VideoPlayerStoreClass {
     ];
   }
 
-  async fetchVideos() {
+  async fetchVideos(): Promise<void> {
     try {
       const response = await fetch(`${env.PATH_MY_SERVER_MEDIA}/media-list`);
-      if (!response.ok) throw new Error("Error al obtener la lista de recursos.");
-      
+      if (!response.ok)
+        throw new Error("Error al obtener la lista de recursos.");
+
       const data = await response.json();
       this.set({
         videos: data.mediaFiles
-          .map(media => ({ name: media, url: media }))
-          .sort((a, b) => a.name.localeCompare(b.name)),
+          .map((media: string) => ({ name: media, url: media }))
+          .sort((a: Video, b: Video) => a.name.localeCompare(b.name)),
       });
     } catch (error) {
       console.error(error);
     }
   }
 
-  selectVideo(video, optionServer = 1) {
+  selectVideo(video: Video, optionServer: number = 0): void {
     const { selectedVideo } = this.get();
-    // console.log({ selectedVideo });
     if (selectedVideo?.url !== video?.url) {
       this.set({ selectedVideo: video });
       this.handleVideoSelection(video.url, optionServer);
     }
   }
 
-  setResolution(newResolution) {
+  setResolution(newResolution: Resolution): void {
     this.set({ resolution: newResolution });
   }
 
-  handleVideoSelection(url, optionServer) {
+  private handleVideoSelection(url: string, optionServer: number): void {
     if (optionServer === 0) {
-      // console.log("Reproduciendo video alojado en esta aplicacion");
       this.playLocalVideo(url);
     } else if (optionServer === 1) {
-      // console.log("Reproduciendo video del servidor rasp");
       const urlReadyToMyServer = this.convertUrlToMyServer(url);
-      // console.log({ urlReadyToMyServer });
       this.playLocalVideo(urlReadyToMyServer);
     } else {
-      // console.log("Reproduciendo video alojado en esta aplicacion");
       this.playLocalVideo(url);
     }
   }
 
-  convertUrlToMyServer(url) {
+  private convertUrlToMyServer(url: string): string {
     const pathMyServer = env.PATH_MY_SERVER_MEDIA;
     const urlWithoutSpacing = this.replaceSpacesWithPercent20(url);
     const urlProcessed = this.replaceHashSymbol(urlWithoutSpacing);
     return `${pathMyServer}/media/${urlProcessed}`;
   }
 
-  replaceSpacesWithPercent20(inputString) {
+  private replaceSpacesWithPercent20(inputString: string): string {
     return inputString.replace(/ /g, "%20");
   }
 
-  replaceHashSymbol(inputString) {
+  private replaceHashSymbol(inputString: string): string {
     return inputString.replace("#", "%23");
   }
 
-  playLocalVideo(localVideoUrl) {
-    const videoPlayer = document.getElementById("video");
+  private playLocalVideo(localVideoUrl: string): void {
+    const videoPlayer = document.getElementById("video") as HTMLVideoElement;
 
-    // console.log(localVideoUrl);
     videoPlayer.src = localVideoUrl;
     videoPlayer.play();
 
     const idInterval = setInterval(() => {
       if (videoPlayer.videoWidth !== 0 && videoPlayer.videoHeight !== 0) {
-        this.set({ originalResolution: { width: videoPlayer.videoWidth, height: videoPlayer.videoHeight } });
+        this.set({
+          originalResolution: {
+            width: videoPlayer.videoWidth,
+            height: videoPlayer.videoHeight,
+          },
+        });
         clearInterval(idInterval);
       }
     }, 500);
   }
 
-  async fetchAndPlayYoutubeVideo(youtubeUrl) {
-    const loadingEl = document.getElementById("loading");
+  async fetchAndPlayYoutubeVideo(youtubeUrl: string): Promise<void> {
+    const loadingEl = document.getElementById("loading") as HTMLElement;
     loadingEl.style.display = "block";
 
     try {
       const response = await fetch(`${env.BASE_URL_YT_DL_SERVER}${youtubeUrl}`);
       const blob = await response.blob();
       const videoBlobUrl = URL.createObjectURL(blob);
-      const videoPlayer = document.getElementById("video");
+      const videoPlayer = document.getElementById("video") as HTMLVideoElement;
       videoPlayer.src = videoBlobUrl;
       videoPlayer.play();
       loadingEl.style.display = "none";
@@ -112,5 +142,3 @@ class VideoPlayerStoreClass {
     }
   }
 }
-
-export default VideoPlayerStoreClass;

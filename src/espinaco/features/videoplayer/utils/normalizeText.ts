@@ -1,7 +1,5 @@
-
-
 // Función para eliminar tildes y diacríticos
-export const normalizeText = text =>
+export const normalizeText = (text: string): string =>
   text
     .normalize("NFD") // Descompone los caracteres en la forma de normalización de descomposición canónica
     .replace(/[\u0300-\u036f]/g, "") // Elimina las marcas diacríticas usando una expresión regular
