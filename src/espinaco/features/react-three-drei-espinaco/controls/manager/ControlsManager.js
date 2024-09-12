@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import GodCameraControls from "../god/GodCameraControls";
-import { RollercoasterControls } from "../../features/rollercoaster/controls/RollercoasterControls";
+import { RollercoasterControls } from "../../../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
-import useSceneManagerStore from "../../scenes/manager/store/SceneManagerStore";
+import useSceneManagerStore from "../../../../scenes/manager/store/SceneManagerStore";
 import useControlsManagerStore from './store/ControlsManagerStore';
-import { CarVehicleCannon } from '../../features/car-vehicle-cannon/CarVehicleCannon';
+import { CarVehicleCannon } from '../../../car-vehicle-cannon/CarVehicleCannon';
 
 export default function ControlsManager() {
 

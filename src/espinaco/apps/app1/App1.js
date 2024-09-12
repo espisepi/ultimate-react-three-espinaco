@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../features/videoplayer/components/VideoPlayer";
 import { useAppStore } from "../../store/AppStore";
-import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
+import ButtonChangeControls from "../../features/react-three-drei-espinaco/controls/manager/components/buttons/ButtonChangeControls";
 import { ButtonChangeXRMode } from "../../components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
-import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
+import ButtonOrbitControlsAutorotate from "../../features/react-three-drei-espinaco/controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
 import FullScreen from "../../features/fullscreen/FullScreen";
 import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
 import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsSize";

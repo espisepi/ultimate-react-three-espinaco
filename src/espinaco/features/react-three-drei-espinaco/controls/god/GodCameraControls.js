@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import * as THREE from "three";
 import { useFrame, useThree } from "@react-three/fiber";
-import useKeyPress from "../../hooks/useKeyPress";
+import useKeyPress from "../../../../hooks/useKeyPress";
 import { useController } from "@react-three/xr";
 
 const SPEED_MIN_VALUE = 100;

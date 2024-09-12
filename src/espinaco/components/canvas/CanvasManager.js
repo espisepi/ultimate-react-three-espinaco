@@ -1,6 +1,6 @@
 import { useAppStore } from "../../store/AppStore";
-import ControlsManager from "../../controls/manager/ControlsManager";
-import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
+import ControlsManager from "../../features/react-three-drei-espinaco/controls/manager/ControlsManager";
+import ControlsManagerXR from "../../features/react-three-drei-espinaco/controls/manager/ControlsManagerXR";
 import SceneManager from "../../scenes/manager/SceneManager";
 import CanvasDefault from "./CanvasDefault";
 import CanvasXR from "./CanvasXR";

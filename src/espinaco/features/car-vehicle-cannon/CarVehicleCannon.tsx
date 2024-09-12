@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { RaycastVehicle } from "./vehicles/raycastVehicle/RaycastVehicle";
-import { CameraFollowObject } from "../../controls/cameraFollowObject/CameraFollowObject";
+import { CameraFollowObject } from "../react-three-drei-espinaco/controls/cameraFollowObject/CameraFollowObject";
 
 type CarVehicleCannonProps = {};
 

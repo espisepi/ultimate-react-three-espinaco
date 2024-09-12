@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { RaycastVehicle } from "./vehicles/raycastVehicle/RaycastVehicle";
-import { CameraFollowObject } from "../../controls/cameraFollowObject/CameraFollowObject";
+import { CameraFollowObject } from "../react-three-drei-espinaco/controls/cameraFollowObject/CameraFollowObject";
 import { RaycastVehicleVR } from "./vehicles/raycastVehicle/xr/RaycastVehicleVR";
-import { CameraFollowObjectVR } from "../../controls/cameraFollowObject/CameraFollowObjectVR";
+import { CameraFollowObjectVR } from "../react-three-drei-espinaco/controls/cameraFollowObject/CameraFollowObjectVR";
 
 type CarVehicleCannonVRProps = {};
 
