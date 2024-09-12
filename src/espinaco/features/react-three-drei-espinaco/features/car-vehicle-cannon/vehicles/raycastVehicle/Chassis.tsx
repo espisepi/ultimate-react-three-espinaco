@@ -2,7 +2,7 @@ import { useGLTF } from '@react-three/drei'
 import { forwardRef, useMemo } from 'react'
 import type { Material, Mesh } from 'three'
 import type { GLTF } from 'three-stdlib/loaders/GLTFLoader'
-import { useVideoTexture } from "../../../videoplayer/hook/useVideoTexture";
+import { useVideoTexture } from "../../../../../videoplayer/hook/useVideoTexture";
 import * as THREE from "three";
 
 useGLTF.preload('/Beetle.glb')
