@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import { RollercoasterControlsXR } from "../../../rollercoaster/controls/RollercoasterControlsXR";
-import useSceneManagerStore from "../../../../scenes/manager/store/SceneManagerStore";
+import { useSceneStore } from "../../../../scene-module/store/SceneStore";
 import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
 import { CarVehicleCannonVR } from "../../../car-vehicle-cannon/CarVehicleCannonVR";
 
 export default function ControlsManagerXR() {
 
     const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
-    const sceneId = useSceneManagerStore( state => state.sceneId );
+    const sceneId = useSceneStore( state => state.sceneId );
 
     const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect

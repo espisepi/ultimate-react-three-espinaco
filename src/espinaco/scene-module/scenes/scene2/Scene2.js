@@ -1,7 +1,7 @@
 import React from "react";
 
-import Screen from "../../prefabs/screen/Screen";
-import Stars from "../../prefabs/stars/Stars";
+import Screen from "../../../prefabs/screen/Screen";
+import Stars from "../../../prefabs/stars/Stars";
 
 // https://codesandbox.io/p/sandbox/volumetric-light-godray-yggpw5?file=%2Fsrc%2FApp.js
 

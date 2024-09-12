@@ -3,14 +3,14 @@ import GodCameraControls from "../god/GodCameraControls";
 import { RollercoasterControls } from "../../../rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
-import useSceneManagerStore from "../../../../scenes/manager/store/SceneManagerStore";
+import { useSceneStore } from "../../../../scene-module/store/SceneStore";
 import useControlsManagerStore from './store/ControlsManagerStore';
 import { CarVehicleCannon } from '../../../car-vehicle-cannon/CarVehicleCannon';
 
 export default function ControlsManager() {
 
     const controlsId = useControlsManagerStore( state => state.controlsId );
-    const sceneId = useSceneManagerStore( state => state.sceneId );
+    const sceneId = useSceneStore( state => state.sceneId );
 
     const { camera } = useThree();
     const [cameraPosition, setCameraPosition] = useState([0,0,0]); // da igual el valor que ponga porque se modifica en el useEffect

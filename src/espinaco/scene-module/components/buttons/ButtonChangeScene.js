@@ -1,11 +1,11 @@
-import useSceneManagerStore from "../../store/SceneManagerStore";
+import { useSceneStore } from "../../store/SceneStore";
 
 export default function ButtonChangeScene({ showButton = true }) {
 
   // SceneManagerStore =========================================
-  const sceneId = useSceneManagerStore((state) => state.sceneId);
-  const setSceneId = useSceneManagerStore((state) => state.setSceneId);
-  const maxNumScenes = useSceneManagerStore((state) => state.maxNumScenes);
+  const sceneId = useSceneStore((state) => state.sceneId);
+  const setSceneId = useSceneStore((state) => state.setSceneId);
+  const maxNumScenes = useSceneStore((state) => state.maxNumScenes);
 
   // Onclick button function
   const handleChangeScene = () => {

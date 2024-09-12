@@ -4,7 +4,7 @@ import { useAppStore } from "../../store/AppStore";
 import ButtonChangeControls from "../../features/react-three-drei-espinaco/controls/manager/components/buttons/ButtonChangeControls";
 import { ButtonChangeXRMode } from "../../components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../features/videoplayer/components/buttons/ButtonChangeResolutionVideo";
-import ButtonChangeScene from "../../scenes/manager/components/buttons/ButtonChangeScene";
+import ButtonChangeScene from "../../scene-module/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../features/react-three-drei-espinaco/controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
 import FullScreen from "../../features/fullscreen/FullScreen";
 import InputRangeVideoPointsScale from "../../prefabs/videoPoints/components/dom/buttons/InputRangeVideoPointsScale";
@@ -14,7 +14,7 @@ import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ran
 import { InputRangeVideoCurrentTime } from "../../features/videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../components/clickToStart/ClickToStart";
-import useScene1Store from "../../scenes/scene1/Scene1Store";
+import {useScene1Store} from "../../scene-module/scenes/scene1/Scene1Store";
 import "./App1.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
 

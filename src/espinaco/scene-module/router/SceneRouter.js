@@ -1,14 +1,14 @@
 import React, { Suspense } from "react";
-import { Scene1, Scene1XR } from "../scene1/Scene1";
-import { Scene2 } from "../scene2/Scene2";
+import { Scene1, Scene1XR } from "../scenes/scene1/Scene1";
+import { Scene2 } from "../scenes/scene2/Scene2";
 import { Box } from "@react-three/drei";
 import { useAppStore } from "../../store/AppStore";
-import useSceneManagerStore from "../manager/store/SceneManagerStore";
+import {useSceneStore} from "../store/SceneStore";
 
 export function SceneRouter() {
 
   const xrmode = useAppStore((state) => state.xrmode);
-  const sceneId = useSceneManagerStore((state) => state.sceneId);
+  const sceneId = useSceneStore((state) => state.sceneId);
 
 
   return (
