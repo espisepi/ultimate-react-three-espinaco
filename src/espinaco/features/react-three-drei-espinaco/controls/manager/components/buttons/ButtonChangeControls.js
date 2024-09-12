@@ -1,4 +1,4 @@
-import { useAppStore } from "../../../../../../store/AppStore";
+import { useAppStore } from "../../../../../../app-module/store/AppStore";
 import useControlsManagerStore from "../../store/ControlsManagerStore";
 import useControlsManagerXRStore from "../../store/ControlsManagerXRStore";
 

@@ -1,4 +1,4 @@
-import { useAppStore } from "../../store/AppStore";
+import { useAppStore } from "../../app-module/store/AppStore";
 
 export function ButtonChangeXRMode({ showButton = true }) {
     
