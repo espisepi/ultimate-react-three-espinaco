@@ -90,7 +90,7 @@ export function App1Start() {
       <FullScreen showButton={showVideo}>
         <CanvasManager />
 
-        <UIRouter />
+        {/* <UIRouter /> */}
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
