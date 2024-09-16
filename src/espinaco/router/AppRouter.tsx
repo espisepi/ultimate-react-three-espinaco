@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { AppVideoPoints } from "../features/react-three-drei-espinaco/apps/videopoints-app/AppVideoPoints";
+import { AppVideoPoints } from "../features/react-three-drei-espinaco/apps/videopoints/AppVideoPoints";
 import App0 from "../apps/app0/App0";
 import App2 from "../apps/app2/App2";
 

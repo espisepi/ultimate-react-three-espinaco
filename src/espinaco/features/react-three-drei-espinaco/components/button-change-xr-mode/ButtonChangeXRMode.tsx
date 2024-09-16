@@ -1,4 +1,4 @@
-import { useAppVideoPointsStore } from "../../apps/videopoints-app/store/AppVideoPointsStore";
+import { useAppVideoPointsStore } from "../../apps/videopoints/store/AppVideoPointsStore";
 
 interface ButtonChangeXRModeProps {
   showButton?: boolean;

@@ -1,7 +1,7 @@
-import { useAppVideoPointsStore } from "../../../../features/react-three-drei-espinaco/apps/videopoints-app/store/AppVideoPointsStore";
+import { useAppVideoPointsStore } from "../../../../features/react-three-drei-espinaco/apps/videopoints/store/AppVideoPointsStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
-import { SceneRouter } from "../../apps/videopoints-app/features/scene-module/router/SceneRouter";
+import { SceneRouter } from "../../apps/videopoints/features/scene-module/router/SceneRouter";
 import CanvasDefault from "./CanvasDefault";
 import CanvasXR from "./CanvasXR";
 

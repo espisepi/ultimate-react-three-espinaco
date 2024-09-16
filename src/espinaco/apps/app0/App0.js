@@ -1,5 +1,3 @@
-import { useAppStore } from "../../features/react-three-drei-espinaco/apps/videopoints-app/store/AppVideoPointsStore";
-
 export default function App0() {
 
   return (
