@@ -1,11 +1,11 @@
-import { useAppStore } from "../../../../../../app-module/store/AppStore";
+import { useAppVideoPointsStore } from "../../../../../../features/react-three-drei-espinaco/apps/videopoints-app/store/AppVideoPointsStore";
 import useControlsManagerStore from "../../store/ControlsManagerStore";
 import useControlsManagerXRStore from "../../store/ControlsManagerXRStore";
 
 export default function ButtonChangeControls({ showButton = true }) {
 
   // AppStore =================================
-  const xrmode = useAppStore((state) => state.xrmode);
+  const xrmode = useAppVideoPointsStore((state) => state.xrmode);
 
   // ControlsManagerStore =========================================
   const controlsId = useControlsManagerStore((state) => state.controlsId);

@@ -1,13 +1,11 @@
-import { useAppStore } from "../../store/AppStore";
+import { useAppStore } from "../../features/react-three-drei-espinaco/apps/videopoints-app/store/AppVideoPointsStore";
 
 export default function App0() {
-  const setAppId = useAppStore((state) => state.setAppId);
 
   return (
     <>
       <h1>Bienvenidos a Sepinaco World</h1>
       <button
-        onClick={() => setAppId(1)}
         style={{
           width: "10rem",
           height: "10rem",
@@ -17,7 +15,6 @@ export default function App0() {
         Rollercoaster
       </button>
       <button
-        onClick={() => setAppId(2)}
         style={{
           width: "10rem",
           height: "10rem",

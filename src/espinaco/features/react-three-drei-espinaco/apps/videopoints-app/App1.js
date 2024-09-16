@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../../videoplayer/pages/VideoPlayer";
-import { useAppStore } from "../../../../app-module/store/AppStore";
+import { useAppVideoPointsStore } from "./store/AppVideoPointsStore";
 import ButtonChangeControls from "../../controls/manager/components/buttons/ButtonChangeControls";
 import { ButtonChangeXRMode } from "../../components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../../videoplayer/components/buttons/ButtonChangeResolutionVideo";
@@ -30,7 +30,7 @@ export default function App1({}) {
 }
 
 export function App1Start() {
-  const displayVideoplayer = useAppStore(
+  const displayVideoplayer = useAppVideoPointsStore(
     (state) => state.displayVideoplayer,
   );
 

@@ -1,12 +1,12 @@
-import { useAppStore } from "../../../../app-module/store/AppStore";
+import { useAppVideoPointsStore } from "../../apps/videopoints-app/store/AppVideoPointsStore";
 
 interface ButtonChangeXRModeProps {
   showButton?: boolean;
 }
 
 export function ButtonChangeXRMode({ showButton = true }: ButtonChangeXRModeProps) {
-  const xrmode = useAppStore((state) => state.xrmode);
-  const setXrmode = useAppStore((state) => state.setXrmode);
+  const xrmode = useAppVideoPointsStore((state) => state.xrmode);
+  const setXrmode = useAppVideoPointsStore((state) => state.setXrmode);
 
   const handleChangeXRMode = () => {
     const newXrmode = !xrmode;

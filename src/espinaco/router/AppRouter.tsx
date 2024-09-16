@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import App0 from "../app-module/apps/app0/App0";
+import App0 from "../apps/app0/App0";
 import App1 from "../features/react-three-drei-espinaco/apps/videopoints-app/App1";
-import App2 from "../app-module/apps/app2/App2";
+import App2 from "../apps/app2/App2";
 
 export const AppRouter = () => {
   return (

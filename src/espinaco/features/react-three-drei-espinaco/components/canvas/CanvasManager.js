@@ -1,4 +1,4 @@
-import { useAppStore } from "../../../../app-module/store/AppStore";
+import { useAppVideoPointsStore } from "../../../../features/react-three-drei-espinaco/apps/videopoints-app/store/AppVideoPointsStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
 import { SceneRouter } from "../../apps/videopoints-app/features/scene-module/router/SceneRouter";
@@ -8,7 +8,7 @@ import CanvasXR from "./CanvasXR";
 
 
 export function CanvasManager() {
-      const xrmode = useAppStore((state) => state.xrmode);
+      const xrmode = useAppVideoPointsStore((state) => state.xrmode);
 
     return (
         <>

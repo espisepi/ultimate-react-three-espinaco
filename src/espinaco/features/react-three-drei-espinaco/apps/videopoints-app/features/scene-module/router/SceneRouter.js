@@ -2,12 +2,12 @@ import React, { Suspense } from "react";
 import { Scene1, Scene1XR } from "../scenes/scene1/Scene1";
 import { Scene2 } from "../scenes/scene2/Scene2";
 import { Box } from "@react-three/drei";
-import { useAppStore } from "../../../../../../../app-module/store/AppStore";
+import { useAppVideoPointsStore } from "../../../store/AppVideoPointsStore";
 import {useSceneStore} from "../store/SceneStore";
 
 export function SceneRouter() {
 
-  const xrmode = useAppStore((state) => state.xrmode);
+  const xrmode = useAppVideoPointsStore((state) => state.xrmode);
   const sceneId = useSceneStore((state) => state.sceneId);
 
 

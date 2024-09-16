@@ -1,7 +1,7 @@
 // store.ts
 import { create } from 'zustand';
 
-export interface AppState {
+export interface AppVideoPointsState {
   appId: number;
   xrmode: boolean;
   displayVideoplayer: boolean;
@@ -10,7 +10,7 @@ export interface AppState {
   setDisplayVideoPlayer: (newDisplayVideoPlayer: boolean) => void;
 }
 
-export const useAppStore = create<AppState>((set) => ({
+export const useAppVideoPointsStore = create<AppVideoPointsState>((set) => ({
   appId: 1,
   xrmode: false,
   displayVideoplayer: true,
