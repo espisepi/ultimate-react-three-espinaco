@@ -3,15 +3,13 @@ import RollercoasterClass from "./RollercoasterClass";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useVideoTexture } from "../../../videoplayer/hook/useVideoTexture";
 
-
-export function Rollercoaster() {
-
+export function Rollercoaster(): null {
   const { scene, camera } = useThree();
 
   const videoTexture = useVideoTexture();
 
-  const [rollercoaster, setRollercoaster] = useState();
-  const rollercoasterRef = useRef();
+  const [rollercoaster, setRollercoaster] = useState<RollercoasterClass | undefined>(undefined);
+  const rollercoasterRef = useRef<RollercoasterClass | null>(null);
 
   useEffect(() => {
     if (videoTexture) {
@@ -25,13 +23,13 @@ export function Rollercoaster() {
         rollercoasterRef.current.dispose();
       }
     };
-  }, [videoTexture]);
+  }, [videoTexture, scene, camera]);
 
-  useFrame(()=>{
-    if(rollercoaster) {
+  useFrame(() => {
+    if (rollercoaster) {
       rollercoaster.update();
     }
-  })
+  });
 
   return null;
 }
