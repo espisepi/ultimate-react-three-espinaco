@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import VideoPlayer from "../../../videoplayer/pages/VideoPlayer";
 import { useAppVideoPointsStore } from "./store/AppVideoPointsStore";
 import ButtonChangeControls from "./features/controls-module/manager/components/buttons/ButtonChangeControls";
-import { ButtonChangeXRMode } from "../../components/button-change-xr-mode/ButtonChangeXRMode";
+import { ButtonChangeXRMode } from "./components/button-change-xr-mode/ButtonChangeXRMode";
 import ButtonChangeResolutionVideo from "../../../videoplayer/components/buttons/ButtonChangeResolutionVideo";
 import ButtonChangeScene from "./features/scene-module/components/buttons/ButtonChangeScene";
 import ButtonOrbitControlsAutorotate from "../../controls/orbitControls/components/buttons/ButtonOrbitControlsAutorotate";
@@ -12,7 +12,7 @@ import InputRangeVideoPointsSize from "../../prefabs/videoPoints/components/dom/
 import InputRangeVideoPointsAmplitudeDistance from "../../prefabs/videoPoints/components/dom/ranges/InputRangeVideoPointsAmplitudeDistance";
 import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ranges/InputRangeStarsPointSize";
 import { InputRangeVideoCurrentTime } from "../../../videoplayer/components/ranges/InputRangeVideoCurrentTime";
-import { CanvasManager } from "../../components/canvas/CanvasManager";
+import { CanvasManager } from "./components/canvas/CanvasManager";
 import { ClickToStart } from "../../../../components/clickToStart/ClickToStart";
 import "./AppVideoPoints.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
