@@ -17,9 +17,9 @@ import { ClickToStart } from "../../../../components/clickToStart/ClickToStart";
 import "./AppVideoPoints.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
 
-const window_showVideo = window.showVideo || false;
+const window_showVideo = (window as any).showVideo || false;
 
-export function AppVideoPoints({}) {
+export function AppVideoPoints(): JSX.Element {
   return (
     <>
       <ClickToStart password="">
@@ -29,23 +29,20 @@ export function AppVideoPoints({}) {
   );
 }
 
-export function AppVideoPointsStart() {
-  const displayVideoplayer = useAppVideoPointsStore(
-    (state) => state.displayVideoplayer,
-  );
+export function AppVideoPointsStart(): JSX.Element {
+  const displayVideoplayer = useAppVideoPointsStore((state) => state.displayVideoplayer);
 
-  //======================================
-
-  const [showVideo, setShowVideo] = useState(window_showVideo);
+  // State hooks
+  const [showVideo, setShowVideo] = useState<boolean>(window_showVideo);
   const handleShowVideo = useCallback(() => {
-    setShowVideo((v) => !showVideo);
-  }, [showVideo]);
+    setShowVideo((v) => !v);
+  }, []);
 
-  //================================================
+  const [showMenuButton, setShowMenuButton] = useState<boolean>(true);
 
-  const [showMenuButton, setShowMenuButton] = useState(true);
+  // Effects
   useEffect(() => {
-    function manejarTecla(event) {
+    function manejarTecla(event: KeyboardEvent) {
       if (event.key === "2") {
         setShowMenuButton(true);
         setShowVideo(true);
@@ -55,11 +52,11 @@ export function AppVideoPointsStart() {
         setShowVideo(false);
       }
       if (event.key === "3") {
-        window.orbitControls.autoRotate = !window.orbitControls.autoRotate;
+        (window as any).orbitControls.autoRotate = !(window as any).orbitControls.autoRotate;
       }
     }
 
-    // Agregar un event listener al documento para detectar las teclas
+    // Add an event listener to the document to detect key presses
     document.addEventListener("keydown", manejarTecla);
     return () => {
       document.removeEventListener("keydown", manejarTecla);
@@ -76,15 +73,6 @@ export function AppVideoPointsStart() {
     }
   };
 
-  // Show Menu Secondary
-  // const [showMenuSecondary, setShowMenuSecondary] = useState(true);
-  // const handleShowMenuSecondary = useCallback(() => {
-  //   setShowMenuSecondary((v) => !showMenuSecondary);
-  // }, [showVideo]);
-
-  // const showGBA = useScene1Store((state) => state.showGBA);
-  // const setShowGBA = useScene1Store((state) => state.setShowGBA);
-
   return (
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
@@ -95,23 +83,14 @@ export function AppVideoPointsStart() {
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
         <InputRangeVideoPointsSize showUI={showVideo} />
-
         <InputRangeVideoPointsAmplitudeDistance showUI={showVideo} />
-
         <InputRangeVideoPointsScale showUI={showVideo} />
-
         <InputRangeStarsPointSize showUI={showVideo} />
-
         <InputRangeVideoCurrentTime showUI={showVideo} />
-
         <ButtonOrbitControlsAutorotate showButton={showVideo} />
-
         <ButtonChangeScene showButton={showMenuButton} />
-
         <ButtonChangeResolutionVideo showButton={showMenuButton} />
-
         <ButtonChangeControls showButton={showMenuButton} />
-
         <ButtonChangeXRMode showButton={showMenuButton} />
 
         <button
@@ -124,7 +103,6 @@ export function AppVideoPointsStart() {
             position: "absolute",
             bottom: "100px",
             right: "10px",
-            //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showVideo ? 0.8 : 0.3,
             cursor: "pointer",
@@ -137,7 +115,6 @@ export function AppVideoPointsStart() {
         <button
           onClick={handleShowMenuButton}
           style={{
-            // visibility: showMenuButton ? "visible" : "hidden",
             display: "block",
             width: "50px",
             height: "50px",
@@ -145,7 +122,6 @@ export function AppVideoPointsStart() {
             position: "absolute",
             top: 0,
             right: 0,
-            //   backgroundColor: "white",
             background: "linear-gradient(90deg, #636363 0%, #000000 100%)",
             opacity: showMenuButton ? 0.3 : 0.0,
             cursor: showMenuButton ? "pointer" : "none",
