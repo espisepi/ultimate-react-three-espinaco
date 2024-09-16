@@ -1,14 +1,18 @@
-import React from "react";
+import React, { ReactNode, CSSProperties } from "react";
 import { Canvas } from "@react-three/fiber";
-
 import { XR, createXRStore } from "@react-three/xr";
 
-const store = createXRStore({foveation: 1, frameRate: "high" });
+const store = createXRStore({ foveation: 1, frameRate: "high" });
+
+interface CanvasXRProps {
+  style?: CSSProperties;
+  children?: ReactNode;
+}
 
 export default function CanvasXR({
   style = { position: "absolute", top: "0", width: "100%", height: "100vh" },
   children,
-}) {
+}: CanvasXRProps): JSX.Element {
   return (
     <>
       <button
@@ -34,9 +38,7 @@ export default function CanvasXR({
         Enter VR
       </button>
       <Canvas style={{ ...style, backgroundColor: "black" }}>
-        <XR store={store}>
-          {children}
-        </XR>
+        <XR store={store}>{children}</XR>
       </Canvas>
     </>
   );
