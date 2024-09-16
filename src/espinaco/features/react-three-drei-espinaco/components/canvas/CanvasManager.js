@@ -1,7 +1,7 @@
 import { useAppStore } from "../../../../app-module/store/AppStore";
 import ControlsManager from "../../controls/manager/ControlsManager";
 import ControlsManagerXR from "../../controls/manager/ControlsManagerXR";
-import { SceneRouter } from "../../scene-module/router/SceneRouter";
+import { SceneRouter } from "../../apps/videopoints-app/features/scene-module/router/SceneRouter";
 import CanvasDefault from "./CanvasDefault";
 import CanvasXR from "./CanvasXR";
 

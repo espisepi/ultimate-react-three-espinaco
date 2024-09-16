@@ -3,7 +3,7 @@ import GodCameraControls from "../god/GodCameraControls";
 import { RollercoasterControls } from "../../features/rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
 import OrbitControls from "../orbitControls/OrbitControls";
-import { useSceneStore } from "../../../../features/react-three-drei-espinaco/scene-module/store/SceneStore";
+import { useSceneStore } from "../../apps/videopoints-app/features/scene-module/store/SceneStore";
 import useControlsManagerStore from './store/ControlsManagerStore';
 import { CarVehicleCannon } from '../../features/car-vehicle-cannon/CarVehicleCannon';
 

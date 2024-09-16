@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import GodCameraControlsXR from "../god/GodCameraControlsXR";
 import { RollercoasterControlsXR } from "../../features/rollercoaster/controls/RollercoasterControlsXR";
-import { useSceneStore } from "../../../../features/react-three-drei-espinaco/scene-module/store/SceneStore";
+import { useSceneStore } from "../../apps/videopoints-app/features/scene-module/store/SceneStore";
 import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
 import { CarVehicleCannonVR } from "../../features/car-vehicle-cannon/CarVehicleCannonVR";
 
