@@ -14,22 +14,22 @@ import { InputRangeStarsPointSize } from "../../prefabs/stars/components/dom/ran
 import { InputRangeVideoCurrentTime } from "../../../videoplayer/components/ranges/InputRangeVideoCurrentTime";
 import { CanvasManager } from "../../components/canvas/CanvasManager";
 import { ClickToStart } from "../../../../components/clickToStart/ClickToStart";
-import "./App1.css";
+import "./AppVideoPoints.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
 
 const window_showVideo = window.showVideo || false;
 
-export default function App1({}) {
+export function AppVideoPoints({}) {
   return (
     <>
       <ClickToStart password="">
-        <App1Start />
+        <AppVideoPointsStart />
       </ClickToStart>
     </>
   );
 }
 
-export function App1Start() {
+export function AppVideoPointsStart() {
   const displayVideoplayer = useAppVideoPointsStore(
     (state) => state.displayVideoplayer,
   );
