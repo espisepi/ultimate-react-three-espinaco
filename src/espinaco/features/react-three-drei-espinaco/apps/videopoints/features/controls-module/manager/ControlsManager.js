@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import GodCameraControls from "../../../../../controls/god/GodCameraControls";
+import { RollercoasterControls } from "../../../../../features/rollercoaster/controls/RollercoasterControls";
 import { useThree } from "@react-three/fiber";
-import GodCameraControlsXR from "../god/GodCameraControlsXR";
-import { RollercoasterControlsXR } from "../../features/rollercoaster/controls/RollercoasterControlsXR";
-import { useSceneStore } from "../../apps/videopoints/features/scene-module/store/SceneStore";
-import useControlsManagerXRStore from "./store/ControlsManagerXRStore";
-import { CarVehicleCannonVR } from "../../features/car-vehicle-cannon/CarVehicleCannonVR";
+import OrbitControls from "../../../../../controls/orbitControls/OrbitControls";
+import { useSceneStore } from "../../../../../apps/videopoints/features/scene-module/store/SceneStore";
+import useControlsManagerStore from './store/ControlsManagerStore';
+import { CarVehicleCannon } from "../../../../../features/car-vehicle-cannon/CarVehicleCannon";
 
-export default function ControlsManagerXR() {
+export default function ControlsManager() {
 
-    const controlsXRId = useControlsManagerXRStore( state => state.controlsXRId );
+    const controlsId = useControlsManagerStore( state => state.controlsId );
     const sceneId = useSceneStore( state => state.sceneId );
 
     const { camera } = useThree();
@@ -30,23 +31,27 @@ export default function ControlsManagerXR() {
             break;
         }
 
-        if(controlsXRId === 1) {
+        if(controlsId === 1) {
           camera?.position.set(0, 0, 0);
           camera?.rotation.set(0, 0, 0);
         }
-    }, [sceneId, controlsXRId]);
+    }, [sceneId, controlsId]);
+
+
     return (
         <>
             {(() => {
-              switch (controlsXRId) {
+              switch (controlsId) {
                 case 0:
-                  return <GodCameraControlsXR />;
+                  return <OrbitControls position={cameraPosition} />;
                 case 1:
-                  return <RollercoasterControlsXR />;
+                  return <RollercoasterControls />;
                 case 2:
-                  return <CarVehicleCannonVR />;
+                  return <GodCameraControls position={cameraPosition} />;
+                case 3:
+                  return <CarVehicleCannon />
                 default:
-                  console.warn("No se ha definido el control XR elegido, Control: " + controlsXRId);
+                  console.warn("No se ha definido el control elegido, Control: " + controlsId);
                   return null;
               }
             })()}

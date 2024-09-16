@@ -1,4 +1,4 @@
-import { useAppVideoPointsStore } from "../../../../../../features/react-three-drei-espinaco/apps/videopoints/store/AppVideoPointsStore";
+import { useAppVideoPointsStore } from "../../../../../store/AppVideoPointsStore";
 import useControlsManagerStore from "../../store/ControlsManagerStore";
 import useControlsManagerXRStore from "../../store/ControlsManagerXRStore";
 
