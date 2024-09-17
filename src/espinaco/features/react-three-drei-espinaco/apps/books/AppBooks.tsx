@@ -9,7 +9,7 @@ export function AppBooks(): JSX.Element {
   return (
     <>
       <ClickToStart password="">
-        <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
+        <div id="app-espinaco" style={{ position: "relative", cursor: "cell", height: "100vh", width: "100vw", backgroundColor: "#4d124d" }}>
           <UI />
           <Loader />
           <Canvas shadows camera={{ position: [-0.5, 1, 4], fov: 45 }}>

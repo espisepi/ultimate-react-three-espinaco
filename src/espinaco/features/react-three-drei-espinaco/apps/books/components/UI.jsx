@@ -49,7 +49,7 @@ export const UI = () => {
 
   return (
     <>
-      <main className=" pointer-events-none select-none z-10 fixed  inset-0  flex justify-between flex-col">
+      {/* <main className=" pointer-events-none select-none z-10 fixed  inset-0  flex justify-between flex-col">
         <a
           className="pointer-events-auto mt-10 ml-10"
           href="https://lessons.wawasensei.dev/courses/react-three-fiber"
@@ -140,7 +140,7 @@ export const UI = () => {
             </h2>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
