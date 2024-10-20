@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import VideoPlayerList from "../components/VideoPlayerList";
 import { useVideoPlayerStore } from "../hook/useVideoPlayerStore";
 import { normalizeText } from "../utils/normalizeText";
+import UploadVideo from "../components/upload-video/UploadVideo";
 
 interface Video {
   name: string;
@@ -54,6 +55,7 @@ export default function VideoPlayer({ showUI = true }: VideoPlayerProps) {
         height={300}
         muted={false}
       ></video>
+      <UploadVideo showUI={showUI}/>
     </>
   );
 }
