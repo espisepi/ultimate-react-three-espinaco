@@ -1,3 +1,6 @@
-- TODO Upload video
+- OK Upload video
+
+- TODO: MEJORAR UI: https://www.svgrepo.com/
+-- MENU DE OPCIONES (Arbol de opciones) TREE DATA: documentacion/treedata.txt
 
 - TODO gba iframe game
