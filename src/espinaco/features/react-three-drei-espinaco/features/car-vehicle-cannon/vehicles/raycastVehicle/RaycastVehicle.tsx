@@ -78,7 +78,7 @@ const VehicleScene = () => {
   broadphase="SAP"
   defaultContactMaterial={{
     contactEquationRelaxation: 2.5, // Mantén una ligera relajación para evitar rebotes duros
-    friction: 1.5, // Alta fricción para asegurar que el coche no derrape fácilmente
+    friction: 0.01, // Alta fricción para asegurar que el coche no derrape fácilmente
   }}
   allowSleep
 >
@@ -90,7 +90,7 @@ const VehicleScene = () => {
     force={3000} // Fuerza del motor moderada para facilitar el control
     maxBrake={150} // Frenos muy potentes para una parada rápida y estable
     radius={0.6} // Ruedas ligeramente más grandes para mayor estabilidad
-    steer={0.25} // Dirección reducida para evitar giros bruscos
+    steer={0.5} // Dirección reducida para evitar giros bruscos
     width={2.0} // Ancho aumentado para mejorar la estabilidad lateral
     height={-0.05} // Ruedas más cerca del suelo para bajar el centro de gravedad
     back={-1.6} // Posición de las ruedas traseras más retrasada para mayor estabilidad
