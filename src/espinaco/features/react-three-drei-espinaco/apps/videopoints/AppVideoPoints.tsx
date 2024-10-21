@@ -79,9 +79,8 @@ export function AppVideoPointsStart(): JSX.Element {
       <FullScreen showButton={showVideo}>
         <CanvasManager />
 
-        <UIApp />
-
-        {/* <UIRouter /> */}
+        {/* <UIApp /> */}
+        <UIRouter />
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
