@@ -16,6 +16,7 @@ import { CanvasManager } from "./components/canvas/CanvasManager";
 import { ClickToStart } from "../../../../components/clickToStart/ClickToStart";
 import "./AppVideoPoints.css";
 import { UIRouter } from "./features/ui/router/UIRouter";
+import UIApp from "./features/ui-new/UIApp";
 
 const window_showVideo = (window as any).showVideo || false;
 
@@ -77,6 +78,8 @@ export function AppVideoPointsStart(): JSX.Element {
     <div id="app-espinaco" style={{ position: "relative", cursor: "cell" }}>
       <FullScreen showButton={showVideo}>
         <CanvasManager />
+
+        <UIApp />
 
         {/* <UIRouter /> */}
 

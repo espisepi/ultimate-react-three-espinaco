@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.108.4",
     "@react-three/fiber": "^8.16.8",
@@ -15,6 +16,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/three": "^0.167.0",
     "@types/websocket": "^1.0.10",
+    "@use-gesture/react": "^10.3.1",
     "jotai": "^2.9.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -50,5 +52,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "sass": "^1.80.3"
+  }
 }
