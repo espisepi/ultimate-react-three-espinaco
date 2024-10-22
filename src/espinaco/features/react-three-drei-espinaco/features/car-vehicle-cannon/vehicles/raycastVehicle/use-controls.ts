@@ -1,5 +1,5 @@
-import type { MutableRefObject } from 'react'
-import { useEffect, useRef } from 'react'
+import type { MutableRefObject } from "react";
+import { useEffect, useRef } from "react";
 
 function useKeyControls(
   { current }: MutableRefObject<Record<GameControl, boolean>>,
@@ -7,41 +7,45 @@ function useKeyControls(
 ) {
   useEffect(() => {
     const handleKeydown = ({ key }: KeyboardEvent) => {
-      if (!isKeyCode(key)) return
-      current[map[key]] = true
-    }
-    window.addEventListener('keydown', handleKeydown)
+      if (!isKeyCode(key)) return;
+      current[map[key]] = true;
+    };
+    window.addEventListener("keydown", handleKeydown);
     const handleKeyup = ({ key }: KeyboardEvent) => {
-      if (!isKeyCode(key)) return
-      current[map[key]] = false
-    }
-    window.addEventListener('keyup', handleKeyup)
+      if (!isKeyCode(key)) return;
+      current[map[key]] = false;
+    };
+    window.addEventListener("keyup", handleKeyup);
     return () => {
-      window.removeEventListener('keydown', handleKeydown)
-      window.removeEventListener('keyup', handleKeyup)
-    }
-  }, [current, map])
+      window.removeEventListener("keydown", handleKeydown);
+      window.removeEventListener("keyup", handleKeyup);
+    };
+  }, [current, map]);
 }
 
 const keyControlMap = {
-  'shift': 'brake',
-  ' ': 'handbrake',
-  ArrowDown: 'backward',
-  ArrowLeft: 'left',
-  ArrowRight: 'right',
-  ArrowUp: 'forward',
-  a: 'left',
-  d: 'right',
-  r: 'reset',
-  s: 'backward',
-  w: 'forward',
-} as const
+  shift: "brake",
+  " ": "handbrake",
+  ArrowDown: "backward",
+  ArrowLeft: "left",
+  ArrowRight: "right",
+  ArrowUp: "forward",
+  a: "left",
+  d: "right",
+  r: "reset",
+  s: "backward",
+  w: "forward",
+  i: "pitchUp",
+  k: "pitchDown",
+  j: "rollLeft",
+  l: "rollRight",
+} as const;
 
-type KeyCode = keyof typeof keyControlMap
-type GameControl = typeof keyControlMap[KeyCode]
+type KeyCode = keyof typeof keyControlMap;
+type GameControl = (typeof keyControlMap)[KeyCode];
 
-const keyCodes = Object.keys(keyControlMap) as KeyCode[]
-const isKeyCode = (v: unknown): v is KeyCode => keyCodes.includes(v as KeyCode)
+const keyCodes = Object.keys(keyControlMap) as KeyCode[];
+const isKeyCode = (v: unknown): v is KeyCode => keyCodes.includes(v as KeyCode);
 
 export function useControls() {
   const controls = useRef<Record<GameControl, boolean>>({
@@ -52,9 +56,13 @@ export function useControls() {
     reset: false,
     right: false,
     handbrake: false,
-  })
+    pitchUp: false,
+    pitchDown: false,
+    rollLeft: false,
+    rollRight: false,
+  });
 
-  useKeyControls(controls, keyControlMap)
+  useKeyControls(controls, keyControlMap);
 
-  return controls
+  return controls;
 }

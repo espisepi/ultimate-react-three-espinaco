@@ -18,7 +18,7 @@ import Vehicle from "./Vehicle";
 function Plane(props: PlaneProps) {
   const [ref] = usePlane(
     () => ({ material: "ground", type: "Static", ...props }),
-    useRef<Group>(null)
+    useRef<Group>(null),
   );
   return (
     <group ref={ref} visible={false}>
@@ -39,7 +39,7 @@ function Pillar(props: CylinderProps) {
       mass: 10,
       ...props,
     }),
-    useRef<Mesh>(null)
+    useRef<Mesh>(null),
   );
   return (
     <mesh ref={ref} castShadow>
@@ -74,29 +74,31 @@ const VehicleScene = () => {
           penumbra={1}
           position={[10, 10, 10]}
         /> */}
-<Physics
-  broadphase="SAP"
-  defaultContactMaterial={{
-    contactEquationRelaxation: 2.5, // Mantén una ligera relajación para evitar rebotes duros
-    friction: 0.01, // Alta fricción para asegurar que el coche no derrape fácilmente
-  }}
-  allowSleep
->
-  <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
-  <Vehicle
-    position={[0, 1.5, 0]} // Altura estándar para un coche de rally
-    rotation={[0, 0, 0]} // Sin rotación inicial para un arranque más estable
-    angularVelocity={[0, 0.2, 0]} // Baja velocidad angular para minimizar el riesgo de trompo
-    force={3000} // Fuerza del motor moderada para facilitar el control
-    maxBrake={150} // Frenos muy potentes para una parada rápida y estable
-    radius={0.6} // Ruedas ligeramente más grandes para mayor estabilidad
-    steer={0.5} // Dirección reducida para evitar giros bruscos
-    width={2.0} // Ancho aumentado para mejorar la estabilidad lateral
-    height={-0.05} // Ruedas más cerca del suelo para bajar el centro de gravedad
-    back={-1.6} // Posición de las ruedas traseras más retrasada para mayor estabilidad
-    front={1.6} // Posición de las ruedas delanteras más adelantada para mejor control
-  />
-</Physics>
+      <Physics
+        broadphase="SAP"
+        defaultContactMaterial={{
+          contactEquationRelaxation: 2.5, // Mantén una ligera relajación para evitar rebotes duros
+          friction: 0.01, // Alta fricción para asegurar que el coche no derrape fácilmente
+        }}
+        allowSleep
+      >
+        {/* <Debug color="green"> */}
+          <Plane rotation={[-Math.PI / 2, 0, 0]} userData={{ id: "floor" }} />
+          <Vehicle
+            position={[0, 1.5, 0]} // Altura estándar para un coche de rally
+            rotation={[0, 0, 0]} // Sin rotación inicial para un arranque más estable
+            angularVelocity={[0, 0.2, 0]} // Baja velocidad angular para minimizar el riesgo de trompo
+            force={3000} // Fuerza del motor moderada para facilitar el control
+            maxBrake={150} // Frenos muy potentes para una parada rápida y estable
+            radius={0.3} // Ruedas ligeramente más grandes para mayor estabilidad
+            steer={0.5} // Dirección reducida para evitar giros bruscos
+            width={2.0} // Ancho aumentado para mejorar la estabilidad lateral
+            height={-0.05} // Ruedas más cerca del suelo para bajar el centro de gravedad
+            back={-1.6} // Posición de las ruedas traseras más retrasada para mayor estabilidad
+            front={1.6} // Posición de las ruedas delanteras más adelantada para mejor control
+          />
+        {/* </Debug> */}
+      </Physics>
 
       {/* <Suspense fallback={null}>
           <Environment preset="night" />
