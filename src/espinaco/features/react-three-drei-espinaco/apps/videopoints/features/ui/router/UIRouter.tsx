@@ -8,8 +8,6 @@ export const UIRouter = () => {
   // Ver el estado de las pantallas
   const { screen1, screen2, screen3 } = useUIStore((state) => state.screens);
 
-  console.log("EEE");
-
   return (
     <>
       {/* Aquí agregamos las transiciones */}
