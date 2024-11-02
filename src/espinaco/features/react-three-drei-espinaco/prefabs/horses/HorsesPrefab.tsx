@@ -29,6 +29,7 @@ export function HorsesPrefab() {
   useFrame(({ clock }) => {
     if (horseScene) {
       horseScene.update(clock.getElapsedTime());
+      // horseScene.updateWithMovement(clock.getElapsedTime());
     }
   });
 

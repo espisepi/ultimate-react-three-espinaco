@@ -20,7 +20,11 @@ export class HorseScene {
   private timeOffsets: Float32Array;
   private dummy: THREE.Mesh;
 
-  constructor(scene: THREE.Scene, model: GLTF, videoTexture: THREE.VideoTexture) {
+  constructor(
+    scene: THREE.Scene,
+    model: GLTF,
+    videoTexture: THREE.VideoTexture,
+  ) {
     this.scene = scene;
     this.model = model;
     this.videoTexture = videoTexture;
@@ -65,7 +69,11 @@ export class HorseScene {
     dummy = model.scene.children[0];
 
     // mesh = new THREE.InstancedMesh(dummy.geometry, dummy.material, 1024);
-    mesh = new THREE.InstancedMesh(dummy.geometry, new THREE.MeshBasicMaterial(), 1024);
+    mesh = new THREE.InstancedMesh(
+      dummy.geometry,
+      new THREE.MeshBasicMaterial(),
+      1024,
+    );
 
     mesh.material.map = this.videoTexture;
 
@@ -122,6 +130,28 @@ export class HorseScene {
       }
       this.mesh.morphTexture.needsUpdate = true;
     }
+  }
+
+  public updateWithMovement(timestep: number): void {
+    const speed = -50; // Ajusta la velocidad de movimiento
+    const loopDistance = 100; // Distancia máxima antes de resetear el bucle
+
+    if (this.mesh) {
+      // Calcula el desplazamiento global en el eje Z
+      const zOffset = (timestep * speed) % loopDistance;
+
+      // Aplica el desplazamiento al `InstancedMesh`
+      this.mesh.position.z = -zOffset;
+
+      // Actualiza el mixer para la animación
+      for (let i = 0; i < 1024; i++) {
+        this.mixer.setTime(timestep / 1000 + this.timeOffsets[i]);
+      }
+
+      this.mesh.instanceMatrix.needsUpdate = true;
+    }
+
+    this.update(timestep);
   }
 
   public dispose(): void {
