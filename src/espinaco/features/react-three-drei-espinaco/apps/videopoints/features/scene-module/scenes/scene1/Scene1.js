@@ -31,7 +31,7 @@ export const Scene1 = React.memo(({}) => {
 
       {showRollercoaster && <Rollercoaster />}
 
-      {/* <HorsesPrefab /> */}
+      <HorsesPrefab />
 
      {/* <GBA visible={showGBA} displayTextureGbaGame={true} /> */}
 

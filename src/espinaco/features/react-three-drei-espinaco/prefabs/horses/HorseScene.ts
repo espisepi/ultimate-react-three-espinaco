@@ -101,6 +101,9 @@ export class HorseScene {
     this.mixer = mixer;
     this.timeOffsets = timeOffsets;
     this.dummy = dummy;
+
+    // call update() method here to fix length error
+    this.update(0);
   }
 
   public update(timestep: number): void {
