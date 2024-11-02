@@ -69,6 +69,8 @@ export class HorseScene {
 
     mesh.material.map = this.videoTexture;
 
+    // mesh.material.wireframe = true;
+
     mesh.scale.set(0.1, 0.1, 0.1);
 
     // mesh.castShadow = true;
