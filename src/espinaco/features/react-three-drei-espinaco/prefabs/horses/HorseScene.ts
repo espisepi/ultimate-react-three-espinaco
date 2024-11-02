@@ -12,6 +12,7 @@ export class HorseScene {
 
   private scene: THREE.Scene;
   private model: GLTF;
+  private videoTexture: THREE.VideoTexture;
 
   // Attributes for Horses
   private mesh: THREE.InstancedMesh;
@@ -19,9 +20,10 @@ export class HorseScene {
   private timeOffsets: Float32Array;
   private dummy: THREE.Mesh;
 
-  constructor(scene: THREE.Scene, model: GLTF) {
+  constructor(scene: THREE.Scene, model: GLTF, videoTexture: THREE.VideoTexture) {
     this.scene = scene;
     this.model = model;
+    this.videoTexture = videoTexture;
 
     this.createScene();
   }
@@ -62,11 +64,14 @@ export class HorseScene {
 
     dummy = model.scene.children[0];
 
-    mesh = new THREE.InstancedMesh(dummy.geometry, dummy.material, 1024);
+    // mesh = new THREE.InstancedMesh(dummy.geometry, dummy.material, 1024);
+    mesh = new THREE.InstancedMesh(dummy.geometry, new THREE.MeshBasicMaterial(), 1024);
+
+    mesh.material.map = this.videoTexture;
 
     mesh.scale.set(0.1, 0.1, 0.1);
 
-    mesh.castShadow = true;
+    // mesh.castShadow = true;
 
     for (let x = 0, i = 0; x < 32; x++) {
       for (let y = 0; y < 32; y++) {
