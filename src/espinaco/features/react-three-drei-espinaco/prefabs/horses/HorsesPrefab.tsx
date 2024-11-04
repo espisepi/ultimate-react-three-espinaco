@@ -24,7 +24,7 @@ export function HorsesPrefab() {
         setHorseScene((v) => undefined);
       }
     };
-  }, [scene, model, videoTexture, horseScene]);
+  }, [scene, model, videoTexture]);
 
   useFrame(({ clock }) => {
     if (horseScene) {
