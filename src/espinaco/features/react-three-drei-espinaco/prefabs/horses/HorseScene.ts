@@ -69,9 +69,14 @@ export class HorseScene {
     dummy = model.scene.children[0];
 
     // mesh = new THREE.InstancedMesh(dummy.geometry, dummy.material, 1024);
+    // mesh = new THREE.InstancedMesh(
+    //   dummy.geometry,
+    //   new THREE.MeshBasicMaterial(),
+    //   1024,
+    // );
     mesh = new THREE.InstancedMesh(
       dummy.geometry,
-      new THREE.MeshBasicMaterial(),
+      new THREE.MeshStandardMaterial(),
       1024,
     );
 
