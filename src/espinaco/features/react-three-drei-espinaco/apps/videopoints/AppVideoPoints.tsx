@@ -80,7 +80,7 @@ export function AppVideoPointsStart(): JSX.Element {
         <CanvasManager />
 
         {/* <UIApp /> */}
-        <UIRouter />
+        {/* <UIRouter /> */}
 
         {displayVideoplayer && <VideoPlayer showUI={showVideo} />}
 
