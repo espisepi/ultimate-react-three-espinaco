@@ -7,6 +7,9 @@ import Stars from "../../../../../../prefabs/stars/Stars";
 import { Scene1UI } from "./Scene1UI";
 import GBA from "../../../../../../../gba-js-org/GBA";
 import { HorsesPrefab } from "../../../../../../prefabs/horses/HorsesPrefab";
+import { SkyWaterPrefab } from "../../../../../../prefabs/sky-water/SkyWaterPrefab";
+
+import { Sky } from "@react-three/drei";
 
 export const Scene1 = React.memo(({}) => {
   const showVideoPoints = useScene1Store((state) => state.showVideoPoints);
@@ -32,6 +35,8 @@ export const Scene1 = React.memo(({}) => {
       {showRollercoaster && <Rollercoaster />}
 
       <HorsesPrefab />
+
+      <SkyWaterPrefab />
 
      {/* <GBA visible={showGBA} displayTextureGbaGame={true} /> */}
 
