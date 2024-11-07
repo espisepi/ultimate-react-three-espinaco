@@ -28,6 +28,7 @@
     "three": "^0.169.0",
     "three-stdlib": "^2.34.0",
     "typescript": "^5.5.4",
+    "yuka": "^0.7.8",
     "zustand": "^4.5.4"
   },
   "scripts": {
