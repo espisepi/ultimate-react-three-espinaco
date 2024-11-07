@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@preact/signals-react": "^2.2.0",
     "@react-spring/web": "^9.7.5",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.115.0",

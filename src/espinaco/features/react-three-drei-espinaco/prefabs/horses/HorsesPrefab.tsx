@@ -11,6 +11,8 @@ export function HorsesPrefab() {
 
   const [horseScene, setHorseScene] = useState<HorseScene>();
 
+  console.log("Montando el componente HorsesPrefab! ")
+
   useEffect(() => {
     if (scene && model && videoTexture) {
       // Add HorseScene
@@ -19,6 +21,7 @@ export function HorsesPrefab() {
     }
 
     return () => {
+      console.log("DESMONTANDO EL COMPONENTE HorsesPrefab: ", horseScene)
       if (horseScene) {
         horseScene.dispose();
         setHorseScene((v) => undefined);
