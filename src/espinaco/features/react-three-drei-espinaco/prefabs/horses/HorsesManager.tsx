@@ -17,7 +17,7 @@ export function HorsesManager() {
 
   return (
     <>
-      <HorsesUI />
+      {/* <HorsesUI /> */}
       {showSceneHorsesState && <HorsesPrefab />}
     </>
   );
