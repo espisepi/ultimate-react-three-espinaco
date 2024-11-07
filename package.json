@@ -28,8 +28,7 @@
     "three": "^0.169.0",
     "three-stdlib": "^2.34.0",
     "typescript": "^5.5.4",
-    "zustand": "^4.5.4",
-    "yuka": "./libraries/yuka"
+    "zustand": "^4.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
