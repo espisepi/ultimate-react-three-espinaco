@@ -9,23 +9,24 @@ export function HorsesPrefab() {
   const { scene } = useThree();
   const videoTexture = useVideoTexture();
 
-  const [horseScene, setHorseScene] = useState<HorseScene>();
+  const [horseScene, setHorseScene] = useState<HorseScene | null>(null);
 
-  console.log("Montando el componente HorsesPrefab! ")
+  console.log("Montando el componente HorsesPrefab!");
 
   useEffect(() => {
+    let localHorseScene: HorseScene | null = null;
+
     if (scene && model && videoTexture) {
-      // Add HorseScene
-      const horseScene = new HorseScene(scene, model, videoTexture);
-      setHorseScene((v) => horseScene);
+      localHorseScene = new HorseScene(scene, model, videoTexture);
+      setHorseScene(localHorseScene);
     }
 
     return () => {
-      console.log("DESMONTANDO EL COMPONENTE HorsesPrefab: ", horseScene)
-      if (horseScene) {
-        horseScene.dispose();
-        setHorseScene((v) => undefined);
+      console.log("DESMONTANDO EL COMPONENTE HorsesPrefab:", localHorseScene);
+      if (localHorseScene) {
+        localHorseScene.dispose();
       }
+      setHorseScene(null);
     };
   }, [scene, model, videoTexture]);
 
