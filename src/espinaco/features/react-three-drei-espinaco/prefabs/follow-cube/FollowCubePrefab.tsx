@@ -20,7 +20,7 @@ function FollowCube({ ...props }) {
 
       const positionDistance = new Vector3(0,0,0);
       position.add(positionDistance);
-      // // Actualizar la posición del cubo para que coincida con el offset
+      // Actualizar la posición del cubo para que coincida con el offset
       cubeRef.current.position.copy(position);
     }
   });
