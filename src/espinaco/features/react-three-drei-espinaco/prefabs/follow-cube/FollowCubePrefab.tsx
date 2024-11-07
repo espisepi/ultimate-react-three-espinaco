@@ -18,7 +18,9 @@ function FollowCube({ ...props }) {
         .clone()
         .add(direction.multiplyScalar(offsetDistance));
 
-      // Actualizar la posición del cubo para que coincida con el offset
+      const positionDistance = new Vector3(0,0,0);
+      position.add(positionDistance);
+      // // Actualizar la posición del cubo para que coincida con el offset
       cubeRef.current.position.copy(position);
     }
   });
