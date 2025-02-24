@@ -29,16 +29,16 @@ export const Scene1 = React.memo(({}) => {
 
       {showVideoPoints && <VideoPoints />}
 
-      {showTextTessellation && (
+      {/* {showTextTessellation && (
         <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
-      )}
+      )} */}
 
-      {showRollercoaster && <Rollercoaster />}
+      {/* {showRollercoaster && <Rollercoaster />} */}
 
       {/* <HorsesPrefab /> */}
-      <HorsesManager />
+      {/* <HorsesManager /> */}
 
-      <SkyWaterPrefab />
+      {/* <SkyWaterPrefab /> */}
 
      {/* <GBA visible={showGBA} displayTextureGbaGame={true} /> */}
 
