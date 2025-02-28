@@ -3,7 +3,7 @@ import { create } from 'zustand';
 
 const useControlsManagerStore = create(set => ({
 
-  controlsId: 3,
+  controlsId: 0,
   maxNumControls: 4, // only read attribute // Poner aqui el numero de controles maximos que haya creado
 
   setControlsId: (newControlsId) => set({ controlsId: newControlsId }),
