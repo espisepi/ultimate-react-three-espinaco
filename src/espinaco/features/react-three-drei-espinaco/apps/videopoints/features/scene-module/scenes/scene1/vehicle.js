@@ -3,16 +3,26 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
   import { phy, math } from 'phy-engine';
+import { useVideoTexture } from "../../../../../../../videoplayer/hook/useVideoTexture";
 
 const Vehicle = () => {
   const { scene, renderer } = useThree();
   const vehicleRef = useRef();
+  const videoTexture = useVideoTexture();
 
   useEffect(() => {
   if (!phy || typeof phy.init !== "function") {
     console.error("Phy.js no está correctamente importado o no tiene init().");
     return;
   }
+  if(!videoTexture) {
+    return;
+  }
+
+  const materialVideoTexture = new THREE.MeshBasicMaterial({
+            // color:new THREE.Color("red"),
+            map: videoTexture
+        });
 
     // init phy-engine
   phy.init({
@@ -34,7 +44,10 @@ const Vehicle = () => {
 
     phy.add({ type:'plane' })
 
-    phy.add({ type:'highSphere', name:'sphere', size:[0.50], pos:[1,6,0], density:5, restitution:0.2, friction:0.2, sleep:true })
+    phy.add({
+        type:'highSphere', name:'sphere',
+        size:[0.50], pos:[1,6,0], density:5, restitution:0.2, friction:0.2, sleep:true,
+        material: materialVideoTexture });
 
     addTower({ radius:1, height:25, size:[0.1, 0.2], detail:18, pos:[2,0,0] });
     addTower({ radius:1, height:25, size:[0.1, 0.2], detail:18, pos:[-2,0,0] });
@@ -89,6 +102,7 @@ const addTower = ( o ) => {
                 friction:0.4,
                 sleep:true,
                 startSleep:true,
+                material: materialVideoTexture
             });
         }
     }
@@ -111,7 +125,7 @@ const addTower = ( o ) => {
   return () => {
     // phy.remove(vehicle);
   };
-}, [scene]);
+}, [scene, videoTexture]);
   return null;
 };
 
