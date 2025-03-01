@@ -7919,6 +7919,11 @@ performance-now@^2.1.0:
   resolved "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
   integrity sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==
 
+phy-engine@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/phy-engine/-/phy-engine-0.3.4.tgz#e574e01d515a11daff927d84833747ed18e706c1"
+  integrity sha512-jh+CQlbmFYAQlKgHukjM+mCnSCjHsQr1b9+kCZbQ8rhrdCtNu7uFqlAPNUdBECqTnotefgqxkVlcsruf2g6O+A==
+
 picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-0.2.1.tgz"

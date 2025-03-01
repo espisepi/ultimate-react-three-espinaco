@@ -11,6 +11,7 @@ import { HorsesManager } from "../../../../../../prefabs/horses/HorsesManager";
 import { SkyWaterPrefab } from "../../../../../../prefabs/sky-water/SkyWaterPrefab";
 
 import { Sky } from "@react-three/drei";
+import Vehicle from "./vehicle";
 
 export const Scene1 = React.memo(({}) => {
   const showVideoPoints = useScene1Store((state) => state.showVideoPoints);
@@ -28,6 +29,10 @@ export const Scene1 = React.memo(({}) => {
       <Stars />
 
       {showVideoPoints && <VideoPoints />}
+
+      <Vehicle />
+
+
 
       {/* {showTextTessellation && (
         <TextTessellation text="Sepinaco" position={[0, 0, 0]} />
