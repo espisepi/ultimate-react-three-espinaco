@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { phy, math } from "phy-engine";
+import { Controller } from "../../../../../../phy/src/3TH/Controller";
 import { useVideoTexture } from "../../../../videoplayer/hook/useVideoTexture";
 
 const PhyVehicleTerrain = () => {
-  const { scene, gl: renderer } = useThree();
+  const { scene, gl: renderer, camera } = useThree();
   const videoTexture = useVideoTexture();
 
   useEffect(() => {
@@ -31,6 +32,12 @@ const PhyVehicleTerrain = () => {
     const materialVideoTexture = new THREE.MeshBasicMaterial({
       // color:new THREE.Color("red"),
       map: videoTexture,
+    });
+
+    const materialVideoTextureWireframe = new THREE.MeshBasicMaterial({
+      // color:new THREE.Color("red"),
+      map: videoTexture,
+      wireframe: true,
     });
 
     // phy-engine variables
@@ -68,9 +75,7 @@ const PhyVehicleTerrain = () => {
         "textures/buggy/suspension_c.jpg",
       ];
 
-      //   phy.load(["models/buggy.glb", ...maps], onComplete, "./");
-      console.log("JEJE");
-      phy.load(["/models/buggy.glb", ...maps], onComplete);
+      phy.load(["/models/buggy.glb", ...maps], onComplete, "./assets/");
 
       // code from PhyTower
       phy.add({
@@ -112,6 +117,14 @@ const PhyVehicleTerrain = () => {
       applyMaterial(model);
 
       const body = model["h_chassis"];
+
+      body.material = materialVideoTextureWireframe;
+
+      body.traverse((o) => {
+        if (o.material) {
+          o.material = materialVideoTextureWireframe;
+        }
+      });
       const wheel = model["h_wheel"];
       const suspension = model["h_susp_base"];
       const brake = model["h_brake"];
@@ -144,15 +157,23 @@ const PhyVehicleTerrain = () => {
       wtop.rotation.z = -90 * math.torad;
       buggy.model.add(wtop);
 
-      // TODO: Remove this line
-      if (true) return;
-
       if (debug) return;
 
       terrainTest();
 
       // update after physic step
       phy.setPostUpdate(update);
+
+      // previous step configure phy controls
+      // GROUP
+      const followGroup = new THREE.Group();
+      followGroup.name = "followGroup";
+      scene.add(followGroup);
+
+      // configure phy controls
+      const controls = new Controller(camera, renderer.domElement, buggy);
+      controls.resetAll();
+      phy.setControl(controls);
 
       phy.follow("buggy", { direct: true, simple: true, decal: [0, 1, 0] });
       phy.control("buggy");
@@ -173,6 +194,9 @@ const PhyVehicleTerrain = () => {
         level: [1, 0.2, 0.05],
         expo: 2,
       });
+      // Change material terrain
+      terrain.material = materialVideoTexture;
+      //   terrain.material.map = videoTexture;
 
       let py = terrain.getHeight(0, 0) + 3;
       if (py < 1) py = 1;
@@ -215,7 +239,8 @@ const PhyVehicleTerrain = () => {
         roughness: 0.5,
         metalness: 1.0,
         envMapIntensity: 1.35,
-        map: phy.texture({ url: path + "body_c.jpg" }),
+        // map: phy.texture({ url: path + "body_c.jpg" }),
+        map: videoTexture,
         clearcoat: 1.0,
         clearcoatRoughness: 0.03,
         sheen: 0.5,
@@ -225,7 +250,8 @@ const PhyVehicleTerrain = () => {
         name: "extra",
         roughness: 0.1,
         metalness: 0.6,
-        map: phy.texture({ url: path + "extra_c.jpg" }),
+        // map: phy.texture({ url: path + "extra_c.jpg" }),
+        map: videoTexture,
         normalMap: phy.texture({ url: path + "extra_n.jpg" }),
         normalScale: [1, -1],
       });
@@ -234,7 +260,8 @@ const PhyVehicleTerrain = () => {
         name: "pilote",
         roughness: 0.4,
         metalness: 0.6,
-        map: phy.texture({ url: path + "pilote_c.jpg" }),
+        // map: phy.texture({ url: path + "pilote_c.jpg" }),
+        map: videoTexture,
       });
 
       let wheel_map = phy.texture({ url: path + "wheel_c.jpg" });
@@ -244,7 +271,8 @@ const PhyVehicleTerrain = () => {
         name: "wheel",
         roughness: 0.5,
         metalness: 1.0,
-        map: wheel_map,
+        // map: wheel_map,
+        map: videoTexture,
         normalMap: wheel_normal,
         normalScale: [1, -1],
         clearcoat: 1.0,
@@ -256,7 +284,8 @@ const PhyVehicleTerrain = () => {
         name: "pneu",
         roughness: 0.7,
         metalness: 0.1,
-        map: wheel_map,
+        // map: wheel_map,
+        map: videoTexture,
         normalMap: wheel_normal,
         normalScale: [2, -2],
       });
@@ -265,7 +294,8 @@ const PhyVehicleTerrain = () => {
         name: "susp",
         roughness: 0.6,
         metalness: 0.4,
-        map: phy.texture({ url: path + "suspension_c.jpg" }),
+        // map: phy.texture({ url: path + "suspension_c.jpg" }),
+        map: videoTexture,
       });
 
       mat["brake"] = phy.material({
@@ -273,6 +303,7 @@ const PhyVehicleTerrain = () => {
         transparent: true,
         opacity: 0.2,
         color: 0xdd3f03,
+        map: videoTexture,
       });
 
       let m;
