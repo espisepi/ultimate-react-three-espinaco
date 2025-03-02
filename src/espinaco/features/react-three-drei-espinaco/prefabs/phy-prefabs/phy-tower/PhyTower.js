@@ -5,7 +5,7 @@ import { phy } from "phy-engine";
 import { useVideoTexture } from "../../../../videoplayer/hook/useVideoTexture";
 
 const PhyTower = () => {
-  const { scene, renderer } = useThree();
+  const { scene, gl: renderer } = useThree();
   const videoTexture = useVideoTexture();
 
   useEffect(() => {
@@ -16,6 +16,9 @@ const PhyTower = () => {
       return;
     }
     if (!videoTexture) {
+      return;
+    }
+    if (!renderer) {
       return;
     }
 
@@ -109,7 +112,7 @@ const PhyTower = () => {
             size: [sx, sy, sz],
             pos: [px, py, pz],
             rot: [0, angle * (180 / Math.PI), 0],
-            density:density,
+            density: density,
             mass: 0.1,
             restitution: 0.6,
             friction: 0.4,
@@ -125,7 +128,7 @@ const PhyTower = () => {
       // TODO: remove phy component
       // phy.remove(vehicle);
     };
-  }, [scene, videoTexture]);
+  }, [scene, videoTexture, renderer]);
   return null;
 };
 
