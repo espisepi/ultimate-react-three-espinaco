@@ -11,7 +11,7 @@ import { HorsesManager } from "../../../../../../prefabs/horses/HorsesManager";
 import { SkyWaterPrefab } from "../../../../../../prefabs/sky-water/SkyWaterPrefab";
 
 import { Sky } from "@react-three/drei";
-import Vehicle from "./vehicle";
+import PhyTower from "../../../../../../prefabs/phy-prefabs/phy-tower/PhyTower";
 
 export const Scene1 = React.memo(({}) => {
   const showVideoPoints = useScene1Store((state) => state.showVideoPoints);
@@ -30,7 +30,7 @@ export const Scene1 = React.memo(({}) => {
 
       {showVideoPoints && <VideoPoints />}
 
-      <Vehicle />
+      <PhyTower />
 
 
 

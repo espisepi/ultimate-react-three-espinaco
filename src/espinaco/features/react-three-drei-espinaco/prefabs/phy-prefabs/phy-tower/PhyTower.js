@@ -3,9 +3,9 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
   import { phy, math } from 'phy-engine';
-import { useVideoTexture } from "../../../../../../../videoplayer/hook/useVideoTexture";
+import { useVideoTexture } from "../../../../videoplayer/hook/useVideoTexture";
 
-const Vehicle = () => {
+const PhyTower = () => {
   const { scene, renderer } = useThree();
   const vehicleRef = useRef();
   const videoTexture = useVideoTexture();
@@ -129,4 +129,4 @@ const addTower = ( o ) => {
   return null;
 };
 
-export default Vehicle;
+export default PhyTower;
