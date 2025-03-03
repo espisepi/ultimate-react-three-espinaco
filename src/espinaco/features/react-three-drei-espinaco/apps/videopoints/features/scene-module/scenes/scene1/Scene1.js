@@ -34,7 +34,7 @@ export const Scene1 = React.memo(({}) => {
 
       {/* <PhyTower /> */}
 
-      <PhyVehicleTerrain />
+      {/* <PhyVehicleTerrain /> */}
 
 
 
