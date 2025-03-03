@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import { useThree } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { phy, math } from "phy-engine";
 import { Controller } from "../../../../../../phy/src/3TH/Controller";
 import { useVideoTexture } from "../../../../videoplayer/hook/useVideoTexture";
 
 const PhyVehicleTerrain = () => {
-  const { scene, gl: renderer, camera } = useThree();
+  const { scene, gl: renderer, camera, orbitControls: controls } = useThree();
   const videoTexture = useVideoTexture();
+  const buggyRef = useRef();
 
   useEffect(() => {
     // console.log("OYEEEE 1", {
@@ -150,6 +151,7 @@ const PhyVehicleTerrain = () => {
         maxSteering: 14, // the max steer angle in degree
         s_travel: 0.4, // the total length of suspension
       });
+      buggyRef.current = buggy;
 
       // add top spare wheel
       let wtop = wheel.clone();
@@ -171,12 +173,22 @@ const PhyVehicleTerrain = () => {
       scene.add(followGroup);
 
       // configure phy controls
-      const controls = new Controller(camera, renderer.domElement, buggy);
-      controls.resetAll();
-      phy.setControl(controls);
+      // const controls = new Controller(camera, renderer.domElement, buggy);
+      // controls.resetAll();
+      // phy.setControl(controls);
 
-      phy.follow("buggy", { direct: true, simple: true, decal: [0, 1, 0] });
+      // phy.follow("buggy", { direct: true, simple: true, decal: [0, 1, 0] });
       phy.control("buggy");
+
+      // console.log("OYE TU CONTROLS: ", controls)
+      // console.log(controls.target);
+      camera.position.set(
+        buggy.position.x,
+        buggy.position.y + 1,
+        buggy.position.z - 5,
+      );
+      camera.rotation.set(buggy.rotation.x, buggy.rotation.y, buggy.rotation.z);
+      buggy.add(camera);
     };
 
     const terrainTest = () => {
@@ -408,6 +420,24 @@ const PhyVehicleTerrain = () => {
       // phy.remove(vehicle);
     };
   }, [scene, videoTexture, renderer]);
+
+  useFrame(() => {
+    // console.log("OYE")
+    // console.log({
+    //   controls: controls,
+    //   buggyRef
+    // })
+    // console.log(controls);
+    // console.log(buggyRef.current);
+
+    if (controls?.target && buggyRef.current) {
+      controls.target.set(
+        buggyRef.current.position.x,
+        buggyRef.current.position.y,
+        buggyRef.current.position.z,
+      );
+    }
+  });
   return null;
 };
 

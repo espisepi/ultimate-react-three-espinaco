@@ -6,7 +6,7 @@ import { useThree } from "@react-three/fiber";
 // position: [x,y,z] Array<number>
 // tagetPosition: same as position churritagorda
 export default function OrbitControls({ position, targetPosition }) {
-  const { camera } = useThree();
+  const { camera, set } = useThree();
   const orbitControls = useRef();
 
   useEffect(() => {
@@ -34,6 +34,11 @@ export default function OrbitControls({ position, targetPosition }) {
     // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo (por ejemplo para cambiar el orbitControls.autoRotate)
     window.camera = camera;
   }, [camera]);
+
+  useEffect(() => {
+    // Esto lo hacemos para acceder al orbitControls en cualquier parte del codigo usando el hook de r3f useThree
+     set({ orbitControls: orbitControls.current });
+  }, [orbitControls, set]);
 
   return <OrbitControlsThree ref={orbitControls} />;
 }
