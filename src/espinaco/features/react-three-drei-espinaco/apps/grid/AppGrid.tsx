@@ -11,6 +11,7 @@ for (let i = 0; i < 20; i++) {
 
 // Número de columnas del grid
 const COLUMNS = 4;
+const TOTAL_CELLS = products.length; // Número total de productos
 
 const editorialBlocks = [
   {
@@ -22,8 +23,14 @@ const editorialBlocks = [
   {
     id: "editorial-2",
     name: "Editorial 2",
-    showIn: 9, // Casilla 10 → Fila 3, Columna 2
+    showIn: 9, // Casilla 9 → Fila 3, Columna 1
     size: 3, // Ocupa 3 columnas
+  },
+  {
+    id: "editorial-3",
+    name: "Editorial 3",
+    showIn: 25, // Casilla 25 → Está fuera del rango y NO debe renderizarse
+    size: 2, // Ocupa 2 columnas (pero no importa porque se filtra)
   },
 ];
 
@@ -35,25 +42,26 @@ export const AppGrid = () => {
           <h1>{product.name}</h1>
         </div>
       ))}
-      {editorialBlocks.map((editorialBlock) => {
-        // Ajustamos para que showIn = 1 corresponda a la primera celda
-        const adjustedIndex = editorialBlock.showIn - 1;
-        const row = Math.floor(adjustedIndex / COLUMNS) + 1; // Calcula fila
-        const col = (adjustedIndex % COLUMNS) + 1; // Calcula columna
+      {editorialBlocks
+        .filter((editorialBlock) => editorialBlock.showIn <= TOTAL_CELLS) // Evita los fuera de rango
+        .map((editorialBlock) => {
+          const adjustedIndex = editorialBlock.showIn - 1;
+          const row = Math.floor(adjustedIndex / COLUMNS) + 1;
+          const col = (adjustedIndex % COLUMNS) + 1;
 
-        return (
-          <div
-            key={editorialBlock.id}
-            className="editorial-card"
-            style={{
-              gridRow: row,
-              gridColumn: `${col} / span ${editorialBlock.size}`,
-            }}
-          >
-            <h1>{editorialBlock.name}</h1>
-          </div>
-        );
-      })}
+          return (
+            <div
+              key={editorialBlock.id}
+              className="editorial-card"
+              style={{
+                gridRow: row,
+                gridColumn: `${col} / span ${editorialBlock.size}`,
+              }}
+            >
+              <h1>{editorialBlock.name}</h1>
+            </div>
+          );
+        })}
     </div>
   );
 };
