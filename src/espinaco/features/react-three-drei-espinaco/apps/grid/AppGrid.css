@@ -1,0 +1,8 @@
+.app-grid {
+  position: absolute;
+  top: 0;
+  background-color: #171717;
+  width: 100%;
+  height: 100vh;
+  color: rgb(190, 186, 186);
+}

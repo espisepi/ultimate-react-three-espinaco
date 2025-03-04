@@ -7,6 +7,9 @@ const AppVideoPoints = lazy(() =>
 const AppBooks = lazy(() =>
   import("../features/react-three-drei-espinaco/apps/books/AppBooks")
 );
+const AppGrid = lazy(() =>
+  import("../features/react-three-drei-espinaco/apps/grid/AppGrid")
+);
 
 export const AppRouter = () => {
   return (
@@ -33,6 +36,14 @@ export const AppRouter = () => {
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <AppVideoPoints />
+            </Suspense>
+          }
+        />
+           <Route
+          path="/grid"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AppGrid />
             </Suspense>
           }
         />
