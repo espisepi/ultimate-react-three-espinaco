@@ -24,9 +24,3 @@
   height: 200px;
   background-color: rgb(104, 34, 81);
 }
-
-/* Para posicionar un product-card en una fila y columna específica */
-.product-card:nth-child(3) {
-  grid-column: 2 / span 2; /* Desde la columna 2, ocupando 2 columnas */
-  grid-row: 2; /* En la segunda fila */
-}
