@@ -9,7 +9,7 @@ for (let i = 0; i < 20; i++) {
 }
 
 const editorialBlock = {
-  name: "Editorial X",
+  name: "Editorial 1",
   showIn: 3,
   size: 1,
 };
@@ -24,6 +24,13 @@ export const AppGrid = () => {
           <>
             <div className="product-card">
               <h1>{product.name}</h1>
+            </div>
+          </>
+        ))}
+        {editorialBlocks.map((editorialBlock) => (
+          <>
+            <div className="editorial-card">
+              <h1>{editorialBlock.name}</h1>
             </div>
           </>
         ))}
