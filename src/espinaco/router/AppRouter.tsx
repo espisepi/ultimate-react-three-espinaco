@@ -1,15 +1,41 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
-import { AppVideoPoints } from "../features/react-three-drei-espinaco/apps/videopoints/AppVideoPoints";
-import { AppBooks } from "../features/react-three-drei-espinaco/apps/books/AppBooks";
+const AppVideoPoints = lazy(() =>
+  import("../features/react-three-drei-espinaco/apps/videopoints/AppVideoPoints")
+);
+const AppBooks = lazy(() =>
+  import("../features/react-three-drei-espinaco/apps/books/AppBooks")
+);
 
 export const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AppVideoPoints />} />
-        <Route path="/books" element={<AppBooks />} />
-        <Route path="/videopoints" element={<AppVideoPoints />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AppVideoPoints />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/books"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AppBooks />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/videopoints"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <AppVideoPoints />
+            </Suspense>
+          }
+        />
       </Routes>
     </Router>
   );

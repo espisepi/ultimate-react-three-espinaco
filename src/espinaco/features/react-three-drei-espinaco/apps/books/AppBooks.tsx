@@ -5,7 +5,7 @@ import { Experience } from "./components/Experience";
 import { UI } from "./components/UI";
 import { ClickToStart } from "../../../../components/clickToStart/ClickToStart";
 
-export function AppBooks(): JSX.Element {
+export default function AppBooks(): JSX.Element {
   return (
     <>
       <ClickToStart password="">

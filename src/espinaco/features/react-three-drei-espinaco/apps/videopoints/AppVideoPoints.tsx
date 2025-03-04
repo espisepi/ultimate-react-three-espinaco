@@ -20,7 +20,7 @@ import UIApp from "./features/ui-new/UIApp";
 
 const window_showVideo = (window as any).showVideo || false;
 
-export function AppVideoPoints(): JSX.Element {
+export default function AppVideoPoints(): JSX.Element {
   return (
     <>
       <ClickToStart password="">
